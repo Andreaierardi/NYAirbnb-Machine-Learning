@@ -1,7 +1,7 @@
 # Statistical-Learning-Project
 
 
-**Exam:** the exam consists in two assignments, one on the first part(regression, tree, neural nets) and the second part (unsupervised learning). For both you must prepare a writing reportusing one or more techniques and comparing their performance on one or more data set chosen by the student.A brief oral presentation of the reportswill be asked. 
+**Exam:** the exam consists in two assignments, one on the first part(regression, tree, neural nets) and the second part (unsupervised learning). For both you must prepare a writing report using one or more techniques and comparing their performance on one or more data set chosen by the student. A brief oral presentation of the reports will be asked. 
 
 Each report must contain:
 
