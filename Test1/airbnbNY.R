@@ -70,4 +70,9 @@ pred = predict(rf, newdata=test,na.action = na.pass)
 #cm = table(test[,14], pred)
 
 library(caret)
-confusionMatrix(as.integer(pred), test$price)
+confusionMatrix(as.factor(pred), as.factor(test$price))
+
+confusionMatrix(
+  factor(pred, levels = 1:19558),
+  factor(test$price, levels = 1:19558)
+)
