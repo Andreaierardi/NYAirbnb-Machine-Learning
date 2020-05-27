@@ -56,6 +56,9 @@ averages
 
 # GOOD VIDEO FOR PARAMETER OPTIMISATION
 # https://www.youtube.com/watch?v=6EXPYzbfLCE
+
+# TUNING 
+# https://uc-r.github.io/random_forests
 library(randomForest)
 library(caTools)
 library(dplyr)
