@@ -53,6 +53,9 @@ averages
 #RANDOM FOREST
 #https://www.guru99.com/r-random-forest-tutorial.html
 
+
+# GOOD VIDEO FOR PARAMETER OPTIMISATION
+# https://www.youtube.com/watch?v=6EXPYzbfLCE
 library(randomForest)
 library(caTools)
 library(dplyr)
