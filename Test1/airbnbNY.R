@@ -4,6 +4,7 @@ library(ggmap)
 library(tidyr)
 library(cowplot)
 library(magick)
+library(dplyr)
 #world_map <- map_data("newyork")
 ds = read.csv("AB_NYC_2019.csv")
 
@@ -18,9 +19,23 @@ apply(ds,2,function(x) sum(is.na(x)))
 #
 myplot = ggplot2::ggplot(dataset, aes(x = longitude, y = latitude, color= neighbourhood_group))+geom_point()
 
+normalize <- function(x) {
+  return ((x - min(x)) / (max(x) - min(x)))
+}
+
+
 clean_data = function(ds)
 {
-  ds$id = ds$host_id = ds$host_name = NULL
+  ds = select (ds,-c(host_id, id, host_name, name,minimum_nights,number_of_reviews,neighbourhood,last_review,availability_365,reviews_per_month,calculated_host_listings_count))
+ 
+
+  numerical = c("price","longitude", "latitude")
+  categorical = c("neighbourhood_group")
+  
+  ds[numerical] = normalize(ds[numerical])
+  ds$neighbourhood_group = factor(ds$neighbourhood_group, level= c("Brooklyn","Manhattan","Queens","Staten Island", "Bronx"), labels=c(1,2,3,4,5))
+  ds$room_type = factor(ds$room_type, level= c("Private room","Entire home/apt","Shared room"), labels=c(1,2,3))
+  
   return(ds)
 }
 #ggdraw() +
@@ -64,9 +79,9 @@ averages
 # https://uc-r.github.io/random_forests
 library(randomForest)
 library(caTools)
-library(dplyr)
-data_clean =select (dataset,-c(host_id, id, host_name, name,minimum_nights,number_of_reviews,neighbourhood,last_review,availability_365,reviews_per_month,calculated_host_listings_count))
+library(caret)
 
+data_clean = dataset
 sample = sample.split(data_clean, SplitRatio = .75)
 train = subset(data_clean, sample == TRUE)
 test  = subset(data_clean, sample == FALSE)
@@ -81,9 +96,10 @@ rf <- randomForest(
 )
 rf
 
-pred = predict(rf, newdata=test,na.action = na.pass)
+pred = predict(rf, test)
 
 table(pred,test$neighbourhood_group)
+confusionMatrix(pred, test$neighbourhood_group)
 
 #https://www.r-bloggers.com/how-to-implement-random-forests-in-r/
 varImpPlot(rf)
@@ -101,7 +117,6 @@ rf2
 varImpPlot(rf2)
 
 library(randomForest)
-library(caret)
 library(e1071)
 
 trControl <- trainControl(method = "cv",
@@ -136,10 +151,10 @@ print(rf_mtry)
 
 best_mtry <- rf_mtry$bestTune$mtry 
 best_mtry
-#[1] 4
+#[1] 3
 
 max(rf_mtry$results$Accuracy)
-#[1] 0.9987047
+#[1] 0.9987048
 
 
 store_maxnode <- list()
@@ -221,7 +236,7 @@ fit_rf <- train(neighbourhood_group~.,
                 trControl = trControl,
                 importance = TRUE,
                 nodesize = 14,
-                ntree = 2000,
+                ntree = 1000,
                 maxnodes = 30)
 
 
