@@ -132,37 +132,85 @@ rf2 <- randomForest(
 rf2
 varImpPlot(rf2)
 
+
+
+par(mfrow=c(1,2))
+plot(test$price,predict(rf2,test),col='red',main='Real vs predicted NN',pch=18,cex=0.7)
+abline(0,1,lwd=2)
+legend('bottomright',legend='NN',pch=18,col='red', bty='n')
+
+
+
 library(randomForest)
 library(e1071)
 
 trControl <- trainControl(method = "cv",
                           number = 10,
-                          search = "grid")
+                          search = "grid",
+                          allowParallel = TRUE
+                        )
 
-rf_default <- train(
+
+#library("doFuture")
+#registerDoFuture()
+#plan(multiprocess, workers = availableCores() - 1)
+
+
+#library(doParallel)
+#cl <- makeCluster(detectCores())
+#registerDoParallel(cl)
+## machine learning code goes in here
+#stopCluster(cl)
+
+ptm <- proc.time()
+
+rf_default <- caret::train(
   neighbourhood_group ~ . ,
   data=train,
   method = "rf",
   metric="Accuracy",
-  trControl = trControl
-    # importance = TRUE
+  trControl = trControl,
+  num.threads = availableCores() # <- This one
+  
 )
+proc.time() - ptm
 print(rf_default)
+#user  system elapsed 
+#8.48    3.03   95.63 
+
+ptm <- proc.time()
+rf_default <- caret::train(
+  neighbourhood_group ~ . ,
+  data=train,
+  method = "rf",
+  metric="Accuracy",
+  trControl = trControl,
+
+)
+proc.time() - ptm
+print(rf_default)
+#  user  system elapsed 
+#9.03    2.94   96.42 
+
+
 
 
 set.seed(1234)
 tuneGrid <- expand.grid(.mtry = c(1: 10))
-rf_mtry <- train(
-                  neighbourhood_group~.,
-                 data = train,
-                 method = "rf",
-                 metric = "Accuracy",
-                 tuneGrid = tuneGrid,
-                 trControl = trControl,
-                 importance = TRUE,
-                 nodesize = 14,
-                 ntree = 300)
+rf_mtry <- caret::train(
+  neighbourhood_group~.,
+  data = train,
+  method = "rf",
+  metric = "Accuracy",
+  tuneGrid = tuneGrid,
+  trControl = trControl,
+  importance = TRUE,
+  nodesize = 14,
+  ntree = 300,
+  num.threads = availableCores()-1
+)
 print(rf_mtry)
+
 
 
 best_mtry <- rf_mtry$bestTune$mtry 
@@ -172,6 +220,11 @@ best_mtry
 max(rf_mtry$results$Accuracy)
 #[1] 0.9987048
 
+
+
+library("doFuture")
+registerDoFuture()
+plan(multiprocess, workers = availableCores() - 1)
 
 store_maxnode <- list()
 tuneGrid <- expand.grid(.mtry = best_mtry)
@@ -186,7 +239,8 @@ for (maxnodes in c(5: 15)) {
                       importance = TRUE,
                       nodesize = 14,
                       maxnodes = maxnodes,
-                      ntree = 300)
+                      ntree = 300,
+  )
   current_iteration <- toString(maxnodes)
   store_maxnode[[current_iteration]] <- rf_maxnode
 }
@@ -342,8 +396,8 @@ tuned_rangerReg_pred
 #)
 library(ROCR)
 #ROCR
-roc_pred = predict(rf,type="prob")
-perf = prediction(roc_pred[,2], train$neighbourhood_group)
+roc_pred = predict(tuned_rangerReg,data = test, type="response")
+perf = prediction(roc_pred$predictions, test)
 
 #==
 #FIND OPTIMAL VALUE WITH MIN OUT OF BAG
