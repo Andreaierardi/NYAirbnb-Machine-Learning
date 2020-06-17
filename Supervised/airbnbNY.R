@@ -577,3 +577,11 @@ pam.res <- pam(prova, 4)
 
 gower_dist <- daisy(prova, metric = "gower")
 
+sil_width <- c(NA)
+for(i in 2:8){  
+  pam_fit <- pam(gower_dist, diss = TRUE, k = i)  
+  sil_width[i] <- pam_fit$silinfo$avg.width  
+}plot(1:8, sil_width,
+      xlab = "Number of clusters",
+      ylab = "Silhouette Width")
+lines(1:8, sil_width)
