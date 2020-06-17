@@ -31,7 +31,7 @@ clean_data = function(ds)
   numerical = c("price","longitude", "latitude")
   categorical = c("neighbourhood_group")
   
-  ds[numerical] = normalize(ds[numerical])
+  ds[numerical] = scale(ds[numerical])
   ds$neighbourhood_group = factor(ds$neighbourhood_group, level= c("Brooklyn","Manhattan","Queens","Staten Island", "Bronx"), labels=c(1,2,3,4,5))
   ds$room_type = factor(ds$room_type, level= c("Private room","Entire home/apt","Shared room"), labels=c(1,2,3))
   
@@ -499,4 +499,81 @@ legend('bottomright',legend='NN',pch=18,col='red', bty='n')
 plot(test$price,pr.lm,col='blue',main='Real vs predicted lm',pch=18, cex=0.7)
 abline(0,1,lwd=2)
 legend('bottomright',legend='LM',pch=18,col='blue', bty='n', cex=.95)
+
+
+
+# =========================================================
+
+
+
+
+
+# ======================= K-MEANS =========================
+
+
+
+
+#x: numeric matrix, numeric data frame or a numeric vector
+#centers: Possible values are the number of clusters (k) or a set of initial (distinct) cluster centers. If a number, a random set of (distinct) rows in x is chosen as the initial centers.
+#iter.max: The maximum number of iterations allowed. Default value is 10.
+#nstart: The number of random starting partitions when centers is a number. Trying nstart > 1 is often recommended.
+
+
+km.res = kmeans(dataset, 4, nstart = 25)
+
+
+#To create a beautiful graph of the clusters generated with the kmeans() function, will use the factoextra package.
+library(factoextra)
+
+
+print(km.res)
+
+
+# Cluster number for each of the observations
+km.res$cluster
+
+
+# Cluster size
+km.res$size
+
+
+# Cluster means
+km.res$centers
+
+
+
+#dataset$neighbourhood_group = as.numeric( dataset$neighbourhood_group)
+#dataset$room_type = as.numeric(  dataset$room_type)
+fviz_cluster(km.res, data = dataset,
+             palette = c("#00AFBB","#2E9FDF", "#E7B800", "#FC4E07"),
+             ggtheme = theme_minimal(),
+             main = "Partitioning Clustering Plot"
+)
+
+res <- hcut(dataset, k = 4, stand = FALSE)
+fviz_dend(km.res, rect = TRUE, cex = 0.5,
+          k_colors = c("#00AFBB","#2E9FDF", "#E7B800", "#FC4E07"))
+
+
+# PAM ALGORITHM 
+# https://towardsdatascience.com/clustering-on-mixed-type-data-8bbd0a2569c3
+
+library(cluster)
+library(readr)
+library(Rtsne)
+
+
+
+#' Compute Gower distance
+dim(dataset)
+
+smp_size <- floor(0.75 * nrow(dataset))
+set.seed(123)
+
+train_ind <- sample(seq_len(nrow(dataset)), size = smp_size)
+
+prova = dataset[-train_ind,]
+pam.res <- pam(prova, 4)
+
+gower_dist <- daisy(prova, metric = "gower")
 
