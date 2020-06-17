@@ -567,7 +567,7 @@ library(Rtsne)
 #' Compute Gower distance
 dim(dataset)
 
-smp_size <- floor(0.75 * nrow(dataset))
+smp_size <- floor(0.9 * nrow(dataset))
 set.seed(123)
 
 train_ind <- sample(seq_len(nrow(dataset)), size = smp_size)
