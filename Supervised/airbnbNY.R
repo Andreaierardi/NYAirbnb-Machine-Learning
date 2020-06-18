@@ -588,3 +588,16 @@ plot(1:8, sil_width,
       xlab = "Number of clusters",
       ylab = "Silhouette Width")
 lines(1:8, sil_width)
+
+
+
+
+# ======================= FAMD =========================
+
+# http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/115-famd-factor-analysis-of-mixed-data-in-r-essentials/
+
+#https://nextjournal.com/pc-methods/calculate-pc-mixed-data
+
+
+#https://cran.r-project.org/web/packages/FactoMineR/index.html
+#https://stats.stackexchange.com/questions/5774/can-principal-component-analysis-be-applied-to-datasets-containing-a-mix-of-cont
