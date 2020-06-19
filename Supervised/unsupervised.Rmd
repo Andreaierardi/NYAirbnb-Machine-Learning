@@ -1,0 +1,214 @@
+---
+title: "Statistical Learning Project - Unsupervised Learning"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=TRUE)
+```
+
+
+
+```{r}
+#https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data
+library(ggplot2)
+library(ggmap)
+library(tidyr)
+library(cowplot)
+library(magick)
+library(dplyr)
+#world_map <- map_data("newyork")
+
+
+```
+
+
+# Read Dataset 
+
+```{r}
+ds = read.csv("AB_NYC_2019.csv")
+head(ds)
+```
+
+# Data cleaning 
+
+## Check for NA and NULL values
+```{r}
+
+#Check for NA
+apply(ds,2,function(x) sum(is.na(x)))
+
+# NOTES
+# Remove NA, empty
+#
+#
+#
+#
+
+```
+
+## Normalisation and selection of the variables
+
+```{r, tidy=TRUE, tidy.opts=list(width.cutoff=60)}
+
+normalize <- function(x) {
+  return ((x - min(x)) / (max(x) - min(x)))
+}
+
+
+clean_data = function(ds)
+{
+  ds = select (ds,-c(host_id, id, host_name, name,minimum_nights,number_of_reviews,
+                     neighbourhood,last_review,availability_365,
+                     
+                     reviews_per_month,calculated_host_listings_count))
+ 
+
+  numerical = c("price","longitude", "latitude")
+  categorical = c("neighbourhood_group")
+  
+  ds[numerical] = scale(ds[numerical])
+  ds$neighbourhood_group = factor(ds$neighbourhood_group, 
+                                  level= c("Brooklyn","Manhattan",
+                                           "Queens","Staten Island", "Bronx"), 
+                                  labels=c(1,2,3,4,5))
+  ds$room_type = factor(ds$room_type, 
+                        level= c("Private room","Entire home/apt","Shared room"), 
+                        labels=c(1,2,3))
+  
+  return(ds)
+}
+#ggdraw() +
+#  draw_image("New_York_City_.png") +
+#  draw_plot(myplot)
+
+dataset = clean_data(ds)
+
+head(dataset)
+```
+
+# ======================= K-MEANS =========================
+
+#x: numeric matrix, numeric data frame or a numeric vector
+#centers: Possible values are the number of clusters (k) or a set of initial (distinct) cluster centers. If a number, a random set of (distinct) rows in x is chosen as the initial centers.
+#iter.max: The maximum number of iterations allowed. Default value is 10.
+#nstart: The number of random starting partitions when centers is a number. Trying nstart > 1 is often recommended.
+
+
+```{r}
+km.res = kmeans(dataset, 4, nstart = 25)
+
+cat("First 10 Clusters association",km.res$cluster[1:10])
+cat("\nCenters")
+print(km.res$centers)
+cat("\ntotss",km.res$totss)
+cat("\nwithinss",km.res$withinss)
+cat("\ntot_withinss",km.res$tot.withinss)
+
+cat("\nbetweenss",km.res$betweenss)
+cat("\nSize",km.res$size)
+cat("\niter",km.res$iter)
+cat("\nifault",km.res$ifault)
+
+```
+
+To create a beautiful graph of the clusters generated with the kmeans() function, will use the factoextra package.
+```{r}
+library(factoextra)
+
+```
+
+Cluster number for each of the observations
+```{r}
+head(km.res$cluster)
+```
+
+Cluster size
+```{r}
+km.res$size
+```
+
+Cluster means
+```{r}
+km.res$centers
+```
+
+```{r}
+#dataset$neighbourhood_group = as.numeric( dataset$neighbourhood_group)
+#dataset$room_type = as.numeric(  dataset$room_type)
+#fviz_cluster(km.res, data = dataset,
+#             palette = c("#00AFBB","#2E9FDF", "#E7B800", "#FC4E07"),
+#             ggtheme = theme_minimal(),
+#             main = "Partitioning Clustering Plot"
+#)
+
+#res <- hcut(dataset, k = 4, stand = FALSE)
+#fviz_dend(km.res, rect = TRUE, cex = 0.5,
+#          k_colors = c("#00AFBB","#2E9FDF", "#E7B800", "#FC4E07"))
+
+```
+
+
+
+# PAM ALGORITHM 
+# https://towardsdatascience.com/clustering-on-mixed-type-data-8bbd0a2569c3
+```{r}
+library(cluster)
+library(readr)
+library(Rtsne)
+```
+
+
+Compute Gower distance
+```{r}
+dim(dataset)
+
+smp_size <- floor(0.9 * nrow(dataset))
+set.seed(123)
+
+train_ind <- sample(seq_len(nrow(dataset)), size = smp_size)
+
+prova = dataset[-train_ind,]
+pam.res <- pam(prova, 4)
+
+gower_dist <- daisy(prova, metric = "gower")
+
+```
+
+```{r}
+
+start.time <- Sys.time()
+sil_width <- c(NA)
+for(i in 2:8){  
+  pam_fit <- pam(gower_dist, diss = TRUE, k = i)  
+  sil_width[i] <- pam_fit$silinfo$avg.width  
+}
+
+
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+
+print("-- Time: -- ")
+time.taken
+print("")
+
+plot(1:8, sil_width,
+      xlab = "Number of clusters",
+      ylab = "Silhouette Width")
+lines(1:8, sil_width)
+
+```
+
+# ======================= FAMD =========================
+
+# http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/115-famd-factor-analysis-of-mixed-data-in-r-essentials/
+
+#https://nextjournal.com/pc-methods/calculate-pc-mixed-data
+
+
+#https://cran.r-project.org/web/packages/FactoMineR/index.html
+#https://stats.stackexchange.com/questions/5774/can-principal-component-analysis-be-applied-to-datasets-containing-a-mix-of-cont

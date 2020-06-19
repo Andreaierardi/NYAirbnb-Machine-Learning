@@ -1,0 +1,653 @@
+---
+title: "Statistical Learning Project - Supervised Learning"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data
+library(ggplot2)
+library(ggmap)
+library(tidyr)
+library(cowplot)
+library(magick)
+library(dplyr)
+#world_map <- map_data("newyork")
+
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+
+# Read Dataset 
+
+```{r}
+ds = read.csv("AB_NYC_2019.csv")
+head(ds)
+```
+
+# Data cleaning 
+
+## Check for NA and NULL values
+```{r}
+
+#Check for NA
+apply(ds,2,function(x) sum(is.na(x)))
+
+# NOTES
+# Remove NA, empty
+#
+#
+#
+#
+
+```
+
+## Normalisation and selection of the variables
+
+```{r}
+
+normalize <- function(x) {
+  return ((x - min(x)) / (max(x) - min(x)))
+}
+
+
+clean_data = function(ds)
+{
+  ds = select (ds,-c(host_id, id, host_name, name,minimum_nights,number_of_reviews,neighbourhood,last_review,availability_365,
+                     reviews_per_month,calculated_host_listings_count))
+ 
+
+  numerical = c("price","longitude", "latitude")
+  categorical = c("neighbourhood_group")
+  
+  ds[numerical] = scale(ds[numerical])
+  ds$neighbourhood_group = factor(ds$neighbourhood_group, 
+                                  level= c("Brooklyn","Manhattan","Queens","Staten Island", "Bronx"), labels=c(1,2,3,4,5))
+  ds$room_type = factor(ds$room_type, level= c("Private room","Entire home/apt","Shared room"), labels=c(1,2,3))
+  
+  return(ds)
+}
+#ggdraw() +
+#  draw_image("New_York_City_.png") +
+#  draw_plot(myplot)
+
+dataset = clean_data(ds)
+
+head(dataset)
+```
+
+
+# Split data into train and test sets
+
+```{r}
+
+
+library(caTools)
+library(caret)
+
+data_clean = dataset
+sample = sample.split(data_clean, SplitRatio = .75)
+train = subset(data_clean, sample == TRUE)
+test  = subset(data_clean, sample == FALSE)
+
+print("Initial data shape")
+print(dim(data_clean))
+print("Train shape")
+print(dim(train))
+print("Test shape")
+print(dim(test))
+
+```
+
+
+
+
+# ================== RANDOM FOREST ==================
+
+#https://www.guru99.com/r-random-forest-tutorial.html
+
+
+# GOOD VIDEO FOR PARAMETER OPTIMISATION
+# https://www.youtube.com/watch?v=6EXPYzbfLCE
+
+# TUNING 
+# https://uc-r.github.io/random_forests
+
+
+```{r}
+library(randomForest)
+rf <- randomForest(
+  neighbourhood_group ~ . ,
+  data=train,
+ # importance = TRUE
+)
+rf
+
+#https://www.r-bloggers.com/how-to-implement-random-forests-in-r/
+varImpPlot(rf)
+
+```
+
+```{r}
+pred = predict(rf, test)
+head(pred)
+
+
+plot(pred)
+```
+
+
+
+
+
+```{r}
+table(pred,test$neighbourhood_group)
+confusionMatrix(pred, test$neighbourhood_group)
+```
+
+
+
+```{r}
+rf2 <- randomForest(
+  price ~ . ,
+  data=train,
+  # importance = TRUE
+)
+rf2
+varImpPlot(rf2)
+```
+
+```{r}
+par(mfrow=c(1,2))
+plot(test$price,predict(rf2,test),col='red',main='Real vs predicted RF',pch=18,cex=0.7)
+abline(0,1,lwd=2)
+legend('bottomright',legend='NN',pch=18,col='red', bty='n')
+```
+
+
+```{r}
+library(randomForest)
+library(e1071)
+
+trControl <- trainControl(method = "cv",
+                          number = 10,
+                          search = "grid",
+                          allowParallel = TRUE
+                        )
+trControl$method
+trControl$number
+```
+
+
+## Possible multi core tuning
+registerDoFuture()
+plan(multiprocess, workers = availableCores() - 1)
+
+
+library(doParallel)
+cl <- makeCluster(detectCores())
+registerDoParallel(cl)
+## machine learning code goes in here
+stopCluster(cl)
+
+
+
+### Calculate computational Time: 
+
+start.time <- Sys.time()
+...Relevent codes...
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+time.taken
+
+```{r}
+library(doParallel)
+library(doFuture)
+
+start.time <- Sys.time()
+
+#ptm <- proc.time()
+
+rf_default <- caret::train(
+  neighbourhood_group ~ . ,
+  data=train,
+  method = "rf",
+  metric="Accuracy",
+  trControl = trControl,
+  num.threads = availableCores() # <- This one
+  
+)
+
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+
+print("-- Time: -- ")
+time.taken
+
+print("")
+print("-- RANDOM FOREST -- ")
+#proc.time() - ptm
+print(rf_default)
+
+
+```
+
+
+```{r}
+
+
+#ptm <- proc.time()
+start.time <- Sys.time()
+
+rf_default <- caret::train(
+  neighbourhood_group ~ . ,
+  data=train,
+  method = "rf",
+  metric="Accuracy",
+  trControl = trControl,
+
+)
+#proc.time() - ptm
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+
+print("-- Time: -- ")
+time.taken
+print("")
+
+print(rf_default)
+
+
+```
+
+
+```{r}
+
+start.time <- Sys.time()
+
+set.seed(1234)
+tuneGrid <- expand.grid(.mtry = c(1: 10))
+rf_mtry <- caret::train(
+  neighbourhood_group~.,
+  data = train,
+  method = "rf",
+  metric = "Accuracy",
+  tuneGrid = tuneGrid,
+  trControl = trControl,
+  importance = TRUE,
+  nodesize = 14,
+  ntree = 300,
+  num.threads = availableCores()-1
+)
+
+
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+
+print("-- Time: -- ")
+time.taken
+print("")
+
+
+print(rf_mtry)
+```
+
+```{r}
+best_mtry <- rf_mtry$bestTune$mtry 
+cat("Best mtry value:",best_mtry)
+cat("\nMax accuracy mtry:", max(rf_mtry$results$Accuracy))
+
+
+```
+
+
+
+
+```{r}
+
+start.time <- Sys.time()
+
+store_maxnode <- list()
+tuneGrid <- expand.grid(.mtry = best_mtry)
+for (maxnodes in c(5: 15)) {
+  set.seed(1234)
+  rf_maxnode <- train(neighbourhood_group~.,
+                      data = train,
+                      method = "rf",
+                      metric = "Accuracy",
+                      tuneGrid = tuneGrid,
+                      trControl = trControl,
+                      importance = TRUE,
+                      nodesize = 14,
+                      maxnodes = maxnodes,
+                      ntree = 300,
+  )
+  current_iteration <- toString(maxnodes)
+  store_maxnode[[current_iteration]] <- rf_maxnode
+}
+
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+
+print("-- Time: -- ")
+time.taken
+print("")
+
+
+
+results_mtry <- resamples(store_maxnode)
+summary(results_mtry)
+```
+
+```{r}
+
+start.time <- Sys.time()
+
+for (maxnodes in c(15 : 30)) {
+  set.seed(1234)
+  rf_maxnode <- train(neighbourhood_group~.,
+                      data = train,
+                      method = "rf",
+                      metric = "Accuracy",
+                      tuneGrid = tuneGrid,
+                      trControl = trControl,
+                      importance = TRUE,
+                      nodesize = 14,
+                      maxnodes = maxnodes,
+                      ntree = 300)
+  current_iteration <- toString(maxnodes)
+  store_maxnode[[current_iteration]] <- rf_maxnode
+}
+
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+
+print("-- Time: -- ")
+time.taken
+print("")
+
+results_mtry <- resamples(store_maxnode)
+summary(results_mtry)
+```
+Result: 30
+
+
+#Step 4) Search the best ntrees
+#Now that you have the best value of mtry and maxnode, 
+#you can tune the number of trees. The method is exactly the same as maxnode.
+
+```{r}
+
+
+start.time <- Sys.time()
+
+store_maxtrees <- list()
+for (ntree in c(250, 300, 350, 400, 450, 500, 550, 600, 800, 1000, 2000)) {
+  set.seed(5678)
+  rf_maxtrees <- train(neighbourhood_group~.,
+                       data = train,
+                       method = "rf",
+                       metric = "Accuracy",
+                       tuneGrid = tuneGrid,
+                       trControl = trControl,
+                       importance = TRUE,
+                       nodesize = 14,
+                       maxnodes = 24,
+                       ntree = ntree)
+  key <- toString(ntree)
+  store_maxtrees[[key]] <- rf_maxtrees
+}
+
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+
+print("-- Time: -- ")
+time.taken
+print("")                                                          
+
+results_tree <- resamples(store_maxtrees)
+summary(results_tree)
+```
+
+
+#Step 5) Evaluate the model
+
+```{r}
+fit_rf <- train(neighbourhood_group~.,
+                train,
+                method = "rf",
+                metric = "Accuracy",
+                tuneGrid = tuneGrid,
+                trControl = trControl,
+                importance = TRUE,
+                nodesize = 14,
+                ntree = 1000,
+                maxnodes = 30)
+
+
+
+
+prediction <-predict(fit_rf, test)
+
+prediction_default <-predict(rf, test)
+
+conf = confusionMatrix(prediction, test$neighbourhood_group)
+
+conf_default = confusionMatrix(prediction_default, test$neighbourhood_group)
+
+conf
+
+conf_default
+#Step 6) Visualize Result
+varImpPlot(fit_rf)
+```
+
+# =========================================================
+
+# ================== RANGER RANDOM FOREST =================
+```{r}
+library(ranger)
+library(tuneRanger)
+ranger <- ranger( neighbourhood_group~ ., data = train, write.forest = TRUE, classification = T)
+
+ranger_pred = predict(ranger, data = test)
+
+tab = table(test$neighbourhood_group, predictions(ranger_pred))
+
+plot(tab)
+```
+
+
+```{r}
+rangerReg <- ranger( price~ ., data = train, write.forest = TRUE, classification = F)
+rangerReg
+rangerReg_pred = predict(rangerReg, data = test)
+rangerReg_pred
+tab = table(test$price, predictions(rangerReg_pred))
+#tab
+library(plotly)
+plot_ly(x = test$price, y = predictions(rangerReg_pred))
+```
+
+## RANGER TUNING
+
+```{r}
+# https://github.com/PhilippPro/tuneRanger
+# https://mlr.mlr-org.com/articles/tutorial/measures.html
+task = makeRegrTask(data = train, target = "price")
+estimateTimeTuneRanger(task, iters = 20, num.threads = 8, num.trees = 1000)
+res = tuneRanger(task, measure = list(mse), num.trees = 1000, 
+                 num.threads = 8, iters = 20,  show.info = getOption("mlrMBO.show.info", TRUE))
+```
+
+
+Mean of best 5 % of the results
+```{r}
+res
+```
+
+
+Recommended parameter settings: 
+  mtry min.node.size sample.fraction
+1    2            60       0.2010013
+Results: 
+  mse exec.time
+1 0.0004812156     3.446
+
+
+Model with the new tuned hyperparameters
+```{r}
+res$model
+```
+
+Model for learner.id=regr.ranger; learner.class=regr.ranger
+Trained on: task.id = train; obs = 29337; features = 4
+Hyperparameters: num.threads=4,verbose=FALSE,respect.unordered.factors=order,mtry=2,
+min.node.size=60,sample.fraction=0.201,num.trees=1e+03,replace=FALSE
+
+```{r}
+tuned_rangerReg <- ranger( price~ ., data = train, write.forest = TRUE, classification = F, mtry= 2, 
+                           min.node.size = 60, sample.fraction = 0.201,num.trees = 1000, replace= FALSE)
+tuned_rangerReg
+tuned_rangerReg_pred = predict(tuned_rangerReg, data = test)
+tuned_rangerReg_pred
+```
+
+# ==================== ROCK CURVE =========================
+
+cm = table(test[,14], pred)
+
+library(caret)
+confusionMatrix(as.factor(pred), as.factor(test$price))
+
+confusionMatrix(
+  factor(pred, levels = 1:19558),
+  factor(test$price, levels = 1:19558)
+)
+
+```{r}
+library(ROCR)
+#ROCR
+roc_pred = predict(tuned_rangerReg,data = test, type="response")
+perf = prediction(roc_pred$predictions, test)
+
+#==
+#FIND OPTIMAL VALUE WITH MIN OUT OF BAG
+#https://www.listendata.com/2014/11/random-forest-with-r.html
+```
+
+
+# =========================================================
+
+
+
+
+# ===================== DECISION  TREE ====================  -------- TO BE DONE
+  
+
+# 
+library(rpart)
+library(caret)
+library(e1071)
+
+
+dt = train( neighbourhood_group~ ., data = train,method = "rpart")
+pred2 = predict(dt, data = test)
+table(pred2, test)
+
+
+
+
+
+
+
+
+# =========================================================
+
+
+
+# =================== NEURAL NETWORKS ??=====================
+
+
+# https://medium.com/@brscntyz/neural-network-in-r-e275302b6e44
+# https://datascienceplus.com/fitting-neural-network-in-r/
+# https://www.kdnuggets.com/2016/08/begineers-guide-neural-networks-r.html/2
+```{r}
+library(ISLR)
+library(tidyverse)
+library("keras")
+library(neuralnet)
+library(Hmisc)
+```
+
+```{r}
+m <- model.matrix( 
+  ~price+neighbourhood_group+room_type+longitude+latitude,
+  data = train 
+)
+
+m_test  <- model.matrix( 
+  ~price+neighbourhood_group+room_type+longitude+latitude,
+  data = test 
+)
+
+head(m)
+```
+
+```{r}
+nn=neuralnet(price~ neighbourhood_group2+ neighbourhood_group3 +neighbourhood_group4+ neighbourhood_group5+ room_type2+ room_type3+longitude+latitude,data=m, hidden=10,act.fct = "logistic",
+             linear.output = TRUE,stepmax=10^5,threshold = 0.01)
+
+```
+
+Also you can change your hidden layers by specifiying with numbers in vector like this
+```{r}
+nn=neuralnet( price~ neighbourhood_group2+ neighbourhood_group3 +neighbourhood_group4+ neighbourhood_group5+ room_type2+ room_type3+longitude+latitude,data=m, hidden=c(7,6,5),act.fct = "logistic",
+             linear.output = TRUE,stepmax=10^5,threshold = 0.01)
+
+hidden=c(7,6,5)
+```
+
+
+
+Then, prediction and calculation of error comes. I calculate the error with Root mean error method.
+```{r}
+nn_pred=compute(nn,test[,1:13])
+nn_pred$net.resultRMSE <- function(actual,predicted) {
+  return(sqrt(sum(actual^2-predicted^2)/length(actual)))
+}
+summary(nn_pred)
+nn_pred <- is.numeric(nn_pred)
+RMSE(test$price,nn_pred)
+
+plot(test$price,nn_pred$net.result)
+
+pr.nn_ <- nn_pred$net.result*(max(dataset$price)-min(dataset$price))+min(dataset$price)
+
+```
+# =========================================================
+
+
+# ================= LINEAR REGRESSION =====================
+# https://datascienceplus.com/fitting-neural-network-in-r/
+
+```{r}
+lm.fit <- glm(price~., data=train)
+summary(lm.fit)
+pr.lm <- predict(lm.fit,test)
+MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
+```
+
+```{r}
+par(mfrow=c(1,2))
+plot(test$price,nn_pred$net.result,col='red',main='Real vs predicted NN',pch=18,cex=0.7)
+abline(0,1,lwd=2)
+legend('bottomright',legend='NN',pch=18,col='red', bty='n')
+plot(test$price,pr.lm,col='blue',main='Real vs predicted lm',pch=18, cex=0.7)
+abline(0,1,lwd=2)
+legend('bottomright',legend='LM',pch=18,col='blue', bty='n', cex=.95)
+```
+
