@@ -349,6 +349,7 @@ rangerReg_pred = predict(rangerReg, data = test)
 rangerReg_pred
 tab = table(test$price, predictions(rangerReg_pred))
 tab
+library(plotly)
 plot_ly(x = test$price, y = predictions(rangerReg_pred))
 
 
@@ -356,9 +357,9 @@ plot_ly(x = test$price, y = predictions(rangerReg_pred))
 # https://github.com/PhilippPro/tuneRanger
 # https://mlr.mlr-org.com/articles/tutorial/measures.html
 task = makeRegrTask(data = train, target = "price")
-estimateTimeTuneRanger(task, iters = 70, num.threads = 6, num.trees = 1000)
+estimateTimeTuneRanger(task, iters = 20, num.threads = 8, num.trees = 1000)
 res = tuneRanger(task, measure = list(mse), num.trees = 1000, 
-                 num.threads = 4, iters = 70,  show.info = getOption("mlrMBO.show.info", TRUE))
+                 num.threads = 8, iters = 20,  show.info = getOption("mlrMBO.show.info", TRUE))
 
 
 # Mean of best 5 % of the results
