@@ -65,8 +65,12 @@ clean_data = function(ds)
   
   ds[numerical] = scale(ds[numerical])
   ds$neighbourhood_group = factor(ds$neighbourhood_group, 
-                                  level= c("Brooklyn","Manhattan","Queens","Staten Island", "Bronx"), labels=c(1,2,3,4,5))
-  ds$room_type = factor(ds$room_type, level= c("Private room","Entire home/apt","Shared room"), labels=c(1,2,3))
+                                  level= c("Brooklyn","Manhattan",
+                                           "Queens","Staten Island", "Bronx"),
+                                  labels=c(1,2,3,4,5))
+  ds$room_type = factor(ds$room_type, 
+                        level= c("Private room","Entire home/apt","Shared room"), 
+                        labels=c(1,2,3))
   
   return(ds)
 }
@@ -105,16 +109,16 @@ print(dim(test))
 
 
 
-# ================== RANDOM FOREST ==================
+# RANDOM FOREST
 
-#https://www.guru99.com/r-random-forest-tutorial.html
+https://www.guru99.com/r-random-forest-tutorial.html
 
 
-# GOOD VIDEO FOR PARAMETER OPTIMISATION
-# https://www.youtube.com/watch?v=6EXPYzbfLCE
+GOOD VIDEO FOR PARAMETER OPTIMISATION
+https://www.youtube.com/watch?v=6EXPYzbfLCE
 
-# TUNING 
-# https://uc-r.github.io/random_forests
+TUNING 
+https://uc-r.github.io/random_forests
 
 
 ```{r}
@@ -190,7 +194,7 @@ plan(multiprocess, workers = availableCores() - 1)
 library(doParallel)
 cl <- makeCluster(detectCores())
 registerDoParallel(cl)
-## machine learning code goes in here
+#### machine learning code goes in here
 stopCluster(cl)
 
 
@@ -375,9 +379,9 @@ summary(results_mtry)
 Result: 30
 
 
-#Step 4) Search the best ntrees
-#Now that you have the best value of mtry and maxnode, 
-#you can tune the number of trees. The method is exactly the same as maxnode.
+## Step 4) Search the best ntrees
+Now that you have the best value of mtry and maxnode, 
+you can tune the number of trees. The method is exactly the same as maxnode.
 
 ```{r}
 
@@ -413,7 +417,7 @@ summary(results_tree)
 ```
 
 
-#Step 5) Evaluate the model
+## Step 5) Evaluate the model
 
 ```{r}
 fit_rf <- train(neighbourhood_group~.,
@@ -442,12 +446,12 @@ conf
 
 conf_default
 #Step 6) Visualize Result
-varImpPlot(fit_rf)
+
+#varImpPlot(fit_rf)
 ```
 
-# =========================================================
 
-# ================== RANGER RANDOM FOREST =================
+# RANGER RANDOM FOREST
 ```{r}
 library(ranger)
 library(tuneRanger)
@@ -475,6 +479,8 @@ plot_ly(x = test$price, y = predictions(rangerReg_pred))
 ## RANGER TUNING
 
 ```{r}
+library(tuneRanger)
+
 # https://github.com/PhilippPro/tuneRanger
 # https://mlr.mlr-org.com/articles/tutorial/measures.html
 task = makeRegrTask(data = train, target = "price")
@@ -492,10 +498,10 @@ res
 
 Recommended parameter settings: 
   mtry min.node.size sample.fraction
-1    2            60       0.2010013
+1    2            55	0.2136541
 Results: 
   mse exec.time
-1 0.0004812156     3.446
+1 0.933998	2.756667	
 
 
 Model with the new tuned hyperparameters
@@ -503,20 +509,16 @@ Model with the new tuned hyperparameters
 res$model
 ```
 
-Model for learner.id=regr.ranger; learner.class=regr.ranger
-Trained on: task.id = train; obs = 29337; features = 4
-Hyperparameters: num.threads=4,verbose=FALSE,respect.unordered.factors=order,mtry=2,
-min.node.size=60,sample.fraction=0.201,num.trees=1e+03,replace=FALSE
 
 ```{r}
 tuned_rangerReg <- ranger( price~ ., data = train, write.forest = TRUE, classification = F, mtry= 2, 
-                           min.node.size = 60, sample.fraction = 0.201,num.trees = 1000, replace= FALSE)
+                           min.node.size = 55, sample.fraction = 0.214,num.trees = 1000, replace= FALSE)
 tuned_rangerReg
 tuned_rangerReg_pred = predict(tuned_rangerReg, data = test)
 tuned_rangerReg_pred
 ```
 
-# ==================== ROCK CURVE =========================
+## ROCK CURVE 
 
 cm = table(test[,14], pred)
 
@@ -531,21 +533,15 @@ confusionMatrix(
 ```{r}
 library(ROCR)
 #ROCR
-roc_pred = predict(tuned_rangerReg,data = test, type="response")
-perf = prediction(roc_pred$predictions, test)
+#roc_pred = predict(tuned_rangerReg,data = test, type="response")
+#perf = prediction(roc_pred$predictions, test)
 
 #==
 #FIND OPTIMAL VALUE WITH MIN OUT OF BAG
 #https://www.listendata.com/2014/11/random-forest-with-r.html
 ```
 
-
-# =========================================================
-
-
-
-
-# ===================== DECISION  TREE ====================  -------- TO BE DONE
+# DECISION  TREE -------- TO BE DONE
   
 
 # 
@@ -562,19 +558,12 @@ table(pred2, test)
 
 
 
+# NEURAL NETWORKS ??
 
 
-
-# =========================================================
-
-
-
-# =================== NEURAL NETWORKS ??=====================
-
-
-# https://medium.com/@brscntyz/neural-network-in-r-e275302b6e44
-# https://datascienceplus.com/fitting-neural-network-in-r/
-# https://www.kdnuggets.com/2016/08/begineers-guide-neural-networks-r.html/2
+https://medium.com/@brscntyz/neural-network-in-r-e275302b6e44
+https://datascienceplus.com/fitting-neural-network-in-r/
+https://www.kdnuggets.com/2016/08/begineers-guide-neural-networks-r.html/2
 ```{r}
 library(ISLR)
 library(tidyverse)
@@ -605,10 +594,10 @@ nn=neuralnet(price~ neighbourhood_group2+ neighbourhood_group3 +neighbourhood_gr
 
 Also you can change your hidden layers by specifiying with numbers in vector like this
 ```{r}
-nn=neuralnet( price~ neighbourhood_group2+ neighbourhood_group3 +neighbourhood_group4+ neighbourhood_group5+ room_type2+ room_type3+longitude+latitude,data=m, hidden=c(7,6,5),act.fct = "logistic",
-             linear.output = TRUE,stepmax=10^5,threshold = 0.01)
+#nn=neuralnet( price~ neighbourhood_group2+ neighbourhood_group3 +neighbourhood_group4+ neighbourhood_group5+ room_type2+ room_type3+longitude+latitude,data=m, hidden=c(7,6,5),act.fct = "logistic",
+#             linear.output = TRUE,stepmax=10^5,threshold = 0.01)
 
-hidden=c(7,6,5)
+#hidden=c(7,6,5)
 ```
 
 
@@ -628,11 +617,12 @@ plot(test$price,nn_pred$net.result)
 pr.nn_ <- nn_pred$net.result*(max(dataset$price)-min(dataset$price))+min(dataset$price)
 
 ```
-# =========================================================
 
 
-# ================= LINEAR REGRESSION =====================
-# https://datascienceplus.com/fitting-neural-network-in-r/
+
+# LINEAR REGRESSION
+
+https://datascienceplus.com/fitting-neural-network-in-r/
 
 ```{r}
 lm.fit <- glm(price~., data=train)
