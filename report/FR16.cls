@@ -5,7 +5,7 @@
 %RUN WITH XeLaTeX
 
 %--Packages--
-\RequirePackage[italian]{babel}
+%\RequirePackage[italian]{babel}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{latexsym}

@@ -91,12 +91,12 @@ dataset = clean_data(ds)
 head(dataset)
 ```
 
-# ======================= K-MEANS =========================
+# K-MEANS 
 
-#x: numeric matrix, numeric data frame or a numeric vector
-#centers: Possible values are the number of clusters (k) or a set of initial (distinct) cluster centers. If a number, a random set of (distinct) rows in x is chosen as the initial centers.
-#iter.max: The maximum number of iterations allowed. Default value is 10.
-#nstart: The number of random starting partitions when centers is a number. Trying nstart > 1 is often recommended.
+**x**: numeric matrix, numeric data frame or a numeric vector
+**centers**: Possible values are the number of clusters (k) or a set of initial (distinct) cluster centers. If a number, a random set of (distinct) rows in x is chosen as the initial centers.
+**iter.max**: The maximum number of iterations allowed. Default value is 10.
+**nstart**: The number of random starting partitions when centers is a number. Trying nstart > 1 is often recommended.
 
 
 ```{r}
@@ -155,7 +155,8 @@ km.res$centers
 
 
 # PAM ALGORITHM 
-# https://towardsdatascience.com/clustering-on-mixed-type-data-8bbd0a2569c3
+
+https://towardsdatascience.com/clustering-on-mixed-type-data-8bbd0a2569c3
 ```{r}
 library(cluster)
 library(readr)
@@ -203,12 +204,112 @@ lines(1:8, sil_width)
 
 ```
 
-# ======================= FAMD =========================
+# FAMD
 
-# http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/115-famd-factor-analysis-of-mixed-data-in-r-essentials/
+http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/115-famd-factor-analysis-of-mixed-data-in-r-essentials/
+https://nextjournal.com/pc-methods/calculate-pc-mixed-data
+https://cran.r-project.org/web/packages/FactoMineR/index.html
+https://stats.stackexchange.com/questions/5774/can-principal-component-analysis-be-applied-to-datasets-containing-a-mix-of-cont
 
-#https://nextjournal.com/pc-methods/calculate-pc-mixed-data
+```{r}
+
+library("FactoMineR")
+library("factoextra")
+```
+
+FAMD (base, ncp = 5, sup.var = NULL, ind.sup = NULL, graph = TRUE)
+- base : a data frame with n rows (individuals) and p columns (variables).
+- ncp: the number of dimensions kept in the results (by default 5)
+- sup.var: a vector indicating the indexes of the supplementary variables.
+- ind.sup: a vector indicating the indexes of the supplementary individuals.
+- graph : a logical value. If TRUE a graph is displayed.
+
+```{r}
+
+res.famd <- FAMD(dataset, graph = FALSE, ncp = 10)
+print(res.famd)
+```
 
 
-#https://cran.r-project.org/web/packages/FactoMineR/index.html
-#https://stats.stackexchange.com/questions/5774/can-principal-component-analysis-be-applied-to-datasets-containing-a-mix-of-cont
+```{r}
+eig.val <- get_eigenvalue(res.famd)
+head(eig.val)
+
+fviz_screeplot(res.famd)
+
+```
+
+```{r}
+var <- get_famd_var(res.famd)
+var
+```
+
+```{r}
+# Coordinates of variables
+head(var$coord)
+# Cos2: quality of representation on the factore map
+head(var$cos2)
+# Contributions to the  dimensions
+head(var$contrib)
+```
+
+```{r}
+# Plot of variables
+fviz_famd_var(res.famd, repel = TRUE)
+# Contribution to the first dimension
+fviz_contrib(res.famd, "var", axes = 1)
+# Contribution to the second dimension
+fviz_contrib(res.famd, "var", axes = 2)
+# Contribution to the third dimension
+fviz_contrib(res.famd, "var", axes = 3)
+# Contribution to the forth dimension
+fviz_contrib(res.famd, "var", axes = 4)
+# Contribution to the fifth dimension
+fviz_contrib(res.famd, "var", axes = 5)
+# Contribution to the sixth dimension
+fviz_contrib(res.famd, "var", axes = 6)
+# Contribution to the seventh dimension
+fviz_contrib(res.famd, "var", axes = 7)
+# Contribution to the eighth dimension
+fviz_contrib(res.famd, "var", axes = 8)
+```
+
+# PCAmixdata
+
+```{r}
+
+## Import library
+library(PCAmixdata)
+
+```
+
+```{r}
+
+## Split mixed dataset into quantitative and qualitative variables
+## For now excluding the target variable "Churn", which will be added later as a supplementary variable
+split <- splitmix(dataset[1:5])  
+
+## PCA
+res.pcamix <- PCAmix(X.quanti=split$X.quanti,  
+                     X.quali=split$X.quali, 
+                     rename.level=TRUE, 
+                     graph=FALSE, 
+                     ndim=25)
+
+res.pcamix
+
+
+```
+
+```{r}
+
+## Inspect principal components
+res.pcamix$name
+```
+
+```{r}
+
+# Use Scree Diagram to select the components:
+plot(res.pcamix$eig, type="b", main="Scree Diagram", xlab="Number of Component", ylab="Eigenvalues")
+abline(h=1, lwd=3, col="red")
+```

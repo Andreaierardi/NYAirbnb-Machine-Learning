@@ -6,8 +6,65 @@
 
 \tableofcontents
 \newpage
-\section{Introduzione}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\section{Abstract}
+The aim of the project is to analyse the data from the "New York City Airbnb Open Data" from the Kaggle website.
+\\ In particular, we focus on the developing of predictive model to forecast the house' prices using Supervised Learning algorithms: 
+\begin{itemize}
+\item Random Forest
+\item Ranger Random Forest
+\item Linear Regression
+\item Neural Newtworks (?)
+\end{itemize}
+A crucial part of the project was to the tuning and finding of the hyperparameters of the different models in order to get the best fit.
+%%Eachreport must contain:\\
+%•shortabstract: what are your going to present %in the report\\
+%•statementof the problem/goalof the analysis %and description of thedata set(s)\\
+%•list of three to fivefindings/keypoints\\
+%•the analysis with wisecommentary\\
+%•(optional) theoretical background of the used %methods\\
+%•conclusions(should include the findings/%keypoints)\\
+%•theAppendix, containing all the R codeNotice:
+%\\•Thepaper lengthisirrelevant provided that %the content is correct.
+%\\•No R code in the main text.The R code must %be confined to the appendix\\
+%•The report should be prepared inPDFonly
+
+\newpage
+\section{Goal}
+The goal is developing different models in order to predict the price of a house in New York.
+\\\\
+The dataset has different columns: 
+\begin{itemize}
+\item id
+\item \textbf{name}: name of the listing
+\item \textbf{host\_id}
+\item \textbf{host\_name}
+\item \textbf{neighbourhood\_group}: location
+\item \textbf{neighbourhood}: area
+\item \textbf{latitude}: coordinates
+\item \textbf{longitude}: coordinates
+\item \textbf{room\_type}: space type
+\item \textbf{price}:  in dollars
+\item \textbf{minimum\_nights}: amount of nights minimum
+\item \textbf{number\_of\_reviews}: number of reviews
+\item \textbf{last\_review}: latest review
+\item \textbf{reviews\_per\_month}: number of reviews per month
+\item \textbf{calculated\_host\_listings\_count}: amount of listing per host
+\item  \textbf{availability\_365}: number of days when listing is available for booking\\
+\end{itemize}
+We select just 5 of this feature from the dataset since we denotes them as the most important for the price of a house: latitude, longitude, room type, neighbourhood and the price itself to compare the prediction during the tests. \\
+\newpage
+\section{Results}
+
+\subsection{Random Forest results}
+\subsection{Ranger Random Forest results}
+\subsection{Linear Regression results}
+\subsection{Neural Networks results}
+\newpage
+\section{Conclusion}
+\newpage
+
+\section{Appendix}
+
 \newpage
 
 \section{Tabelle e grafici}

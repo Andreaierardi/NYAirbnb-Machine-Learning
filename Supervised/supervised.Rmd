@@ -587,15 +587,15 @@ head(m)
 ```
 
 ```{r}
-nn=neuralnet(price~ neighbourhood_group2+ neighbourhood_group3 +neighbourhood_group4+ neighbourhood_group5+ room_type2+ room_type3+longitude+latitude,data=m, hidden=10,act.fct = "logistic",
-             linear.output = TRUE,stepmax=10^5,threshold = 0.01)
+#nn=neuralnet(price~ neighbourhood_group2+ neighbourhood_group3 +neighbourhood_group4+ neighbourhood_group5+ room_type2+ room_type3+longitude+latitude,data=m, hidden=10,act.fct = "logistic",
+#             linear.output = TRUE,stepmax=10^5,threshold = 0.01)
 
 ```
 
 Also you can change your hidden layers by specifiying with numbers in vector like this
 ```{r}
 #nn=neuralnet( price~ neighbourhood_group2+ neighbourhood_group3 +neighbourhood_group4+ neighbourhood_group5+ room_type2+ room_type3+longitude+latitude,data=m, hidden=c(7,6,5),act.fct = "logistic",
-#             linear.output = TRUE,stepmax=10^5,threshold = 0.01)
+#           linear.output = TRUE,stepmax=10^5,threshold = 0.01)
 
 #hidden=c(7,6,5)
 ```
@@ -603,7 +603,7 @@ Also you can change your hidden layers by specifiying with numbers in vector lik
 
 
 Then, prediction and calculation of error comes. I calculate the error with Root mean error method.
-```{r}
+
 nn_pred=compute(nn,test[,1:13])
 nn_pred$net.resultRMSE <- function(actual,predicted) {
   return(sqrt(sum(actual^2-predicted^2)/length(actual)))
@@ -616,7 +616,6 @@ plot(test$price,nn_pred$net.result)
 
 pr.nn_ <- nn_pred$net.result*(max(dataset$price)-min(dataset$price))+min(dataset$price)
 
-```
 
 
 
@@ -633,10 +632,10 @@ MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
 
 ```{r}
 par(mfrow=c(1,2))
-plot(test$price,nn_pred$net.result,col='red',main='Real vs predicted NN',pch=18,cex=0.7)
-abline(0,1,lwd=2)
-legend('bottomright',legend='NN',pch=18,col='red', bty='n')
-plot(test$price,pr.lm,col='blue',main='Real vs predicted lm',pch=18, cex=0.7)
+#plot(test$price,nn_pred$net.result,col='red',main='Real vs predicted NN',pch=18,cex=0.7)
+#abline(0,1,lwd=2)
+#legend('bottomright',legend='NN',pch=18,col='red', bty='n')
+plot(test$price,pr.lm,col='blue',main='Real vs predicted Linear Regression',pch=18, cex=0.7)
 abline(0,1,lwd=2)
 legend('bottomright',legend='LM',pch=18,col='blue', bty='n', cex=.95)
 ```
