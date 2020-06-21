@@ -107,37 +107,24 @@ BoldItalicFont=ArnoPro-BoldItalic
 \end{figure}
 
 \begin{center}
-\textcolor{Blu}{\sc\centering\onehalfspacing\fontsize{4mm}{6mm}\selectfont Dipartimento di Ingegneria Meccanica e Aerospaziale\\Università di Roma La Sapienza\\Corso di Ingegneria Meccanica\\[1cm]}
+\textcolor{Blu}{\sc\centering\onehalfspacing\fontsize{4mm}{6mm}\selectfont Department od Economics, Management and Quantitative Methods\\Università degli Studi di Milano\\Data science and economics \\[1cm]}
 \end{center}
 \begin{center}
-\Large\bfseries\sc Subject\\[0.5cm] \bfseries\Huge\sc Title\\[0.3cm]\normalsize\sc Subtitle\\ 
+\Large\bfseries\sc Statistical Learning Project\\[0.5cm] \bfseries\Huge\sc Price prediction models \\for New York City Airbnb \\[0.8cm]\normalsize\sc Supervised Learning Report\\ 
 \end{center}
 
-
-\vspace{-2cm}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.5\textwidth]{rocket.png}
-\end{figure}
-
-
-\vspace{-1.5cm}
+\vspace{5.5cm}
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft} \large
 \emph{Author:}\\
-Name  \textsc{Surname \\} % Your name
+Andrea \textsc{Ierardi\\} % Your name
 \end{flushleft}
 \end{minipage}
 ~
-\begin{minipage}{0.4\textwidth}
-\begin{flushright} \large
-\emph{Teacher:} \\
-Name  \textsc{Surname \\}
-\end{flushright}
-\end{minipage}\\
+
 \begin{center}
 \vfill
-{\sc Academic year 2018-2019}
+{\sc Academic year 2019-2020}
 \end{center}
 }
 

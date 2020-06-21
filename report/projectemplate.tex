@@ -4,12 +4,14 @@
 
 \maketitle
 
+\newpage
 \tableofcontents
 \newpage
 \section{Abstract}
 The aim of the project is to analyse the data from the "New York City Airbnb Open Data" from the Kaggle website.
 \\ In particular, we focus on the developing of predictive model to forecast the house' prices using Supervised Learning algorithms: 
 \begin{itemize}
+\item Decision Tree
 \item Random Forest
 \item Ranger Random Forest
 \item Linear Regression
@@ -31,7 +33,12 @@ A crucial part of the project was to the tuning and finding of the hyperparamete
 \newpage
 \section{Goal}
 The goal is developing different models in order to predict the price of a house in New York.
-\\\\
+\newpage
+\section{Discussion}
+
+
+\subsection{Dataset }
+The dataset used in this project is one of a Kaggle competiotion and is called the New York City Airbnb Open Data. It contains 48.000 data points for each different column.
 The dataset has different columns: 
 \begin{itemize}
 \item id
@@ -52,17 +59,50 @@ The dataset has different columns:
 \item  \textbf{availability\_365}: number of days when listing is available for booking\\
 \end{itemize}
 We select just 5 of this feature from the dataset since we denotes them as the most important for the price of a house: latitude, longitude, room type, neighbourhood and the price itself to compare the prediction during the tests. \\
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{figures/figure1.jpg} \\
+\caption{\label{fig:1}Price summary}
+\end{figure}
+From the Figure 1 is possible to see that there are some outliers in the dataset that can not be removed, since we have to take in account that could be present luxury houses. In fact, no outlier was removed from the dataset. Also, there were no null and missing value apart from the reviews\_per\_month column that we do not take in account in the project.
+\\ 
+\subsection{Data Pre-processing}
+The dataset has more or less 48.000 data points for each column, so an important part of this work was the pre-processing since it is large. Since the dataset is very large, running the different methods is time consuming. Scaling the numerical data is a key point to get better performance during the fitting process of the model.
+We starting scaling numerical data from -1 to 1, using pre installed R functions while for the categorical data we identify each label with a different integer number.\\
+The categorical features from the selected are: neighbourhood and room type.\\
+The numerical features are: latitude, longitude and price.
+
+
+\subsection{Decision Tree}
+Decision  tree are one of the most used model in the Machine Learning world since are very familiar to human users and can be easily plotted. 
+\\
+
+
+
+\subsection{Random Forest}
+Random Forest is an ensemble method which use a combination of decision tree to get the prediction.
+\subsubsection{Ranger Random Forest}
+Ranger Random Forest is a computationally light model which results are very close the classical Random Forest.
+\\
+
+\subsection{Linear Regression}
+
+
+
 \newpage
 \section{Results}
-
+\subsection{Decision Tree}
 \subsection{Random Forest results}
 \subsection{Ranger Random Forest results}
 \subsection{Linear Regression results}
 \subsection{Neural Networks results}
 \newpage
 \section{Conclusion}
-\newpage
+From the result the method with the most higher accuracy is the Random Forest method... while the worst are ....
+\\Moreover, Random Forest method is also the worst in term of computation time for the tuning part since it takes for a configuration with 4 core, more or less 1 hour to tune the parameters. 
 
+
+\newpage
 \section{Appendix}
 
 \newpage
@@ -95,22 +135,7 @@ Here a few examples of tables and graphs.
 
 \end{center}
 
-\subsubsection{Altro grafico}
-\newpage
 
-\section{Formule}
-Se non sono ammesse consegne in ritardo siamo in presenza di un problema con Backlog. Sia $ t_{i} $ il periodo in cui non si è in backlog e $ t_{b} $ il periodo di backlog. Essendo $ t_{i}=(Q-B)/D $, avremo:\\
-Costi di ordinazione = $C\cdot D/Q$\\
-Costi di mantenimento = $ H\cdot (Q-B)/2\cdot t_{i}/T=H\cdot (Q-B)^{2}/2Q $\\
-Costi di backorder = $ C_{b}\cdot B\cdot t_{b}/2T=C_{b}\cdot B^{2}/2Q $\\
-Costi variabili totali = $ TC(Q)=C\cdot D/Q+H\cdot (Q-B)^{2}/2Q+C_{b}\cdot B^{2}/2Q $\\
-Condizioni di minimo: 
-$\begin{cases}
-\frac{\partial TC}{\partial Q}=0\\\frac{\partial TC}{\partial B}=0
-\end{cases}
-\Rightarrow
-Q^{\ast}=\sqrt{\dfrac{2C\cdot D(H+C_{b})}{H\cdot C_{b}}}=EOQ\sqrt{\dfrac{H+C_{b}}{C_{b}}}
-$
 
 \section{Altro}
 \begin{figure}[H]
@@ -120,239 +145,6 @@ $
 \end{figure}
 \subsection{Footnote}
 You can create a footnote like this.\footnote{I created a footnote.}
-
-\subsection{Flowchart}
-\newpage
-\begin{landscape}
-\thispagestyle{empty}
-\singlespacing
-\noindent
-\begin{tikzpicture}[overlay,remember picture,node distance = 3.5cm, auto]
-\coordinate (0) at (current page.north);
-\tikzstyle{decision} = [diamond,aspect=2, draw=Blu,line width=0.6mm, fill=Blu!10, minimum height=1em,
-    text width=6em, text badly centered,  inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw=Blu,line width=0.6mm, fill=white, text width=5em, text badly centered, rounded corners, minimum height=1em]
-\tikzstyle{line} = [draw, -latex']
-\tikzstyle{cloud} = [draw=white, ellipse,fill=Blu, node distance=1.5cm,
-    minimum height=2em]
-    
-    % Place nodes
-    
-    \node [decision][shift={(19.5 cm,-8cm)}]  at (current page.north) (init) {\scriptsize Prodotto standard?};
-    \node [cloud, above of=init] (system) {\scriptsize\textcolor{white}{Ricezione ordine dal cliente}};
-    \node [decision, right of=init,node distance=4.5cm] (registrosi) {\scriptsize Il cliente accetta di ordinare almeno un cartone di prodotto?};
-    \node [decision, right of=registrosi,node distance=4.8cm] (100) {\scriptsize Cambia prodotto?};
-    \node [block, right of=100,node distance=3.5cm] (101) {\scriptsize Ciao!};
-    \node [decision, below of=init, node distance=2cm] (identify) {\scriptsize  Nuovo cliente?};
-    \node [block, below of=identify, node distance=1.7cm] (102) {\scriptsize  Compilo foglio di lavoro};
-    \node [block, below of=102, node distance=1.7cm] (103) {\scriptsize  L'operatore prende il foglio di lavoro};
-    \node [block, below of=103, node distance=1.9cm] (104) {\scriptsize  Va in magazzino e prende le scatole necessarie};
-   \node [decision, below of=104, node distance=2.2cm] (105) {\scriptsize  Le scatole sono rovinate?};
-   \node [block, below of=105, node distance=2.4cm] (106) {\scriptsize  Metto le scatole nel cartone per l'imballaggio}; 
-   \node [decision, below of=106, node distance=2.2cm] (107) {\scriptsize  Manca qualche articolo?};
-   \node [block, right of=107, node distance=4.5cm] (108) {\scriptsize  Sposto il cartone in zona di attesa};
-   \node [block, above of=108, node distance=1.5cm] (109) {\scriptsize  Riporto il foglio di lavoro in ufficio};
-   \node [block, above of=109, node distance=3.5cm] (110) {\scriptsize  Contatto cliente e avviso sui nuovi tempi di consegna};
-   \node [decision, right of=110, node distance=4cm] (111) {\scriptsize  Il cliente è disponibile all'attesa?};
-   \node [block, right of=111, node distance=4cm] (112) {\scriptsize  Propongo articolo similare disponibile in magazzino};
-   \node [decision, above of=112, node distance=2.5cm] (113) {\scriptsize  Va bene?};
-   \node [decision, above of=113, node distance=2.7cm] (114) {\scriptsize  Il cliente vuole comunque gli altri articoli?};
-   \node [block, above of=114, node distance=2.2cm] (115) {\scriptsize  Aggiorno il foglio di lavoro};
-   \node [block, left of=114, node distance=4.5cm] (116) {\scriptsize  Annullo ordine};
-   \node [block, below of=111, node distance=2.3cm] (117) {\scriptsize  Contatto fornitore e ordino gli articoli mancanti};
-   \node [block, below of=117, node distance=1.5cm] (118) {\scriptsize  Arrivo merce};
-   \node [block, below of=118, node distance=1.3cm] (119) {\scriptsize  Smisto in magazzino};
-   \node [block, below of=119, node distance=2cm] (120) {\scriptsize  Aggiungo gli astucci mancanti nel cartone per l'imballaggio};
-   \node [block, right of=118, node distance=6cm] (121) {\scriptsize  Aggiorno il foglio di lavoro};
-   \node [block, left of=identify, node distance=3.5cm] (122) {\scriptsize  Registro anagrafica cliente};
-   \node [decision, left of=122, node distance=4cm] (123) {\scriptsize  Prodotto personalizzato?};
-   \node [block, above of=123, node distance=2.4cm] (124) {\scriptsize  Ricevo informazioni sul clichè};
-    \node [block, left of=124, node distance=3.5cm] (125) {\scriptsize  Contatto il disegnatore per realizzare il clichè};
-    \node [block, below of=125, node distance=2.4cm] (126) {\scriptsize  Mando al cliente prima bozza disegno};
-    \node [decision, below of=126, node distance=3.5cm] (127) {\scriptsize  Cliente soddisfatto?};
-    \node [block, below of=127, node distance=1.5cm] (128) {\scriptsize  Nuova bozza};
-    \node [block, right of=127, node distance=3.5cm] (129) {\scriptsize  Creazione clichè};
-    \node [block, below of=129, node distance=1cm] (130) {\scriptsize  Ricezione clichè};
-    \node [block, right of=130, node distance=3.5cm] (131) {\scriptsize  Metto clichè nel cassetto di raccolta};
-    \node [block, left of=105, node distance=4cm] (132) {\scriptsize  Apro e controllo gli articoli};
-    \node [decision, left of=132, node distance=4cm] (133) {\scriptsize  Anche gli astucci sono rovinati?};
-    \node [block, left of=133, node distance=4cm] (134) {\scriptsize  Cambio solo la scatola mantenendo gli astucci};
-    \node [block, below of=133, node distance=2.4cm] (135) {\scriptsize  Prendo nuova scatola};
-    \node[below  = 2.5cm of 107](136){};
-    
-   
-   
-   
-   
-   
-       
-\scriptsize     
-    % Draw edges
-    \path [line,name path=first] (init) -- node {no}(identify);
-    \path [line] (init) -- node {sì}(registrosi);
-    \path [line] (system) -- (init);
-    \path [line] (registrosi) -- node{no}(100);
-    \path [line] (100) -- node{no}(101);
-    \path [line,name path=registrositoidentify] (registrosi)    |- node [near start] {sì}  ([xshift=0cm, yshift=0cm]identify.east)  (identify);
-    \path [line,name path=100toidentify] (100)    |- node [near start] {sì}  ([xshift=0cm, yshift=0cm]identify.east)  (identify);
-    \path [line] (identify) -- node{no}(102);
-    \path [line] (102) -- (103);
-    \path [line] (103) -- (104);
-    \path [line] (104) -- (105);
-    \path [line] (105) -- node{no}(106);
-    \path [line] (106) -- (107);
-    \path [line] (107) -- node{sì}(108);
-    \path [line] (108) -- (109);
-    \path [line] (109) -- (110);
-    \path [line] (110) -- (111);
-    \path [line] (111) -- node{no}(112);
-    \path [line] (112) -- (113);
-    \path [line] (113) -- node{no}(114);
-    \path [line] (114) -- node{sì}(115);
-    \path [line] (114) -- node{no}(116);
-    \path [line] (111) -- node{sì}(117);
-    \path [line] (117) -- (118);
-    \path [line] (118) -- (119);
-    \path [line] (119) -- (120);
-    \path [line] (113) -| node{sì}(121);
-    \path [line] (121) |- (120);
-    \path [line] (identify) -- node{sì}(122);
-    \path [line] (122) -- (123);
-    \path [line] (123) -- node{sì}(124);
-    \path [line] (124) -- (125);
-    \path [line] (125) -- (126);
-    \path [line] (123) |- node [near start] {no}(102);
-    \path [line] (126) -- (127);
-    \path [line] (127) -- node{no} (128);
-    \path [line] (128) -|  ([xshift=-0.3cm, yshift=0cm]127.west) |- ([xshift=0cm, yshift=0cm]126.west) (126);
-    \path [line] (127) -- node{sì} (129);
-    \path [line] (129) -- (130);
-    \path [line] (130) -- (131);
-    \path [line] (131) --  ([xshift=0cm, yshift=0cm]131.north) |- ([xshift=0cm, yshift=-0.2cm]102.west) (102);
-    \path [line] (105) -- node{sì} (132);
-    \path [line] (132) -- (133);
-    \path [line] (133) -- node{no} (134);
-    \path [line] (133) -- node{sì} (135);
-    \path [line] (135) -- (106);
-    \path [line] (134) --  ([xshift=0cm, yshift=0cm]134.south) |- ([xshift=0cm, yshift=-0.7cm]106.west) (106);
-    \path [line] (107) -- node{no} (136);
-    \path [line] (115) -| ([xshift=0.2cm, yshift=0cm]121.east) |- ([xshift=0cm, yshift=0.2cm]136.east) (136);
-    \path [line] (120) |- ([xshift=0cm, yshift=0.3cm]136.east) (136);
-   
-    
-    
-    
-    
-
-\end{tikzpicture}
-
-\end{landscape}
-\newpage
-\begin{landscape}
-\thispagestyle{empty}
-\singlespacing
-\noindent
-\begin{tikzpicture}[overlay,remember picture,node distance = 3.5cm, auto]
-\coordinate (0) at (current page.north);
-\tikzstyle{decision} = [diamond,aspect=2, draw=Blu,line width=0.6mm, fill=Blu!10, minimum height=1em,
-    text width=6em, text badly centered,  inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw=Blu,line width=0.6mm, fill=white, text width=5em, text badly centered, rounded corners, minimum height=1em]
-\tikzstyle{line} = [draw, -latex']
-\tikzstyle{cloud} = [draw=white, ellipse,fill=Blu, node distance=1.5cm,
-    minimum height=2em]
-    
-    % Place nodes
-    \node [shift={(19.5 cm,-5.5cm)}]  at (current page.north) (1) {};
-    \node [decision, below of=1, node distance=2cm] (2) {\scriptsize Prodotto personalizzato?};
-    \node [block, below of=2, node distance=3cm] (3) {\scriptsize Aggiungo nel cartone per imballaggio i cieli su cui effettuare la stampa};
-    \node [block, below of=3, node distance=2.2cm] (4) {\scriptsize Metto il cartone in zona attesa};
-    \node [decision, below of=4, node distance=2cm] (5) {\scriptsize Il clichè è presente nel cassetto di raccolta?};
-    \node [block, below of=5, node distance=2.1cm] (6) {\scriptsize Clichè ok sul foglio di lavoro};
-    \node [block, right of=6, node distance=3cm] (7) {\scriptsize Operatore 1: apro gli astucci};
-    \node [block, right of=7, node distance=3cm] (8) {\scriptsize Incollo i cieli};
-    \node [decision, right of=8, node distance=3.2cm] (9) {\scriptsize Errore di incollaggio?};
-    \node [block, right of=9, node distance=3.5cm] (10) {\scriptsize Richiudo gli astucci};
-    \node [block, above of=10, node distance=1.5cm] (11) {\scriptsize Metto gli astucci nella scatola};
-    \node [block, above of=11, node distance=1.8cm] (12) {\scriptsize Inserisco la scatola nel cartone per imballaggio};
-    \node [block, below of=7, node distance=3cm] (13) {\scriptsize Operatore 2: metto il clichè sulla macchina};
-    \node [block, right of=13, node distance=3cm] (14) {\scriptsize Prendo i cieli da stampare};
-     \node [block, right of=14, node distance=3cm] (15) {\scriptsize Stampo};
-     \node [decision, right of=15, node distance=3.2cm] (16) {\scriptsize Stampa ok?};
-     \node [block, below of=16, node distance=2cm] (17) {\scriptsize Prendo i cieli mancanti in magazzino};
-     \node [block, left of=2, node distance=4cm] (18) {\scriptsize Riporto in ufficio il foglio di lavoro};
-     \node [block, left of=18, node distance=3cm] (19) {\scriptsize Contatto cliente per somma contrassegno e avviso spedizione};
-     \node [block, left of=19, node distance=3cm] (20) {\scriptsize Genero il talloncino per la spedizione};
-      \node [block, below of=20, node distance=1.5cm] (21) {\scriptsize Imballo il cartone};
-      \node [block, below of=21, node distance=1cm] (22) {\scriptsize Attesa del corriere};
-      \node [block, left of=5, node distance=4cm] (23) {\scriptsize Contatto il cliente per il clichè da realizzare};
-      \node [decision, left of=23, node distance=4.2cm] (24) {\scriptsize Il cliente è disposto ad aspettare che venga realizzato il clichè?};
-      \node [decision, above of=24, node distance=2.7cm] (25) {\scriptsize Accetta articoli senza personalizzazione?};
-      \node [block, above of=23, node distance=1.3cm] (26) {\scriptsize Annulla ordine};
-      \node [block, above of=26, node distance=2.7cm] (27) {\scriptsize Elimino i cieli dal cartone};
-      \node [block, above of=27, node distance=1.5cm] (28) {\scriptsize Comunico importo};
-      \node [block, left of=28, node distance=3cm] (29) {\scriptsize Aggiorno foglio lavoro};
-      \node [block, below of=24, node distance=4cm] (125) {\scriptsize  Contatto il disegnatore per realizzare il clichè};
-    \node [block, below of=125, node distance=2.2cm] (126) {\scriptsize  Mando al cliente prima bozza disegno};
-    \node [decision, right of=126, node distance=4.2cm] (127) {\scriptsize  Cliente soddisfatto?};
-    \node [block, below of=127, node distance=1.5cm] (128) {\scriptsize  Nuova bozza};
-    \node [block, above of=127, node distance=1.5cm] (129) {\scriptsize  Creazione clichè};
-    \node [block, above of=129, node distance=1cm] (130) {\scriptsize  Ricezione clichè};
-    \node [block, below of=23, node distance=2.1cm] (131) {\scriptsize  Metto clichè nel cassetto di raccolta};
-    
-    
-    
-    
-\scriptsize      
-    \path [line] (1) -- (2);
-    \path [line] (2) -- node{sì} (3);
-    \path [line] (3) -- (4);
-    \path [line] (4) -- (5);
-    \path [line] (5) -- node{sì} (6);
-    \path [line] (6) -- (7);
-    \path [line] (7) -- (8);
-    \path [line] (8) -- (9);
-    \path [line] (9) -- node{no} (10);
-    \path [line] (10) -- (11);
-    \path [line] (11) -- (12);
-    \path [line] (6) |- (13);
-    \path [line] (13) -- (14);
-    \path [line] (14) -- (15);
-    \path [line] (15) -- (16);
-    \path [line] (16) -- node{no} (17);
-    \path [line] (17) -| (15);
-    \path [line] (16) |- node [near start] {sì} ([xshift=0cm, yshift=0.5cm]16.north) -| ([xshift=0cm, yshift=0cm]8.south) (8);
-    \path [line] (9) |- node [near start] {sì} ([xshift=0cm, yshift=0.8cm]16.north) -| ([xshift=0.5cm, yshift=0cm]16.east) |- ([xshift=0cm, yshift=0cm]17.east) (17);
-    \path [line] (2) -- node [near start] {no} (18);
-    \path [line] (12) -|  ([xshift=0.8cm, yshift=0cm]11.east) |- ([xshift=0cm, yshift=-2cm]17.south) -| ([xshift=-10.5cm, yshift=0cm]3.west)  |- ([xshift=0cm, yshift=1cm]18.north) -| (18);
-    \path [line] (18) -- (19);
-    \path [line] (19) -- (20);
-    \path [line] (20) -- (21);
-    \path [line] (21) -- (22);
-    \path [line] (5) -- node{no} (23);
-    \path [line] (23) -- (24);
-    \path [line] (24) -- node{no} (25);
-    \path [line] (25) -| node  {no} (26);
-    \path [line] (25) |- node [near start]  {sì} ([xshift=0cm, yshift=0.2cm]25.north)  --   (27);
-    \path [line] (27) -- (28);
-    \path [line] (28) -- (29);
-    \path [line] (29) -|  ([xshift=-0.2cm, yshift=-0.2cm]19.west) |- ([xshift=0cm, yshift=-0.2cm]20.east) (20);
-    \path [line] (24) -- node{sì} (125);
-    \path [line] (125) -- (126);
-    \path [line] (126) -- (127);
-    \path [line] (127) -- node{no} (128);
-    \path [line] (127) -- node{sì} (129);
-    \path [line] (129) -- (130);
-    \path [line] (130) -- (131);
-    \path [line] (131) -- (6);
-    \path [line] (128) -| (126);
-    
-    
-    
-
-\end{tikzpicture}
-
-\end{landscape}
-\newpage
 
 
 
