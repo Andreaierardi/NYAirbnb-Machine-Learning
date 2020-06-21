@@ -26,6 +26,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 ds = read.csv("AB_NYC_2019.csv")
 head(ds)
+
 ```
 
 # Data cleaning 
@@ -48,7 +49,8 @@ apply(ds,2,function(x) sum(is.na(x)))
 ## Normalisation and selection of the variables
 
 ```{r}
-
+library(dplyr)
+library(tidyverse)
 normalize <- function(x) {
   return ((x - min(x)) / (max(x) - min(x)))
 }
@@ -56,14 +58,13 @@ normalize <- function(x) {
 
 clean_data = function(ds)
 {
-  ds = select (ds,-c(host_id, id, host_name, name,minimum_nights,number_of_reviews,neighbourhood,last_review,availability_365,
-                     reviews_per_month,calculated_host_listings_count))
+  ds =ds[c(5,7:10)]
  
 
-  numerical = c("price","longitude", "latitude")
+#  numerical = c("price","longitude", "latitude")
   categorical = c("neighbourhood_group")
   
-  ds[numerical] = scale(ds[numerical])
+ # ds[numerical] = scale(ds[numerical])
   ds$neighbourhood_group = factor(ds$neighbourhood_group, 
                                   level= c("Brooklyn","Manhattan",
                                            "Queens","Staten Island", "Bronx"),
@@ -89,6 +90,7 @@ head(dataset)
 ```{r}
 
 
+
 library(caTools)
 library(caret)
 
@@ -101,13 +103,64 @@ print("Initial data shape")
 print(dim(data_clean))
 print("Train shape")
 print(dim(train))
+head(train)
 print("Test shape")
 print(dim(test))
+head(test)
+```
 
+# DECISION  TREE -------- TO BE DONE
+  
+library(rpart)
+library(caret)
+library(e1071)
+
+
+dt = train( price~ ., data = train,method = "rpart")
+pred2 = predict(dt, data = test$price)
+table(pred2, test$price)
+
+```{r}
+library(tree)
+
+library(MASS)
+tree_reg =tree(price~., data = train)
+summary(tree_reg)
+
+plot(tree_reg)
+text(tree_reg,pretty=0)
+
+
+```
+
+```{r}
+tree_reg.pred=predict(tree_reg, test)
+#table(tree_reg.pred,test$price)
+
+par(mfrow=c(1,2))
+plot(test$price,tree_reg.pred,col='red',main='Real vs predicted Tree Regressor',pch=18,cex=0.7)
+legend('bottomright',legend='TR',pch=18,col='red', bty='n')
 ```
 
 
 
+```{r}
+cv.tree_reg=cv.tree(tree_reg)
+
+cv.tree_reg=cv.tree(tree_reg)
+plot(cv.tree_reg$size,cv.tree_reg$dev,type='b')
+prune.tree_reg=prune.tree(tree_reg,best=5)
+plot(prune.tree_reg)
+text(prune.tree_reg,pretty=0)
+
+```
+
+```{r}
+yhat=predict(tree_reg,test)
+plot(yhat,test$price)
+abline(0,1)
+mean((yhat-test$price)^2)
+```
 
 # RANDOM FOREST
 
@@ -216,10 +269,10 @@ start.time <- Sys.time()
 #ptm <- proc.time()
 
 rf_default <- caret::train(
-  neighbourhood_group ~ . ,
+  price ~ . ,
   data=train,
   method = "rf",
-  metric="Accuracy",
+#  metric="Accuracy",
   trControl = trControl,
   num.threads = availableCores() # <- This one
   
@@ -247,10 +300,10 @@ print(rf_default)
 start.time <- Sys.time()
 
 rf_default <- caret::train(
-  neighbourhood_group ~ . ,
+  price ~ . ,
   data=train,
   method = "rf",
-  metric="Accuracy",
+#  metric="Accuracy",
   trControl = trControl,
 
 )
@@ -275,16 +328,16 @@ start.time <- Sys.time()
 set.seed(1234)
 tuneGrid <- expand.grid(.mtry = c(1: 10))
 rf_mtry <- caret::train(
-  neighbourhood_group~.,
+  price~.,
   data = train,
   method = "rf",
-  metric = "Accuracy",
+ # metric = "Accuracy",
   tuneGrid = tuneGrid,
   trControl = trControl,
   importance = TRUE,
   nodesize = 14,
   ntree = 300,
-  num.threads = availableCores()-1
+  num.threads = availableCores()
 )
 
 
@@ -318,10 +371,10 @@ store_maxnode <- list()
 tuneGrid <- expand.grid(.mtry = best_mtry)
 for (maxnodes in c(5: 15)) {
   set.seed(1234)
-  rf_maxnode <- train(neighbourhood_group~.,
+  rf_maxnode <- train(price~.,
                       data = train,
                       method = "rf",
-                      metric = "Accuracy",
+                      #metric = "Accuracy",
                       tuneGrid = tuneGrid,
                       trControl = trControl,
                       importance = TRUE,
@@ -352,10 +405,10 @@ start.time <- Sys.time()
 
 for (maxnodes in c(15 : 30)) {
   set.seed(1234)
-  rf_maxnode <- train(neighbourhood_group~.,
+  rf_maxnode <- train(price~.,
                       data = train,
                       method = "rf",
-                      metric = "Accuracy",
+                    #  metric = "Accuracy",
                       tuneGrid = tuneGrid,
                       trControl = trControl,
                       importance = TRUE,
@@ -391,10 +444,10 @@ start.time <- Sys.time()
 store_maxtrees <- list()
 for (ntree in c(250, 300, 350, 400, 450, 500, 550, 600, 800, 1000, 2000)) {
   set.seed(5678)
-  rf_maxtrees <- train(neighbourhood_group~.,
+  rf_maxtrees <- train(price~.,
                        data = train,
                        method = "rf",
-                       metric = "Accuracy",
+                      # metric = "Accuracy",
                        tuneGrid = tuneGrid,
                        trControl = trControl,
                        importance = TRUE,
@@ -418,7 +471,38 @@ summary(results_tree)
 
 
 ## Step 5) Evaluate the model
+```{r}
+fit_rf <- train(price~.,
+                train,
+                method = "rf",
+               # metric = "Accuracy",
+                tuneGrid = tuneGrid,
+                trControl = trControl,
+                importance = TRUE,
+                nodesize = 14,
+                ntree = 1000,
+                maxnodes = 30)
 
+
+
+
+prediction <-predict(fit_rf, test)
+
+prediction_default <-predict(rf, test)
+
+plot(prediction, test$price)
+plot(prediction_default, test$price)
+
+```
+
+```{r}
+## Step 6) Visualize Result
+
+varImpPlot(fit_rf)
+
+```
+
+## Classification method
 ```{r}
 fit_rf <- train(neighbourhood_group~.,
                 train,
@@ -540,21 +624,6 @@ library(ROCR)
 #FIND OPTIMAL VALUE WITH MIN OUT OF BAG
 #https://www.listendata.com/2014/11/random-forest-with-r.html
 ```
-
-# DECISION  TREE -------- TO BE DONE
-  
-
-# 
-library(rpart)
-library(caret)
-library(e1071)
-
-
-dt = train( neighbourhood_group~ ., data = train,method = "rpart")
-pred2 = predict(dt, data = test)
-table(pred2, test)
-
-
 
 
 
