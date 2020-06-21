@@ -304,7 +304,7 @@ res.pcamix
 ```{r}
 
 ## Inspect principal components
-res.pcamix$name
+res.pcamix$eig
 ```
 
 ```{r}
@@ -312,4 +312,92 @@ res.pcamix$name
 # Use Scree Diagram to select the components:
 plot(res.pcamix$eig, type="b", main="Scree Diagram", xlab="Number of Component", ylab="Eigenvalues")
 abline(h=1, lwd=3, col="red")
+```
+
+
+# Hierarchical Cluster Analysis
+
+
+
+```{r}
+library(cluster)    # clustering algorithms
+library(dendextend) # for comparing two dendrograms
+
+```
+
+
+```{r}
+reduced <- dataset[ sample(1:nrow(dataset), nrow(dataset)/10 ) , ]
+d <- dist(reduced, method = "euclidean")
+
+
+# Hierarchical clustering using Complete Linkage
+hc1 <- hclust(d, method = "complete" )
+
+# Plot the obtained dendrogram
+plot(hc1, cex = 0.6, hang = -1)
+```
+
+```{r}
+# methods to assess
+m <- c( "average", "single", "complete", "ward")
+names(m) <- c( "average", "single", "complete", "ward")
+
+# function to compute coefficient
+ac <- function(x) {
+  agnes(reduced, method = x)$ac
+}
+
+library(purrr)
+map_dbl(m, ac)
+
+```
+
+```{r}
+hc3 <- agnes(reduced, method = "ward")
+pltree(hc3, cex = 0.6, hang = -1, main = "Dendrogram of agnes") 
+
+```
+
+# Clust miX type
+k-prototypes in RAn implementation of the k-prototypes algorithm is given by the function
+
+kproto(x, k, lambda = NULL, iter.max = 100, nstart = 1, na.rm = TRUE)
+
+where
+•x is a data frame with both numeric and factor variables.  As opposed to other existing Rpackages, the factor variables do not need to be preprocessed in advance and the order of thevariables does not matter.
+•k is the number of clusters which has to be pre-specified. Alternatively, it can also be a vectorof observation indices or a data frame of prototypes with the same columns asx.  If ever atthe initialization or during the iteration process identical prototypes do occur, the number ofclusters will be reduced accordingly.
+
+•lambda>0 is a real valued parameter that controls the trade off between Euclidean distancefor numeric variables and simple matching distance for factor variables for cluster assignment.If noλis specified the parameter is set automatically based on the data and a heuristic usingthe functionlambdaest(). Alternatively, a vector of lengthncol(x)can be passed tolambda(cf.Section on Extensions to the original algorithm).
+
+•iter.maxsets the maximum number of iterations, just as inkmeans(). The algorithm may stopprior toiter.maxif no observations swap clusters.
+
+•nstartmay be set to a value>1 to run k-prototypes multiple times. Similar to k-means, theresult of k-prototypes depends on its initialization. Ifnstart>1, the best solution (i.e. the onethat minimizesE) is returned.
+
+•Generally, the algorithm can deal with missing data but as a defaultNAs are removed byna.rm= TRUE
+
+```{r}
+library(clustMixType)
+
+kp = kproto(dataset,5)
+kp 
+
+summary(kp)
+```
+
+```{r}
+
+library(wesanderson)
+par(mfrow=c(2,2))
+clprofiles(kp, dataset, col = wes_palette("Royal1",5, type = "continuous"))  
+```
+
+```{r}
+Es = numeric(10)
+for(i in 1:10)
+  {
+    kpres <- kproto(dataset, k = i, nstart = 5)
+    Es[i] <- kpres$tot.withinss
+  }
+plot(1:10, Es, type = "b", ylab = "Objective Function", xlab = "# Clusters",main = "Scree Plot") 
 ```

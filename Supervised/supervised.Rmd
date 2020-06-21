@@ -28,6 +28,11 @@ ds = read.csv("AB_NYC_2019.csv")
 head(ds)
 
 ```
+# Data Inspection
+
+```{r}
+summary(ds)
+```
 
 # Data cleaning 
 
@@ -61,10 +66,10 @@ clean_data = function(ds)
   ds =ds[c(5,7:10)]
  
 
-#  numerical = c("price","longitude", "latitude")
+  numerical = c("price","longitude", "latitude")
   categorical = c("neighbourhood_group")
   
- # ds[numerical] = scale(ds[numerical])
+  ds[numerical] = scale(ds[numerical])
   ds$neighbourhood_group = factor(ds$neighbourhood_group, 
                                   level= c("Brooklyn","Manhattan",
                                            "Queens","Staten Island", "Bronx"),
