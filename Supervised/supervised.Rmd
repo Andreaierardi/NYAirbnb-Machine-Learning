@@ -503,7 +503,7 @@ plot(prediction_default, test$price)
 ```{r}
 ## Step 6) Visualize Result
 
-varImpPlot(fit_rf)
+#varImpPlot(fit_rf)
 
 ```
 
