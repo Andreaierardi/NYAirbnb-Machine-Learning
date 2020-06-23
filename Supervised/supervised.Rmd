@@ -274,10 +274,10 @@ start.time <- Sys.time()
 #ptm <- proc.time()
 
 rf_default <- caret::train(
-  price ~ . ,
+  neighbourhood_group ~ . ,
   data=train,
   method = "rf",
-#  metric="Accuracy",
+  metric="Accuracy",
   trControl = trControl,
   num.threads = availableCores() # <- This one
   
@@ -305,10 +305,10 @@ print(rf_default)
 start.time <- Sys.time()
 
 rf_default <- caret::train(
-  price ~ . ,
+  neighbourhood_group ~ . ,
   data=train,
   method = "rf",
-#  metric="Accuracy",
+  metric="Accuracy",
   trControl = trControl,
 
 )
@@ -333,10 +333,10 @@ start.time <- Sys.time()
 set.seed(1234)
 tuneGrid <- expand.grid(.mtry = c(1: 10))
 rf_mtry <- caret::train(
-  price~.,
+  neighbourhood_group~.,
   data = train,
   method = "rf",
- # metric = "Accuracy",
+  metric = "Accuracy",
   tuneGrid = tuneGrid,
   trControl = trControl,
   importance = TRUE,
@@ -376,10 +376,10 @@ store_maxnode <- list()
 tuneGrid <- expand.grid(.mtry = best_mtry)
 for (maxnodes in c(5: 15)) {
   set.seed(1234)
-  rf_maxnode <- train(price~.,
+  rf_maxnode <- train(neighbourhood_group~.,
                       data = train,
                       method = "rf",
-                      #metric = "Accuracy",
+                      metric = "Accuracy",
                       tuneGrid = tuneGrid,
                       trControl = trControl,
                       importance = TRUE,
@@ -410,10 +410,10 @@ start.time <- Sys.time()
 
 for (maxnodes in c(15 : 30)) {
   set.seed(1234)
-  rf_maxnode <- train(price~.,
+  rf_maxnode <- train(neighbourhood_group~.,
                       data = train,
                       method = "rf",
-                    #  metric = "Accuracy",
+                      metric = "Accuracy",
                       tuneGrid = tuneGrid,
                       trControl = trControl,
                       importance = TRUE,
@@ -449,10 +449,10 @@ start.time <- Sys.time()
 store_maxtrees <- list()
 for (ntree in c(250, 300, 350, 400, 450, 500, 550, 600, 800, 1000, 2000)) {
   set.seed(5678)
-  rf_maxtrees <- train(price~.,
+  rf_maxtrees <- train(neighbourhood_group~.,
                        data = train,
                        method = "rf",
-                      # metric = "Accuracy",
+                       metric = "Accuracy",
                        tuneGrid = tuneGrid,
                        trControl = trControl,
                        importance = TRUE,
@@ -477,10 +477,10 @@ summary(results_tree)
 
 ## Step 5) Evaluate the model
 ```{r}
-fit_rf <- train(price~.,
+fit_rf <- train(neighbourhood_group~.,
                 train,
                 method = "rf",
-               # metric = "Accuracy",
+                metric = "Accuracy",
                 tuneGrid = tuneGrid,
                 trControl = trControl,
                 importance = TRUE,
