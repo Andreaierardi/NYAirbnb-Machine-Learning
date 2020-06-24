@@ -114,7 +114,31 @@ print(dim(test))
 head(test)
 ```
 
-# DECISION  TREE -------- TO BE DONE
+
+
+# LINEAR REGRESSION
+
+https://datascienceplus.com/fitting-neural-network-in-r/
+
+```{r}
+lm.fit <- glm(price~., data=train)
+summary(lm.fit)
+pr.lm <- predict(lm.fit,test)
+MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
+```
+
+```{r}
+par(mfrow=c(1,2))
+#plot(test$price,nn_pred$net.result,col='red',main='Real vs predicted NN',pch=18,cex=0.7)
+#abline(0,1,lwd=2)
+#legend('bottomright',legend='NN',pch=18,col='red', bty='n')
+plot(test$price,pr.lm,col='blue',main='Real vs predicted Linear Regression',pch=18, cex=0.7)
+abline(0,1,lwd=2)
+legend('bottomright',legend='LM',pch=18,col='blue', bty='n', cex=.95)
+```
+
+
+# DECISION  TREE
   
 library(rpart)
 library(caret)
@@ -544,6 +568,8 @@ conf_default
 ```{r}
 library(ranger)
 library(tuneRanger)
+
+
 ranger <- ranger( neighbourhood_group~ ., data = train, write.forest = TRUE, classification = T)
 
 ranger_pred = predict(ranger, data = test)
@@ -574,8 +600,20 @@ library(tuneRanger)
 # https://mlr.mlr-org.com/articles/tutorial/measures.html
 task = makeRegrTask(data = train, target = "price")
 estimateTimeTuneRanger(task, iters = 20, num.threads = 8, num.trees = 1000)
+
+
+start.time <- Sys.time()
+
+
+     
 res = tuneRanger(task, measure = list(mse), num.trees = 1000, 
                  num.threads = 8, iters = 20,  show.info = getOption("mlrMBO.show.info", TRUE))
+
+
+
+print("-- Real Time: -- ")
+time.taken
+cat("\n")    
 ```
 
 
@@ -601,7 +639,7 @@ res$model
 
 ```{r}
 tuned_rangerReg <- ranger( price~ ., data = train, write.forest = TRUE, classification = F, mtry= 2, 
-                           min.node.size = 55, sample.fraction = 0.214,num.trees = 1000, replace= FALSE)
+                           min.node.size = 61	, sample.fraction = 0.2126975,num.trees = 1000, replace= FALSE)
 tuned_rangerReg
 tuned_rangerReg_pred = predict(tuned_rangerReg, data = test)
 tuned_rangerReg_pred
@@ -661,8 +699,8 @@ head(m)
 ```
 
 ```{r}
-#nn=neuralnet(price~ neighbourhood_group2+ neighbourhood_group3 +neighbourhood_group4+ neighbourhood_group5+ room_type2+ room_type3+longitude+latitude,data=m, hidden=10,act.fct = "logistic",
-#             linear.output = TRUE,stepmax=10^5,threshold = 0.01)
+nn=neuralnet(price~ neighbourhood_group2+ neighbourhood_group3 +neighbourhood_group4+ neighbourhood_group5+ room_type2+ room_type3+longitude+latitude,data=m, hidden=10,act.fct = "logistic",
+             linear.output = TRUE,stepmax=10^5,threshold = 0.01)
 
 ```
 
@@ -689,28 +727,4 @@ RMSE(test$price,nn_pred)
 plot(test$price,nn_pred$net.result)
 
 pr.nn_ <- nn_pred$net.result*(max(dataset$price)-min(dataset$price))+min(dataset$price)
-
-
-
-
-# LINEAR REGRESSION
-
-https://datascienceplus.com/fitting-neural-network-in-r/
-
-```{r}
-lm.fit <- glm(price~., data=train)
-summary(lm.fit)
-pr.lm <- predict(lm.fit,test)
-MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
-```
-
-```{r}
-par(mfrow=c(1,2))
-#plot(test$price,nn_pred$net.result,col='red',main='Real vs predicted NN',pch=18,cex=0.7)
-#abline(0,1,lwd=2)
-#legend('bottomright',legend='NN',pch=18,col='red', bty='n')
-plot(test$price,pr.lm,col='blue',main='Real vs predicted Linear Regression',pch=18, cex=0.7)
-abline(0,1,lwd=2)
-legend('bottomright',legend='LM',pch=18,col='blue', bty='n', cex=.95)
-```
 
