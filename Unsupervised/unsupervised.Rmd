@@ -1,8 +1,8 @@
 ---
 title: "Statistical Learning Project - Unsupervised Learning"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 
@@ -154,7 +154,8 @@ km.res$centers
 
 
 
-# PAM ALGORITHM 
+# Partitioning Around Medoids (PAM) ALGORITHM 
+https://dpmartin42.github.io/posts/r/cluster-mixed-types
 
 https://towardsdatascience.com/clustering-on-mixed-type-data-8bbd0a2569c3
 ```{r}
@@ -168,16 +169,19 @@ Compute Gower distance
 ```{r}
 dim(dataset)
 
-smp_size <- floor(0.9 * nrow(dataset))
-set.seed(123)
+reduced <- dataset[ sample(1:nrow(dataset), nrow(dataset)/5) , ]
 
-train_ind <- sample(seq_len(nrow(dataset)), size = smp_size)
+print(dim(reduced))
+gower_dist <- daisy(reduced, metric = "gower")
+#proxy::simil(reduced, method = "gower")
+dim(gower_dist)
 
-prova = dataset[-train_ind,]
-pam.res <- pam(prova, 4)
+```
 
-gower_dist <- daisy(prova, metric = "gower")
-
+```{r}
+hc1 <- hclust(gower_dist, method = "complete" )
+hc1
+plot(hc1, cex = 0.6, hang = -1)
 ```
 
 ```{r}
@@ -340,22 +344,22 @@ plot(hc1, cex = 0.6, hang = -1)
 
 ```{r}
 # methods to assess
-m <- c( "average", "single", "complete", "ward")
-names(m) <- c( "average", "single", "complete", "ward")
+#m <- c( "average", "single", "complete", "ward")
+#names(m) <- c( "average", "single", "complete", "ward")
 
 # function to compute coefficient
-ac <- function(x) {
-  agnes(reduced, method = x)$ac
-}
+#ac <- function(x) {
+#  agnes(reduced, method = x)$ac
+#}
 
-library(purrr)
-map_dbl(m, ac)
+#library(purrr)
+#map_dbl(m, ac)
 
 ```
 
 ```{r}
-hc3 <- agnes(reduced, method = "ward")
-pltree(hc3, cex = 0.6, hang = -1, main = "Dendrogram of agnes") 
+#hc3 <- agnes(reduced, method = "ward")
+#pltree(hc3, cex = 0.6, hang = -1, main = "Dendrogram of agnes") 
 
 ```
 
