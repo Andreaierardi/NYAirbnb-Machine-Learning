@@ -125,6 +125,21 @@ lm.fit <- glm(price~., data=train)
 summary(lm.fit)
 pr.lm <- predict(lm.fit,test)
 MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
+
+plot(lm.fit)
+```
+## Variance Inflation Factor(VIF)
+"Rule of thumb"
+    1 = not correlated.
+    Between 1 and 5 = moderately correlated.
+    Greater than 5 = highly correlated.
+
+
+
+```{r}
+library(lubridate)
+
+car::vif(lm.fit) # variance inflation factors 
 ```
 
 ```{r}
@@ -132,9 +147,9 @@ par(mfrow=c(1,2))
 #plot(test$price,nn_pred$net.result,col='red',main='Real vs predicted NN',pch=18,cex=0.7)
 #abline(0,1,lwd=2)
 #legend('bottomright',legend='NN',pch=18,col='red', bty='n')
-plot(test$price,pr.lm,col='blue',main='Real vs predicted Linear Regression',pch=18, cex=0.7)
+plot(test$price,pr.lm,col='red',main='Real vs predicted LN',pch=18, cex=0.7)
 abline(0,1,lwd=2)
-legend('bottomright',legend='LM',pch=18,col='blue', bty='n', cex=.95)
+legend('bottomright',legend='LM',pch=18,col='red', bty='n', cex=.95)
 ```
 
 
@@ -728,3 +743,85 @@ plot(test$price,nn_pred$net.result)
 
 pr.nn_ <- nn_pred$net.result*(max(dataset$price)-min(dataset$price))+min(dataset$price)
 
+
+# NEURAL NETWORKS WITH KERAS
+
+For regression : https://keras.rstudio.com/articles/tutorial_basic_regression.html
+
+For classification: https://keras.rstudio.com/
+```{r}
+library(keras)
+
+#needed: 
+# - tensorflow::install_tensorflow()
+# - miniconda
+
+start.time <- Sys.time()
+
+
+build_model <- function() {
+  
+  model <- keras_model_sequential() %>%
+    layer_dense(units = 64, activation = "relu",
+                input_shape = 4) %>%
+    layer_dense(units = 64, activation = "relu") %>%
+    layer_dense(units = 1)
+  
+  model %>% compile(
+    loss = "mse",
+    optimizer = optimizer_rmsprop(),
+    metrics = "mean_absolute_error"
+    )
+  
+  model
+}
+
+model <- build_model()
+
+print("-- Real Time: -- ")
+time.taken
+cat("\n")    
+
+model %>% summary()
+```
+
+
+```{r}
+# Display training progress by printing a single dot for each completed epoch.
+start.time <- Sys.time()
+
+print_dot_callback <- callback_lambda(
+  on_epoch_end = function(epoch, logs) {
+    if (epoch %% 80 == 0) cat("\n")
+    cat(".")
+  }
+)    
+
+epochs <- 10
+
+# Fit the model and store training stats
+history <- model %>% fit(
+  as.double(mt),
+  as.array(lt),
+  epochs = epochs,
+  validation_split = 0.2,
+  verbose = 0,
+  callbacks = list(print_dot_callback)
+)
+
+
+
+print("-- Real Time: -- ")
+time.taken
+cat("\n")    
+
+```
+
+
+
+```{r}
+library(ggplot2)
+
+plot(history, metrics = "mean_absolute_error", smooth = FALSE) +
+  coord_cartesian(ylim = c(0, 5))
+```
