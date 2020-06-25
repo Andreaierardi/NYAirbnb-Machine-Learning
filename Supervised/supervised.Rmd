@@ -530,10 +530,12 @@ fit_rf <- caret::train(price~.,
 
 prediction <-predict(fit_rf, test)
 
-prediction_default <-predict(rf, test)
+#prediction_default <-caret::predict(rf, test)
 
-plot(prediction, test$price)
-plot(prediction_default, test$price)
+plot(test$price,prediction)
+print(fit_rf)
+#varImpPlot(fit_rf)
+#plot(prediction_default, test$price)
 
 ```
 
