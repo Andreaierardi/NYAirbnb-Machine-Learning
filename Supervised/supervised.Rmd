@@ -35,7 +35,7 @@ summary(ds)
 ```
 ```{r}
 sorted = sort(ds$price,decreasing = T) 
-sorted
+sorted[20000:20100]
 ```
 
 # Data cleaning 
@@ -65,14 +65,14 @@ normalize <- function(x) {
 }
 
 
-clean_data = function(ds)
+clean_data = function(ds, pr, region)
 {
   ds =ds[c(5,7:10)]
  
+  ds=   ds%>%filter( price < pr)
+  ds = ds %>% filter(neighbourhood_group == region)
+  numerical = c("price")
 
-  numerical = c("price","longitude", "latitude")
-  categorical = c("neighbourhood_group")
-  
   ds[numerical] = scale(ds[numerical])
   ds$neighbourhood_group = factor(ds$neighbourhood_group, 
                                   level= c("Brooklyn","Manhattan",
@@ -88,12 +88,13 @@ clean_data = function(ds)
 #  draw_image("New_York_City_.png") +
 #  draw_plot(myplot)
 
-dataset = clean_data(ds)
+dataset = clean_data(ds,500,"Manhattan")
 
 head(dataset)
 ```
-
-
+```{r}
+dataset
+```
 # Split data into train and test sets
 
 ```{r}
@@ -125,7 +126,7 @@ head(test)
 https://datascienceplus.com/fitting-neural-network-in-r/
 
 ```{r}
-lm.fit <- lm(price~., data=train)
+lm.fit <- lm(price~latitude+ longitude+room_type, data=train)
 summary(lm.fit)
 pr.lm <- predict(lm.fit,test)
 MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
@@ -194,15 +195,16 @@ text(tree_reg,pretty=0)
 ```
 
 ```{r}
+test$price = as.numeric(test$price)
 tree_reg.pred=predict(tree_reg, test)
 #table(tree_reg.pred,test$price)
 
 par(mfrow=c(1,2))
-plot(test$price,tree_reg.pred,col='red',main='Real vs predicted Tree Regressor',pch=18,cex=0.7)
+plot(as.numeric(test$price),tree_reg.pred,col='red',main='Real vs predicted Tree Regressor',pch=18,cex=0.7)
 legend('bottomright',legend='TR',pch=18,col='red', bty='n')
 ```
 
-
+## Pruning is not necessary
 
 ```{r}
 cv.tree_reg=cv.tree(tree_reg)
@@ -268,6 +270,8 @@ confusionMatrix(pred, test$neighbourhood_group)
 
 
 ```{r}
+library(randomForest)
+
 rf2 <- randomForest(
   price ~ . ,
   data=train,
@@ -275,11 +279,18 @@ rf2 <- randomForest(
 )
 rf2
 varImpPlot(rf2)
+plot(rf2)
 ```
 
 ```{r}
 par(mfrow=c(1,2))
 plot(test$price,predict(rf2,test),col='red',main='Real vs predicted RF',pch=18,cex=0.7)
+abline(0,1,lwd=2)
+legend('bottomright',legend='NN',pch=18,col='red', bty='n')
+
+
+par(mfrow=c(1,2))
+plot(train$price,predict(rf2),col='red',main='OOB error',pch=18,cex=0.7)
 abline(0,1,lwd=2)
 legend('bottomright',legend='NN',pch=18,col='red', bty='n')
 ```
@@ -329,10 +340,10 @@ start.time <- Sys.time()
 #ptm <- proc.time()
 
 rf_default <- caret::train(
-  neighbourhood_group ~ . ,
+  price ~ . ,
   data=train,
   method = "rf",
-  metric="Accuracy",
+ # metric="RMSE",
   trControl = trControl,
   num.threads = availableCores() # <- This one
   
@@ -355,43 +366,15 @@ print(rf_default)
 
 ```{r}
 
-
-#ptm <- proc.time()
-start.time <- Sys.time()
-
-rf_default <- caret::train(
-  neighbourhood_group ~ . ,
-  data=train,
-  method = "rf",
-  metric="Accuracy",
-  trControl = trControl,
-
-)
-#proc.time() - ptm
-end.time <- Sys.time()
-time.taken <- end.time - start.time
-
-print("-- Time: -- ")
-time.taken
-print("")
-
-print(rf_default)
-
-
-```
-
-
-```{r}
-
 start.time <- Sys.time()
 
 set.seed(1234)
 tuneGrid <- expand.grid(.mtry = c(1: 10))
 rf_mtry <- caret::train(
-  neighbourhood_group~.,
+  price~.,
   data = train,
   method = "rf",
-  metric = "Accuracy",
+  #metric = "Accuracy",
   tuneGrid = tuneGrid,
   trControl = trControl,
   importance = TRUE,
@@ -431,10 +414,10 @@ store_maxnode <- list()
 tuneGrid <- expand.grid(.mtry = best_mtry)
 for (maxnodes in c(5: 15)) {
   set.seed(1234)
-  rf_maxnode <- train(neighbourhood_group~.,
+  rf_maxnode <- caret::train(price~.,
                       data = train,
                       method = "rf",
-                      metric = "Accuracy",
+                      #metric = "Accuracy",
                       tuneGrid = tuneGrid,
                       trControl = trControl,
                       importance = TRUE,
@@ -465,10 +448,10 @@ start.time <- Sys.time()
 
 for (maxnodes in c(15 : 30)) {
   set.seed(1234)
-  rf_maxnode <- train(neighbourhood_group~.,
+  rf_maxnode <- caret::train(price~.,
                       data = train,
                       method = "rf",
-                      metric = "Accuracy",
+                     # metric = "Accuracy",
                       tuneGrid = tuneGrid,
                       trControl = trControl,
                       importance = TRUE,
@@ -504,10 +487,10 @@ start.time <- Sys.time()
 store_maxtrees <- list()
 for (ntree in c(250, 300, 350, 400, 450, 500, 550, 600, 800, 1000, 2000)) {
   set.seed(5678)
-  rf_maxtrees <- train(neighbourhood_group~.,
+  rf_maxtrees <- train(price~.,
                        data = train,
                        method = "rf",
-                       metric = "Accuracy",
+                     #  metric = "Accuracy",
                        tuneGrid = tuneGrid,
                        trControl = trControl,
                        importance = TRUE,
@@ -540,9 +523,8 @@ fit_rf <- caret::train(price~.,
                 trControl = trControl,
                 importance = TRUE,
                 nodesize = 14,
-                ntree = 350,
+                ntree = 450,
                 maxnodes = 30)
-
 
 
 
@@ -557,9 +539,19 @@ plot(prediction_default, test$price)
 
 ```{r}
 ## Step 6) Visualize Result
+ele = randomForest::randomForest(
+  x =  train[-5],
+  y = train$price,
+  xtest = test[-5],
+  ytest = test$price,
+  mtry = 5,
+  maxnodes=30,
+  ntree = 450
+)
+print(ele)
+varImpPlot(ele)
 
-#varImpPlot(fit_rf)
-class(fit_rf)
+plot(ele)
 ```
 
 ## Classification method
@@ -597,8 +589,7 @@ conf_default
 
 # RANGER RANDOM FOREST
 ```{r}
-library(ranger)
-library(tuneRanger)
+
 
 
 ranger <- ranger( neighbourhood_group~ ., data = train, write.forest = TRUE, classification = T)
@@ -612,11 +603,14 @@ plot(tab)
 
 
 ```{r}
+
+library(ranger)
+library(tuneRanger)
 rangerReg <- ranger( price~ ., data = train, write.forest = TRUE, classification = F)
 rangerReg
 rangerReg_pred = predict(rangerReg, data = test)
 rangerReg_pred
-tab = table(test$price, predictions(rangerReg_pred))
+#tab = table(test$price, predictions(rangerReg_pred))
 #tab
 library(plotly)
 plot_ly(x = test$price, y = predictions(rangerReg_pred))
@@ -779,7 +773,7 @@ build_model <- function() {
   
   model <- keras_model_sequential() %>%
     layer_dense(units = 64, activation = "relu",
-                input_shape = 4) %>%
+                input_shape = dim(train[-5])) %>%
     layer_dense(units = 64, activation = "relu") %>%
     layer_dense(units = 1)
   
@@ -817,8 +811,8 @@ epochs <- 10
 
 # Fit the model and store training stats
 history <- model %>% fit(
-  as.double(mt),
-  as.array(lt),
+  as.numeric(as.matrix(train[-5])),
+  as.array(train$price),
   epochs = epochs,
   validation_split = 0.2,
   verbose = 0,

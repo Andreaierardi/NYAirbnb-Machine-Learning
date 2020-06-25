@@ -54,39 +54,44 @@ apply(ds,2,function(x) sum(is.na(x)))
 ## Normalisation and selection of the variables
 
 ```{r, tidy=TRUE, tidy.opts=list(width.cutoff=60)}
-
+library(dplyr)
+library(tidyverse)
 normalize <- function(x) {
   return ((x - min(x)) / (max(x) - min(x)))
 }
 
 
-clean_data = function(ds)
+clean_data = function(ds, pr, region, room = NULL)
 {
-  ds = select (ds,-c(host_id, id, host_name, name,minimum_nights,number_of_reviews,
-                     neighbourhood,last_review,availability_365,
-                     
-                     reviews_per_month,calculated_host_listings_count))
+  ds =ds[c(5,7:10)]
  
-
-  numerical = c("price","longitude", "latitude")
-  categorical = c("neighbourhood_group")
-  
-  ds[numerical] = scale(ds[numerical])
-  ds$neighbourhood_group = factor(ds$neighbourhood_group, 
-                                  level= c("Brooklyn","Manhattan",
-                                           "Queens","Staten Island", "Bronx"), 
-                                  labels=c(1,2,3,4,5))
-  ds$room_type = factor(ds$room_type, 
+  if(is.null(room))
+  {
+      ds$room_type = factor(ds$room_type, 
                         level= c("Private room","Entire home/apt","Shared room"), 
                         labels=c(1,2,3))
-  
+  }
+  else
+  {
+     ds=   ds%>%filter( room_type==room)
+  }
+  ds=   ds%>%filter( price < pr & neighbourhood_group == region)
+  numerical = c("price")
+
+  ds[numerical] = as.numeric(scale(ds[numerical]))
+  ds$neighbourhood_group = factor(ds$neighbourhood_group, 
+                                  level= c("Brooklyn","Manhattan",
+                                           "Queens","Staten Island", "Bronx"),
+                                  labels=c(1,2,3,4,5))
+ 
+ 
   return(ds)
 }
 #ggdraw() +
 #  draw_image("New_York_City_.png") +
 #  draw_plot(myplot)
 
-dataset = clean_data(ds)
+dataset = clean_data(ds,500,"Queens")[-1]
 
 head(dataset)
 ```
@@ -139,16 +144,16 @@ km.res$centers
 
 ```{r}
 #dataset$neighbourhood_group = as.numeric( dataset$neighbourhood_group)
-#dataset$room_type = as.numeric(  dataset$room_type)
-#fviz_cluster(km.res, data = dataset,
-#             palette = c("#00AFBB","#2E9FDF", "#E7B800", "#FC4E07"),
-#             ggtheme = theme_minimal(),
-#             main = "Partitioning Clustering Plot"
-#)
+dataset$room_type = as.numeric(  dataset$room_type)
+fviz_cluster(km.res, data = dataset,
+             palette = c("#00AFBB","#2E9FDF", "#E7B800", "#FC4E07"),
+             ggtheme = theme_minimal(),
+             main = "Partitioning Clustering Plot"
+)
 
-#res <- hcut(dataset, k = 4, stand = FALSE)
-#fviz_dend(km.res, rect = TRUE, cex = 0.5,
-#          k_colors = c("#00AFBB","#2E9FDF", "#E7B800", "#FC4E07"))
+res <- hcut(dataset, k = 4, stand = FALSE)
+fviz_dend(km.res, rect = TRUE, cex = 0.5,
+          k_colors = c("#00AFBB","#2E9FDF", "#E7B800", "#FC4E07"))
 
 ```
 
@@ -169,12 +174,12 @@ Compute Gower distance
 ```{r}
 dim(dataset)
 
-reduced <- dataset[ sample(1:nrow(dataset), nrow(dataset)/5) , ]
+#reduced <- dataset[ sample(1:nrow(dataset), nrow(dataset)/5) , ]
 
-print(dim(reduced))
-gower_dist <- daisy(reduced, metric = "gower")
+#print(dim(reduced))
+gower_dist <- daisy(dataset, metric = "gower")
 #proxy::simil(reduced, method = "gower")
-dim(gower_dist)
+#dim(gower_dist)
 
 ```
 
@@ -291,8 +296,8 @@ library(PCAmixdata)
 
 ## Split mixed dataset into quantitative and qualitative variables
 ## For now excluding the target variable "Churn", which will be added later as a supplementary variable
-split <- splitmix(dataset[1:5])  
-
+#split <- splitmix(dataset[1:5])  
+split = splitmix(dataset)
 ## PCA
 res.pcamix <- PCAmix(X.quanti=split$X.quanti,  
                      X.quali=split$X.quali, 
@@ -331,15 +336,17 @@ library(dendextend) # for comparing two dendrograms
 
 
 ```{r}
-reduced <- dataset[ sample(1:nrow(dataset), nrow(dataset)/10 ) , ]
-d <- dist(reduced, method = "euclidean")
+#reduced <- dataset[ sample(1:nrow(dataset), nrow(dataset)/10 ) , ]
+#d <- dist(dataset, method = "euclidean")
 
 
 # Hierarchical clustering using Complete Linkage
-hc1 <- hclust(d, method = "complete" )
+hc1 <- hclust(gower_dist, method = "complete" )
 
 # Plot the obtained dendrogram
 plot(hc1, cex = 0.6, hang = -1)
+plot(cut(hc1, h=75)$upper, 
+     main="Second branch of lower tree with cut at h=75")
 ```
 
 ```{r}
@@ -358,8 +365,8 @@ plot(hc1, cex = 0.6, hang = -1)
 ```
 
 ```{r}
-#hc3 <- agnes(reduced, method = "ward")
-#pltree(hc3, cex = 0.6, hang = -1, main = "Dendrogram of agnes") 
+hc3 <- agnes(dataset, method = "ward")
+pltree(hc3, cex = 0.6, hang = -1, main = "Dendrogram of agnes") 
 
 ```
 
@@ -404,4 +411,31 @@ for(i in 1:10)
     Es[i] <- kpres$tot.withinss
   }
 plot(1:10, Es, type = "b", ylab = "Objective Function", xlab = "# Clusters",main = "Scree Plot") 
+```
+
+
+
+```{r}
+d <- dist(dataset, method = "euclidean") # distance matrix
+fit <- hclust(d, method="ward")
+plot(fit) # display dendogram
+groups <- cutree(fit, k=5) # cut tree into 5 clusters
+# draw dendogram with red borders around the 5 clusters
+rect.hclust(fit, k=5, border="red") 
+```
+
+
+```{r}
+fit <- kmeans(dataset, 5)
+
+# Cluster Plot against 1st 2 principal components
+
+# vary parameters for most readable graph
+library(cluster)
+clusplot(dataset, fit$cluster, color=TRUE, shade=TRUE,
+   labels=2, lines=0)
+
+# Centroid Plot against 1st 2 discriminant functions
+library(fpc)
+plotcluster(dataset, fit$cluster) 
 ```
