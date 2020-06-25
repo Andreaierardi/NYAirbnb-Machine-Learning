@@ -33,6 +33,10 @@ head(ds)
 ```{r}
 summary(ds)
 ```
+```{r}
+sorted = sort(ds$price,decreasing = T) 
+sorted
+```
 
 # Data cleaning 
 
@@ -121,13 +125,25 @@ head(test)
 https://datascienceplus.com/fitting-neural-network-in-r/
 
 ```{r}
-lm.fit <- glm(price~., data=train)
+lm.fit <- lm(price~., data=train)
 summary(lm.fit)
 pr.lm <- predict(lm.fit,test)
 MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
 
 plot(lm.fit)
 ```
+```{r}
+without_out = clean_data(ds %>% filter( price < 1000) )
+without_out
+lm.fit <- lm(price~., data=without_out)
+summary(lm.fit)
+pr.lm <- predict(lm.fit,test)
+MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
+
+plot(lm.fit)
+```
+
+
 ## Variance Inflation Factor(VIF)
 "Rule of thumb"
     1 = not correlated.
@@ -516,15 +532,15 @@ summary(results_tree)
 
 ## Step 5) Evaluate the model
 ```{r}
-fit_rf <- train(neighbourhood_group~.,
+fit_rf <- caret::train(price~.,
                 train,
                 method = "rf",
-                metric = "Accuracy",
+                #metric = "Accuracy",
                 tuneGrid = tuneGrid,
                 trControl = trControl,
                 importance = TRUE,
                 nodesize = 14,
-                ntree = 1000,
+                ntree = 350,
                 maxnodes = 30)
 
 
@@ -543,7 +559,7 @@ plot(prediction_default, test$price)
 ## Step 6) Visualize Result
 
 #varImpPlot(fit_rf)
-
+class(fit_rf)
 ```
 
 ## Classification method
