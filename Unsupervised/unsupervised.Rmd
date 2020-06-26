@@ -63,7 +63,7 @@ normalize <- function(x) {
 
 clean_data = function(ds, pr, region, room = NULL)
 {
-  ds =ds[c(5:10)]
+  ds =ds[c(5,7:10)]
   
   if(is.null(room))
   {
@@ -76,14 +76,26 @@ clean_data = function(ds, pr, region, room = NULL)
      ds=   ds%>%filter( room_type==room)
      ds["room_type"] = NULL
   }
-  ds=   ds%>%filter( price < pr & neighbourhood_group == region)
-  numerical = c("price","latitude","longitude")
+   if(is.null(region))
+  {
+       ds=   ds%>%filter( price < pr )
 
-  ds[numerical] = as.numeric(scale(ds[numerical]))
-  ds$neighbourhood_group = factor(ds$neighbourhood_group, 
+    ds$neighbourhood_group = factor(ds$neighbourhood_group, 
                                   level= c("Brooklyn","Manhattan",
                                            "Queens","Staten Island", "Bronx"),
                                   labels=c(1,2,3,4,5))
+   }
+  else
+  {
+      ds=   ds%>%filter( price < pr & neighbourhood_group == region)
+      ds$neighbourhood_group = NULL
+
+  }
+  numerical = c("price","latitude","longitude")
+
+  ds[numerical] = as.numeric(scale(ds[numerical]))
+ 
+  
  
   return(ds)
 }
@@ -91,7 +103,7 @@ clean_data = function(ds, pr, region, room = NULL)
 #  draw_image("New_York_City_.png") +
 #  draw_plot(myplot)
 
-dataset = clean_data(ds,500,"Queens","Entire home/apt")[-1]
+dataset = clean_data(ds,500,NULL,"Entire home/apt")
 
 head(dataset)
 ```
@@ -105,7 +117,7 @@ head(dataset)
 
 
 ```{r}
-km.res = kmeans(dataset, 4, nstart = 25)
+km.res = kmeans(dataset, 5, nstart = 25)
 
 cat("First 10 Clusters association",km.res$cluster[1:10])
 cat("\nCenters")
@@ -390,17 +402,90 @@ where
 ```{r}
 library(clustMixType)
 
-kp = kproto(dataset,5)
+kp = kmeans(dataset[-1],8)
 kp 
 
-summary(kp)
+#ssummary(kp)
 ```
+```{r}
+kp$cluster[1:50]
+
+```
+
+```{r}
+
+index1 = which(kp$cluster==1)
+index2 = which(kp$cluster==2)
+index3= which(kp$cluster==3)
+index4= which(kp$cluster==4)
+index5= which(kp$cluster==5)
+index6 = which(kp$cluster==6)
+index7 = which(kp$cluster==7)
+index8= which(kp$cluster==8)
+index9= which(kp$cluster==9)
+index10= which(kp$cluster==10)
+
+clust1 = dataset[index1,]
+clust2 = dataset[index2,]
+clust3 = dataset[index3,]
+clust4 = dataset[index4,]
+clust5 = dataset[index5,]
+clust6 = dataset[index6,]
+clust7 = dataset[index7,]
+clust8 = dataset[index8,]
+clust9 = dataset[index9,]
+clust10 = dataset[index10,]
+
+myplot= ggplot() + 
+geom_point(data = clust1, aes(y = latitude, x = longitude), color = "red") +
+  geom_point(data = clust2, aes(y = latitude, x = longitude), color= "blue") +
+    geom_point(data = clust3, aes(y = latitude, x = longitude), color= "green") +
+  geom_point(data = clust4, aes(y = latitude, x = longitude), color= "yellow") +
+    geom_point(data = clust5, aes(y = latitude, x = longitude), color= "orange") +
+geom_point(data = clust6, aes(y = latitude, x = longitude), color = "black") +
+  geom_point(data = clust7, aes(y = latitude, x = longitude), color= "purple") +
+    geom_point(data = clust8, aes(y = latitude, x = longitude), color= "pink") +
+  geom_point(data = clust9, aes(y = latitude, x = longitude), color= "gray") +
+    geom_point(data = clust10, aes(y = latitude, x = longitude), color= "cyan") +
+  xlab('data_date') +
+  ylab('percent.change')
+
+
+mappa = ggplot(data = dataset,  aes(y=latitude,x = longitude))+geom_point()
+ 
+mappa
+myplot
+ 
+```
+
+install.packages(c("cowplot", "googleway", "ggplot2", "ggrepel", 
+"ggspatial", "libwgeom", "sf", "rnaturalearth", "rnaturalearthdata")
+
+We start by loading the basic packages necessary for all maps, i.e. ggplot2 and sf. We also suggest to use the classic dark-on-light theme for ggplot2 (theme_bw), which is appropriate for maps:
+
+
+```{r}
+# load libraries
+library(sf)
+library(raster)
+library(dplyr)
+library(spData)
+library(tmap)    # for static and interactive maps
+library(leaflet) # for interactive maps
+library(ggplot2) # tidyverse data visualization package
+library(shiny)   # for web applications
+#library(spDataLarge)
+
+
+
+```
+https://rpubs.com/jhofman/nycmaps   !!!!
 
 ```{r}
 
 library(wesanderson)
 par(mfrow=c(2,2))
-clprofiles(kp, dataset, col = wes_palette("Royal1",5, type = "continuous"))  
+clprofiles(kp, dataset[-1], col = wes_palette("Royal1",5, type = "continuous"))  
 ```
 
 ```{r}
