@@ -63,8 +63,8 @@ normalize <- function(x) {
 
 clean_data = function(ds, pr, region, room = NULL)
 {
-  ds =ds[c(5,7:10)]
- 
+  ds =ds[c(5:10)]
+  
   if(is.null(room))
   {
       ds$room_type = factor(ds$room_type, 
@@ -74,9 +74,10 @@ clean_data = function(ds, pr, region, room = NULL)
   else
   {
      ds=   ds%>%filter( room_type==room)
+     ds["room_type"] = NULL
   }
   ds=   ds%>%filter( price < pr & neighbourhood_group == region)
-  numerical = c("price")
+  numerical = c("price","latitude","longitude")
 
   ds[numerical] = as.numeric(scale(ds[numerical]))
   ds$neighbourhood_group = factor(ds$neighbourhood_group, 
@@ -84,14 +85,13 @@ clean_data = function(ds, pr, region, room = NULL)
                                            "Queens","Staten Island", "Bronx"),
                                   labels=c(1,2,3,4,5))
  
- 
   return(ds)
 }
 #ggdraw() +
 #  draw_image("New_York_City_.png") +
 #  draw_plot(myplot)
 
-dataset = clean_data(ds,500,"Queens")[-1]
+dataset = clean_data(ds,500,"Queens","Entire home/apt")[-1]
 
 head(dataset)
 ```
@@ -144,7 +144,7 @@ km.res$centers
 
 ```{r}
 #dataset$neighbourhood_group = as.numeric( dataset$neighbourhood_group)
-dataset$room_type = as.numeric(  dataset$room_type)
+#dataset$room_type = as.numeric(  dataset$room_type)
 fviz_cluster(km.res, data = dataset,
              palette = c("#00AFBB","#2E9FDF", "#E7B800", "#FC4E07"),
              ggtheme = theme_minimal(),
@@ -417,7 +417,7 @@ plot(1:10, Es, type = "b", ylab = "Objective Function", xlab = "# Clusters",main
 
 ```{r}
 d <- dist(dataset, method = "euclidean") # distance matrix
-fit <- hclust(d, method="ward")
+fit <- hclust(d, method="complete")
 plot(fit) # display dendogram
 groups <- cutree(fit, k=5) # cut tree into 5 clusters
 # draw dendogram with red borders around the 5 clusters

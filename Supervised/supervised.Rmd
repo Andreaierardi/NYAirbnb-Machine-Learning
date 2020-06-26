@@ -29,6 +29,23 @@ head(ds)
 
 ```
 # Data Inspection
+```{r}
+ok = ok %>%filter( price < 500)
+
+ok = as.data.frame(scale(ok))
+ggplot(as.data.frame(scale(ok)),aes(x=longitude,y=latitude, col=price))+geom_point()
+
+filtered = ds%>%filter( price < 500)
+
+ggplot(filtered,aes(x=longitude,y=latitude, col=price))+geom_point()
+
+
+```
+
+```{r}
+ggplot(dataset,aes(x=longitude,y=latitude, col=price))+geom_point()
+
+```
 
 ```{r}
 summary(ds)
@@ -73,7 +90,7 @@ clean_data = function(ds, pr, region)
   ds = ds %>% filter(neighbourhood_group == region)
   numerical = c("price")
 
-  ds[numerical] = scale(ds[numerical])
+  #ds[numerical] = as.numeric(scale(ds[numerical]))
   ds$neighbourhood_group = factor(ds$neighbourhood_group, 
                                   level= c("Brooklyn","Manhattan",
                                            "Queens","Staten Island", "Bronx"),
@@ -294,7 +311,22 @@ plot(train$price,predict(rf2),col='red',main='OOB error',pch=18,cex=0.7)
 abline(0,1,lwd=2)
 legend('bottomright',legend='NN',pch=18,col='red', bty='n')
 ```
+```{r}
 
+pred <-predict(rf2,test)
+actuals_preds <- data.frame(cbind(actuals=test$price, predicteds=pred))  # make actuals_predicteds dataframe.
+
+correlation_accuracy <- cor(actuals_preds)  # 0.6043436
+print(correlation_accuracy)
+head(actuals_preds)
+```
+```{r}
+min_max_accuracy <- mean(apply(actuals_preds, 1, min) / apply(actuals_preds, 1, max))  
+min_max_accuracy
+
+mape <- mean(abs((actuals_preds$predicteds - actuals_preds$actuals))/actuals_preds$actuals)
+mape
+```
 
 ```{r}
 library(randomForest)
