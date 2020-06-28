@@ -4,18 +4,27 @@
 
 \maketitle
 
+% ML template reports
+% https://www.cs.utexas.edu/~mooney/cs391L/paper-template.html
+%https://github.com/udacity/machine-learning/blob/master/projects/capstone/report-example-1.pdf
 \newpage
 \tableofcontents
 \newpage
 \section{Abstract}
-The aim of the project is to analyse the data from the "New York City Airbnb Open Data" from the Kaggle website.
-\\ In particular, we focus on the developing of predictive model to forecast the house' prices using Supervised Learning algorithms: 
-\begin{itemize}
+The aim of the project is to analyse and develop prediction models for the data from the "New York City Airbnb Open Data" from a Kaggle competition.
+\\ In particular, one part is focused on the developing predictive model to forecast house prices using Supervised Learning technics:\begin{itemize}
+\itemsep0em 
+\item Linear Regression
 \item Decision Tree
 \item Random Forest
 \item Ranger Random Forest
-\item Linear Regression
 \item Neural Newtworks (?)
+\end{itemize}
+The second part is focused on the clusterisation of the data using Unsupervised Learning technics: Cluster Analysis and K-means algorithm.
+\begin{itemize}
+\itemsep0em
+\item Cluster Analysis
+\item K-means Algorithm
 \end{itemize}
 A crucial part of the project was to the tuning and finding of the hyperparameters of the different models in order to get the best fit.
 %%Eachreport must contain:\\
@@ -31,13 +40,35 @@ A crucial part of the project was to the tuning and finding of the hyperparamete
 %•The report should be prepared inPDFonly
 
 \newpage
-\section{Goal}
-The goal is developing different models in order to predict the price of a house in New York.
+\section{Problem Definition and Algorithm}
+\subsection{The main Goal}
+The project is focused on a AirBnB user point of view. It is possible to image an application in which the user has a lot of information depending on the objective. For a landlord point of view, giving the information about the longitude and the latitude of the house, he/she will have as output the estimated price given based also on the neighbourhood group in New York City. For a guest point of view, he/she will give in input information about the price range and the type of room to get as output the most suitable houses for him or predict the position of one of that.\\
+For the Unsupervised part, the goal is to define cluster of price in which is possible to split out the houses, firstly in the entire city, secondly filtering for Neighborhood or room type. 
+
+\subsection{Algorithms}
+\subsubsection{Linear Regression}
+ Linear regression  is a linear approach to modeling the relationship between a dependent variable and one or more independent variables. Linear regression should be suitable, since there could be a linear relationship between the position and the price. In the city center there will be the expensive houses, while in the outskirts there will be the cheaper ones.
+  \subsubsection{Decison Trees}
+In decision analysis, a decision tree can be used to visually and explicitly represent decisions and decision making.
+
+ \subsubsection{Random Forest}
+ Random forests are an ensemble learning method for classification, regression and other tasks that operate by constructing a multitude of decision trees.
+ \subsubsection{Ranger Random Forest}
+Ranger is a fast implementation of random forests or recursive partitioning, particularly suited for high dimensional data. 
+
+ 
 \newpage
-\section{Discussion}
+\section{Experimental Evaluation}
 
+\subsection{Methodology}
+\subsubsection{Data Inspection}
+\subsubsection{Data Cleaning and Pre-processing}
 
-\subsection{Dataset }
+\subsection{Results}
+\subsection{Discussion}
+
+\section{Conclusion}
+
 The dataset used in this project is one of a Kaggle competiotion and is called the New York City Airbnb Open Data. It contains 48.000 data points for each different column.
 The dataset has different columns: 
 \begin{itemize}

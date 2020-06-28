@@ -110,7 +110,7 @@ BoldItalicFont=ArnoPro-BoldItalic
 \textcolor{Blu}{\sc\centering\onehalfspacing\fontsize{4mm}{6mm}\selectfont Department od Economics, Management and Quantitative Methods\\Università degli Studi di Milano\\Data science and economics \\[1cm]}
 \end{center}
 \begin{center}
-\Large\bfseries\sc Statistical Learning Project\\[0.5cm] \bfseries\Huge\sc Price prediction models \\for New York City Airbnb \\[0.8cm]\normalsize\sc Supervised Learning Report\\ 
+\Large\bfseries\sc Statistical Learning Project\\[0.5cm] \bfseries\Huge\sc Analysis and prediction models\\for New York City Airbnb \\[0.8cm]\normalsize\sc Supervised Learning Report\\ 
 \end{center}
 
 \vspace{5.5cm}

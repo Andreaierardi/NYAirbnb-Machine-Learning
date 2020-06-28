@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  21 JUN 2020 18:32
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  28 JUN 2020 19:12
 entering extended mode
 **./projectemplate.tex
 (projectemplate.tex
@@ -1690,69 +1690,71 @@ File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 
 ]
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 12.47992pt on input line 8.
+(Font)              scaled to size 12.47992pt on input line 11.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 25.87503pt on input line 8.
+(Font)              scaled to size 25.87503pt on input line 11.
 
 
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <24.88> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 8.
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 11.
 
-(projectemplate.toc)
+(projectemplate.toc [2])
 \tf@toc=\write5
 \openout5 = `projectemplate.toc'.
 
- [2]
+ [3]
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 83.19946pt on input line 10.
+(Font)              scaled to size 83.19946pt on input line 13.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 14.97589pt on input line 10.
- [3] [4]
+(Font)              scaled to size 14.97589pt on input line 13.
+ [4]
+Overfull \hbox (13.01924pt too wide) in paragraph at lines 43--43
+|\TU/lmr/m/sc/24.88 Problem Definition and Algorithm| 
+ []
+
 
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <14.4> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 40.
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 44.
 
 
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <12> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 40.
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 44.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--60
+LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 49.
+
+[5] [6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
 
  []
 
-[5]
 File: figures/figure1.jpg Graphic file (type bmp)
 <figures/figure1.jpg>
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--66
+Underfull \hbox (badness 10000) in paragraph at lines 92--97
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--69
+Underfull \hbox (badness 10000) in paragraph at lines 98--100
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 108--110
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--79
+Underfull \hbox (badness 10000) in paragraph at lines 116--118
 
  []
 
-[6]
-
-LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 84.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--87
-
- []
-
-[7] [8] [9] [10]
+[9] [10] [11] [12]
 File: grafo.png Graphic file (type bmp)
 <grafo.png>
- [11]
+ [13]
 
 Package fontspec Warning: OpenType feature 'Contextuals=Swash,Alternate'
 (fontspec)                (cswh) not available for font
@@ -1830,41 +1832,47 @@ n;language=dflt;+liga;+sups;mapping=tex-text;"
 n;language=dflt;+liga;+sups;+smcp;mapping=tex-text;"
 
 LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 12.47992pt on input line 147.
+(Font)              scaled to size 12.47992pt on input line 178.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 147.
+(Font)              scaled to size 10.39993pt on input line 178.
 LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 147.
-[12] [13]
+(Font)              scaled to size 10.39993pt on input line 178.
+[14] [15]
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/it' will be
-(Font)              scaled to size 12.47992pt on input line 154.
+(Font)              scaled to size 12.47992pt on input line 185.
 
-Underfull \hbox (badness 1521) in paragraph at lines 154--155
+Underfull \hbox (badness 1521) in paragraph at lines 185--186
 []\TU/ArnoPro(1)/m/n/12 Giusti, Santochi, \TU/ArnoPro(1)/m/it/12 Tecnologia Mec
 canica e Studi di Fabbricazione\TU/ArnoPro(1)/m/n/12 . Casa Editrice Am-
  []
 
-[14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 165.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 165.
+[16]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
  (projectemplate.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 165.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 165.
-Package rerunfilecheck Info: File `projectemplate.out' has not changed.
-(rerunfilecheck)             Checksum: 19CA5E8064BB62E77E80F909C17766CF;1464.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 196.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 196.
 
+
+Package rerunfilecheck Warning: File `projectemplate.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `projectemplate.out':
+(rerunfilecheck)             Before: DCAC65C251B6B516E5A415D91CABC124;2127
+(rerunfilecheck)             After:  0BB8A046FF914E45B62A5B4568E1533F;2331.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 165.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 196.
  ) 
 Here is how much of TeX's memory you used:
- 47903 strings out of 414221
- 1112161 string characters out of 2902595
- 1562814 words of memory out of 3000000
- 64499 multiletter control sequences out of 15000+200000
+ 47906 strings out of 414221
+ 1112199 string characters out of 2902595
+ 1563814 words of memory out of 3000000
+ 64502 multiletter control sequences out of 15000+200000
  567440 words of font info for 103 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 76i,10n,102p,956b,833s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 76i,10n,102p,956b,831s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on projectemplate.pdf (14 pages).
+Output written on projectemplate.pdf (16 pages).

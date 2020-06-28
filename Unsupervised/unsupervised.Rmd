@@ -103,7 +103,7 @@ clean_data = function(ds, pr, region, room = NULL)
 #  draw_image("New_York_City_.png") +
 #  draw_plot(myplot)
 
-dataset = clean_data(ds,500,NULL,"Entire home/apt")
+dataset = clean_data(ds,500,NULL,NULL)[-1]
 
 head(dataset)
 ```
@@ -402,7 +402,7 @@ where
 ```{r}
 library(clustMixType)
 
-kp = kmeans(dataset[-1],8)
+kp = kmeans(dataset[-3],4)
 kp 
 
 #ssummary(kp)
@@ -413,7 +413,13 @@ kp$cluster[1:50]
 ```
 
 ```{r}
+library(ggplot2)
+library(ggpubr)
+library(jpeg)
 
+
+img <- readJPEG("ny.png")
+   
 index1 = which(kp$cluster==1)
 index2 = which(kp$cluster==2)
 index3= which(kp$cluster==3)
@@ -436,12 +442,12 @@ clust8 = dataset[index8,]
 clust9 = dataset[index9,]
 clust10 = dataset[index10,]
 
-myplot= ggplot() + 
+myplot= ggplot() +background_image(img)+
 geom_point(data = clust1, aes(y = latitude, x = longitude), color = "red") +
   geom_point(data = clust2, aes(y = latitude, x = longitude), color= "blue") +
     geom_point(data = clust3, aes(y = latitude, x = longitude), color= "green") +
   geom_point(data = clust4, aes(y = latitude, x = longitude), color= "yellow") +
-    geom_point(data = clust5, aes(y = latitude, x = longitude), color= "orange") +
+    geom_point(data =clust5, aes(y = latitude, x = longitude), color= "orange") +
 geom_point(data = clust6, aes(y = latitude, x = longitude), color = "black") +
   geom_point(data = clust7, aes(y = latitude, x = longitude), color= "purple") +
     geom_point(data = clust8, aes(y = latitude, x = longitude), color= "pink") +
@@ -450,12 +456,77 @@ geom_point(data = clust6, aes(y = latitude, x = longitude), color = "black") +
   xlab('data_date') +
   ylab('percent.change')
 
+#size = price
+mappa = ggplot() + background_image(img)+ geom_point(data = dataset,  aes(y=latitude,x = longitude, color = price)) 
 
-mappa = ggplot(data = dataset,  aes(y=latitude,x = longitude))+geom_point()
  
 mappa
-myplot
+
+#dev.new(width=5, height=4)
+myplot+ theme(plot.margin = unit(c(1,1,1,1),"cm"),legend.title = element_text(colour="blue", size=10, 
+                                      face="bold"))
  
+```
+
+```{r}
+
+cat("\nCluster1:\n")
+summary(clust1)
+
+cat("\nCluster2:\n")
+summary(clust2)
+
+
+cat("\nCluster3:\n")
+summary(clust3)
+
+cat("\nCluster4:\n")
+summary(clust4)
+
+cat("\nCluster5:\n")
+summary(clust5)
+
+cat("\nCluster6:\n")
+summary(clust6)
+
+cat("\nCluster7:\n")
+summary(clust7)
+
+cat("\nCluster8:\n")
+summary(clust8)
+
+cat("\nCluster9:\n")
+summary(clust9)
+
+cat("\nCluster10s:\n")
+summary(clust10)
+```
+
+```{r}
+
+```
+
+```{r}
+
+library(png)
+my_image <- readPNG("newyork.png")
+ 
+# Set up a plot area with no plot
+plot(1:2, type='n', main="", xlab="x", ylab="y")
+ 
+# Get the plot information so the image will fill the plot box, and draw it
+lim <- par()
+rasterImage(my_image, 
+            xleft=1, xright=2, 
+            ybottom=1, ytop=2)
+grid()
+ 
+points(clust1$latitude,clust1$longitude, col = "black", lwd = 5, type="b")
+#Add your plot !
+#lines(
+#  x=c(1, 1.2, 1.4, 1.6, 1.8, 2.0), 
+#  y=c(1, 1.3, 1.7, 1.6, 1.7, 1.0), 
+#  type="b", lwd=5, col="black")
 ```
 
 install.packages(c("cowplot", "googleway", "ggplot2", "ggrepel", 

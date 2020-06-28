@@ -800,13 +800,12 @@ library(keras)
 # - tensorflow::install_tensorflow()
 # - miniconda
 
-start.time <- Sys.time()
 
 
 build_model <- function() {
   
   model <- keras_model_sequential() %>%
-    layer_dense(units = 64, activation = "relu",
+    layer_dense(units = 4, activation = "relu",
                 input_shape = dim(train[-5])) %>%
     layer_dense(units = 64, activation = "relu") %>%
     layer_dense(units = 1)
@@ -822,9 +821,7 @@ build_model <- function() {
 
 model <- build_model()
 
-print("-- Real Time: -- ")
-time.taken
-cat("\n")    
+
 
 model %>% summary()
 ```
