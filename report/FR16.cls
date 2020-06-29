@@ -96,7 +96,8 @@ BoldItalicFont=ArnoPro-BoldItalic
 
 \onehalfspacing
 
-
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
 %--Titolo--
 \renewcommand{\maketitle}{
 \thispagestyle{empty}

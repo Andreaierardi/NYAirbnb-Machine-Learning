@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  28 JUN 2020 19:12
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  29 JUN 2020 18:17
 entering extended mode
 **./projectemplate.tex
 (projectemplate.tex
@@ -1725,36 +1725,44 @@ LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
 (Font)              Font shape `TU/lmr/m/sc' tried instead on input line 49.
 
 [5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
 
  []
 
 File: figures/figure1.jpg Graphic file (type bmp)
 <figures/figure1.jpg>
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--97
+Underfull \hbox (badness 10000) in paragraph at lines 85--93
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--100
+Underfull \hbox (badness 10000) in paragraph at lines 85--93
 
  []
 
+File: figures/figure2.pdf Graphic file (type pdf)
+<use figures/figure2.pdf>
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 108--110
+File: figures/figure3.pdf Graphic file (type pdf)
+<use figures/figure3.pdf>
+ [9]
+File: figures/figure4.PNG Graphic file (type bmp)
+<figures/figure4.PNG>
+ [10]
+Underfull \hbox (badness 10000) in paragraph at lines 139--141
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--118
+Underfull \hbox (badness 10000) in paragraph at lines 147--149
 
  []
 
-[9] [10] [11] [12]
+[11] [12] [13] [14]
 File: grafo.png Graphic file (type bmp)
 <grafo.png>
- [13]
+ [15]
 
 Package fontspec Warning: OpenType feature 'Contextuals=Swash,Alternate'
 (fontspec)                (cswh) not available for font
@@ -1832,26 +1840,26 @@ n;language=dflt;+liga;+sups;mapping=tex-text;"
 n;language=dflt;+liga;+sups;+smcp;mapping=tex-text;"
 
 LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 12.47992pt on input line 178.
+(Font)              scaled to size 12.47992pt on input line 209.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 178.
+(Font)              scaled to size 10.39993pt on input line 209.
 LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 178.
-[14] [15]
+(Font)              scaled to size 10.39993pt on input line 209.
+[16] [17]
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/it' will be
-(Font)              scaled to size 12.47992pt on input line 185.
+(Font)              scaled to size 12.47992pt on input line 216.
 
-Underfull \hbox (badness 1521) in paragraph at lines 185--186
+Underfull \hbox (badness 1521) in paragraph at lines 216--217
 []\TU/ArnoPro(1)/m/n/12 Giusti, Santochi, \TU/ArnoPro(1)/m/it/12 Tecnologia Mec
 canica e Studi di Fabbricazione\TU/ArnoPro(1)/m/n/12 . Casa Editrice Am-
  []
 
-[16]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
+[18]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 227.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 227.
  (projectemplate.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 196.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 196.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 227.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 227.
 
 
 Package rerunfilecheck Warning: File `projectemplate.out' has changed.
@@ -1859,20 +1867,20 @@ Package rerunfilecheck Warning: File `projectemplate.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `projectemplate.out':
-(rerunfilecheck)             Before: DCAC65C251B6B516E5A415D91CABC124;2127
-(rerunfilecheck)             After:  0BB8A046FF914E45B62A5B4568E1533F;2331.
+(rerunfilecheck)             Before: F6745354F3FC9BC240AD5BCBFCD39FD9;2234
+(rerunfilecheck)             After:  828226CA615843B089BCF26E9A4A3D39;2552.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 196.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 227.
  ) 
 Here is how much of TeX's memory you used:
- 47906 strings out of 414221
- 1112199 string characters out of 2902595
+ 47929 strings out of 414221
+ 1112626 string characters out of 2902595
  1563814 words of memory out of 3000000
- 64502 multiletter control sequences out of 15000+200000
+ 64521 multiletter control sequences out of 15000+200000
  567440 words of font info for 103 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 76i,10n,102p,956b,831s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 76i,10n,102p,956b,843s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on projectemplate.pdf (16 pages).
+Output written on projectemplate.pdf (18 pages).

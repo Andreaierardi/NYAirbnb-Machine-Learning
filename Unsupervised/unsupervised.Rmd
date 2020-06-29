@@ -32,6 +32,7 @@ library(dplyr)
 ```{r}
 ds = read.csv("AB_NYC_2019.csv")
 head(ds)
+summary(ds)
 ```
 
 # Data cleaning 
@@ -50,6 +51,21 @@ apply(ds,2,function(x) sum(is.na(x)))
 #
 
 ```
+```{r}
+library(ggplot2)
+library(ggpubr)
+library(png)
+
+
+img <- readPNG("map.png")
+   
+
+map_ds = ggplot() + background_image(img)+ geom_point(data = ds,  aes(y=latitude,x = longitude, color = price)) 
+
+ 
+map_ds
+
+```
 
 ## Normalisation and selection of the variables
 
@@ -61,10 +77,11 @@ normalize <- function(x) {
 }
 
 
-clean_data = function(ds, pr, region, room = NULL)
+clean_data = function(ds, pr=NULL, region= NULL, room = NULL)
 {
   ds =ds[c(5,7:10)]
-  
+  ds=   ds%>%filter( price >= 15 )
+
   if(is.null(room))
   {
       ds$room_type = factor(ds$room_type, 
@@ -78,7 +95,6 @@ clean_data = function(ds, pr, region, room = NULL)
   }
    if(is.null(region))
   {
-       ds=   ds%>%filter( price < pr )
 
     ds$neighbourhood_group = factor(ds$neighbourhood_group, 
                                   level= c("Brooklyn","Manhattan",
@@ -91,11 +107,14 @@ clean_data = function(ds, pr, region, room = NULL)
       ds$neighbourhood_group = NULL
 
   }
-  numerical = c("price","latitude","longitude")
+  if(!is.null(pr))
+  {
+    ds=   ds%>%filter( price < pr )
 
+  }
+  numerical = c("price")
   ds[numerical] = as.numeric(scale(ds[numerical]))
- 
-  
+
  
   return(ds)
 }
@@ -103,11 +122,27 @@ clean_data = function(ds, pr, region, room = NULL)
 #  draw_image("New_York_City_.png") +
 #  draw_plot(myplot)
 
-dataset = clean_data(ds,500,NULL,NULL)[-1]
+dataset = clean_data(ds,500,"Manhattan",NULL)
 
 head(dataset)
+summary(dataset)
 ```
 
+```{r}
+library(ggplot2)
+library(ggpubr)
+library(png)
+
+
+img <- readPNG("manhattan.png")
+   
+
+mappa = ggplot()+ geom_point(data = dataset,  aes(y=latitude,x = longitude, color = price)) 
+
+ 
+mappa
+
+```
 # K-MEANS 
 
 **x**: numeric matrix, numeric data frame or a numeric vector
@@ -402,7 +437,7 @@ where
 ```{r}
 library(clustMixType)
 
-kp = kmeans(dataset[-3],4)
+kp = kmeans(dataset[-3],3)
 kp 
 
 #ssummary(kp)
@@ -415,10 +450,10 @@ kp$cluster[1:50]
 ```{r}
 library(ggplot2)
 library(ggpubr)
-library(jpeg)
+library(png)
 
 
-img <- readJPEG("ny.png")
+img <- readPNG("map.png")
    
 index1 = which(kp$cluster==1)
 index2 = which(kp$cluster==2)
@@ -443,10 +478,10 @@ clust9 = dataset[index9,]
 clust10 = dataset[index10,]
 
 myplot= ggplot() +background_image(img)+
+      geom_point(data = clust3, aes(y = latitude, x = longitude), color= "darkgreen") +
 geom_point(data = clust1, aes(y = latitude, x = longitude), color = "red") +
   geom_point(data = clust2, aes(y = latitude, x = longitude), color= "blue") +
-    geom_point(data = clust3, aes(y = latitude, x = longitude), color= "green") +
-  geom_point(data = clust4, aes(y = latitude, x = longitude), color= "yellow") +
+  geom_point(data = clust4, aes(y = latitude, x = longitude), color= "purple") +
     geom_point(data =clust5, aes(y = latitude, x = longitude), color= "orange") +
 geom_point(data = clust6, aes(y = latitude, x = longitude), color = "black") +
   geom_point(data = clust7, aes(y = latitude, x = longitude), color= "purple") +
