@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  30 JUN 2020 14:00
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  30 JUN 2020 20:34
 entering extended mode
 **./projectemplate.tex
 (projectemplate.tex
@@ -1778,12 +1778,57 @@ File: figures/lm3.PNG Graphic file (type bmp)
 File: figures/lm1.PNG Graphic file (type bmp)
 <figures/lm1.PNG>
  [11]
-Underfull \hbox (badness 10000) in paragraph at lines 166--168
+Underfull \hbox (badness 10000) in paragraph at lines 157--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--171
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--171
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--171
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--171
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 174--176
+Underfull \hbox (badness 10000) in paragraph at lines 183--185
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--193
 
  []
 
@@ -1868,33 +1913,33 @@ n;language=dflt;+liga;+sups;mapping=tex-text;"
 n;language=dflt;+liga;+sups;+smcp;mapping=tex-text;"
 
 LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 12.47992pt on input line 236.
+(Font)              scaled to size 12.47992pt on input line 253.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 236.
+(Font)              scaled to size 10.39993pt on input line 253.
 LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 236.
+(Font)              scaled to size 10.39993pt on input line 253.
 [18] [19]
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/it' will be
-(Font)              scaled to size 12.47992pt on input line 243.
+(Font)              scaled to size 12.47992pt on input line 260.
 
-Underfull \hbox (badness 1521) in paragraph at lines 243--244
+Underfull \hbox (badness 1521) in paragraph at lines 260--261
 []\TU/ArnoPro(1)/m/n/12 Giusti, Santochi, \TU/ArnoPro(1)/m/it/12 Tecnologia Mec
 canica e Studi di Fabbricazione\TU/ArnoPro(1)/m/n/12 . Casa Editrice Am-
  []
 
 [20]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 254.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 254.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 271.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 271.
  (projectemplate.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 254.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 254.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 271.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 271.
 Package rerunfilecheck Info: File `projectemplate.out' has not changed.
 (rerunfilecheck)             Checksum: 2B58948E67F0C1C58ED2B2EA4F69FC0F;2552.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 254.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 271.
  ) 
 Here is how much of TeX's memory you used:
  47951 strings out of 414221
