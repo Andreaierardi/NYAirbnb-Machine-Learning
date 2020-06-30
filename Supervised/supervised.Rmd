@@ -142,7 +142,29 @@ print(dim(test))
 head(test)
 ```
 
+```{r}
+library(dplyr)
+ds_neig =  dataset %>% filter(neighbourhood_group == 2)
+ds_neig = ds_neig[-1]
 
+
+sample_neig = sample.split(ds_neig, SplitRatio = .75)
+train_neig = subset(ds_neig, sample == TRUE)
+test_neig  = subset(ds_neig, sample == FALSE)
+
+
+ds_neig_room = dataset %>% filter(neighbourhood_group == 2 & room_type == 1)
+ds_neig_room = ds_neig_room[-1][-3]
+
+sample_neig = sample.split(ds_neig, SplitRatio = .75)
+train_neig_room = subset(ds_neig_room, sample == TRUE)
+test_neig_room  = subset(ds_neig_room, sample == FALSE)
+
+
+
+train_neig
+train_neig_room
+```
 
 # LINEAR REGRESSION
 
@@ -152,7 +174,7 @@ https://datascienceplus.com/fitting-neural-network-in-r/
 ```{r}
 
 cat("=== Linear Regression without filters ===\n")
-lm.fit <- lm(price~latitude+ longitude+ room_type+neighbourhood_group, data=train)
+lm.fit <- lm(price~., data=train)
 summary(lm.fit)
 pr.lm <- predict(lm.fit,test)
 MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
@@ -165,11 +187,10 @@ library(dplyr)
 
 cat(" === Linear Regression selecting the Neighboorhood group === \n")
 cat("Neighboorhood group = Manhattan\n ")
-train_filtered = train %>% filter(neighbourhood_group ==1)
-lm.fit <- lm(price~latitude+ longitude+ room_type, data=train_filtered[-1])
+lm.fit <- lm(price~., data=train_neig)
 summary(lm.fit)
-pr.lm <- predict(lm.fit,test)
-MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
+pr.lm <- predict(lm.fit,test_neig)
+MSE.lm <- sum((pr.lm - test_neig$price)^2)/nrow(test_neig)
 
 cat("MSE: ",MSE.lm)
 plot(lm.fit)
@@ -180,24 +201,13 @@ library(dplyr)
 
 cat("=== Linear Regression selecting the Neighboorhood group and room_type ===\n")
 cat("Neighboorhood group = Manhattan and room_type = Entire home/apt\n ")
-train_filtered = train %>% filter(neighbourhood_group == 1 & room_type == 1)
-lm.fit <- lm(price~latitude+ longitude, data=train_filtered[-1])
+
+lm.fit <- lm(price~., data=train_neig_room)
 summary(lm.fit)
-pr.lm <- predict(lm.fit,test)
-MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
+pr.lm <- predict(lm.fit,test_neig_room)
+MSE.lm <- sum((pr.lm - test_neig_room$price)^2)/nrow(test_neig_room)
 
 cat("MSE: ",MSE.lm)
-plot(lm.fit)
-```
-```{r}
-library(dplyr)
-
-train_filtered = train %>% filter(room_type == 1)
-lm.fit <- lm(price~latitude+ longitude+ neighbourhood_group, data=train_filtered[-4])
-summary(lm.fit)
-pr.lm <- predict(lm.fit,test)
-MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
-
 plot(lm.fit)
 ```
 
@@ -231,6 +241,10 @@ tree_reg =tree(price~., data = train)
 cat(" === Decision Tree without filters === \n")
 summary(tree_reg)
 
+yhat=predict(tree_reg,test)
+tree_reg_mse = mean((yhat-test$price)^2)
+tree_reg_mse
+
 plot(tree_reg)
 text(tree_reg,pretty=0)
 
@@ -241,25 +255,27 @@ text(tree_reg,pretty=0)
 
 cat(" === Decision Tree selecting the Neighboorhood group === \n")
 cat("Neighboorhood group = Manhattan\n ")
-train_filtered = train %>% filter(neighbourhood_group ==1)
 
-tree_reg =tree(price~ latitude+longitude+room_type, data = train_filtered)
+tree_reg =tree(price~., data = train_neig)
 summary(tree_reg)
+tree_reg_mse = mean((predict(tree_reg,test_neig)-test_neig$price)^2)
+tree_reg_mse
+
 
 plot(tree_reg)
-text(tree_reg,pretty=0)
+text(tree_reg,pretty=1)
 
 
 ```
 
 
 ```{r}
-
 cat("=== Decision Tree selecting the Neighboorhood group and room_type ===\n")
 cat("Neighboorhood group = Manhattan and room_type = Entire home/apt\n ")
-train_filtered = train %>% filter(neighbourhood_group == 1 & room_type == 1)
-tree_reg =tree(price~latitude+longitude, data = train)
+tree_reg =tree(price~., data = train_neig_room)
 summary(tree_reg)
+tree_reg_mse = mean((predict(tree_reg,test_neig_room)-test_neig_room$price)^2)
+tree_reg_mse
 
 plot(tree_reg)
 text(tree_reg,pretty=0)
@@ -278,10 +294,13 @@ legend('bottomright',legend='TR',pch=18,col='red', bty='n')
 ```
 
 ```{r}
+
+
 yhat=predict(tree_reg,test)
 plot(yhat,test$price)
 abline(0,1)
-mean((yhat-test$price)^2)
+tree_reg_mse = mean((yhat-test$price)^2)
+tree_reg_mse
 ```
 
 # RANDOM FOREST
@@ -316,30 +335,30 @@ cat("=== Random Forest selecting the Neighboorhood group and room_type ===\n")
 cat("Neighboorhood group = Manhattan and room_type = Entire home/apt\n ")
 train_filtered = train %>% filter(neighbourhood_group == 1 & room_type == 1)
 
-rf <- randomForest(
+rf2 <- randomForest(
   price ~ latitude+longitude,
   data=train_filtered,
   # importance = TRUE
 )
-rf
-varImpPlot(rf)
-plot(rf)
+rf2
+varImpPlot(rf2)
+plot(rf2)
 ```
 
 ```{r}
 cat(" === Random Forest selecting the Neighboorhood group === \n")
 cat("Neighboorhood group = Manhattan\n ")
-train_filtered = train %>% filter(neighbourhood_group ==5)
+train_filtered = train %>% filter(neighbourhood_group ==1)
 
 
-rf <- randomForest(
+rf3 <- randomForest(
   price ~ latitude+longitude+room_type,
   data=train_filtered,
   # importance = TRUE
 )
-rf
-varImpPlot(rf)
-plot(rf)
+rf3
+varImpPlot(rf3)
+plot(rf3)
 
 ```
 
@@ -376,7 +395,7 @@ mape
 ```{r}
 library(randomForest)
 library(e1071)
-
+library(caret)
 trControl <- trainControl(method = "cv",
                           number = 10,
                           search = "grid",
@@ -647,11 +666,60 @@ print("-- Real Time: -- ")
 time.taken
 cat("\n")    
 ```
+```{r}
+library(tuneRanger)
 
+cat(" === Random Forest selecting the Neighboorhood group === \n")
+cat("Neighboorhood group = Manhattan\n ")
+train_filtered = train %>% filter(neighbourhood_group ==1)
+
+task2 = makeRegrTask(data = train_filtered[-1], target = "price")
+estimateTimeTuneRanger(task2, iters = 20, num.threads = 8, num.trees = 1000)
+
+
+start.time <- Sys.time()
+
+
+     
+res2 = tuneRanger(task, measure = list(mse), num.trees = 1000, 
+                 num.threads = 8, iters = 20,  show.info = getOption("mlrMBO.show.info", TRUE))
+
+
+
+print("-- Real Time: -- ")
+time.taken
+cat("\n")    
+```
+
+```{r}
+library(tuneRanger)
+
+cat(" === Ranger Random Forest selecting the Neighboorhood group and room_type=== \n")
+cat("Neighboorhood group = Manhattan and room_type=Entire-home/Apt\n ")
+train_filtered = train %>% filter(neighbourhood_group ==1 & room_type ==1)
+train_filtered = train_filtered[-1][-3]
+task2 = makeRegrTask(data = train_filtered, target = "price")
+estimateTimeTuneRanger(task2, iters = 20, num.threads = 8, num.trees = 1000)
+
+
+start.time <- Sys.time()
+
+
+     
+res2 = tuneRanger(task, measure = list(mse), num.trees = 1000, 
+                 num.threads = 8, iters = 20,  show.info = getOption("mlrMBO.show.info", TRUE))
+
+
+
+print("-- Real Time: -- ")
+time.taken
+cat("\n")    
+```
 
 Mean of best 5 % of the results
 ```{r}
-res
+res$model
+
 ```
 
 
@@ -1147,9 +1215,47 @@ where
 ```{r}
 library(clustMixType)
 
-kp = kproto(dataset,3)
+clust_num = 3
+
+get_clusters = function(dts, num, factors=T)
+{
+  if(isFALSE(factors))
+  {
+    cl = kmeans(dts,num)
+  }
+  else
+  {
+      cl = kproto(dts,num)
+
+  }
+  
+  clust = list()
+  
+  for (i in 1:num)
+  {
+    indexes = cl$cluster == i
+    clust[[i]] = dts[indexes,]
+  }
+
+  myplot= ggplot() +background_image(img)+  xlab('data_date') +  ylab('percent.change')+ theme(plot.margin = unit(c(1,1,1,1),"cm"),legend.title = element_text(colour="blue", size=10, face="bold"))
+  count = 1
+  for(el in clust)
+  {
+    myplot = myplot+geom_point(data = el, aes(y = latitude, x = longitude),color= count) 
+    count= count+1
+  }
+  
+  return(myplot)
+}
+kp = get_clusters(dataset, clust_num)
 kp 
 
+kp2 = get_clusters(ds_neig,3)
+kp2
+
+
+kp3 = get_clusters(ds_neig_room,3,F)
+kp3
 #ssummary(kp)
 ```
 ```{r}
