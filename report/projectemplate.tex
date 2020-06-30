@@ -42,14 +42,12 @@ A crucial part of the project was to the tuning and finding of the hyperparamete
 \newpage
 \section{Problem Definition and Algorithm}
 \subsection{Two main Goal}
-\textbf{Develope predicting models for price}
-The project is focused on a AirBnB user point of view. It is possible to image an application in which the user has a lot of information depending on the objective. For a landlord point of view, giving the information about the longitude and the latitude of the house, he/she will have as output the estimated price given based also on the neighbourhood group in New York City. For a guest point of view, he/she will give in input information about the price range and the type of room to get as output the most suitable houses for him or predict the position of one of that.\\
-
-\textbf{Develope clustering model}
-
+\textbf{Develope predicting models for price}\\
+The project is focused on a AirBnB user point of view. It is possible to image an application in which the user has a lot of information depending on the objective. For a landlord point of view, giving the information about the longitude and the latitude of the house, he/she will have as output the estimated price given based also on the neighbourhood group in New York City. For a guest point of view, he/she will give in input information about the price range and the type of room to get as output the most suitable houses for him or predict the position of one of that.\\\\
+\textbf{Define clusters and groups}\\
 For the Unsupervised part, the goal is to define cluster of price in which is possible to split out the houses, firstly in the entire city, secondly filtering for Neighborhood or room type. 
 
-## FOR A SPECIFIC NEIGHBOORHOOD OR FOR THE ENTIRE NY CITY
+\#\# FOR A SPECIFIC NEIGHBOORHOOD OR FOR THE ENTIRE NY CITY
 \subsection{Algorithms}
 \subsubsection{Linear Regression}
  Linear regression  is a linear approach to modeling the relationship between a dependent variable and one or more independent variables. Linear regression should be suitable, since there could be a linear relationship between the position and the price. In the city center there will be the expensive houses, while in the outskirts there will be the cheaper ones.
@@ -70,6 +68,7 @@ Ranger is a fast implementation of random forests or recursive partitioning, par
 The dataset used in this project is one of a Kaggle competiotion and is called the New York City Airbnb Open Data. It contains 48.000 data points for each different column.
 The dataset has different columns: 
 \begin{itemize}
+\itemsep0em 
 \item id
 \item \textbf{name}: name of the listing
 \item \textbf{host\_id}
@@ -125,12 +124,35 @@ The selected numerical features are: latitude, longitude and price.
 \subsection{Results}
 
 \subsubsection{Linear Regression}
- 
-  \subsubsection{Decison Trees}
+For the Linear regression the model give different results based on the variables used. \\\\
+\textbf{Linear Regression selecting the Neighboorhood group}\\
+For semplicity, the tests have been only taken filtering for Manhattan data points, but changing the neighboorhood the results are similar. 
+Results are acceptable (Figure 5), given a $R^2$ value of $0.4011$ and a Mean Square Error, comparing prediction and test set, of $0.67$.
+\\\\ \textbf{Linear Regression selecting the Neighboorhood group and the type of room}\\
+As in the previous case the tests are for Manhattan and for Entire home/Aparment type of room.\\
+The model output (Figure 6) a value of $R^2$ equals to $ 0.05953$ which is low  and a Mean Square Error, comparing prediction and test, of $1.23$.
+\\\\ \textbf{Linear Regression without filters}\\
+The model (Figure 7) obtain a $R^2$ value of $0.4031$ which is acceptable and a Mean Square Error, comparing prediction and test set, of $ 0.59$.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/lm2.PNG} 
+\caption{\label{fig:6}  Linear Regression output filtering by  Manhattan}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/lm3.PNG} 
+\caption{\label{fig:7}  Linear Regression output filtering by  Manhattan and Entire home/Apartment }
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/lm1.PNG} 
+\caption{\label{fig:5} Linear Regression output without filters }
+\end{figure}
+\subsubsection{Decison Trees}
 
- \subsubsection{Random Forest}
+\subsubsection{Random Forest}
 
- \subsubsection{Ranger Random Forest}
+\subsubsection{Ranger Random Forest}
 
 
 \subsection{Discussion}

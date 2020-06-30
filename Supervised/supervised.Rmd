@@ -148,8 +148,52 @@ head(test)
 
 https://datascienceplus.com/fitting-neural-network-in-r/
 
+
 ```{r}
+
+cat("=== Linear Regression without filters ===\n")
 lm.fit <- lm(price~latitude+ longitude+ room_type+neighbourhood_group, data=train)
+summary(lm.fit)
+pr.lm <- predict(lm.fit,test)
+MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
+cat("MSE: ",MSE.lm)
+
+plot(lm.fit)
+```
+```{r}
+library(dplyr)
+
+cat(" === Linear Regression selecting the Neighboorhood group === \n")
+cat("Neighboorhood group = Manhattan\n ")
+train_filtered = train %>% filter(neighbourhood_group ==1)
+lm.fit <- lm(price~latitude+ longitude+ room_type, data=train_filtered[-1])
+summary(lm.fit)
+pr.lm <- predict(lm.fit,test)
+MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
+
+cat("MSE: ",MSE.lm)
+plot(lm.fit)
+```
+
+```{r}
+library(dplyr)
+
+cat("=== Linear Regression selecting the Neighboorhood group and room_type ===\n")
+cat("Neighboorhood group = Manhattan and room_type = Entire home/apt\n ")
+train_filtered = train %>% filter(neighbourhood_group == 1 & room_type == 1)
+lm.fit <- lm(price~latitude+ longitude, data=train_filtered[-1])
+summary(lm.fit)
+pr.lm <- predict(lm.fit,test)
+MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
+
+cat("MSE: ",MSE.lm)
+plot(lm.fit)
+```
+```{r}
+library(dplyr)
+
+train_filtered = train %>% filter(room_type == 1)
+lm.fit <- lm(price~latitude+ longitude+ neighbourhood_group, data=train_filtered[-4])
 summary(lm.fit)
 pr.lm <- predict(lm.fit,test)
 MSE.lm <- sum((pr.lm - test$price)^2)/nrow(test)
@@ -184,6 +228,37 @@ library(tree)
 
 library(MASS)
 tree_reg =tree(price~., data = train)
+cat(" === Decision Tree without filters === \n")
+summary(tree_reg)
+
+plot(tree_reg)
+text(tree_reg,pretty=0)
+
+
+```
+
+```{r}
+
+cat(" === Decision Tree selecting the Neighboorhood group === \n")
+cat("Neighboorhood group = Manhattan\n ")
+train_filtered = train %>% filter(neighbourhood_group ==1)
+
+tree_reg =tree(price~ latitude+longitude+room_type, data = train_filtered)
+summary(tree_reg)
+
+plot(tree_reg)
+text(tree_reg,pretty=0)
+
+
+```
+
+
+```{r}
+
+cat("=== Decision Tree selecting the Neighboorhood group and room_type ===\n")
+cat("Neighboorhood group = Manhattan and room_type = Entire home/apt\n ")
+train_filtered = train %>% filter(neighbourhood_group == 1 & room_type == 1)
+tree_reg =tree(price~latitude+longitude, data = train)
 summary(tree_reg)
 
 plot(tree_reg)
@@ -225,15 +300,49 @@ https://uc-r.github.io/random_forests
 ```{r}
 library(randomForest)
 
+cat(" === Random Forest without filters === \n")
 rf <- randomForest(
   price ~ . ,
   data=train,
+)
+rf
+varImpPlot(rf)
+plot(rf)
+```
+
+```{r}
+
+cat("=== Random Forest selecting the Neighboorhood group and room_type ===\n")
+cat("Neighboorhood group = Manhattan and room_type = Entire home/apt\n ")
+train_filtered = train %>% filter(neighbourhood_group == 1 & room_type == 1)
+
+rf <- randomForest(
+  price ~ latitude+longitude,
+  data=train_filtered,
   # importance = TRUE
 )
 rf
 varImpPlot(rf)
 plot(rf)
 ```
+
+```{r}
+cat(" === Random Forest selecting the Neighboorhood group === \n")
+cat("Neighboorhood group = Manhattan\n ")
+train_filtered = train %>% filter(neighbourhood_group ==5)
+
+
+rf <- randomForest(
+  price ~ latitude+longitude+room_type,
+  data=train_filtered,
+  # importance = TRUE
+)
+rf
+varImpPlot(rf)
+plot(rf)
+
+```
+
 
 ```{r}
 par(mfrow=c(1,2))
