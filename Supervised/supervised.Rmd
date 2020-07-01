@@ -333,11 +333,10 @@ plot(rf)
 
 cat("=== Random Forest selecting the Neighboorhood group and room_type ===\n")
 cat("Neighboorhood group = Manhattan and room_type = Entire home/apt\n ")
-train_filtered = train %>% filter(neighbourhood_group == 1 & room_type == 1)
 
 rf2 <- randomForest(
-  price ~ latitude+longitude,
-  data=train_filtered,
+  price ~ .,
+  data=train_neig,
   # importance = TRUE
 )
 rf2
@@ -348,12 +347,11 @@ plot(rf2)
 ```{r}
 cat(" === Random Forest selecting the Neighboorhood group === \n")
 cat("Neighboorhood group = Manhattan\n ")
-train_filtered = train %>% filter(neighbourhood_group ==1)
 
 
 rf3 <- randomForest(
-  price ~ latitude+longitude+room_type,
-  data=train_filtered,
+  price ~ .,
+  data=train_neig_room,
   # importance = TRUE
 )
 rf3
@@ -415,7 +413,7 @@ start.time <- Sys.time()
 
 rf_default <- caret::train(
   price ~ . ,
-  data=train,
+  data=train_neig_room,
   method = "rf",
   trControl = trControl,
   num.threads = availableCores() # <- This one
@@ -444,7 +442,7 @@ set.seed(1234)
 tuneGrid <- expand.grid(.mtry = c(1: 10))
 rf_mtry <- caret::train(
   price~.,
-  data = train,
+  data = train_neig_room,
   method = "rf",
   #metric = "Accuracy",
   tuneGrid = tuneGrid,
@@ -487,7 +485,7 @@ tuneGrid <- expand.grid(.mtry = best_mtry)
 for (maxnodes in c(5: 15)) {
   set.seed(1234)
   rf_maxnode <- caret::train(price~.,
-                      data = train,
+                      data = train_neig_room,
                       method = "rf",
                       #metric = "Accuracy",
                       tuneGrid = tuneGrid,
@@ -521,7 +519,7 @@ start.time <- Sys.time()
 for (maxnodes in c(15 : 30)) {
   set.seed(1234)
   rf_maxnode <- caret::train(price~.,
-                      data = train,
+                      data = train_neig_room,
                       method = "rf",
                      # metric = "Accuracy",
                       tuneGrid = tuneGrid,
@@ -559,14 +557,14 @@ start.time <- Sys.time()
 store_maxtrees <- list()
 for (ntree in c(250, 300, 350, 400, 450, 500, 550, 600, 800, 1000, 2000)) {
   set.seed(5678)
-  rf_maxtrees <- train(price~.,
-                       data = train,
+  rf_maxtrees <- caret::train(price~.,
+                       data = train_neig_room,
                        method = "rf",
                        tuneGrid = tuneGrid,
                        trControl = trControl,
-                       importance = TRUE,
+                      # importance = TRUE,
                        nodesize = 14,
-                       maxnodes = 24,
+                       maxnodes = 23,
                        ntree = ntree)
   key <- toString(ntree)
   store_maxtrees[[key]] <- rf_maxtrees
@@ -587,13 +585,13 @@ summary(results_tree)
 ## Step 5) Evaluate the model
 ```{r}
 fit_rf <- caret::train(price~.,
-                train,
+                train_neig_room,
                 method = "rf",
                 tuneGrid = tuneGrid,
                 trControl = trControl,
                 importance = TRUE,
                 nodesize = 14,
-                ntree = 450,
+                ntree = 800,
                 maxnodes = 30)
 
 
@@ -612,13 +610,13 @@ print(fit_rf)
 ```{r}
 ## Step 6) Visualize Result
 ele = randomForest::randomForest(
-  x =  train[-5],
-  y = train$price,
-  xtest = test[-5],
-  ytest = test$price,
+  x =  train_neig_room[-3],
+  y = train_neig_room$price,
+  xtest = test_neig_room[-3],
+  ytest = test_neig_room$price,
   mtry = 5,
   maxnodes=30,
-  ntree = 450
+  ntree = 800
 )
 print(ele)
 varImpPlot(ele)
@@ -641,6 +639,34 @@ rangerReg_pred
 library(plotly)
 plot_ly(x = test$price, y = predictions(rangerReg_pred))
 ```
+```{r}
+
+
+library(ranger)
+library(tuneRanger)
+rangerReg <- ranger( price~ ., data = train_neig, write.forest = TRUE, classification = F)
+rangerReg
+rangerReg_pred = predict(rangerReg, data = test_neig)
+rangerReg_pred
+
+library(plotly)
+plot_ly(x = test_neig$price, y = predictions(rangerReg_pred))
+```
+
+```{r}
+
+
+
+rangerReg <- ranger( price~ ., data = train_neig_room, write.forest = TRUE, classification = F)
+rangerReg
+rangerReg_pred = predict(rangerReg, data = test_neig_room)
+rangerReg_pred
+
+library(plotly)
+plot_ly(x = test_neig_room$price, y = predictions(rangerReg_pred))
+```
+
+
 
 ## RANGER TUNING
 
@@ -671,9 +697,8 @@ library(tuneRanger)
 
 cat(" === Random Forest selecting the Neighboorhood group === \n")
 cat("Neighboorhood group = Manhattan\n ")
-train_filtered = train %>% filter(neighbourhood_group ==1)
 
-task2 = makeRegrTask(data = train_filtered[-1], target = "price")
+task2 = makeRegrTask(data = train_neig, target = "price")
 estimateTimeTuneRanger(task2, iters = 20, num.threads = 8, num.trees = 1000)
 
 
@@ -681,7 +706,7 @@ start.time <- Sys.time()
 
 
      
-res2 = tuneRanger(task, measure = list(mse), num.trees = 1000, 
+res2 = tuneRanger(task2, measure = list(mse), num.trees = 1000, 
                  num.threads = 8, iters = 20,  show.info = getOption("mlrMBO.show.info", TRUE))
 
 
@@ -696,17 +721,16 @@ library(tuneRanger)
 
 cat(" === Ranger Random Forest selecting the Neighboorhood group and room_type=== \n")
 cat("Neighboorhood group = Manhattan and room_type=Entire-home/Apt\n ")
-train_filtered = train %>% filter(neighbourhood_group ==1 & room_type ==1)
-train_filtered = train_filtered[-1][-3]
-task2 = makeRegrTask(data = train_filtered, target = "price")
-estimateTimeTuneRanger(task2, iters = 20, num.threads = 8, num.trees = 1000)
+
+task3 = makeRegrTask(data = train_neig_room, target = "price")
+estimateTimeTuneRanger(task3, iters = 20, num.threads = 8, num.trees = 1000)
 
 
 start.time <- Sys.time()
 
 
      
-res2 = tuneRanger(task, measure = list(mse), num.trees = 1000, 
+res3 = tuneRanger(task3, measure = list(mse), num.trees = 1000, 
                  num.threads = 8, iters = 20,  show.info = getOption("mlrMBO.show.info", TRUE))
 
 
@@ -733,9 +757,13 @@ Results:
 
 Model with the new tuned hyperparameters
 ```{r}
-res$model
+res2$model
 ```
 
+Model with the new tuned hyperparameters
+```{r}
+res3$model
+```
 
 ```{r}
 tuned_rangerReg <- ranger( price~ ., data = train, write.forest = TRUE, classification = F, mtry= 2, 

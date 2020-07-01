@@ -15,24 +15,27 @@
 \contentsline {subsubsection}{\numberline {3.2.2}Decison Trees}{12}{subsubsection.3.2.2}%
 \contentsline {subsubsection}{\numberline {3.2.3}Random Forest}{12}{subsubsection.3.2.3}%
 \contentsline {subsubsection}{\numberline {3.2.4}Ranger Random Forest}{13}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}K-means}{13}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}Hierarchical Clustering}{13}{subsubsection.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.7}Principal Component Analysis}{13}{subsubsection.3.2.7}%
 \contentsline {subsection}{\numberline {3.3}Discussion}{13}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Conclusion}{13}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Decision Tree}{13}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Random Forest}{13}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Ranger Random Forest}{13}{subsubsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.3}Linear Regression}{13}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Results}{14}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Decision Tree}{14}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Random Forest results}{14}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Ranger Random Forest results}{14}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Linear Regression results}{14}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Neural Networks results}{14}{subsection.5.5}%
-\contentsline {section}{\numberline {6}Conclusion}{15}{section.6}%
-\contentsline {section}{\numberline {7}Appendix}{16}{section.7}%
-\contentsline {section}{\numberline {8}Tabelle e grafici}{17}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Tabelle}{17}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Altra tabella}{17}{subsubsection.8.1.1}%
-\contentsline {subsection}{\numberline {8.2}Grafici}{17}{subsection.8.2}%
-\contentsline {section}{\numberline {9}Altro}{18}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Footnote}{19}{subsection.9.1}%
-\contentsline {section}{References}{20}{subsection.9.1}%
+\contentsline {subsection}{\numberline {4.2}Random Forest}{14}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Ranger Random Forest}{14}{subsubsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.3}Linear Regression}{14}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Results}{15}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Decision Tree}{15}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Random Forest results}{15}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Ranger Random Forest results}{15}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Linear Regression results}{15}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Neural Networks results}{15}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Conclusion}{16}{section.6}%
+\contentsline {section}{\numberline {7}Appendix}{17}{section.7}%
+\contentsline {section}{\numberline {8}Tabelle e grafici}{18}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Tabelle}{18}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Altra tabella}{18}{subsubsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.2}Grafici}{18}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Altro}{19}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Footnote}{20}{subsection.9.1}%
+\contentsline {section}{References}{21}{subsection.9.1}%

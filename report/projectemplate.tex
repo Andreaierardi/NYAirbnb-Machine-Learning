@@ -161,16 +161,30 @@ For the Decision tree the model give different results based on the variables us
 \\\\ 
 \textbf{Decison tree  selecting the Neighboorhood group and room type}
 \subsubsection{Random Forest}
-Starting Random Forest regression for the price, givin the default parameters there were no problems. While, for the tuning of the parameters there were no possibilities, due to the large number of data points.
+There were no problem running Random Forest regression for the price, givin the default parameters. For the parameter tuning there were no possibilities for the entire dataset, due to the large number of data points. For the filtered dataset, instead, were possible to tune the mtry, number of maximum nodes and number of trees.
 \\\\ \textbf{Random Forest  without filters}\\
 There were no possibility to run a forecast of the price
 \\\\
 \textbf{Random Forest selecting the Neighboorhood group}\\
 \\\\ 
 \textbf{Random Forest selecting the Neighboorhood group and room type}
-
+Using the tuning of the parameter the results are slightly better. The model start with a $23\%$ explained variance to a value of $25\%$.
 \subsubsection{Ranger Random Forest}
+Ranger Random Forest is known to be computationally light with respect to the classic Random Forest. In fact, for the tuning part there were not problem in running it for the entire dataset. 
+\\\\ \textbf{Ranger without filters}\\
+TEXT
+\\\\
+\textbf{Ranger selecting the Neighboorhood group}\\
+TEXT
+\\\\ 
+\textbf{Ranger selecting the Neighboorhood group and room type}
 
+\subsubsection{K-means}
+
+
+\subsubsection{Hierarchical Clustering}
+
+\subsubsection{Principal Component Analysis}
 
 \subsection{Discussion}
 
