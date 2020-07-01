@@ -172,13 +172,15 @@ Using the tuning of the parameter the results are slightly better. The model sta
 \subsubsection{Ranger Random Forest}
 Ranger Random Forest is known to be computationally light with respect to the classic Random Forest. In fact, for the tuning part there were not problem in running it for the entire dataset. 
 \\\\ \textbf{Ranger without filters}\\
-TEXT
+Ranger outputs for the entire dataset are consistent. We have a R^2 of 0.47 and OOB error of .
 \\\\
 \textbf{Ranger selecting the Neighboorhood group}\\
-TEXT
+The dataset filtered by Neighboorhood ouputs a value of 0.4 R^2 and a OOB error of.
 \\\\ 
 \textbf{Ranger selecting the Neighboorhood group and room type}
-TEXT
+The dataset filtered by neighboorhood and room type gives as result a R^2 of 0.25.
+
+
 \subsubsection{K-means}
 
 
@@ -188,9 +190,33 @@ TEXT
 
 \subsection{Discussion}
 
+\subsubsection{Linear Regression}
+Linear regression model gives interesting results for the non-filtered dataset and also for the filtered by neighbourhood group.
+All variable results to rejected by Null hyphotesis, so the model depends on all the selected variables.
+Latitude and longitude are correlated with the target, room type is strongly positive correlated with the price and neighbourhood group does not seem to have
+a great contribution in the prediction of the price.
+\\
+
+\subsubsection{Decision Tree}
+The performance with respect to the other models are not the best, but acceptable. The predicton results are not also very precised for the filtered neighboorhood 
+and room type. Also, the plots of the predicted value are not so consistent since the values are divided in category which correspond to the leaves that are not so strong
+with respect to the other model predictions.
+\\
+
+\subsection{Random Forest}
+Random forest outputs consistent results and performs  better than linear regression and decision tree. 
+Parameters tuning does not give big improvement in performance and also are computationally expensive.
+\\
+
+\subsection{Ranger Random Forest}
+Results of Ranger are the best with respect to the previous models. Also the tuning part was fast and computationally cheaper than 
+the classic Random Forest model but does not give great improvements in performance.
+\\
+
 \section{Conclusion}
 
 
+\subsection{Linear Regression}
 
 
 \subsection{Decision Tree}
@@ -205,7 +231,6 @@ Random Forest is an ensemble method which use a combination of decision tree to 
 Ranger Random Forest is a computationally light model which results are very close the classical Random Forest.
 \\
 
-\subsection{Linear Regression}
 
 
 
