@@ -766,14 +766,36 @@ res3$model
 ```
 
 ```{r}
-tuned_rangerReg <- ranger( price~ ., data = train, write.forest = TRUE, classification = F, mtry= 2, 
-                           min.node.size = 61	, sample.fraction = 0.2126975,num.trees = 1000, replace= FALSE)
+tuned_rangerReg <- ranger( price~ ., data = train, write.forest = TRUE, classification = F, mtry= 3, 
+                           min.node.size = 35	, sample.fraction = 0.326,num.trees = 1000, replace= FALSE)
 tuned_rangerReg
 tuned_rangerReg_pred = predict(tuned_rangerReg, data = test)
 tuned_rangerReg_pred
 ```
 
+```{r}
+#Hyperparameters: num.threads=8,verbose=FALSE,respect.unordered.factors=order,
+#mtry=2,min.node.size=22,sample.fraction=0.231,num.trees=1e+03,replace=FALSE
 
+tuned_rangerReg2 <- ranger( price~ ., data = train_neig, write.forest = TRUE, classification = F, mtry= 2, 
+                           min.node.size = 22, sample.fraction = 0.231,num.trees = 1000, replace= FALSE)
+tuned_rangerReg2
+tuned_rangerReg_pred2 = predict(tuned_rangerReg2, data = test_neig)
+tuned_rangerReg_pred2
+
+```
+
+
+```{r}
+
+#Hyperparameters: num.threads=8,verbose=FALSE,respect.unordered.factors=order,mtry=1,min.node.size=5,sample.fraction=0.21,num.trees=1e+03,replace=FALSE
+
+tuned_rangerReg3 <- ranger( price~ ., data = train_neig_room, write.forest = TRUE, classification = F, mtry=1, 
+                           min.node.size = 5	, sample.fraction = 0.21,num.trees = 1000, replace= FALSE)
+tuned_rangerReg3
+tuned_rangerReg_pred3 = predict(tuned_rangerReg3, data = test_neig_room)
+tuned_rangerReg_pred3
+```
 
 # NEURAL NETWORKS ??
 
