@@ -1,8 +1,8 @@
 ---
 title: "Statistical Learning Project - Supervised Learning"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r}
@@ -688,9 +688,12 @@ res = tuneRanger(task, measure = list(mse), num.trees = 1000,
 
 
 
-print("-- Real Time: -- ")
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+
+print("-- Time: -- ")
 time.taken
-cat("\n")    
+print("") 
 ```
 ```{r}
 library(tuneRanger)
@@ -711,9 +714,12 @@ res2 = tuneRanger(task2, measure = list(mse), num.trees = 1000,
 
 
 
-print("-- Real Time: -- ")
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+
+print("-- Time: -- ")
 time.taken
-cat("\n")    
+print("")
 ```
 
 ```{r}
@@ -735,9 +741,12 @@ res3 = tuneRanger(task3, measure = list(mse), num.trees = 1000,
 
 
 
-print("-- Real Time: -- ")
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+
+print("-- Time: -- ")
 time.taken
-cat("\n")    
+print("")  
 ```
 
 Mean of best 5 % of the results
@@ -797,7 +806,7 @@ tuned_rangerReg_pred3 = predict(tuned_rangerReg3, data = test_neig_room)
 tuned_rangerReg_pred3
 ```
 
-# NEURAL NETWORKS ??
+# NEURAL NETWORKS 
 
 
 https://medium.com/@brscntyz/neural-network-in-r-e275302b6e44
@@ -935,10 +944,13 @@ plot(history, metrics = "mean_absolute_error", smooth = T) +
 
 
 ```{r}
+eva = model %>% evaluate(feat_test,target_test, verbose = 0)
 
-c(loss, mae) %<-% (model %>% evaluate(feat_test,target_test, verbose = 0))
-
+mae = eva[1]
+loss = eva[2]
 paste0("Mean absolute error on test set: ", mae)
+paste0("Loss: ", loss)
+
 
 ```
 
@@ -965,7 +977,7 @@ MSE.nn
 build_model <- function() {
   
   model <- keras_model_sequential() %>%
-    layer_dense(units = 4, activation = "relu",
+    layer_dense(units = 64, activation = "relu",
                 input_shape = 12) %>%
     layer_dense(units = 64, activation = "relu") %>%
     layer_dense(units = 1)
@@ -973,23 +985,18 @@ build_model <- function() {
   model %>% compile(
     loss = "mse",
     optimizer = optimizer_rmsprop(),
-    metrics = "mean_absolute_error"
-    )
+    metrics = list("mean_absolute_error")
+  )
   
   model
 }
 
 model <- build_model()
-
-
-
 model %>% summary()
 ```
 
-
 ```{r}
 # Display training progress by printing a single dot for each completed epoch.
-start.time <- Sys.time()
 
 print_dot_callback <- callback_lambda(
   on_epoch_end = function(epoch, logs) {
@@ -998,7 +1005,8 @@ print_dot_callback <- callback_lambda(
   }
 )    
 
-epochs <- 10
+start.time = Sys.time()
+epochs <- 500
 
 # Fit the model and store training stats
 history <- model %>% fit(
@@ -1011,12 +1019,84 @@ history <- model %>% fit(
 )
 
 
+end.time <- Sys.time()
+time.taken <- end.time - start.time
 
-print("-- Real Time: -- ")
+print("-- Time: -- ")
 time.taken
-cat("\n")    
+print("")
+```
+
+```{r}
+
+# The patience parameter is the amount of epochs to check for improvement.
+early_stop <- callback_early_stopping(monitor = "val_loss", patience = 20)
+epochs <- 500
+
+start.time <- Sys.time()
+
+model <- build_model()
+history <- model %>% fit(
+  feat,
+  target,
+  epochs = epochs,
+  validation_split = 0.2,
+  verbose = 0,
+  callbacks = list(early_stop, print_dot_callback)
+)
+
+
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+
+print("-- Time: -- ")
+time.taken
+print("")
+
+
+history$params$epochs =length(history$metrics$mean_absolute_error)
+
+plot(history, metrics = "mean_absolute_error", smooth = T) +
+  coord_cartesian(xlim = c(0, history$params$epochs*1.2), ylim = c(0, 1.5))
+
 
 ```
+
+
+
+
+
+```{r}
+
+eva = model %>% evaluate(feat_test,target_test, verbose = 0)
+
+mae = eva[1]
+loss = eva[2]
+paste0("Mean absolute error on test set: ", mae)
+paste0("Loss: ", loss)
+
+
+```
+
+```{r}
+
+y_pred = model %>% predict(feat_test)
+
+x_axes = seq(1:length(y_pred))
+plot(x_axes, target_test, type="l", col="red")
+lines(x_axes, y_pred, col="blue")
+legend("topleft", legend=c("y-original", "y-predicted"),
+        col=c("red", "blue"), lty=1,cex=0.8)
+
+
+
+MSE.nn = mean((y_pred-target_test)^2)
+MSE.nn
+
+```
+
+
+
 
 
 
@@ -1424,8 +1504,7 @@ plot(cut(hc1, h=75)$upper,
 
 ```
 
-```{r}
+
 hc3 <- agnes(ds_neig_room, method = "ward")
 pltree(hc3, cex = 0.6, hang = -1, main = "Dendrogram of agnes") 
 
-```
