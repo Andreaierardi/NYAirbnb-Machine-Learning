@@ -882,44 +882,91 @@ nntest$room_type = keras::to_categorical(nntest$room_type)
 nntest$neighbourhood_group = keras::to_categorical(nntest$neighbourhood_group)
 
 target = as.vector(nntrain$price)
-feat = as_tibble(nntrain[-5])
+feat = as.matrix(as_tibble(nntrain[-5]))
+target_test =as.vector(nntest$price)
+feat_test =as.matrix(as_tibble(nntest[-5]))
+
 ```
 
 ```{r}
-model <- keras_model_sequential() 
 
-# Add layers to the model
-model %>% 
-    layer_dense(units = 4, activation = 'relu', input_shape = dim(feat[1,]))%>% 
-    layer_dense(units = 3, activation = 'softmax')
-```
-
-```{r}
-# Compile the model
-model %>% compile(
-     loss = 'mse',
-     optimizer = optimizer_rmsprop(),
-    metrics = list("mean_absolute_error")
- )
-```
-
-```{r}
-# Fit the model 
-model %>% keras::fit(
-     feat, 
-     target, 
-     epochs = 200, 
-     batch_size = 5, 
-     validation_split = 0.2
- )
-```
+model = keras_model_sequential() %>% 
+   layer_dense(units=64, activation="relu", input_shape=12) %>% 
+   layer_dense(units=32, activation = "relu") %>% 
+   layer_dense(units=1, activation="linear")
  
+model %>% compile(
+   loss = "mse",
+   optimizer =  "adam", 
+   metrics = list("mean_absolute_error")
+ )
+ 
+model %>% summary()
+
+```
+```{r}
+
+print_dot_callback <- callback_lambda(
+  on_epoch_end = function(epoch, logs) {
+    if (epoch %% 80 == 0) cat("\n")
+    cat(".")
+  }
+)    
+
+model <- build_model()
+
+history <- model %>% fit(
+  x = feat,
+  y = target,
+  epochs = 500,
+  validation_split = 0.2,
+  verbose = 0,
+  callbacks = list(print_dot_callback)
+)
+```
+```{r}
+
+plot(history)
+
+
+plot(history, metrics = "mean_absolute_error", smooth = T) +
+  coord_cartesian(ylim = c(0, 5))
+```
+
+
+```{r}
+
+c(loss, mae) %<-% (model %>% evaluate(feat_test,target_test, verbose = 0))
+
+paste0("Mean absolute error on test set: ", mae)
+
+```
+
+```{r}
+
+y_pred = model %>% predict(feat_test)
+
+x_axes = seq(1:length(y_pred))
+plot(x_axes, target_test, type="l", col="red")
+lines(x_axes, y_pred, col="blue")
+legend("topleft", legend=c("y-original", "y-predicted"),
+        col=c("red", "blue"), lty=1,cex=0.8)
+
+
+
+MSE.nn = mean((y_pred-target_test)^2)
+MSE.nn
+
+```
+
+
+
 ```{r}
 build_model <- function() {
   
   model <- keras_model_sequential() %>%
     layer_dense(units = 4, activation = "relu",
-                input_shape = dim(train[-5])) %>%
+                input_shape = 12) %>%
     layer_dense(units = 64, activation = "relu") %>%
     layer_dense(units = 1)
   
@@ -955,8 +1002,8 @@ epochs <- 10
 
 # Fit the model and store training stats
 history <- model %>% fit(
-  as.numeric(as.matrix(train[-5])),
-  as.array(train$price),
+  feat,
+  target,
   epochs = epochs,
   validation_split = 0.2,
   verbose = 0,
@@ -976,7 +1023,8 @@ cat("\n")
 ```{r}
 library(ggplot2)
 
-plot(history, metrics = "mean_absolute_error", smooth = FALSE) +
+plot(history)
+plot(history, metrics = "mean_absolute_error", smooth = T) +
   coord_cartesian(ylim = c(0, 5))
 ```
 
@@ -1059,7 +1107,7 @@ get_clusters = function(dts, num, factors=T)
   
   for (i in 1:num)
   {
-    indexes = cl$cluster == i
+    indexes = l$cl$cluster == i
     clust[[i]] = dts[indexes,]
   }
 
@@ -1110,29 +1158,27 @@ plot(1:10, Es, type = "b", ylab = "Objective Function", xlab = "# Clusters",main
 
 
 
-```{r}
 d <- dist(dataset, method = "euclidean") # distance matrix
 fit <- hclust(d, method="complete")
 plot(fit) # display dendogram
 groups <- cutree(fit, k=5) # cut tree into 5 clusters
 # draw dendogram with red borders around the 5 clusters
 rect.hclust(fit, k=5, border="red") 
-```
 
 
 ```{r}
-fit <- kmeans(dataset, 5)
+km.res <- kmeans(ds_neig_room, 5)
 
 # Cluster Plot against 1st 2 principal components
 
 # vary parameters for most readable graph
 library(cluster)
-clusplot(dataset, fit$cluster, color=TRUE, shade=TRUE,
+clusplot(ds_neig_room, km.res$cluster, color=TRUE, shade=TRUE,
    labels=2, lines=0)
 
 # Centroid Plot against 1st 2 discriminant functions
 library(fpc)
-plotcluster(dataset, fit$cluster) 
+plotcluster(ds_neig_room, km.res$cluster) 
 ```
 
 
@@ -1160,17 +1206,16 @@ km.res$centers
 ```
 
 ```{r}
-#dataset$neighbourhood_group = as.numeric( dataset$neighbourhood_group)
-#dataset$room_type = as.numeric(  dataset$room_type)
-fviz_cluster(km.res, data = dataset,
-             palette = c("#00AFBB","#2E9FDF", "#E7B800", "#FC4E07"),
+
+fviz_cluster(km.res, data = ds_neig_room,
+             palette = c("#00AFBB","#2E9FDF","#0000FF", "#E7B800", "#FC4E07"),
              ggtheme = theme_minimal(),
              main = "Partitioning Clustering Plot"
 )
 
-res <- hcut(dataset, k = 4, stand = FALSE)
-fviz_dend(km.res, rect = TRUE, cex = 0.5,
-          k_colors = c("#00AFBB","#2E9FDF", "#E7B800", "#FC4E07"))
+res <- hcut(ds_neig_room, k = 5, stand = FALSE)
+fviz_dend(res, rect = TRUE, cex = 0.5,
+          k_colors = c("#00AFBB","#2E9FDF", "#0000FF","#E7B800", "#FC4E07"))
 
 ```
 
@@ -1189,12 +1234,12 @@ library(Rtsne)
 
 Compute Gower distance
 ```{r}
-dim(dataset)
+reduced = ds_neig =  dataset %>% filter(neighbourhood_group == 3)
 
 #reduced <- dataset[ sample(1:nrow(dataset), nrow(dataset)/5) , ]
 
 #print(dim(reduced))
-gower_dist <- daisy(dataset, metric = "gower")
+gower_dist <- daisy(reduced, metric = "gower")
 #proxy::simil(reduced, method = "gower")
 #dim(gower_dist)
 
@@ -1206,7 +1251,7 @@ hc1
 plot(hc1, cex = 0.6, hang = -1)
 ```
 
-```{r}
+
 
 start.time <- Sys.time()
 sil_width <- c(NA)
@@ -1228,7 +1273,6 @@ plot(1:8, sil_width,
       ylab = "Silhouette Width")
 lines(1:8, sil_width)
 
-```
 
 # FAMD
 
@@ -1352,7 +1396,7 @@ library(dendextend) # for comparing two dendrograms
 ```
 
 
-```{r}
+
 #reduced <- dataset[ sample(1:nrow(dataset), nrow(dataset)/10 ) , ]
 #d <- dist(dataset, method = "euclidean")
 
@@ -1364,7 +1408,6 @@ hc1 <- hclust(gower_dist, method = "complete" )
 plot(hc1, cex = 0.6, hang = -1)
 plot(cut(hc1, h=75)$upper, 
      main="Second branch of lower tree with cut at h=75")
-```
 
 ```{r}
 # methods to assess
@@ -1382,7 +1425,7 @@ plot(cut(hc1, h=75)$upper,
 ```
 
 ```{r}
-hc3 <- agnes(dataset, method = "ward")
+hc3 <- agnes(ds_neig_room, method = "ward")
 pltree(hc3, cex = 0.6, hang = -1, main = "Dendrogram of agnes") 
 
 ```
