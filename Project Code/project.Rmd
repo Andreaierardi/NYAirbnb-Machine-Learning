@@ -878,6 +878,7 @@ For regression : https://keras.rstudio.com/articles/tutorial_basic_regression.ht
 For classification: https://keras.rstudio.com/
 ```{r}
 library(keras)
+library(dplyr)
 
 #needed: 
 # - tensorflow::install_tensorflow()
