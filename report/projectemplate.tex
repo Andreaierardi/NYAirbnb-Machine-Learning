@@ -1,5 +1,7 @@
 \documentclass{FR16} 
-
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{media9}
 \begin{document}
 
 \maketitle
@@ -69,7 +71,7 @@ The dataset used in this project is one of a Kaggle competiotion and is called t
 The dataset has different columns: 
 \begin{itemize}
 \itemsep0em 
-\item id
+\item \textbf{id}
 \item \textbf{name}: name of the listing
 \item \textbf{host\_id}
 \item \textbf{host\_name}
@@ -102,7 +104,7 @@ From the Figure 1 is possible to see that there are some outliers in the dataset
 \end{figure}
 
 \subsubsection{Data Cleaning and Pre-processing}
-The dataset has more or less 48.000 data points for each column, so an important part of this work was the pre-processing since the large amount of data. Moreover, running different methods and algorithms on the entire dataset has an high computation cost. An important choice to made is that the user is able to discriminate which type of house has a particular interest. Then, it can be assume that the user chooses which is the price range of interest and also the type of room. For the simplicity of the project we will focus on the Manhattan region for the popularity, a range of price from $15\$$ to $500\$$ and an entire apartment type of room. The project can be extended easily to the entire dataset, based on the user preference. 
+The dataset has more or less 48.000 data points for each column, so an important part of this work was the pre-processing since the large amount of data. Moreover, running different methods and algorithms on the entire dataset has an high computation cost. An important choice to made is that the user is able to discriminate which type of house has a particular interest. Then, it can be assumed that the user chooses which is the price range of interest and also the type of room. For the simplicity of the project we will focus on the Manhattan region for the popularity, a range of price from $15\$$ to $500\$$ and an entire apartment type of room. The project can be extended easily to the entire dataset, based on the user preference. 
 Each variable choosed in this project have been rescaled to let the model perform and learn better, apart from latitude and longitude since the rescaling should not have a real meaning.
 \\ Also categorical variables have been rescaled assigning a numerical value to each category, resulting as factors. \\
 The selected categorical features are: neighbourhood\_group and room type.\\
@@ -172,15 +174,28 @@ Using the tuning of the parameter the results are slightly better. The model sta
 \subsubsection{Ranger Random Forest}
 Ranger Random Forest is known to be computationally light with respect to the classic Random Forest. In fact, for the tuning part there were not problem in running it for the entire dataset. 
 \\\\ \textbf{Ranger without filters}\\
-Ranger outputs for the entire dataset are consistent. We have a R^2 of 0.47 and OOB error of .
+Ranger outputs for the entire dataset are consistent. We have a $R^2$ of 0.47 and OOB error of .
 \\\\
 \textbf{Ranger selecting the Neighboorhood group}\\
-The dataset filtered by Neighboorhood ouputs a value of 0.4 R^2 and a OOB error of.
+The dataset filtered by Neighboorhood ouputs a value of 0.4 $R^2$ and a OOB error of.
 \\\\ 
 \textbf{Ranger selecting the Neighboorhood group and room type}
-The dataset filtered by neighboorhood and room type gives as result a R^2 of 0.25.
-
-
+The dataset filtered by neighboorhood and room type gives as result a $R^2$ of 0.25.
+\\\\
+\begin{center}
+\begin{tabular}{l c c c }
+\arrayrulecolor{Azzurro}
+\hline
+{\bfseries Models
+} & MSE & $R^2$ & OOB \\
+\hline
+{\bfseries Linear Regression} & .. & .. & $\backslash$ \\
+{\bfseries Decision Tree} & .. & .. & $\backslash$ \\
+{\bfseries Random Forest} & .. & .. & .. \\
+{\bfseries Ranger RF} & .. & .. & .. \\
+\hline
+\end{tabular}
+\end{center}
 \subsubsection{K-means}
 
 
@@ -188,6 +203,7 @@ The dataset filtered by neighboorhood and room type gives as result a R^2 of 0.2
 
 \subsubsection{Principal Component Analysis}
 
+\newpage
 \subsection{Discussion}
 
 \subsubsection{Linear Regression}
@@ -215,6 +231,8 @@ the classic Random Forest model but does not give great improvements in performa
 
 \section{Conclusion}
 
+From the result the method with the most higher accuracy is the Random Forest method... while the worst are ....
+\\Moreover, Random Forest method is also the worst in term of computation time for the tuning part since it takes for a configuration with 4 core, more or less 1 hour to tune the parameters. 
 
 \subsection{Linear Regression}
 
@@ -234,22 +252,16 @@ Ranger Random Forest is a computationally light model which results are very clo
 
 
 
-\newpage
-\section{Results}
-\subsection{Decision Tree}
-\subsection{Random Forest results}
-\subsection{Ranger Random Forest results}
-\subsection{Linear Regression results}
-\subsection{Neural Networks results}
-\newpage
-\section{Conclusion}
-From the result the method with the most higher accuracy is the Random Forest method... while the worst are ....
-\\Moreover, Random Forest method is also the worst in term of computation time for the tuning part since it takes for a configuration with 4 core, more or less 1 hour to tune the parameters. 
-
 
 \newpage
 \section{Appendix}
 
+\noindent\includemedia[
+  transparent,
+  flashvars={
+     source=supervised.html
+  }
+]{\framebox[\linewidth]{\strut}}{APlayer.swf}
 \newpage
 
 \section{Tabelle e grafici}
@@ -274,20 +286,14 @@ Here a few examples of tables and graphs.
 \end{tabular}
 \end{center}
 
-\subsubsection{Altra tabella}
+
+
 \subsection{Grafici}
 \begin{center}
 
 \end{center}
 
 
-
-\section{Altro}
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{grafo.png}
-\caption{\label{fig:1}Didascalia.}
-\end{figure}
 \subsection{Footnote}
 You can create a footnote like this.\footnote{I created a footnote.}
 
