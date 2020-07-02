@@ -858,6 +858,12 @@ pr.nn_ <- nn_pred$net.result*(max(dataset$price)-min(dataset$price))+min(dataset
 
 # NEURAL NETWORKS WITH KERAS
 
+!
+https://www.datatechnotes.com/2019/01/regression-example-with-keras-in-r.html
+https://tensorflow.rstudio.com/tutorials/beginners/basic-ml/tutorial_basic_regression/
+!
+
+
 For regression : https://keras.rstudio.com/articles/tutorial_basic_regression.html
 
 For classification: https://keras.rstudio.com/
