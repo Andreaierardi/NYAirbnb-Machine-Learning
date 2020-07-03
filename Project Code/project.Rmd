@@ -166,8 +166,8 @@ test_neig_room  = subset(ds_neig_room, sample == FALSE)
 
 
 
-train_neig
-train_neig_room
+head(train_neig)
+head(train_neig_room)
 ```
 
 # LINEAR REGRESSION
