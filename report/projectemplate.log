@@ -1749,4 +1749,314 @@ File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 
 ]
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              s
+(Font)              scaled to size 12.47992pt on input line 14.
+LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
+(Font)              scaled to size 25.87503pt on input line 14.
+
+
+LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <24.88> not available
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 14.
+
+(projectemplate.toc [2])
+\tf@toc=\write5
+\openout5 = `projectemplate.toc'.
+
+ [3]
+LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
+(Font)              scaled to size 83.19946pt on input line 16.
+LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
+(Font)              scaled to size 14.97589pt on input line 16.
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--29
+
+ []
+
+[4]
+Overfull \hbox (13.01924pt too wide) in paragraph at lines 48--48
+|\TU/lmr/m/sc/24.88 Problem Definition and Algorithm| 
+ []
+
+
+LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <14.4> not available
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 49.
+
+
+LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <12> not available
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 49.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--54
+
+ []
+
+
+LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 57.
+
+[5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+
+ []
+
+File: figures/figure1.jpg Graphic file (type bmp)
+<figures/figure1.jpg>
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--102
+
+ []
+
+[7]
+File: figures/figure2.pdf Graphic file (type pdf)
+<use figures/figure2.pdf>
+ [8]
+File: figures/figure3.pdf Graphic file (type pdf)
+<use figures/figure3.pdf>
+ [9]
+File: figures/figure4.PNG Graphic file (type bmp)
+<figures/figure4.PNG>
+File: figures/lm2.PNG Graphic file (type bmp)
+<figures/lm2.PNG>
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--145
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--145
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--145
+
+ []
+
+[10]
+File: figures/lm3.PNG Graphic file (type bmp)
+<figures/lm3.PNG>
+File: figures/lm1.PNG Graphic file (type bmp)
+<figures/lm1.PNG>
+ [11]
+Underfull \hbox (badness 10000) in paragraph at lines 162--168
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--168
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--168
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--168
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--168
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--177
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--177
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--177
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--177
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 178--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--188
+
+ []
+
+[13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 246--251
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 253--257
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 259--262
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 264--267
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 277--279
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 285--287
+
+ []
+
+[16] [17]
+
+Package fontspec Warning: OpenType feature 'Contextuals=Swash,Alternate'
+(fontspec)                (cswh) not available for font
+(fontspec)                'ArnoPro-RegularSubhead' with script 'CustomDefault'
+(fontspec)                and language 'Default'.
+
+
+Package fontspec Warning: OpenType feature 'Contextuals=Swash,Alternate'
+(fontspec)                (cswh) not available for font
+(fontspec)                'ArnoPro-RegularSubhead' with script 'CustomDefault'
+(fontspec)                and language 'Default'.
+
+
+Package fontspec Warning: OpenType feature 'Contextuals=Swash,Alternate'
+(fontspec)                (cswh) not available for font
+(fontspec)                'ArnoPro-RegularDisplay' with script 'CustomDefault'
+(fontspec)                and language 'Default'.
+
+
+Package fontspec Warning: OpenType feature 'Contextuals=Swash,Alternate'
+(fontspec)                (cswh) not available for font
+(fontspec)                'ArnoPro-RegularDisplay' with script 'CustomDefault'
+(fontspec)                and language 'Default'.
+
+
+Package fontspec Info: Font family 'ArnoPro(2)' created for font 'ArnoPro'
+(fontspec)             with options [Mapping=tex-text,Ligatures=TeX,Path =
+(fontspec)             fonts/,Extension =
+(fontspec)             .otf,Scale=1.04,Mapping=tex-text,Ligatures={Common},Size
+Features={{Size={-10},
+(fontspec)             Font=*-RegularCaption}, {Size={10-13.0}, Font=*},
+(fontspec)             {Size={13.01-19.9}, Font=*-RegularSubhead,
+(fontspec)             Ligatures=Rare, Contextuals={Swash,Alternate}},
+(fontspec)             {Size={19.91-},Font=*-RegularDisplay, Ligatures=Rare,
+(fontspec)             Contextuals={Swash,Alternate}}},UprightFont=ArnoPro-Regu
+lar,BoldFont=ArnoPro-Bold,ItalicFont=ArnoPro-Italic,BoldItalicFont=ArnoPro-Bold
+Italic,VerticalPosition=Superior].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <-10>s*[1.04]"[fonts/ArnoPro-RegularCaption.otf]/OT:scri
+pt=latn;language=dflt;+liga;+sups;mapping=tex-text;"<10-13.0>s*[1.04]"[fonts/Ar
+noPro.otf]/OT:script=latn;language=dflt;+liga;+sups;mapping=tex-text;"<13.01-19
+.9>s*[1.04]"[fonts/ArnoPro-RegularSubhead.otf]/OT:script=latn;language=dflt;+li
+ga;+sups;+dlig;+calt;mapping=tex-text;"<19.91->s*[1.04]"[fonts/ArnoPro-RegularD
+isplay.otf]/OT:script=latn;language=dflt;+liga;+sups;+dlig;+calt;mapping=tex-te
+xt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <-10>s*[1.04]"[fonts/ArnoPro-RegularCaption.otf]/OT:scri
+pt=latn;language=dflt;+liga;+sups;+smcp;mapping=tex-text;"<10-13.0>s*[1.04]"[fo
+nts/ArnoPro.otf]/OT:script=latn;language=dflt;+liga;+sups;+smcp;mapping=tex-tex
+t;"<13.01-19.9>s*[1.04]"[fonts/ArnoPro-RegularSubhead.otf]/OT:script=latn;langu
+age=dflt;+liga;+sups;+dlig;+calt;+smcp;mapping=tex-text;"<19.91->s*[1.04]"[font
+s/ArnoPro-RegularDisplay.otf]/OT:script=latn;language=dflt;+liga;+sups;+dlig;+c
+alt;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1.04]"[fonts/ArnoPro-Bold.otf]/OT:script=latn;lang
+uage=dflt;+liga;+sups;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->s*[1.04]"[fonts/ArnoPro-Bold.otf]/OT:script=latn;lang
+uage=dflt;+liga;+sups;+smcp;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1.04]"[fonts/ArnoPro-Italic.otf]/OT:script=latn;la
+nguage=dflt;+liga;+sups;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->s*[1.04]"[fonts/ArnoPro-Italic.otf]/OT:script=latn;la
+nguage=dflt;+liga;+sups;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1.04]"[fonts/ArnoPro-BoldItalic.otf]/OT:script=lat
+n;language=dflt;+liga;+sups;mapping=tex-text;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->s*[1.04]"[fonts/ArnoPro-BoldItalic.otf]/OT:script=lat
+n;language=dflt;+liga;+sups;+smcp;mapping=tex-text;"
+
+LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
+(Font)              scaled to size 12.47992pt on input line 330.
+LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
+(Font)              scaled to size 10.39993pt on input line 330.
+LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
+(Font)              scaled to size 10.39993pt on input line 330.
+[18]
+LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/it' will be
+(Font)              scaled to size 12.47992pt on input line 337.
+
+Underfull \hbox (badness 1521) in paragraph at lines 337--338
+[]\TU/ArnoPro(1)/m/n/12 Giusti, Santochi, \TU/ArnoPro(1)/m/it/12 Tecnologia Mec
+canica e Studi di Fabbricazione\TU/ArnoPro(1)/m/n/12 . Casa Editrice Am-
+ []
+
+[19]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 348.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 348.
+ (projectemplate.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 348.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 348.
+
+
+Package rerunfilecheck Warning: File `projectemplate.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `projectemplate.out':
+(rerunfilecheck)             Before: 92974CAA8BC349E476CBDBB3CA71241E;2510
+(rerunfilecheck)             After:  446C3D7A61328C7B515CFE92ADF07576;2501.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 348.
+ ) 
+Here is how much of TeX's memory you used:
+ 49887 strings out of 414078
+ 1142525 string characters out of 2898264
+ 1591886 words of memory out of 3000000
+ 66593 multiletter control sequences out of 15000+200000
+ 567440 words of font info for 103 fonts, out of 3000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 76i,10n,102p,977b,785s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on projectemplate.pdf (19 pages).
