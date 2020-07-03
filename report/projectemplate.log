@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  2 JUL 2020 12:30
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  3 JUL 2020 13:13
 entering extended mode
 **./projectemplate.tex
 (projectemplate.tex
@@ -1534,70 +1534,42 @@ File: ppxetex.def 2020/01/28 v0.5q Pdfpages driver for XeTeX (AM)
 \c@AM@survey=\count378
 \AM@templatesizebox=\box105
 )
-("C:\Program Files\MiKTeX 2.9\tex/latex/media9\media9.sty"
-Package: media9 2020/05/06 v1.11 acrobat-9/X compatible media
-\g_mix_pkgresizeflag_int=\count379
-
-("C:\Program Files\MiKTeX 2.9\tex/latex/media9\pdfbase.sty"
-Package: pdfbase 2020/05/06 v0.42 driver independent access to low-level PDF fe
-atures
-\g_pbs_page_int=\count380
-\g_pbs_obj_int=\count381
-\g_pbs_oc_int=\count382
-)
-("C:\Program Files\MiKTeX 2.9\tex/latex/ocgx2\ocgbase.sty"
-Package: ocgbase 2019/11/04 v0.17 support package for ocgx2.sty
-\g_ocgbase_nd_int=\count383
-)
-\l_mix_poster_box=\box106
-\g_mix_wd_dim=\dimen347
-\g_mix_ht_dim=\dimen348
-\g_mix_dp_dim=\dimen349
-\g_mix_rmcnt_int=\count384
-\l_mix_viewcnt_int=\count385
-\g@mix@page@int=\count386
-\g_mix_resizeflag_int=\count387
-\l_mix_lineno_int=\count388
-\l_mix_pbtn_box=\box107
-\mix@btn@dim=\dimen350
-\g_mix_mbtncnt_int=\count389
-)
 (projectemplate.aux)
 \openout1 = `projectemplate.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 5
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
 .
  ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 5.
-LaTeX Font Info:    Trying to load font information for T3+cmr on input line 5.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 4.
+LaTeX Font Info:    Trying to load font information for T3+cmr on input line 4.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/tipa\t3cmr.fd"
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    ... okay on input line 4.
 
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1646,8 +1618,8 @@ Dictionary: translator-basic-dictionary, Language: English
 ("C:\Program Files\MiKTeX 2.9\tex/latex/siunitx\siunitx-abbreviations.cfg"
 File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 )
-\AtBeginShipoutBox=\box108
-Package hyperref Info: Link coloring ON on input line 5.
+\AtBeginShipoutBox=\box106
+Package hyperref Info: Link coloring ON on input line 4.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1658,11 +1630,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/gettitlestring\gettitlestring.sty"
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count390
+\c@section@level=\count379
 )
-LaTeX Info: Redefining \ref on input line 5.
-LaTeX Info: Redefining \pageref on input line 5.
-LaTeX Info: Redefining \nameref on input line 5.
+LaTeX Info: Redefining \ref on input line 4.
+LaTeX Info: Redefining \pageref on input line 4.
+LaTeX Info: Redefining \nameref on input line 4.
 
 (projectemplate.out) (projectemplate.out)
 \@outlinefile=\write4
@@ -1674,69 +1646,69 @@ ABD: EveryShipout initializing macros
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.17} into 
 your preamble.
- on input line 5.
+ on input line 4.
 
 *** you should *not* be loading the inputenc package
 *** XeTeX expects the source to be in UTF8 encoding
 *** some features of other encodings may conflict, resulting in poor output.
-\c@lstlisting=\count391
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 5
+\c@lstlisting=\count380
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
 .
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 5
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-5.
+4.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-5.
+4.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 5.
+(Font)              <12> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 5.
+(Font)              <8> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 5.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 5.
+(Font)              <6> on input line 4.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 4.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 5.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 4.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 5.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 4.
 LaTeX Font Info:    Font shape `TU/ArnoPro(0)/m/n' will be
-(Font)              scaled to size 8.31995pt on input line 5.
+(Font)              scaled to size 8.31995pt on input line 4.
 LaTeX Font Info:    Font shape `TU/ArnoPro(0)/m/n' will be
-(Font)              scaled to size 6.23996pt on input line 5.
+(Font)              scaled to size 6.23996pt on input line 4.
 LaTeX Font Info:    Font shape `TU/ArnoPro(0)/m/it' will be
-(Font)              scaled to size 12.47992pt on input line 5.
+(Font)              scaled to size 12.47992pt on input line 4.
 LaTeX Font Info:    Font shape `TU/ArnoPro(0)/m/it' will be
-(Font)              scaled to size 8.31995pt on input line 5.
+(Font)              scaled to size 8.31995pt on input line 4.
 LaTeX Font Info:    Font shape `TU/ArnoPro(0)/m/it' will be
-(Font)              scaled to size 6.23996pt on input line 5.
+(Font)              scaled to size 6.23996pt on input line 4.
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-5.
+4.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ot1lmss.fd"
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-5.
+4.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ot1lmtt.fd"
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1744,29 +1716,29 @@ File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 File: univlogo.png Graphic file (type bmp)
 <univlogo.png>
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/sc' will be
-(Font)              scaled to size 12.47992pt on input line 7.
+(Font)              scaled to size 12.47992pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/sc' will be
-(Font)              scaled to size 11.83624pt on input line 7.
+(Font)              scaled to size 11.83624pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
-(Font)              scaled to size 17.97107pt on input line 7.
+(Font)              scaled to size 17.97107pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 17.97107pt on input line 7.
+(Font)              scaled to size 17.97107pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/sc' will be
-(Font)              scaled to size 17.97107pt on input line 7.
+(Font)              scaled to size 17.97107pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/sc' will be
-(Font)              scaled to size 17.97107pt on input line 7.
+(Font)              scaled to size 17.97107pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/sc' will be
-(Font)              scaled to size 25.87503pt on input line 7.
+(Font)              scaled to size 25.87503pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
-(Font)              scaled to size 25.87503pt on input line 7.
+(Font)              scaled to size 25.87503pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/sc' will be
-(Font)              scaled to size 25.87503pt on input line 7.
+(Font)              scaled to size 25.87503pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
-(Font)              scaled to size 14.97589pt on input line 7.
+(Font)              scaled to size 14.97589pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/it' will be
-(Font)              scaled to size 14.97589pt on input line 7.
+(Font)              scaled to size 14.97589pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/sc' will be
-(Font)              scaled to size 14.97589pt on input line 7.
+(Font)              scaled to size 14.97589pt on input line 6.
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/stringenc\se-ascii-print.def"
 File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
@@ -1776,13 +1748,13 @@ File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 
 ]
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 12.47992pt on input line 13.
+(Font)              scaled to size 12.47992pt on input line 12.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 25.87503pt on input line 13.
+(Font)              scaled to size 25.87503pt on input line 12.
 
 
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <24.88> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 13.
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 12.
 
 (projectemplate.toc [2])
 \tf@toc=\write5
@@ -1790,45 +1762,45 @@ LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <24.88> not available
 
  [3]
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 83.19946pt on input line 15.
+(Font)              scaled to size 83.19946pt on input line 14.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 14.97589pt on input line 15.
+(Font)              scaled to size 14.97589pt on input line 14.
  [4]
-Overfull \hbox (13.01924pt too wide) in paragraph at lines 45--45
+Overfull \hbox (13.01924pt too wide) in paragraph at lines 44--44
 |\TU/lmr/m/sc/24.88 Problem Definition and Algorithm| 
  []
 
 
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <14.4> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 46.
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 45.
 
 
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <12> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 46.
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 45.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--51
+Underfull \hbox (badness 10000) in paragraph at lines 46--50
 
  []
 
 
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 54.
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 53.
 
 [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
 File: figures/figure1.jpg Graphic file (type bmp)
 <figures/figure1.jpg>
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--99
+Underfull \hbox (badness 10000) in paragraph at lines 90--98
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--99
+Underfull \hbox (badness 10000) in paragraph at lines 90--98
 
  []
 
@@ -1844,17 +1816,17 @@ File: figures/figure4.PNG Graphic file (type bmp)
 File: figures/lm2.PNG Graphic file (type bmp)
 <figures/lm2.PNG>
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--142
+Underfull \hbox (badness 10000) in paragraph at lines 128--141
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--142
+Underfull \hbox (badness 10000) in paragraph at lines 128--141
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--142
+Underfull \hbox (badness 10000) in paragraph at lines 128--141
 
  []
 
@@ -1864,124 +1836,106 @@ File: figures/lm3.PNG Graphic file (type bmp)
 File: figures/lm1.PNG Graphic file (type bmp)
 <figures/lm1.PNG>
  [11]
-Underfull \hbox (badness 10000) in paragraph at lines 159--165
+Underfull \hbox (badness 10000) in paragraph at lines 158--164
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--165
+Underfull \hbox (badness 10000) in paragraph at lines 158--164
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--165
+Underfull \hbox (badness 10000) in paragraph at lines 158--164
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--165
+Underfull \hbox (badness 10000) in paragraph at lines 158--164
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--165
+Underfull \hbox (badness 10000) in paragraph at lines 158--164
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--174
+Underfull \hbox (badness 10000) in paragraph at lines 165--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--174
+Underfull \hbox (badness 10000) in paragraph at lines 165--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--174
+Underfull \hbox (badness 10000) in paragraph at lines 165--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--174
+Underfull \hbox (badness 10000) in paragraph at lines 165--173
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 175--185
+Underfull \hbox (badness 10000) in paragraph at lines 174--184
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--185
+Underfull \hbox (badness 10000) in paragraph at lines 174--184
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--185
+Underfull \hbox (badness 10000) in paragraph at lines 174--184
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--185
+Underfull \hbox (badness 10000) in paragraph at lines 174--184
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--185
+Underfull \hbox (badness 10000) in paragraph at lines 174--184
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 210--215
+Underfull \hbox (badness 10000) in paragraph at lines 209--214
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--221
+Underfull \hbox (badness 10000) in paragraph at lines 216--220
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 223--226
+Underfull \hbox (badness 10000) in paragraph at lines 222--225
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--231
+Underfull \hbox (badness 10000) in paragraph at lines 227--230
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 241--243
+Underfull \hbox (badness 10000) in paragraph at lines 240--242
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--251
+Underfull \hbox (badness 10000) in paragraph at lines 248--250
 
  []
 
-[15] <APlayer.swf>
-Missing character: There is no ( in font nullfont!
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no ) in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no ( in font nullfont!
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 4 in font nullfont!
-Missing character: There is no ) in font nullfont!
-Missing character: There is no ; in font nullfont!
- [16]
+[15] [16]
 
 Package fontspec Warning: OpenType feature 'Contextuals=Swash,Alternate'
 (fontspec)                (cswh) not available for font
@@ -2059,35 +2013,39 @@ n;language=dflt;+liga;+sups;mapping=tex-text;"
 n;language=dflt;+liga;+sups;+smcp;mapping=tex-text;"
 
 LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 12.47992pt on input line 298.
+(Font)              scaled to size 12.47992pt on input line 293.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 298.
+(Font)              scaled to size 10.39993pt on input line 293.
 LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 298.
+(Font)              scaled to size 10.39993pt on input line 293.
 [17]
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/it' will be
-(Font)              scaled to size 12.47992pt on input line 305.
+(Font)              scaled to size 12.47992pt on input line 300.
 
-Underfull \hbox (badness 1521) in paragraph at lines 305--306
+Underfull \hbox (badness 1521) in paragraph at lines 300--301
 []\TU/ArnoPro(1)/m/n/12 Giusti, Santochi, \TU/ArnoPro(1)/m/it/12 Tecnologia Mec
 canica e Studi di Fabbricazione\TU/ArnoPro(1)/m/n/12 . Casa Editrice Am-
  []
 
 [18]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 316.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 316.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 311.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 311.
  (projectemplate.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 316.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 316.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 311.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 311.
 Package rerunfilecheck Info: File `projectemplate.out' has not changed.
 (rerunfilecheck)             Checksum: 446C3D7A61328C7B515CFE92ADF07576;2501.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 316.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 311.
  ) 
 Here is how much of TeX's memory you used:
- 50755 strings out of 414221
- 1164423 string characters out of 2902595
- 1618598 words of memory out of 3000000
- 67309 multiletter control sequences out of 15000+200000
+ 49821 strings out of 414221
+ 1140760 string characters out of 2902595
+ 1591789 words of memory out of 3000000
+ 66384 multiletter control sequences out of 15000+200000
  567440 words of font info for 103 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  76i,10n,102p,977b,779s stack positions out of 5000i,500n,10000p,200000b,50000s

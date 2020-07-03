@@ -50,7 +50,7 @@ apply(ds,2,function(x) sum(is.na(x)))
 
 ## Normalisation and selection of the variables
 
-```{r, tidy=TRUE, tidy.opts=list(width.cutoff=60)}
+```{r}
 library(dplyr)
 library(tidyverse)
 normalize <- function(x) {
@@ -877,7 +877,7 @@ For regression : https://keras.rstudio.com/articles/tutorial_basic_regression.ht
 
 For classification: https://keras.rstudio.com/
 ```{r}
-library(keras)
+library("keras")
 library(dplyr)
 
 #needed: 
@@ -896,21 +896,30 @@ feat = as.matrix(as_tibble(nntrain[-5]))
 target_test =as.vector(nntest$price)
 feat_test =as.matrix(as_tibble(nntest[-5]))
 
+epochs <- 300
+
+
 ```
 
 ```{r}
+build_model <- function() {
+  
+  model <- keras::keras_model_sequential() %>%
+    layer_dense(units = 64, activation = "relu",
+                input_shape = 12) %>%
+    layer_dense(units = 32, activation = "relu") %>%
+    layer_dense(units = 1,activation="linear")
+  
+  model %>% compile(
+    loss = "mse",
+    optimizer = optimizer_rmsprop(),
+    metrics = list("mean_absolute_error")
+  )
+  
+  model
+}
 
-model = keras_model_sequential() %>% 
-   layer_dense(units=64, activation="relu", input_shape=12) %>% 
-   layer_dense(units=32, activation = "relu") %>% 
-   layer_dense(units=1, activation="linear")
- 
-model %>% compile(
-   loss = "mse",
-   optimizer =  "adam", 
-   metrics = list("mean_absolute_error")
- )
- 
+model <- build_model()
 model %>% summary()
 
 ```
@@ -928,14 +937,14 @@ model <- build_model()
 history <- model %>% fit(
   x = feat,
   y = target,
-  epochs = 500,
+  epochs = epochs,
   validation_split = 0.2,
   verbose = 0,
   callbacks = list(print_dot_callback)
 )
 ```
 ```{r}
-
+library(ggplot2)
 plot(history)
 
 
@@ -1007,7 +1016,6 @@ print_dot_callback <- callback_lambda(
 )    
 
 start.time = Sys.time()
-epochs <- 500
 
 # Fit the model and store training stats
 history <- model %>% fit(
@@ -1168,6 +1176,9 @@ where
 
 ```{r}
 library(clustMixType)
+library(png)
+
+library(ggpubr)
 
 clust_num = 5
 
@@ -1220,12 +1231,11 @@ lis3$myplot
 ```
 
 
-```{r}
 
 library(wesanderson)
 par(mfrow=c(2,2))
 clprofiles(lis$cl, dataset, col = wes_palette("Royal1",5, type = "continuous"))  
-```
+
 
 ```{r}
 Es = numeric(10)
@@ -1286,8 +1296,6 @@ Cluster means
 km.res$centers
 ```
 
-```{r}
-
 fviz_cluster(km.res, data = ds_neig_room,
              palette = c("#00AFBB","#2E9FDF","#0000FF", "#E7B800", "#FC4E07"),
              ggtheme = theme_minimal(),
@@ -1298,7 +1306,6 @@ res <- hcut(ds_neig_room, k = 5, stand = FALSE)
 fviz_dend(res, rect = TRUE, cex = 0.5,
           k_colors = c("#00AFBB","#2E9FDF", "#0000FF","#E7B800", "#FC4E07"))
 
-```
 
 
 
