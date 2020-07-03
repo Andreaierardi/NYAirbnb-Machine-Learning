@@ -1,6 +1,8 @@
 \documentclass{FR16} 
 \usepackage{listings}
 \usepackage{pdfpages}
+\usepackage{wrapfig}
+
 \begin{document}
 
 \maketitle
@@ -12,22 +14,24 @@
 \tableofcontents
 \newpage
 \section{Abstract}
-The aim of the project is to analyse and develop prediction models for the data from the "New York City Airbnb Open Data" from a Kaggle competition.
-\\ In particular, one part is focused on the developing predictive model to forecast house prices using Supervised Learning technics:\begin{itemize}
+The aim of the project is to analyse, develop prediction models and define data clusters from the "New York City Airbnb Open Data" from a Kaggle competition.
+\\ In particular, one part is focused on the development of predictive models to forecast house prices using these Supervised Learning technics:\begin{itemize}
 \itemsep0em 
 \item Linear Regression
 \item Decision Tree
 \item Random Forest
 \item Ranger Random Forest
-\item Neural Newtworks (?)
+\item Neural Newtworks
 \end{itemize}
-The second part is focused on the clusterisation of the data using Unsupervised Learning technics: Cluster Analysis and K-means algorithm.
+For each of these, a comparison between the Mean Square Error of all methods and between all $R^2$ measure has been made to highlight which have the best performance. Also, for training all the models, a partition of the dataset in three parts has been applied: entire dataset, filtered by neighboorhood group and filtered for neighboorhood group and room type. In this way, it is possible to check the perfomance giving less or more features in input.\\\\
+The second part is focused on the cluster and data reduction technics using these Unsupervised Learning technics:
 \begin{itemize}
 \itemsep0em
 \item Cluster Analysis
 \item K-means Algorithm
+\item Principal Component Analysis
 \end{itemize}
-A crucial part of the project was to the tuning and finding of the hyperparameters of the different models in order to get the best fit.
+
 %%Eachreport must contain:\\
 %•shortabstract: what are your going to present %in the report\\
 %•statementof the problem/goalof the analysis %and description of thedata set(s)\\
@@ -185,13 +189,46 @@ The dataset filtered by neighboorhood and room type gives as result a $R^2$ of 0
 \begin{tabular}{l c c c }
 \arrayrulecolor{Azzurro}
 \hline
-{\bfseries Models
+{\bfseries Dataset
 } & MSE & $R^2$ & OOB \\
 \hline
 {\bfseries Linear Regression} & .. & .. & $\backslash$ \\
 {\bfseries Decision Tree} & .. & .. & $\backslash$ \\
 {\bfseries Random Forest} & .. & .. & .. \\
 {\bfseries Ranger RF} & .. & .. & .. \\
+{\bfseries Neural Networks} & .. & .. & .. \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{l c c c }
+\arrayrulecolor{Azzurro}
+\hline
+{\bfseries Filter: Manhattan
+} & MSE & $R^2$ & OOB \\
+\hline
+{\bfseries Linear Regression} & .. & .. & $\backslash$ \\
+{\bfseries Decision Tree} & .. & .. & $\backslash$ \\
+{\bfseries Random Forest} & .. & .. & .. \\
+{\bfseries Ranger RF} & .. & .. & .. \\
+{\bfseries Neural Networks} & .. & .. & .. \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{l c c c }
+\arrayrulecolor{Azzurro}
+\hline
+{\bfseries Filter: Manhattan \& Apt
+} & MSE & $R^2$ & OOB \\
+\hline
+{\bfseries Linear Regression} & .. & .. & $\backslash$ \\
+{\bfseries Decision Tree} & .. & .. & $\backslash$ \\
+{\bfseries Random Forest} & .. & .. & .. \\
+{\bfseries Ranger RF} & .. & .. & .. \\
+{\bfseries Neural Networks} & .. & .. & .. \\
 \hline
 \end{tabular}
 \end{center}

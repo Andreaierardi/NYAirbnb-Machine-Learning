@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  3 JUL 2020 13:13
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 20.6.29) (preloaded format=xelatex 2020.7.3)  3 JUL 2020 17:04
 entering extended mode
 **./projectemplate.tex
 (projectemplate.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-03-06> (FR16.cls
+L3 programming layer <2020-06-18> (FR16.cls
 Document Class: FR16 2019/01/21 ver. 0.0
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\article.cls"
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
@@ -173,10 +173,10 @@ Package: marginnote 2018/08/09 v1.4b non floating margin notes for LaTeX
 \c@mn@abspage=\count186
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption.sty"
-Package: caption 2020/01/03 v3.4h Customizing captions (AR)
+Package: caption 2020/05/30 v3.4k Customizing captions (AR)
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption3.sty"
-Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
+Package: caption3 2020/05/30 v1.12 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
 \captionmargin=\dimen154
 \captionmargin@=\dimen155
@@ -192,24 +192,25 @@ Package caption Info: Standard document class detected.
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/siunitx\siunitx.sty"
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3kernel\expl3.sty"
-Package: expl3 2020-03-06 L3 programming layer (loader) 
+Package: expl3 2020-06-18 L3 programming layer (loader) 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-xdvipdfmx.def"
-File: l3backend-xdvipdfmx.def 2020-03-12 L3 backend support: xdvipdfmx
+File: l3backend-xdvipdfmx.def 2020-06-29 L3 backend support: xdvipdfmx
 \g__graphics_track_int=\count189
 \l__pdf_internal_box=\box47
 \g__pdf_backend_object_int=\count190
 \g__pdf_backend_annotation_int=\count191
 ))
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xparse\xparse.sty"
-Package: xparse 2020-03-06 L3 Experimental document command parser
+Package: xparse 2020-05-15 L3 Experimental document command parser
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xparse\xparse-generic.tex"
 \l__xparse_current_arg_int=\count192
 \g__xparse_grabber_int=\count193
 \l__xparse_m_args_int=\count194
 \l__xparse_v_nesting_int=\count195
-)
+))
 Package: siunitx 2020/02/25 v2.8b A comprehensive (SI) units package
-
 ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\array.sty"
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen161
@@ -221,7 +222,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \ar@cellbox=\box49
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/l3keys2e\l3keys2e.sty"
-Package: l3keys2e 2020-03-06 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2020-05-15 LaTeX2e option processing using LaTeX3 keys
 )
 \l__siunitx_tmp_box=\box50
 \l__siunitx_tmp_dim=\dimen163
@@ -318,13 +319,13 @@ Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 \PaperWidth=\dimen177
 \PaperHeight=\dimen178
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hyperref.sty"
-Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
+Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/ltxcmds\ltxcmds.sty"
 Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex/latex/pdftexcmds\pdftexcmds.sty"
-Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+("C:\Program Files\MiKTeX 2.9\tex/generic/pdftexcmds\pdftexcmds.sty"
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/infwarerr\infwarerr.sty"
@@ -360,7 +361,7 @@ Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 \Hy@pagecounter=\count282
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def"
-File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/intcalc\intcalc.sty"
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
@@ -369,20 +370,20 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count283
-Package hyperref Info: Hyper figures OFF on input line 4547.
-Package hyperref Info: Link nesting OFF on input line 4552.
-Package hyperref Info: Hyper index ON on input line 4555.
-Package hyperref Info: Plain pages OFF on input line 4562.
-Package hyperref Info: Backreferencing OFF on input line 4567.
+Package hyperref Info: Hyper figures OFF on input line 4464.
+Package hyperref Info: Link nesting OFF on input line 4469.
+Package hyperref Info: Hyper index ON on input line 4472.
+Package hyperref Info: Plain pages OFF on input line 4479.
+Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4800.
+Package hyperref Info: Bookmarks ON on input line 4717.
 \c@Hy@tempcnt=\count284
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5159.
+LaTeX Info: Redefining \url on input line 5076.
 \XeTeXLinkMargin=\dimen180
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/bitset\bitset.sty"
@@ -395,15 +396,15 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 \Fld@menulength=\count285
 \Field@Width=\dimen181
 \Fld@charsize=\dimen182
-Package hyperref Info: Hyper figures OFF on input line 6430.
-Package hyperref Info: Link nesting OFF on input line 6435.
-Package hyperref Info: Hyper index ON on input line 6438.
-Package hyperref Info: backreferencing OFF on input line 6445.
-Package hyperref Info: Link coloring OFF on input line 6450.
-Package hyperref Info: Link coloring with OCG OFF on input line 6455.
-Package hyperref Info: PDF/A mode OFF on input line 6460.
-LaTeX Info: Redefining \ref on input line 6500.
-LaTeX Info: Redefining \pageref on input line 6504.
+Package hyperref Info: Hyper figures OFF on input line 6347.
+Package hyperref Info: Link nesting OFF on input line 6352.
+Package hyperref Info: Hyper index ON on input line 6355.
+Package hyperref Info: backreferencing OFF on input line 6362.
+Package hyperref Info: Link coloring OFF on input line 6367.
+Package hyperref Info: Link coloring with OCG OFF on input line 6372.
+Package hyperref Info: PDF/A mode OFF on input line 6377.
+LaTeX Info: Redefining \ref on input line 6417.
+LaTeX Info: Redefining \pageref on input line 6421.
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/atbegshi\atbegshi.sty"
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
@@ -415,10 +416,10 @@ Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 Package hyperref Info: Driver (autodetected): hxetex.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hxetex.def"
-File: hxetex.def 2020/01/14 v7.00d Hyperref driver for XeTeX
+File: hxetex.def 2020-05-15 v7.00e Hyperref driver for XeTeX
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\puenc.def"
-File: puenc.def 2020/01/14 v7.00d Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/stringenc\stringenc.sty"
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
@@ -1033,7 +1034,7 @@ Package: numprint 2012/08/20 v1.39 Print numbers (HH)
 
 No configuration file `numprint.cfg' found.)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xfp\xfp.sty"
-Package: xfp 2020-03-06 L3 Floating point unit
+Package: xfp 2020-05-15 L3 Floating point unit
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/fp\fp.sty"
 Package: fp 1995/04/02
@@ -1489,15 +1490,15 @@ LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
 \lst@maxwidth=\dimen342
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\lstmisc.sty"
-File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 \c@lstnumber=\count372
 \lst@skipnumbers=\count373
 \lst@framebox=\box103
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\listings.cfg"
-File: listings.cfg 2019/09/10 1.8c listings configuration
+File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
-Package: listings 2019/09/10 1.8c (Carsten Heinz)
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/pdfpages\pdfpages.sty"
 Package: pdfpages 2020/01/28 v0.5q Insert pages of external PDF documents (AM)
@@ -1537,39 +1538,39 @@ File: ppxetex.def 2020/01/28 v0.5q Pdfpages driver for XeTeX (AM)
 (projectemplate.aux)
 \openout1 = `projectemplate.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 6
 .
  ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 4.
-LaTeX Font Info:    Trying to load font information for T3+cmr on input line 4.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 6.
+LaTeX Font Info:    Trying to load font information for T3+cmr on input line 6.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/tipa\t3cmr.fd"
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    ... okay on input line 6.
 
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1619,7 +1620,7 @@ Dictionary: translator-basic-dictionary, Language: English
 File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 )
 \AtBeginShipoutBox=\box106
-Package hyperref Info: Link coloring ON on input line 4.
+Package hyperref Info: Link coloring ON on input line 6.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1632,9 +1633,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count379
 )
-LaTeX Info: Redefining \ref on input line 4.
-LaTeX Info: Redefining \pageref on input line 4.
-LaTeX Info: Redefining \nameref on input line 4.
+LaTeX Info: Redefining \ref on input line 6.
+LaTeX Info: Redefining \pageref on input line 6.
+LaTeX Info: Redefining \nameref on input line 6.
 
 (projectemplate.out) (projectemplate.out)
 \@outlinefile=\write4
@@ -1646,69 +1647,69 @@ ABD: EveryShipout initializing macros
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.17} into 
 your preamble.
- on input line 4.
+ on input line 6.
 
 *** you should *not* be loading the inputenc package
 *** XeTeX expects the source to be in UTF8 encoding
 *** some features of other encodings may conflict, resulting in poor output.
 \c@lstlisting=\count380
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 6
 .
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 6
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-4.
+6.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-4.
+6.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 4.
+(Font)              <12> on input line 6.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 4.
+(Font)              <8> on input line 6.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 4.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 4.
+(Font)              <6> on input line 6.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 6.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 4.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 6.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 4.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(0)/m/n' will be
-(Font)              scaled to size 8.31995pt on input line 4.
+(Font)              scaled to size 8.31995pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(0)/m/n' will be
-(Font)              scaled to size 6.23996pt on input line 4.
+(Font)              scaled to size 6.23996pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(0)/m/it' will be
-(Font)              scaled to size 12.47992pt on input line 4.
+(Font)              scaled to size 12.47992pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(0)/m/it' will be
-(Font)              scaled to size 8.31995pt on input line 4.
+(Font)              scaled to size 8.31995pt on input line 6.
 LaTeX Font Info:    Font shape `TU/ArnoPro(0)/m/it' will be
-(Font)              scaled to size 6.23996pt on input line 4.
+(Font)              scaled to size 6.23996pt on input line 6.
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-4.
+6.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ot1lmss.fd"
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-4.
+6.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ot1lmtt.fd"
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1716,29 +1717,29 @@ File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 File: univlogo.png Graphic file (type bmp)
 <univlogo.png>
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/sc' will be
-(Font)              scaled to size 12.47992pt on input line 6.
+(Font)              scaled to size 12.47992pt on input line 8.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/sc' will be
-(Font)              scaled to size 11.83624pt on input line 6.
+(Font)              scaled to size 11.83624pt on input line 8.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
-(Font)              scaled to size 17.97107pt on input line 6.
+(Font)              scaled to size 17.97107pt on input line 8.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 17.97107pt on input line 6.
+(Font)              scaled to size 17.97107pt on input line 8.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/sc' will be
-(Font)              scaled to size 17.97107pt on input line 6.
+(Font)              scaled to size 17.97107pt on input line 8.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/sc' will be
-(Font)              scaled to size 17.97107pt on input line 6.
+(Font)              scaled to size 17.97107pt on input line 8.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/sc' will be
-(Font)              scaled to size 25.87503pt on input line 6.
+(Font)              scaled to size 25.87503pt on input line 8.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
-(Font)              scaled to size 25.87503pt on input line 6.
+(Font)              scaled to size 25.87503pt on input line 8.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/sc' will be
-(Font)              scaled to size 25.87503pt on input line 6.
+(Font)              scaled to size 25.87503pt on input line 8.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
-(Font)              scaled to size 14.97589pt on input line 6.
+(Font)              scaled to size 14.97589pt on input line 8.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/it' will be
-(Font)              scaled to size 14.97589pt on input line 6.
+(Font)              scaled to size 14.97589pt on input line 8.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/sc' will be
-(Font)              scaled to size 14.97589pt on input line 6.
+(Font)              scaled to size 14.97589pt on input line 8.
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/stringenc\se-ascii-print.def"
 File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
@@ -1748,306 +1749,4 @@ File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 
 ]
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 12.47992pt on input line 12.
-LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 25.87503pt on input line 12.
-
-
-LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <24.88> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 12.
-
-(projectemplate.toc [2])
-\tf@toc=\write5
-\openout5 = `projectemplate.toc'.
-
- [3]
-LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 83.19946pt on input line 14.
-LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 14.97589pt on input line 14.
- [4]
-Overfull \hbox (13.01924pt too wide) in paragraph at lines 44--44
-|\TU/lmr/m/sc/24.88 Problem Definition and Algorithm| 
- []
-
-
-LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <14.4> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 45.
-
-
-LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <12> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 45.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--50
-
- []
-
-
-LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 53.
-
-[5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
-
- []
-
-File: figures/figure1.jpg Graphic file (type bmp)
-<figures/figure1.jpg>
-
-Underfull \hbox (badness 10000) in paragraph at lines 90--98
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 90--98
-
- []
-
-[7]
-File: figures/figure2.pdf Graphic file (type pdf)
-<use figures/figure2.pdf>
- [8]
-File: figures/figure3.pdf Graphic file (type pdf)
-<use figures/figure3.pdf>
- [9]
-File: figures/figure4.PNG Graphic file (type bmp)
-<figures/figure4.PNG>
-File: figures/lm2.PNG Graphic file (type bmp)
-<figures/lm2.PNG>
-
-Underfull \hbox (badness 10000) in paragraph at lines 128--141
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 128--141
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 128--141
-
- []
-
-[10]
-File: figures/lm3.PNG Graphic file (type bmp)
-<figures/lm3.PNG>
-File: figures/lm1.PNG Graphic file (type bmp)
-<figures/lm1.PNG>
- [11]
-Underfull \hbox (badness 10000) in paragraph at lines 158--164
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--164
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--164
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--164
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--164
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 165--173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 165--173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 165--173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 165--173
-
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 174--184
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--184
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--184
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--184
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--184
-
- []
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 209--214
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 216--220
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 222--225
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 227--230
-
- []
-
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 240--242
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 248--250
-
- []
-
-[15] [16]
-
-Package fontspec Warning: OpenType feature 'Contextuals=Swash,Alternate'
-(fontspec)                (cswh) not available for font
-(fontspec)                'ArnoPro-RegularSubhead' with script 'CustomDefault'
-(fontspec)                and language 'Default'.
-
-
-Package fontspec Warning: OpenType feature 'Contextuals=Swash,Alternate'
-(fontspec)                (cswh) not available for font
-(fontspec)                'ArnoPro-RegularSubhead' with script 'CustomDefault'
-(fontspec)                and language 'Default'.
-
-
-Package fontspec Warning: OpenType feature 'Contextuals=Swash,Alternate'
-(fontspec)                (cswh) not available for font
-(fontspec)                'ArnoPro-RegularDisplay' with script 'CustomDefault'
-(fontspec)                and language 'Default'.
-
-
-Package fontspec Warning: OpenType feature 'Contextuals=Swash,Alternate'
-(fontspec)                (cswh) not available for font
-(fontspec)                'ArnoPro-RegularDisplay' with script 'CustomDefault'
-(fontspec)                and language 'Default'.
-
-
-Package fontspec Info: Font family 'ArnoPro(2)' created for font 'ArnoPro'
-(fontspec)             with options [Mapping=tex-text,Ligatures=TeX,Path =
-(fontspec)             fonts/,Extension =
-(fontspec)             .otf,Scale=1.04,Mapping=tex-text,Ligatures={Common},Size
-Features={{Size={-10},
-(fontspec)             Font=*-RegularCaption}, {Size={10-13.0}, Font=*},
-(fontspec)             {Size={13.01-19.9}, Font=*-RegularSubhead,
-(fontspec)             Ligatures=Rare, Contextuals={Swash,Alternate}},
-(fontspec)             {Size={19.91-},Font=*-RegularDisplay, Ligatures=Rare,
-(fontspec)             Contextuals={Swash,Alternate}}},UprightFont=ArnoPro-Regu
-lar,BoldFont=ArnoPro-Bold,ItalicFont=ArnoPro-Italic,BoldItalicFont=ArnoPro-Bold
-Italic,VerticalPosition=Superior].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <-10>s*[1.04]"[fonts/ArnoPro-RegularCaption.otf]/OT:scri
-pt=latn;language=dflt;+liga;+sups;mapping=tex-text;"<10-13.0>s*[1.04]"[fonts/Ar
-noPro.otf]/OT:script=latn;language=dflt;+liga;+sups;mapping=tex-text;"<13.01-19
-.9>s*[1.04]"[fonts/ArnoPro-RegularSubhead.otf]/OT:script=latn;language=dflt;+li
-ga;+sups;+dlig;+calt;mapping=tex-text;"<19.91->s*[1.04]"[fonts/ArnoPro-RegularD
-isplay.otf]/OT:script=latn;language=dflt;+liga;+sups;+dlig;+calt;mapping=tex-te
-xt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <-10>s*[1.04]"[fonts/ArnoPro-RegularCaption.otf]/OT:scri
-pt=latn;language=dflt;+liga;+sups;+smcp;mapping=tex-text;"<10-13.0>s*[1.04]"[fo
-nts/ArnoPro.otf]/OT:script=latn;language=dflt;+liga;+sups;+smcp;mapping=tex-tex
-t;"<13.01-19.9>s*[1.04]"[fonts/ArnoPro-RegularSubhead.otf]/OT:script=latn;langu
-age=dflt;+liga;+sups;+dlig;+calt;+smcp;mapping=tex-text;"<19.91->s*[1.04]"[font
-s/ArnoPro-RegularDisplay.otf]/OT:script=latn;language=dflt;+liga;+sups;+dlig;+c
-alt;+smcp;mapping=tex-text;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1.04]"[fonts/ArnoPro-Bold.otf]/OT:script=latn;lang
-uage=dflt;+liga;+sups;mapping=tex-text;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->s*[1.04]"[fonts/ArnoPro-Bold.otf]/OT:script=latn;lang
-uage=dflt;+liga;+sups;+smcp;mapping=tex-text;"
-(fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[1.04]"[fonts/ArnoPro-Italic.otf]/OT:script=latn;la
-nguage=dflt;+liga;+sups;mapping=tex-text;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
-(fontspec)             <->s*[1.04]"[fonts/ArnoPro-Italic.otf]/OT:script=latn;la
-nguage=dflt;+liga;+sups;+smcp;mapping=tex-text;"
-(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[1.04]"[fonts/ArnoPro-BoldItalic.otf]/OT:script=lat
-n;language=dflt;+liga;+sups;mapping=tex-text;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->s*[1.04]"[fonts/ArnoPro-BoldItalic.otf]/OT:script=lat
-n;language=dflt;+liga;+sups;+smcp;mapping=tex-text;"
-
-LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 12.47992pt on input line 293.
-LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 293.
-LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 293.
-[17]
-LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/it' will be
-(Font)              scaled to size 12.47992pt on input line 300.
-
-Underfull \hbox (badness 1521) in paragraph at lines 300--301
-[]\TU/ArnoPro(1)/m/n/12 Giusti, Santochi, \TU/ArnoPro(1)/m/it/12 Tecnologia Mec
-canica e Studi di Fabbricazione\TU/ArnoPro(1)/m/n/12 . Casa Editrice Am-
- []
-
-[18]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 311.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 311.
- (projectemplate.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 311.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 311.
-Package rerunfilecheck Info: File `projectemplate.out' has not changed.
-(rerunfilecheck)             Checksum: 446C3D7A61328C7B515CFE92ADF07576;2501.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 311.
- ) 
-Here is how much of TeX's memory you used:
- 49821 strings out of 414221
- 1140760 string characters out of 2902595
- 1591789 words of memory out of 3000000
- 66384 multiletter control sequences out of 15000+200000
- 567440 words of font info for 103 fonts, out of 3000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 76i,10n,102p,977b,779s stack positions out of 5000i,500n,10000p,200000b,50000s
-
-Output written on projectemplate.pdf (18 pages).
+(Font)              s

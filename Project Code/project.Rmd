@@ -1,10 +1,14 @@
 ---
-title: "Statistical Learning Project - Supervised Learning"
-output:
-  pdf_document: default
-  html_document: default
----
+title: "Statistical Learning Project"
+author: Andrea Ierardi
+output: 
+  pdf_document:
+        latex_engine: xelatex
+        keep_tex: true
 
+---
+pdf_document: default
+html_document: default
 ```{r}
 #https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data
 library(knitr)
