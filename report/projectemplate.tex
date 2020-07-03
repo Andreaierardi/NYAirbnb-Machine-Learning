@@ -1,6 +1,8 @@
 \documentclass{FR16} 
 \usepackage{listings}
 \usepackage{pdfpages}
+\usepackage{subfiles} 
+
 
 \begin{document}
 
@@ -300,7 +302,10 @@ Ranger Random Forest is a computationally light model which results are very clo
 
 \newpage
 \section{Appendix}
-%\includepdf[pages=-]{project.pdf}
+%\subfile{project}
+
+
+%\includepdf[pages=-, pagecommand=\thispagestyle{plain}]{project.tex}
 %\noinden
 
 \newpage
