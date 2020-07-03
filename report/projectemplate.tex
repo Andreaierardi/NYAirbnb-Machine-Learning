@@ -1,7 +1,6 @@
 \documentclass{FR16} 
 \usepackage{listings}
 \usepackage{pdfpages}
-\usepackage{wrapfig}
 
 \begin{document}
 
@@ -23,12 +22,12 @@ The aim of the project is to analyse, develop prediction models and define data 
 \item Ranger Random Forest
 \item Neural Newtworks
 \end{itemize}
-For each of these, a comparison between the Mean Square Error of all methods and between all $R^2$ measure has been made to highlight which have the best performance. Also, for training all the models, a partition of the dataset in three parts has been applied: entire dataset, filtered by neighboorhood group and filtered for neighboorhood group and room type. In this way, it is possible to check the perfomance giving less or more features in input.\\\\
+For each of these, a comparison between the Mean Square Error and between all $R^2$ measure of all methods has been made to highlight which have the best performance. Also, for training all the models, a partition of the dataset in three parts has been applied: entire dataset, filtered by neighboorhood group and filtered for neighboorhood group and room type. In this way, it is possible to check the perfomance giving less or more features in input.\\\\
 The second part is focused on the cluster and data reduction technics using these Unsupervised Learning technics:
 \begin{itemize}
 \itemsep0em
-\item Cluster Analysis
-\item K-means Algorithm
+\item K-means Algorithm 
+\item Clustering for mixed-type data
 \item Principal Component Analysis
 \end{itemize}
 
@@ -46,13 +45,14 @@ The second part is focused on the cluster and data reduction technics using thes
 
 \newpage
 \section{Problem Definition and Algorithm}
-\subsection{Two main Goal}
-\textbf{Develope predicting models for price}\\
-The project is focused on a AirBnB user point of view. It is possible to image an application in which the user has a lot of information depending on the objective. For a landlord point of view, giving the information about the longitude and the latitude of the house, he/she will have as output the estimated price given based also on the neighbourhood group in New York City. For a guest point of view, he/she will give in input information about the price range and the type of room to get as output the most suitable houses for him or predict the position of one of that.\\\\
-\textbf{Define clusters and groups}\\
-For the Unsupervised part, the goal is to define cluster of price in which is possible to split out the houses, firstly in the entire city, secondly filtering for Neighborhood or room type. 
+\subsection{Two main Goals}
 
-\#\# FOR A SPECIFIC NEIGHBOORHOOD OR FOR THE ENTIRE NY CITY
+\subsubsection{Develop predictive models for price}
+First objective is the forecast of the prices given some input informations. This could be usefull for a lot of scenarios. For example from a AirBnB user point of view, he/she would like to get the houses more in line with his preference choice; or for a host point of view, where given the position and other information he/she could get information about the possible per day price of his house in New York City. 
+
+\subsubsection{Define clusters and groups}
+Second objective is the definition of group or partition between the houses with different characteristics. For a user point of view could be usefull to have information about similar houses before the booking, giving in input some information about their preference. This could be also usefull after the booking for a suggestion analysis giving the information about last booked houses in NewYork or houses in similar cities around the globe.
+\\\\
 \subsection{Algorithms}
 \subsubsection{Linear Regression}
  Linear regression  is a linear approach to modeling the relationship between a dependent variable and one or more independent variables. Linear regression should be suitable, since there could be a linear relationship between the position and the price. In the city center there will be the expensive houses, while in the outskirts there will be the cheaper ones.
@@ -64,14 +64,19 @@ In decision analysis, a decision tree can be used to visually and explicitly rep
  \subsubsection{Ranger Random Forest}
 Ranger is a fast implementation of random forests or recursive partitioning, particularly suited for high dimensional data. 
 
- 
+\subsubsection{Neural Networks}
+
+\subsubsection{K-means}
+
+\subsubsection{Principal Component Analysis}
+
 \newpage
 \section{Experimental Evaluation}
 
 \subsection{Methodology}
 \subsubsection{Data Inspection}
-The dataset used in this project is one of a Kaggle competiotion and is called the New York City Airbnb Open Data. It contains 48.000 data points for each different column.
-The dataset has different columns: 
+The dataset is a Kaggle competiotion dataset, called the New York City Airbnb Open Data. It contains 48.000 data points for each different column.
+The dataset is structured with 16 columns: 
 \begin{itemize}
 \itemsep0em 
 \item \textbf{id}
@@ -91,10 +96,10 @@ The dataset has different columns:
 \item \textbf{calculated\_host\_listings\_count}: amount of listing per host
 \item  \textbf{availability\_365}: number of days when listing is available for booking\\
 \end{itemize}
-We select just 5 of this feature from the dataset since we denotes them as the most important for the price of a house: latitude, longitude, room type, neighbourhood and the price itself to compare the prediction during the tests. \\\\
-From the Figure 1 is possible to see that there are some outliers in the dataset that could be removed, but only by a choise of the user, since it is possible that someone wants to rent a luxury house. In fact, no outlier was removed from the dataset. Also, there were no null and missing value apart from the reviews\_per\_month column that we do not take in account in the project.
+It has been select only 5 of this features since these are the most important for determine the prices and also the different groups of clusters. These feature selected are: latitude, longitude, room type, neighbourhood and the price itself that will be compared with the prediction.\\\\
+From the Figure 1 is possible to see the distribution of the price. The minimum price is $0$ and the maximum price is $10000\$$. It is not possible to rent a house for free, so it is possible to filter the price with a price higher than $15\$$ and lower than $500\$$. It is possible that a luxury house cost a lot per day, but these value can not be consider in the model and can be consider as outliers. The reason is that the third quantile has a value of $175\$$ which is a far value from $10000\$$. It is also been checked the null and missing value and have not been found in the dataset apart from the reviews\_per\_month column. This feature has been not taken in account as possible one to the model training. 
 \\
-\\From Figure2, it is possible to see the distribution of all houses in New York City and the price. Moreover, it can be noticed that the prices for the most part are in the range $0$-$500\$$ and only some istances have a price greater than $1000\$$. Also, the fact that some houses have a cost of $0\$$ is strange, nobody rent a house for free.
+\\From Figure2, it is possible to see the distribution of all houses in New York City and the price. It can be noticed that the prices for the most part are in the range $0$-$500\$$ and only a low number of istances have a price greater than $500\$$. This picture is really  informative.
  \begin{figure}[H]
 \centering
 \includegraphics[width=0.3\textwidth]{figures/figure1.jpg} 
@@ -128,7 +133,7 @@ The selected numerical features are: latitude, longitude and price.
 
 \subsection{Results}
 
-\subsubsection{Linear Regression}
+\subsubsection{Linear Regression Results}
 For the Linear regression the model give different results based on the variables used. \\\\
 \textbf{Linear Regression selecting the Neighboorhood group}\\
 For semplicity, the tests have been only taken filtering for Manhattan data points, but changing the neighboorhood the results are similar. 
@@ -158,14 +163,14 @@ The model (Figure 7) obtain a $R^2$ value of $0.4031$ which is acceptable and a 
 
 
 
-\subsubsection{Decison Trees}
+\subsubsection{Decison Trees Results}
 For the Decision tree the model give different results based on the variables used.
 \\\\ \textbf{Decison tree  without filters}\\
 \\\\
 \textbf{Decison tree selecting the Neighboorhood group}\\
 \\\\ 
 \textbf{Decison tree  selecting the Neighboorhood group and room type}
-\subsubsection{Random Forest}
+\subsubsection{Random Forest Results}
 There were no problem running Random Forest regression for the price, givin the default parameters. For the parameter tuning there were no possibilities for the entire dataset, due to the large number of data points. For the filtered dataset, instead, were possible to tune the mtry, number of maximum nodes and number of trees.
 \\\\ \textbf{Random Forest  without filters}\\
 There were no possibility to run a forecast of the price
@@ -174,7 +179,7 @@ There were no possibility to run a forecast of the price
 \\\\ 
 \textbf{Random Forest selecting the Neighboorhood group and room type}
 Using the tuning of the parameter the results are slightly better. The model start with a $23\%$ explained variance to a value of $25\%$.
-\subsubsection{Ranger Random Forest}
+\subsubsection{Ranger Random Forest Results}
 Ranger Random Forest is known to be computationally light with respect to the classic Random Forest. In fact, for the tuning part there were not problem in running it for the entire dataset. 
 \\\\ \textbf{Ranger without filters}\\
 Ranger outputs for the entire dataset are consistent. We have a $R^2$ of 0.47 and OOB error of .
@@ -232,38 +237,42 @@ The dataset filtered by neighboorhood and room type gives as result a $R^2$ of 0
 \hline
 \end{tabular}
 \end{center}
-\subsubsection{K-means}
+
+\subsubsection{Neural Network Results}
+
+\subsubsection{K-means Results}
 
 
-\subsubsection{Hierarchical Clustering}
-
-\subsubsection{Principal Component Analysis}
+\subsubsection{Principal Component Analysis Results}
 
 \newpage
 \subsection{Discussion}
 
-\subsubsection{Linear Regression}
+\subsubsection{Linear Regression Discussion}
 Linear regression model gives interesting results for the non-filtered dataset and also for the filtered by neighbourhood group.
 All variable results to rejected by Null hyphotesis, so the model depends on all the selected variables.
 Latitude and longitude are correlated with the target, room type is strongly positive correlated with the price and neighbourhood group does not seem to have
 a great contribution in the prediction of the price.
 \\
 
-\subsubsection{Decision Tree}
+\subsubsection{Decision Tree Discussion}
 The performance with respect to the other models are not the best, but acceptable. The predicton results are not also very precised for the filtered neighboorhood 
 and room type. Also, the plots of the predicted value are not so consistent since the values are divided in category which correspond to the leaves that are not so strong
 with respect to the other model predictions.
 \\
 
-\subsection{Random Forest}
+\subsubsection{Random Forest Discussion}
 Random forest outputs consistent results and performs  better than linear regression and decision tree. 
 Parameters tuning does not give big improvement in performance and also are computationally expensive.
 \\
 
-\subsection{Ranger Random Forest}
+\subsubsection{Ranger Random Forest Discussion}
 Results of Ranger are the best with respect to the previous models. Also the tuning part was fast and computationally cheaper than 
 the classic Random Forest model but does not give great improvements in performance.
 \\
+\subsubsection{Neural Network Discussion}
+\subsubsection{K-Means Discussion}
+\subsubsection{Principal Component Analysis Discussion}
 
 \section{Conclusion}
 
@@ -295,35 +304,6 @@ Ranger Random Forest is a computationally light model which results are very clo
 %\noinden
 
 \newpage
-
-\section{Tabelle e grafici}
-Here a few examples of tables and graphs.
-\subsection{Tabelle}
-\begin{center}
-\begin{tabular}{c c c c c c c c}
-\arrayrulecolor{Azzurro}
-\hline
-{\bfseries $Codice$} & {\bfseries $CdL$} & {\bfseries $Lotto$} & {\bfseries $T_{setup/lotto}$} & {\bfseries $T_{lav/pezzo}$} & {\bfseries $T_{proc/pezzo}$} & {\bfseries$Quantit\grave{a}$} & {\bfseries $T_{tot}$}\\
-\hline
-100 & 4 & 250 & 25 & 0,5 & 0,6 & 1 & 0,6\\
-111 & 2 & 250 & 20 & 2 & 2,08 & 1 & 2,08 \\
-111 & 3 & 250 & 15 & 1,5 & 1,56 & 1 & 1,56 \\
-112 & 2 & 250 & 20 & 2,5 & 2,58 & 1 & 2,58 \\
-112 & 3 & 250 & 15 & 2 & 2,06 & 1 & 2,06\\
-113 & 3 & 500 & 15 & 1 & 1,03 & 2 & 2,06\\
-120 & 1 & 50 & 30 & 2 & 2,6 & 0,1 & 0,26\\
-121 & 1 & 25 & 30 & 3 & 4,2 & 0,1 & 0,42 \\
-121 & 1 & 25 & 30 & 2,5 & 3,7 & 0,1 & 0,37 \\
-\hline
-\end{tabular}
-\end{center}
-
-
-
-\subsection{Grafici}
-\begin{center}
-
-\end{center}
 
 
 \subsection{Footnote}
