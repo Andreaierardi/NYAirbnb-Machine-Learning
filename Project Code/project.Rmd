@@ -1520,3 +1520,32 @@ plot(cut(hc1, h=75)$upper,
 hc3 <- agnes(ds_neig_room, method = "ward")
 pltree(hc3, cex = 0.6, hang = -1, main = "Dendrogram of agnes") 
 
+
+```{r}
+library(cluster)
+library(readr)
+library(Rtsne)
+
+agg = aggregate(price ~neighbourhood_group+room_type, dataset , mean)
+agg
+
+gower <- daisy(agg, metric = "gower")
+hc1 <- hclust(gower, method = "complete" )
+
+plot(hc1, cex = 0.6, hang = -1)
+
+
+```
+```{r}
+
+avg_dend_obj <- as.dendrogram(hc1)
+avg_col_dend <- color_branches(avg_dend_obj, h = 0.6)
+plot(avg_col_dend)
+```
+
+
+```{r}
+clust <- cutree(hc1, k = 5)
+
+fviz_cluster(list(data = agg, cluster = clust))  ## from ‘factoextra’ package 
+```
