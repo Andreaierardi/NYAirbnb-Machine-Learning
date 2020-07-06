@@ -1366,7 +1366,7 @@ plot(1:8, sil_width,
 lines(1:8, sil_width)
 
 
-# FAMD
+#  - Factor Analysis of Mixed Data (FAMD)
 
 http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/115-famd-factor-analysis-of-mixed-data-in-r-essentials/
 https://nextjournal.com/pc-methods/calculate-pc-mixed-data
@@ -1537,7 +1537,7 @@ plot(hc1, cex = 0.6, hang = -1)
 
 ```
 ```{r}
-
+library(dendextend)
 avg_dend_obj <- as.dendrogram(hc1)
 avg_col_dend <- color_branches(avg_dend_obj, h = 0.6)
 plot(avg_col_dend)
@@ -1545,6 +1545,18 @@ plot(avg_col_dend)
 
 
 ```{r}
+agg = aggregate(price ~neighbourhood_group, dataset , mean)
+agg
+
+rownames(agg) = c("Brooklyn","Manhattan",
+                   "Queens","Staten Island", "Bronx")
+agg$neighbourhood_group = NULL
+gower <- daisy(agg, metric = "gower")
+hc1 <- hclust(gower, method = "complete" )
+
+plot(hc1, cex = 0.6, hang = -1)
+
+library(factoextra)
 clust <- cutree(hc1, k = 5)
 
 fviz_cluster(list(data = agg, cluster = clust))  ## from ‘factoextra’ package 

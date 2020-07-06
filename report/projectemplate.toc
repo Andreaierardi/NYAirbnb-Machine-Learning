@@ -1,41 +1,41 @@
-\contentsline {section}{\numberline {1}Abstract}{3}{section.1}%
-\contentsline {section}{\numberline {2}Problem Definition and Algorithm}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Two main Goals}{4}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Develop predictive models for price}{4}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Define clusters and groups}{4}{subsubsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.2}Algorithms}{4}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Linear Regression}{4}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Decison Trees}{5}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Random Forest}{5}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.4}Ranger Random Forest}{5}{subsubsection.2.2.4}%
-\contentsline {subsubsection}{\numberline {2.2.5}Neural Networks}{5}{subsubsection.2.2.5}%
-\contentsline {subsubsection}{\numberline {2.2.6}K-means}{5}{subsubsection.2.2.6}%
-\contentsline {subsubsection}{\numberline {2.2.7}Principal Component Analysis}{5}{subsubsection.2.2.7}%
-\contentsline {section}{\numberline {3}Experimental Evaluation}{6}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Methodology}{6}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Data Inspection}{6}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Data Cleaning and Pre-processing}{8}{subsubsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.2}Results}{9}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Linear Regression Results}{9}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Decison Trees Results}{11}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Random Forest Results}{11}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Ranger Random Forest Results}{12}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Neural Network Results}{13}{subsubsection.3.2.5}%
-\contentsline {subsubsection}{\numberline {3.2.6}K-means Results}{13}{subsubsection.3.2.6}%
-\contentsline {subsubsection}{\numberline {3.2.7}Principal Component Analysis Results}{13}{subsubsection.3.2.7}%
-\contentsline {subsection}{\numberline {3.3}Discussion}{14}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Linear Regression Discussion}{14}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Decision Tree Discussion}{14}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}Random Forest Discussion}{14}{subsubsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.4}Ranger Random Forest Discussion}{14}{subsubsection.3.3.4}%
-\contentsline {subsubsection}{\numberline {3.3.5}Neural Network Discussion}{14}{subsubsection.3.3.5}%
-\contentsline {subsubsection}{\numberline {3.3.6}K-Means Discussion}{14}{subsubsection.3.3.6}%
-\contentsline {subsubsection}{\numberline {3.3.7}Principal Component Analysis Discussion}{15}{subsubsection.3.3.7}%
-\contentsline {section}{\numberline {4}Conclusion}{15}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Linear Regression}{15}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Decision Tree}{15}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Random Forest}{15}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Ranger Random Forest}{15}{subsubsection.4.3.1}%
-\contentsline {section}{\numberline {5}Appendix}{16}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Footnote}{17}{subsection.5.1}%
-\contentsline {section}{References}{18}{subsection.5.1}%
+\contentsline {section}{\numberline {1}Abstract}{4}{section.1}%
+\contentsline {section}{\numberline {2}Problem Definition and Algorithm}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Two main Goals}{5}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Develop predictive models for price}{5}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Define clusters and groups}{5}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Algorithms}{5}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Linear Regression}{5}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Decison Trees}{6}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Random Forest}{6}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Ranger Random Forest}{6}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}Neural Networks}{6}{subsubsection.2.2.5}%
+\contentsline {subsubsection}{\numberline {2.2.6}K-means}{6}{subsubsection.2.2.6}%
+\contentsline {subsubsection}{\numberline {2.2.7}Principal Component Analysis}{6}{subsubsection.2.2.7}%
+\contentsline {section}{\numberline {3}Experimental Evaluation}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Methodology}{7}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Data Inspection}{7}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Data Cleaning and Pre-processing}{9}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Results}{10}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Linear Regression Results}{10}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Decison Trees Results}{12}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Random Forest Results}{12}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Ranger Random Forest Results}{13}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Neural Network Results}{14}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}K-means Results}{14}{subsubsection.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.7}Principal Component Analysis Results}{14}{subsubsection.3.2.7}%
+\contentsline {subsection}{\numberline {3.3}Discussion}{15}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Linear Regression Discussion}{15}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Decision Tree Discussion}{15}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Random Forest Discussion}{15}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Ranger Random Forest Discussion}{15}{subsubsection.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.5}Neural Network Discussion}{15}{subsubsection.3.3.5}%
+\contentsline {subsubsection}{\numberline {3.3.6}K-Means Discussion}{15}{subsubsection.3.3.6}%
+\contentsline {subsubsection}{\numberline {3.3.7}Principal Component Analysis Discussion}{16}{subsubsection.3.3.7}%
+\contentsline {section}{\numberline {4}Conclusion}{16}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Linear Regression}{16}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Decision Tree}{16}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Random Forest}{16}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Ranger Random Forest}{16}{subsubsection.4.3.1}%
+\contentsline {section}{\numberline {5}Appendix}{17}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Footnote}{18}{subsection.5.1}%
+\contentsline {section}{References}{19}{subsection.5.1}%
