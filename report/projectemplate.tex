@@ -163,6 +163,19 @@ The model (Figure 7) obtain a $R^2$ value of $0.4031$ which is acceptable and a 
 
 
 
+\begin{center}
+\begin{tabular}{l  c c }
+\arrayrulecolor{Azzurro}
+\hline
+{\bfseries Linear Regression
+} & MSE & $R^2$  \\
+\hline
+{\bfseries Entire dataset} & 2 & 2  \\
+{\bfseries Filter: Mahnattan} & 2 & 2  \\
+{\bfseries Filter: Manhattan \& Apt} & 2 & 2  \\
+\hline
+\end{tabular}
+\end{center}
 
 
 \subsubsection{Decison Trees Results}
@@ -172,6 +185,22 @@ For the Decision tree the model give different results based on the variables us
 \textbf{Decison tree selecting the Neighboorhood group}\\
 \\\\ 
 \textbf{Decison tree  selecting the Neighboorhood group and room type}
+
+
+
+\begin{center}
+\begin{tabular}{l c c c }
+\arrayrulecolor{Azzurro}
+\hline
+{\bfseries Decision Tree
+} & MSE & $R^2$  \\
+\hline
+{\bfseries Entire dataset} & 2 & 2  \\
+{\bfseries Filter: Mahnattan} & 2 & 2  \\
+{\bfseries Filter: Manhattan \& Apt} & 2 & 2  \\
+\hline
+\end{tabular}
+\end{center}
 \subsubsection{Random Forest Results}
 There were no problem running Random Forest regression for the price, givin the default parameters. For the parameter tuning there were no possibilities for the entire dataset, due to the large number of data points. For the filtered dataset, instead, were possible to tune the mtry, number of maximum nodes and number of trees.
 \\\\ \textbf{Random Forest  without filters}\\
@@ -181,6 +210,21 @@ There were no possibility to run a forecast of the price
 \\\\ 
 \textbf{Random Forest selecting the Neighboorhood group and room type}
 Using the tuning of the parameter the results are slightly better. The model start with a $23\%$ explained variance to a value of $25\%$.
+
+
+\begin{center}
+\begin{tabular}{l c c c }
+\arrayrulecolor{Azzurro}
+\hline
+{\bfseries Random Forest
+} & MSE & $\% Var $ & OOB \\
+\hline
+{\bfseries Entire dataset} & 2 & 2 & 2  \\
+{\bfseries Filter: Mahnattan}& 2 & 2 & 2  \\
+{\bfseries Filter: Manhattan \& Apt}& 2 & 2 & 2  \\
+\hline
+\end{tabular}
+\end{center}
 \subsubsection{Ranger Random Forest Results}
 Ranger Random Forest is known to be computationally light with respect to the classic Random Forest. In fact, for the tuning part there were not problem in running it for the entire dataset. 
 \\\\ \textbf{Ranger without filters}\\
@@ -192,55 +236,40 @@ The dataset filtered by Neighboorhood ouputs a value of 0.4 $R^2$ and a OOB erro
 \textbf{Ranger selecting the Neighboorhood group and room type}
 The dataset filtered by neighboorhood and room type gives as result a $R^2$ of 0.25.
 \\\\
-\begin{center}
-\begin{tabular}{l c c c }
-\arrayrulecolor{Azzurro}
-\hline
-{\bfseries Dataset
-} & MSE & $R^2$ & OOB \\
-\hline
-{\bfseries Linear Regression} & .. & .. & $\backslash$ \\
-{\bfseries Decision Tree} & .. & .. & $\backslash$ \\
-{\bfseries Random Forest} & .. & .. & .. \\
-{\bfseries Ranger RF} & .. & .. & .. \\
-{\bfseries Neural Networks} & .. & .. & .. \\
-\hline
-\end{tabular}
-\end{center}
+
 
 \begin{center}
 \begin{tabular}{l c c c }
 \arrayrulecolor{Azzurro}
 \hline
-{\bfseries Filter: Manhattan
-} & MSE & $R^2$ & OOB \\
+{\bfseries Ranger RF
+} & MSE & $\% Var $ & OOB \\
 \hline
-{\bfseries Linear Regression} & .. & .. & $\backslash$ \\
-{\bfseries Decision Tree} & .. & .. & $\backslash$ \\
-{\bfseries Random Forest} & .. & .. & .. \\
-{\bfseries Ranger RF} & .. & .. & .. \\
-{\bfseries Neural Networks} & .. & .. & .. \\
+{\bfseries Entire dataset}& 2 & 2 & 2  \\
+{\bfseries Filter: Mahnattan} & 2 & 2 & 2  \\
+{\bfseries Filter: Manhattan \& Apt}& 2 & 2 & 2  \\
 \hline
 \end{tabular}
 \end{center}
 
-\begin{center}
-\begin{tabular}{l c c c }
-\arrayrulecolor{Azzurro}
-\hline
-{\bfseries Filter: Manhattan \& Apt
-} & MSE & $R^2$ & OOB \\
-\hline
-{\bfseries Linear Regression} & .. & .. & $\backslash$ \\
-{\bfseries Decision Tree} & .. & .. & $\backslash$ \\
-{\bfseries Random Forest} & .. & .. & .. \\
-{\bfseries Ranger RF} & .. & .. & .. \\
-{\bfseries Neural Networks} & .. & .. & .. \\
-\hline
-\end{tabular}
-\end{center}
+
 
 \subsubsection{Neural Network Results}
+
+
+\begin{center}
+\begin{tabular}{l c c c }
+\arrayrulecolor{Azzurro}
+\hline
+{\bfseries  Neural Networks
+} & MSE & $R^2$  \\
+\hline
+{\bfseries Entire dataset} & 2 & 2  \\
+{\bfseries Filter: Mahnattan} & 2 & 2  \\
+{\bfseries Filter: Manhattan \& Apt} & 2 & 2  \\
+\hline
+\end{tabular}
+\end{center}
 
 \subsubsection{K-means Results}
 

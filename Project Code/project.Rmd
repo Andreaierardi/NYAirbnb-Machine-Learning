@@ -895,11 +895,28 @@ nntrain$neighbourhood_group = keras::to_categorical(nntrain$neighbourhood_group)
 nntest$room_type = keras::to_categorical(nntest$room_type)
 nntest$neighbourhood_group = keras::to_categorical(nntest$neighbourhood_group)
 
+nntrain_neig = train_neig 
+nntest_neig = test_neig
+nntrain_neig$room_type = keras::to_categorical(nntrain_neig$room_type) 
+nntest_neig$room_type = keras::to_categorical(nntest_neig$room_type) 
+
+nntrain_neig_room = train_neig_room
+nntest_neig_room = test_neig_room
+
 target = as.vector(nntrain$price)
 feat = as.matrix(as_tibble(nntrain[-5]))
 target_test =as.vector(nntest$price)
 feat_test =as.matrix(as_tibble(nntest[-5]))
 
+target_neig = as.vector(nntrain_neig$price)
+feat_neig = as.matrix(as_tibble(nntrain_neig[-4]))
+target_test_neig =as.vector(nntest_neig$price)
+feat_test_neig =as.matrix(as_tibble(nntest_neig[-4]))
+
+target_neig_room = as.vector(nntrain_neig_room$price)
+feat_neig_room = as.matrix(as_tibble(nntrain_neig_room[-3]))
+target_test_neig_room =as.vector(nntest_neig_room$price)
+feat_test_neig_room =as.matrix(as_tibble(nntest_neig_room[-3]))
 epochs <- 300
 
 
@@ -968,19 +985,158 @@ paste0("Loss: ", loss)
 
 ```
 
+
+
+
+
+```{r}
+build_model <- function() {
+  
+  model <- keras::keras_model_sequential() %>%
+    layer_dense(units = 64, activation = "relu",
+                input_shape = 6) %>%
+    layer_dense(units = 32, activation = "relu") %>%
+    layer_dense(units = 1,activation="linear")
+  
+  model %>% compile(
+    loss = "mse",
+    optimizer = optimizer_rmsprop(),
+    metrics = list("mean_absolute_error")
+  )
+  
+  model
+}
+
+model <- build_model()
+model %>% summary()
+
+```
 ```{r}
 
-y_pred = model %>% predict(feat_test)
+print_dot_callback <- callback_lambda(
+  on_epoch_end = function(epoch, logs) {
+    if (epoch %% 80 == 0) cat("\n")
+    cat(".")
+  }
+)    
+
+model <- build_model()
+
+history <- model %>% fit(
+  x = feat_neig,
+  y = target_neig,
+  epochs = epochs,
+  validation_split = 0.2,
+  verbose = 0,
+  callbacks = list(print_dot_callback)
+)
+```
+
+
+
+```{r}
+library(ggplot2)
+plot(history)
+
+
+plot(history, metrics = "mean_absolute_error", smooth = T) +
+  coord_cartesian(ylim = c(0, 5))
+```
+
+
+```{r}
+eva = model %>% evaluate(feat_test_neig,target_test_neig, verbose = 0)
+
+mae = eva[1]
+loss = eva[2]
+paste0("Mean absolute error on test set: ", mae)
+paste0("Loss: ", loss)
+
+
+```
+
+
+
+
+```{r}
+build_model <- function() {
+  
+  model <- keras::keras_model_sequential() %>%
+    layer_dense(units = 64, activation = "relu",
+                input_shape = 2) %>%
+    layer_dense(units = 32, activation = "relu") %>%
+    layer_dense(units = 1,activation="linear")
+  
+  model %>% compile(
+    loss = "mse",
+    optimizer = optimizer_rmsprop(),
+    metrics = list("mean_absolute_error")
+  )
+  
+  model
+}
+
+model <- build_model()
+model %>% summary()
+
+```
+```{r}
+
+print_dot_callback <- callback_lambda(
+  on_epoch_end = function(epoch, logs) {
+    if (epoch %% 80 == 0) cat("\n")
+    cat(".")
+  }
+)    
+
+model <- build_model()
+
+history <- model %>% fit(
+  x = feat_neig_room,
+  y = target_neig_room,
+  epochs = epochs,
+  validation_split = 0.2,
+  verbose = 0,
+  callbacks = list(print_dot_callback)
+)
+```
+```{r}
+library(ggplot2)
+plot(history)
+
+
+plot(history, metrics = "mean_absolute_error", smooth = T) +
+  coord_cartesian(ylim = c(0, 2))
+```
+
+
+```{r}
+eva = model %>% evaluate(feat_test_neig_room,target_test_neig_room, verbose = 0)
+
+mae = eva[1]
+loss = eva[2]
+paste0("Mean absolute error on test set: ", mae)
+paste0("Loss: ", loss)
+
+
+```
+
+
+
+
+```{r}
+
+y_pred_neig_room = model %>% predict(feat_test_neig_room)
 
 x_axes = seq(1:length(y_pred))
-plot(x_axes, target_test, type="l", col="red")
+plot(x_axes, target_test_neig_room, type="l", col="red")
 lines(x_axes, y_pred, col="blue")
 legend("topleft", legend=c("y-original", "y-predicted"),
         col=c("red", "blue"), lty=1,cex=0.8)
 
 
 
-MSE.nn = mean((y_pred-target_test)^2)
+MSE.nn = mean((y_pred_neig_room-target_test_neig_room)^2)
 MSE.nn
 
 ```
