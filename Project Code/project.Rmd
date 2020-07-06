@@ -1557,7 +1557,7 @@ hc1 <- hclust(gower, method = "complete" )
 plot(hc1, cex = 0.6, hang = -1)
 
 library(factoextra)
-clust <- cutree(hc1, k = 5)
+#clust <- cutree(hc1, k = 5)
 
-fviz_cluster(list(data = agg, cluster = clust))  ## from ‘factoextra’ package 
+#fviz_cluster(list(data = agg, cluster = clust))  ## from ‘factoextra’ package 
 ```
