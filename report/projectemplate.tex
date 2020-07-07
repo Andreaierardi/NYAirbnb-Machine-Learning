@@ -170,9 +170,9 @@ The model (Figure 7) obtain a $R^2$ value of $0.4031$ which is acceptable and a 
 {\bfseries Linear Regression
 } & MSE & $R^2$  \\
 \hline
-{\bfseries Entire dataset} & 2 & 2  \\
-{\bfseries Filter: Mahnattan} & 2 & 2  \\
-{\bfseries Filter: Manhattan \& Apt} & 2 & 2  \\
+{\bfseries Entire dataset} & 0.59 & .40  \\
+{\bfseries Filter: Mahnattan} & 0.76 & 0.355  \\
+{\bfseries Filter: Manhattan \& Apt} & 0.44 &  0.12  \\
 \hline
 \end{tabular}
 \end{center}
@@ -195,9 +195,9 @@ For the Decision tree the model give different results based on the variables us
 {\bfseries Decision Tree
 } & MSE & $R^2$  \\
 \hline
-{\bfseries Entire dataset} & 2 & 2  \\
-{\bfseries Filter: Mahnattan} & 2 & 2  \\
-{\bfseries Filter: Manhattan \& Apt} & 2 & 2  \\
+{\bfseries Entire dataset} & 0.59 & ..  \\
+{\bfseries Filter: Mahnattan} & 0.77 & ..  \\
+{\bfseries Filter: Manhattan \& Apt} &  0.40 & ..  \\
 \hline
 \end{tabular}
 \end{center}
@@ -217,11 +217,11 @@ Using the tuning of the parameter the results are slightly better. The model sta
 \arrayrulecolor{Azzurro}
 \hline
 {\bfseries Random Forest
-} & MSE & $\% Var $ & OOB \\
+} & MSE & $\% Var $  \\
 \hline
-{\bfseries Entire dataset} & 2 & 2 & 2  \\
-{\bfseries Filter: Mahnattan}& 2 & 2 & 2  \\
-{\bfseries Filter: Manhattan \& Apt}& 2 & 2 & 2  \\
+{\bfseries Entire dataset} &  0.56 & 43.9   \\
+{\bfseries Filter: Mahnattan}& 0.70 & 38.9   \\
+{\bfseries Filter: Manhattan \& Apt}&  0.38 & 21.6   \\
 \hline
 \end{tabular}
 \end{center}
@@ -243,11 +243,11 @@ The dataset filtered by neighboorhood and room type gives as result a $R^2$ of 0
 \arrayrulecolor{Azzurro}
 \hline
 {\bfseries Ranger RF
-} & MSE & $\% Var $ & OOB \\
+} & MSE & $\% Var $ \\
 \hline
-{\bfseries Entire dataset}& 2 & 2 & 2  \\
-{\bfseries Filter: Mahnattan} & 2 & 2 & 2  \\
-{\bfseries Filter: Manhattan \& Apt}& 2 & 2 & 2  \\
+{\bfseries Entire dataset}& 0.53 & 46.6 \\
+{\bfseries Filter: Mahnattan} & 0.71 &  38.8  \\
+{\bfseries Filter: Manhattan \& Apt}& 0.38 & 21.7   \\
 \hline
 \end{tabular}
 \end{center}
@@ -262,11 +262,11 @@ The dataset filtered by neighboorhood and room type gives as result a $R^2$ of 0
 \arrayrulecolor{Azzurro}
 \hline
 {\bfseries  Neural Networks
-} & MSE & $R^2$  \\
+} MSE & Loss \\
 \hline
-{\bfseries Entire dataset} & 2 & 2  \\
-{\bfseries Filter: Mahnattan} & 2 & 2  \\
-{\bfseries Filter: Manhattan \& Apt} & 2 & 2  \\
+{\bfseries Entire dataset} & 0.61 &  0.53 \\
+{\bfseries Filter: Mahnattan} & 0.84  & 0.64 \\
+{\bfseries Filter: Manhattan \& Apt} & 0.48 & 0.44  \\
 \hline
 \end{tabular}
 \end{center}

@@ -349,9 +349,9 @@ plot(rf2)
 ```
 
 ```{r}
-cat(" === Random Forest selecting the Neighboorhood group === \n")
+cat(" === Random Forest selecting the Neighboorhood group and room type=== \n")
 cat("Neighboorhood group = Manhattan\n ")
-
+cat("room_type = Entire home/Apt\n ")
 
 rf3 <- randomForest(
   price ~ .,
@@ -944,6 +944,8 @@ model <- build_model()
 model %>% summary()
 
 ```
+
+
 ```{r}
 
 print_dot_callback <- callback_lambda(
@@ -964,6 +966,8 @@ history <- model %>% fit(
   callbacks = list(print_dot_callback)
 )
 ```
+
+
 ```{r}
 library(ggplot2)
 plot(history)
