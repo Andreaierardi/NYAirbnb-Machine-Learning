@@ -1,0 +1,35 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=latex 2020.4.13)  8 JUL 2020 17:43
+entering extended mode
+**C:/Users/AndreDany/AppData/Local/Temp/Rtmp4qICUC/chunk-code-3c60681a5fe2.txt
+(C:/Users/AndreDany/AppData/Local/Temp/Rtmp4qICUC/chunk-code-3c60681a5fe2.txt
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-03-06>
+
+! LaTeX Error: Environment table undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \begin{table}
+                 [!h]
+? 
+! Emergency stop.
+ ...                                              
+                                                  
+l.1 \begin{table}
+                 [!h]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+ 
+Here is how much of TeX's memory you used:
+ 20 strings out of 480935
+ 754 string characters out of 2909696
+ 239324 words of memory out of 3000000
+ 15987 multiletter control sequences out of 15000+200000
+ 532338 words of font info for 24 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 12i,0n,15p,125b,16s stack positions out of 5000i,500n,10000p,200000b,50000s
+No pages of output.

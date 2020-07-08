@@ -172,6 +172,7 @@ for (n in neighbourhoods)
 
 trains = vector("list")
 tests = vector("list")
+datas = vector("list")
 
 for (i in names(lis_n))
 {
@@ -180,6 +181,7 @@ for (i in names(lis_n))
   test  = subset(lis_n[[i]], sample == FALSE)
   trains[[i]]=  train
   tests[[i]] = test
+  datas[[i]] = lis_n[[i]]
 }
 
 for (i in names(lis_r_n))
@@ -189,6 +191,8 @@ for (i in names(lis_r_n))
   test  = subset(lis_r_n[[i]], sample == FALSE)
   trains[[i]]=  train
   tests[[i]] = test
+  datas[[i]] = lis_r_n[[i]]
+  
 }
 
 sample = sample.split(dataset, SplitRatio = .75)
@@ -197,6 +201,7 @@ test  = subset(dataset, sample == FALSE)
 
 trains[["all"]] = train
 tests[["all"]] = test
+datas[["all"]] = dataset
 
 ```
 
@@ -390,14 +395,14 @@ concat = c()
 
 for (n in unique(ds$neighbourhood_group))
 {
- concat = c(concat,n) 
+  concat = c(concat,n) 
 }
 for (n in unique(ds$neighbourhood_group))
 {
   for(r in unique(ds$room_type))
   {
     concat = c(concat, paste0(n,"/",r))
-   
+    
   }
 }
 concat = c(concat,"All")
@@ -422,8 +427,281 @@ for( m in model_lis)
     
   }
   cols[[m$name]] = col
-
+  
 }
 mse_df = as.data.frame(cols)
 formattable(mse_df)
+```
+
+
+
+
+
+
+# Clustering and Groups
+
+```{r}
+
+data = datas
+
+for(sub in names(data))
+{
+  data[[sub]]$latitude = scale(data[[sub]]$latitude)
+  data[[sub]]$longitude = scale(data[[sub]]$longitude)
+  
+}
+data
+
+```
+
+## Clustering for Mixed type of data
+```{r}
+library(clustMixType)
+library(png)
+
+library(ggpubr)
+
+clust_num = 5
+
+get_clusters = function(dts, num)
+{
+  l = list()
+  if(is.null(dts$room_type))
+  {
+    l$cl = kmeans(dts,num)
+  }
+  else
+  {
+    l$cl = kproto(dts,num)
+    
+  }
+  
+  clust = list()
+  
+  for (i in 1:num)
+  {
+    indexes = l$cl$cluster == i
+    clust[[i]] = dts[indexes,]
+  }
+  
+  min_lat =  min(data$all$latitude)
+  max_lat = max(data$all$latitude)
+  min_long = min(data$all$longitude)
+  max_long= max(data$all$longitude)
+
+  
+  myplot= ggplot() +  background_image(img)+  xlab('data_date') +  ylab('percent.change')+ theme(plot.margin = unit(c(1,1,1,1),"cm"),legend.title = element_text(colour="blue", size=10, face="bold")) + xlim(min_long, max_long) + ylim(min_lat,max_lat)
+  
+ 
+  count = 1
+  l$clust_plot = vector("list")
+  for(el in clust)
+  {
+    myplot = myplot+ geom_point(data = el, aes(y = latitude, x = longitude),color= count)
+    
+    p =ggplot()+geom_point(data = el, aes(y = latitude, x = longitude),color= count) + xlim(min_long, max_long) + ylim(min_lat,max_lat)
+    
+    l$clust_plot[[as.character(count)]] = p
+    #print(paste0("=== clust: ",count,"==="))
+    #print(summary(el))
+    #print("=========")
+
+    count= count+1
+  }
+  l$myplot = myplot
+  return(l)
+}
+
+get_all_cluster = function(data, clust_num)
+{
+  lis = vector("list")
+  for(sub in names(data))
+  {
+    
+    lis[[sub]] = get_clusters(data[[sub]], clust_num)
+    plot(lis[[sub]]$myplot)
+
+  }
+  return(lis)  
+}
+
+all_cluster = get_all_cluster(data,5)
+
+#lis2 = get_clusters(datas,5)
+#lis2$myplot
+
+
+#lis3 = get_clusters(lis_r_n,5,F)
+#lis3$myplot
+
+```
+
+
+
+
+# PCAmixdata
+
+```{r}
+
+## Import library
+library(PCAmixdata)
+
+```
+
+```{r}
+
+## Split mixed dataset into quantitative and qualitative variables
+## For now excluding the target variable "Churn", which will be added later as a supplementary variable
+#split <- splitmix(dataset[1:5])  
+split = splitmix(dataset)
+## PCA
+res.pcamix <- PCAmix(X.quanti=split$X.quanti,  
+                     X.quali=split$X.quali, 
+                     rename.level=TRUE, 
+                     graph=FALSE, 
+                     ndim=25)
+
+res.pcamix
+
+
+```
+
+```{r}
+
+## Inspect principal components
+res.pcamix$eig
+```
+
+```{r}
+
+# Use Scree Diagram to select the components:
+plot(res.pcamix$eig, type="b", main="Scree Diagram", xlab="Number of Component", ylab="Eigenvalues")
+abline(h=1, lwd=3, col="red")
+```
+
+
+
+
+
+# Hierarchical Cluster Analysis
+
+```{r}
+agg = aggregate(price ~neighbourhood_group+room_type, dataset , mean)
+agg
+
+gower <- daisy(agg, metric = "gower")
+hc1 <- hclust(gower, method = "complete" )
+
+plot(hc1, cex = 0.6, hang = -1)
+
+
+```
+
+```{r}
+library(dendextend)
+avg_dend_obj <- as.dendrogram(hc1)
+avg_col_dend <- color_branches(avg_dend_obj, h = 0.6)
+plot(avg_col_dend)
+```
+
+
+
+```{r}
+agg = aggregate(price ~neighbourhood_group, dataset , mean)
+agg
+
+rownames(agg) = c("Brooklyn","Manhattan",
+                   "Queens","Staten Island", "Bronx")
+agg$neighbourhood_group = NULL
+gower <- daisy(agg, metric = "gower")
+hc1 <- hclust(gower, method = "complete" )
+
+plot(hc1, cex = 0.6, hang = -1)
+
+library(factoextra)
+#clust <- cutree(hc1, k = 5)
+
+#fviz_cluster(list(data = agg, cluster = clust))  ## from ‘factoextra’ package 
+
+
+
+
+```
+
+
+
+
+# ==========================================
+DA VEDEREE
+
+
+
+#  - Factor Analysis of Mixed Data (FAMD)
+
+http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/115-famd-factor-analysis-of-mixed-data-in-r-essentials/
+https://nextjournal.com/pc-methods/calculate-pc-mixed-data
+https://cran.r-project.org/web/packages/FactoMineR/index.html
+https://stats.stackexchange.com/questions/5774/can-principal-component-analysis-be-applied-to-datasets-containing-a-mix-of-cont
+
+```{r}
+
+library("FactoMineR")
+library("factoextra")
+```
+
+FAMD (base, ncp = 5, sup.var = NULL, ind.sup = NULL, graph = TRUE)
+- base : a data frame with n rows (individuals) and p columns (variables).
+- ncp: the number of dimensions kept in the results (by default 5)
+- sup.var: a vector indicating the indexes of the supplementary variables.
+- ind.sup: a vector indicating the indexes of the supplementary individuals.
+- graph : a logical value. If TRUE a graph is displayed.
+
+```{r}
+
+res.famd <- FAMD(dataset, graph = FALSE, ncp = 10)
+print(res.famd)
+```
+
+
+```{r}
+eig.val <- get_eigenvalue(res.famd)
+head(eig.val)
+
+fviz_screeplot(res.famd)
+
+```
+
+```{r}
+var <- get_famd_var(res.famd)
+var
+```
+
+```{r}
+# Coordinates of variables
+head(var$coord)
+# Cos2: quality of representation on the factore map
+head(var$cos2)
+# Contributions to the  dimensions
+head(var$contrib)
+```
+
+```{r}
+# Plot of variables
+fviz_famd_var(res.famd, repel = TRUE)
+# Contribution to the first dimension
+fviz_contrib(res.famd, "var", axes = 1)
+# Contribution to the second dimension
+fviz_contrib(res.famd, "var", axes = 2)
+# Contribution to the third dimension
+fviz_contrib(res.famd, "var", axes = 3)
+# Contribution to the forth dimension
+fviz_contrib(res.famd, "var", axes = 4)
+# Contribution to the fifth dimension
+fviz_contrib(res.famd, "var", axes = 5)
+# Contribution to the sixth dimension
+fviz_contrib(res.famd, "var", axes = 6)
+# Contribution to the seventh dimension
+fviz_contrib(res.famd, "var", axes = 7)
+# Contribution to the eighth dimension
+fviz_contrib(res.famd, "var", axes = 8)
 ```
