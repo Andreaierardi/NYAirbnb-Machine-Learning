@@ -1,0 +1,429 @@
+---
+title: "Statistical Learning Project"
+author: Andrea Ierardi
+output: 
+  pdf_document:
+        latex_engine: xelatex
+        keep_tex: true
+
+---
+pdf_document: default
+html_document: default
+
+
+# Libraries
+```{r}
+
+library(knitr)
+library(ggplot2)
+library(plotly)
+
+library(tidyr)
+library(dplyr)
+library(png)
+library(ggpubr)
+library(tidyverse)
+library(caTools)
+library(caret)
+library(tree)
+library(MASS)
+
+library(randomForest)
+library(ranger)
+library(tuneRanger)
+
+
+library(keras)
+
+library(formattable)
+
+library(clustMixType)
+library(cluster)
+library(dendextend) 
+library(readr)
+library(Rtsne)
+
+library(factoextra)
+library(FactoMineR)
+
+
+library(PCAmixdata)
+
+```
+
+
+# Dataset 
+[Link here](https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data)
+
+
+```{r}
+ds = read.csv("AB_NYC_2019.csv")
+```
+
+
+# Data Inspection
+
+```{r}
+head(ds)
+summary(ds)
+```
+
+```{r}
+img <- readPNG("map.png")
+
+
+map_ds = ggplot() + background_image(img)+ geom_point(data = ds,  aes(y=latitude,x = longitude, color = price)) 
+map_ds
+
+```
+
+
+# Data cleaning 
+
+## Check for NA and NULL values
+```{r}
+
+apply(ds,2,function(x) sum(is.na(x)))
+
+```
+
+## Variable selection
+
+```{r}
+dataset = ds  %>% dplyr::select(neighbourhood_group,latitude, longitude, room_type,price)
+
+head(dataset)
+```
+
+
+## Variable scaling
+```{r}
+
+scale_data = function(df)
+{
+  df = df %>%filter( price >= 15  & price <= 500)
+  
+  numerical = c("price")
+  categorical = c("room_type", "neighbourhood_group")
+  
+  for( cat in categorical )
+  {
+    df[cat] = factor(df[[cat]], 
+                     level = unique(df[[cat]]), 
+                     labels = c(1:length(unique(df[[cat]])) ))
+  }
+  
+  df[numerical] = as.numeric(scale(df[numerical]))
+  return(df)
+  
+  
+}
+dataset = scale_data(dataset)
+
+head(dataset)
+summary(dataset)
+```
+
+## Data visualisation after the scaling
+```{r}
+
+mappa = ggplot() + background_image(img)+ geom_point(data = dataset,  aes(y=latitude,x = longitude, color = price)) 
+mappa
+```
+
+# Data split 
+
+## Split data in subsets for each neighbourhood_group and room_type
+```{r}
+neighbourhoods = unique(dataset$neighbourhood_group)
+
+rooms = unique(dataset$room_type)
+
+
+lis_n = vector("list")
+
+for (n in neighbourhoods)
+{
+  tmp = dataset %>%filter( neighbourhood_group == n) 
+  lis_n[[n]] = tmp[-1]
+  
+}
+
+
+
+lis_r_n= vector("list")
+for (n in neighbourhoods)
+{
+  for(r in rooms)
+  {
+    tmp = dataset %>%
+      filter( room_type == r  & neighbourhood_group == n) 
+    lis_r_n[[paste0("n",n,"-","r",r)]]= tmp[-1][-3]
+    
+  }
+}
+
+
+```
+
+
+## SPlit in train and test for each subset
+```{r}
+
+trains = vector("list")
+tests = vector("list")
+
+for (i in names(lis_n))
+{
+  sample = sample.split(lis_n[[i]], SplitRatio = .75)
+  train = subset(lis_n[[i]], sample == TRUE)
+  test  = subset(lis_n[[i]], sample == FALSE)
+  trains[[i]]=  train
+  tests[[i]] = test
+}
+
+for (i in names(lis_r_n))
+{
+  sample = sample.split(lis_r_n[[i]], SplitRatio = .75)
+  train = subset(lis_r_n[[i]], sample == TRUE)
+  test  = subset(lis_r_n[[i]], sample == FALSE)
+  trains[[i]]=  train
+  tests[[i]] = test
+}
+
+sample = sample.split(dataset, SplitRatio = .75)
+train = subset(dataset, sample == TRUE)
+test  = subset(dataset, sample == FALSE)
+
+trains[["all"]] = train
+tests[["all"]] = test
+
+```
+
+# MODELS TRAIN
+
+```{r}
+model_lis = vector("list")
+```
+## LINEAR REGRESSION
+
+```{r}
+
+lin_reg = vector("list")
+
+for (sub in names(trains))
+{
+  lin_reg[[sub]]$fit =lm.fit = lm(price~., data = trains[[sub]])
+  lin_reg[[sub]]$summary = summary(lm.fit)
+  
+  lin_reg[[sub]]$pred  = pr.lm = predict(lm.fit,tests[[sub]])
+  
+  lin_reg[[sub]]$MSE = sum((pr.lm - tests[[sub]]$price)^2)/nrow(tests[[sub]])
+  #lin_reg[[sub]]$plt=   plot(lm.fit)
+}
+
+lin_reg$name = "Linear Regression"
+model_lis$linear_regression=  lin_reg
+```
+
+
+## DECISION  TREE
+
+```{r}
+
+dec_tree = vector("list")
+
+for (sub in names(trains))
+{
+  dec_tree[[sub]]$fit = tree_res=tree(price~., data = trains[[sub]])
+  dec_tree[[sub]]$summary = summary(tree_res)
+  
+  dec_tree[[sub]]$pred  = pred = predict(tree_res,tests[[sub]])
+  
+  dec_tree[[sub]]$MSE = sum((pred - tests[[sub]]$price)^2)/nrow(tests[[sub]])
+  #dec_tree[[sub]]$plt=   plot(tree_res)+text(tree_res,pretty=0)
+  
+}
+
+dec_tree$name = "Decision Tree"
+model_lis$decision_tree = dec_tree
+```
+
+
+## RANDOM FOREST
+
+```{r}
+
+rf = vector("list")
+
+for (sub in names(trains))
+{
+  rf[[sub]]$fit = res =  randomForest(  price ~ . , data=trains[[sub]])
+  
+  rf[[sub]]$pred = predt = predict(res,tests[[sub]])
+  
+  rf[[sub]]$MSE = sum((predt - tests[[sub]]$price)^2)/nrow(tests[[sub]])
+}
+
+rf$name = "Random Forest"
+model_lis$random_forest = rf
+
+```
+
+## RANGER RANDOM FOREST
+
+```{r}
+
+ranger_rf = vector("list")
+
+for (sub in names(trains))
+{
+  
+  ranger_rf[[sub]]$fit = res = ranger( price~ ., data = trains[[sub]], write.forest = TRUE, classification = F)
+  
+  ranger_rf[[sub]]$pred = predt = predict(res,tests[[sub]])
+  ranger_rf[[sub]]$MSE = sum((predt$predictions - tests[[sub]]$price)^2)/nrow(tests[[sub]])
+  
+  
+  
+}
+
+ranger_rf$name = "Ranger Random Forest"
+model_lis$ranger = ranger_rf
+
+
+```
+
+
+## NEURAL NETWORKS
+
+```{r}
+build_model <- function(dimension) {
+  
+  model <- keras::keras_model_sequential() %>%
+    layer_dense(units = 32, activation = "relu",
+                input_shape = dimension) %>%
+    layer_dense(units = 16, activation = "relu") %>%
+    layer_dense(units = 1,activation="linear")
+  
+  model %>% compile(
+    loss = "mse",
+    optimizer = optimizer_rmsprop(),
+    metrics = list("mean_absolute_error")
+  )
+  
+  return(model)
+}
+
+
+print_dot_callback <- callback_lambda(
+  on_epoch_end = function(epoch, logs) {
+    if (epoch %% 1 == 0) 
+      cat(".")
+  }
+)    
+
+
+nn = vector("list")
+
+for (sub in names(trains))
+{
+  d = trains[[sub]]
+  d2 = tests[[sub]]
+  len = length(d)
+  len2 = length(d2)
+  
+  if(!is.null(d$room_type))
+  {
+    d$room_type = keras::to_categorical(d$room_type)
+    d2$room_type = keras::to_categorical(d2$room_type)
+    
+  }
+  
+  if(!is.null(d$neighbourhood_group)) 
+  {
+    d$neighbourhood_group = keras::to_categorical(d$neighbourhood_group)
+    d2$neighbourhood_group = keras::to_categorical(d2$neighbourhood_group)
+  }
+  
+  
+  target = as.vector(d$price)
+  features = as.matrix(as_tibble(d[-len]))
+  
+  target_test = as.vector(d2$price)
+  features_test = as.matrix(as_tibble(d2[-len]))
+  
+  
+  nn[[sub]]$epochs = epochs =  30
+  
+  nn[[sub]]$model = model =  build_model(dim(features)[2])
+  
+  nn[[sub]]$summary = model %>% summary()
+  nn[[sub]]$history <- model %>% fit(
+    x = features,
+    y = target,
+    epochs = epochs,
+    validation_split = 0.2,
+    verbose = 0,
+    callbacks = list(print_dot_callback)
+  )
+  eva = model %>% evaluate(features_test,target_test, verbose = 0)
+  
+  nn[[sub]]$mae = eva[1]
+  nn[[sub]]$loss = eva[2]
+  
+  nn[[sub]]$pred = pred = model %>% predict(features_test)
+  nn[[sub]]$MSE = sum((pred - target_test)^2)/length(target_test)
+  
+}
+
+nn$name = "Neural Networks"
+model_lis$neural_networks = nn
+
+
+```
+
+
+# Comparison between the models
+```{r}
+concat = c()
+
+for (n in unique(ds$neighbourhood_group))
+{
+ concat = c(concat,n) 
+}
+for (n in unique(ds$neighbourhood_group))
+{
+  for(r in unique(ds$room_type))
+  {
+    concat = c(concat, paste0(n,"/",r))
+   
+  }
+}
+concat = c(concat,"All")
+
+n = names(nn)
+
+
+
+cols = vector("list")
+cols[["Subset"]] = concat
+for( m in model_lis)
+{
+  col = c()
+  for( nam in n)
+  {
+    
+    if( nam != "name")
+    { 
+      col = c(col,m[[nam]]$MSE)  
+      
+    }
+    
+  }
+  cols[[m$name]] = col
+
+}
+mse_df = as.data.frame(cols)
+formattable(mse_df)
+```
