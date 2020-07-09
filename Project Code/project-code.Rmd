@@ -491,11 +491,7 @@ formattable(mse_df)
 
 # Clustering and Groups
 
-```{r}
 
-clust_data
-
-```
 
 ## Clustering for Mixed type of data
 
