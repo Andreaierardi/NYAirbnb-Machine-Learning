@@ -14,6 +14,8 @@
 \newpage
 \tableofcontents
 \newpage
+\listoffigures
+\newpage
 \section{Abstract}
 The aim of the project is to analyse, develop prediction models and define data clusters from the "New York City Airbnb Open Data" from a Kaggle competition.
 \\ In particular, one part is focused on the development of predictive models to forecast house prices using these Supervised Learning technics:\begin{itemize}
@@ -50,14 +52,15 @@ The second part is focused on the cluster and data reduction technics using thes
 \subsection{Two main Goals}
 
 \subsubsection{Develop predictive models for price}
-First objective is the forecast of the prices given some input informations. This could be usefull for a lot of scenarios. For example from a AirBnB user point of view, he/she would like to get the houses more in line with his preference choice; or for a host point of view, where given the position and other information he/she could get information about the possible per day price of his house in New York City. 
+The first objective is the forecast of the prices given some input information. This could be usefull for a lot of scenarios. For example from a AirBnB customer point of view, he/she would like to get the list of houses more in alignment with his/her preference choice; or for a host point of view, where given the position and other information he/she could get information about the possible per day price of his property in New York City. 
 
 \subsubsection{Define clusters and groups}
-Second objective is the definition of group or partition between the houses with different characteristics. For a user point of view could be usefull to have information about similar houses before the booking, giving in input some information about their preference. This could be also usefull after the booking for a suggestion analysis giving the information about last booked houses in NewYork or houses in similar cities around the globe.
-\\\\
+The second objective is the definition of group or partition between the houses with different characteristics. For a user point of view could be usefull to have information about avaiable houses similar to those booked in the past. This could be also usefull after the booking for a suggestion analysis having the information about last booked houses in NewYork or houses in similar cities around the world.
+\newpage
 \subsection{Algorithms}
 \subsubsection{Linear Regression}
- Linear regression  is a linear approach to modeling the relationship between a dependent variable and one or more independent variables. Linear regression should be suitable, since there could be a linear relationship between the position and the price. In the city center there will be the expensive houses, while in the outskirts there will be the cheaper ones.
+ Linear regression  is a linear approach to modeling the relationship between a dependent variable and one or more independent variables. 
+ 
   \subsubsection{Decison Trees}
 In decision analysis, a decision tree can be used to visually and explicitly represent decisions and decision making.
 
@@ -67,18 +70,21 @@ In decision analysis, a decision tree can be used to visually and explicitly rep
 Ranger is a fast implementation of random forests or recursive partitioning, particularly suited for high dimensional data. 
 
 \subsubsection{Neural Networks}
+Neural networks are a set of algorithms, modeled loosely after the human brain, that are designed to recognize patterns.
 
 \subsubsection{K-means}
+K-means is a method of vector quantization, originally from signal processing, that aims to partition n observations into k clusters in which each observation belongs to the cluster with the nearest mean.
 
 \subsubsection{Principal Component Analysis}
+Principal Component Analysis (PCA) is mostly used as a tool in exploratory data analysis and for making predictive models.
 
 \newpage
 \section{Experimental Evaluation}
 
 \subsection{Methodology}
 \subsubsection{Data Inspection}
-The dataset is a Kaggle competiotion dataset, called the New York City Airbnb Open Data. It contains 48.000 data points for each different column.
-The dataset is structured with 16 columns: 
+The dataset is part of a Kaggle competition, called the New York City Airbnb Open Data. It contains 48.000 rows per 16 columns.
+The dataset is structured with these columns: 
 \begin{itemize}
 \itemsep0em 
 \item \textbf{id}
@@ -98,25 +104,33 @@ The dataset is structured with 16 columns:
 \item \textbf{calculated\_host\_listings\_count}: amount of listing per host
 \item  \textbf{availability\_365}: number of days when listing is available for booking\\
 \end{itemize}
-It has been select only 5 of this features since these are the most important for determine the prices and also the different groups of clusters. These feature selected are: latitude, longitude, room type, neighbourhood and the price itself that will be compared with the prediction.\\\\
-From the Figure 1 is possible to see the distribution of the price. The minimum price is $0$ and the maximum price is $10000\$$. It is not possible to rent a house for free, so it is possible to filter the price with a price higher than $15\$$ and lower than $500\$$. It is possible that a luxury house cost a lot per day, but these value can not be consider in the model and can be consider as outliers. The reason is that the third quantile has a value of $175\$$ which is a far value from $10000\$$. It is also been checked the null and missing value and have not been found in the dataset apart from the reviews\_per\_month column. This feature has been not taken in account as possible one to the model training. 
+It has been select only 5 of these variables: price, latitude, longitude, neighbourhood\_group and room\_type. The reason is that it is reasonable to select them to predict the prices and to obtain different clusters. The position and the neighbourhood is important since if a property is positioned near the city center will have a higher price with respect to those situated in the outskirts; also the type of room, since an entire apartment will cost more than a single room. \\\\
+From the Figure\ref{fig:1} is possible to see the distribution of the price. The minimum price is $0$ and the maximum is $10000\$$. It is not possible to rent a house for free, so it is possible to filter the price with a price higher than $15\$$. It is possible that a luxury house cost a lot per day, but these value can not be consider in the model, instead they are outliers and for this reason it is convenient to filter the price again and take those that have a value lowert than $500\$$. The reason is that the third quantile has a price of $175\$$ which is a far from $10000\$$. It has also been checked the null and missing value  in the dataset and has not been found apart from the reviews\_per\_month column. It is not a problem, since this feature has been not taken in account to train the models. 
 \\
-\\From Figure2, it is possible to see the distribution of all houses in New York City and the price. It can be noticed that the prices for the most part are in the range $0$-$500\$$ and only a low number of istances have a price greater than $500\$$. This picture is really  informative.
- \begin{figure}[H]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.3\textwidth]{figures/figure1.jpg} 
 \caption{\label{fig:1}Price summary}
 \end{figure}
+\noindent From Figure\ref{fig:2}, it is possible to see the distribution of all houses in New York City and the price. This picture is not really informative since it can be noticed that the prices for the most part are in the range $0$-$500\$$ and only a low number of istances have a price greater than $500\$$.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/figure2.pdf} 
 \caption{\label{fig:2}Distribution of all houses in NY colored by prices}
 \end{figure}
+\noindent
 
 \subsubsection{Data Cleaning and Pre-processing}
-The dataset has more or less 48.000 data points for each column, so an important part of this work was the pre-processing since the large amount of data. Moreover, running different methods and algorithms on the entire dataset has an high computation cost. An important choice to made is that the user is able to discriminate which type of house has a particular interest. Then, it can be assumed that the user chooses which is the price range of interest and also the type of room. For the simplicity of the project we will focus on the Manhattan region for the popularity, a range of price from $15\$$ to $500\$$ and an entire apartment type of room. The project can be extended easily to the entire dataset, based on the user preference. 
+
+The dataset has approximately 48.000 rows for each column, so an important part of the work is related to the pre-processing due to the large amount of data. For this reason, each variable has been rescaled to let the models to learn faster and better and to perform a better prediction. Latitude and longitude have not been rescaled for forecast price model, while for clustering methods to have a consistent distance calculation. Categorical variables have also been rescaled assigning a numerical value to each category, resulting as unordered factors.\\
+The selected categorical variables are: neighbourhood\_group and room type.\\
+The selected numerical variables are: latitude, longitude and price.
+\\
+
+The dataset has approximately 48.000 rows for each column, so an important part of the work is related to the pre-processing due to the large amount of data. Moreover, running different methods and algorithms on the entire dataset could have an high computation cost\footnote{ The models have been trained on a machine with quad-core 3.5 GHz processor, 8 Gb RAM and 4 Gb dedicated GPU.}. An important choice to made is that the user is able to discriminate which type of house has a particular interest. Then, it can be assumed that the user chooses which is the price range of interest and also the type of room. For the simplicity of the project we will focus on the Manhattan region for the popularity, a range of price from $15\$$ to $500\$$ and an entire apartment type of room. The project can be extended easily to the entire dataset, based on the user preference. 
 Each variable choosed in this project have been rescaled to let the model perform and learn better, apart from latitude and longitude since the rescaling should not have a real meaning.
-\\ Also categorical variables have been rescaled assigning a numerical value to each category, resulting as factors. \\
+\\ Also categorical variables have been rescaled assigning a numerical value to each category, resulting as factors. \\\\
 The selected categorical features are: neighbourhood\_group and room type.\\
 The selected numerical features are: latitude, longitude and price.
 \begin{figure}[H]
@@ -134,6 +148,12 @@ The selected numerical features are: latitude, longitude and price.
 
 
 \subsection{Results}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{figures/model_summary.PNG} 
+\caption{\label{fig:5} Summary of the MSE for all the models for each subset of the dataset }
+\end{figure}
 
 \subsubsection{Linear Regression Results}
 For the Linear regression the model give different results based on the variables used. \\\\
@@ -158,7 +178,7 @@ The model (Figure 7) obtain a $R^2$ value of $0.4031$ which is acceptable and a 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/lm1.PNG} 
-\caption{\label{fig:5} Linear Regression output without filters }
+\caption{\label{fig:8} Linear Regression output without filters }
 \end{figure}
 
 
@@ -310,6 +330,7 @@ the classic Random Forest model but does not give great improvements in performa
 From the result the method with the most higher accuracy is the Random Forest method... while the worst are ....
 \\Moreover, Random Forest method is also the worst in term of computation time for the tuning part since it takes for a configuration with 4 core, more or less 1 hour to tune the parameters. 
 
+\
 \subsection{Linear Regression}
 
 

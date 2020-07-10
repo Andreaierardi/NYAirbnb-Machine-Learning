@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  7 JUL 2020 12:52
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  10 JUL 2020 17:17
 entering extended mode
 **./projectemplate.tex
 (projectemplate.tex
@@ -1766,192 +1766,62 @@ LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <24.88> not available
 \tf@toc=\write5
 \openout5 = `projectemplate.toc'.
 
- [3]
-LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 83.19946pt on input line 17.
-LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 14.97589pt on input line 17.
+ [3] (projectemplate.lof)
+\tf@lof=\write6
+\openout6 = `projectemplate.lof'.
 
-Underfull \hbox (badness 10000) in paragraph at lines 27--30
+ [4]
+LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
+(Font)              scaled to size 83.19946pt on input line 19.
+LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
+(Font)              scaled to size 14.97589pt on input line 19.
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--32
 
  []
 
-[4]
-Overfull \hbox (13.01924pt too wide) in paragraph at lines 49--49
+[5]
+Overfull \hbox (13.01924pt too wide) in paragraph at lines 51--51
 |\TU/lmr/m/sc/24.88 Problem Definition and Algorithm| 
  []
 
 
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <14.4> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 50.
-
-
-LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <12> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 50.
-
-
-LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
 (Font)              Font shape `TU/lmr/m/sc' tried instead on input line 52.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--58
+LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <12> not available
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 52.
 
- []
 
+LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 54.
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--58
-
- []
-
-[5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
+[6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
 
 File: figures/figure1.jpg Graphic file (type bmp)
 <figures/figure1.jpg>
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--109
+Underfull \hbox (badness 10000) in paragraph at lines 107--114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--109
+Underfull \hbox (badness 10000) in paragraph at lines 107--114
 
  []
 
-[7]
+[8]
 File: figures/figure2.pdf Graphic file (type pdf)
 <use figures/figure2.pdf>
- [8]
-File: figures/figure3.pdf Graphic file (type pdf)
-<use figures/figure3.pdf>
  [9]
-File: figures/figure4.PNG Graphic file (type bmp)
-<figures/figure4.PNG>
-File: figures/lm2.PNG Graphic file (type bmp)
-<figures/lm2.PNG>
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--152
+Underfull \hbox (badness 10000) in paragraph at lines 126--130
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--152
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--152
-
- []
-
-[10]
-File: figures/lm3.PNG Graphic file (type bmp)
-<figures/lm3.PNG>
-File: figures/lm1.PNG Graphic file (type bmp)
-<figures/lm1.PNG>
- [11]
-Underfull \hbox (badness 10000) in paragraph at lines 182--188
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 182--188
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 182--188
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 182--188
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 182--188
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 205--213
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 205--213
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 205--213
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 205--213
-
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 229--239
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--239
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--239
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--239
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--239
-
- []
-
-[13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 283--288
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 290--294
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 296--299
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 301--304
-
- []
-
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 317--319
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 325--327
-
- []
-
-[16] [17]
 
 Package fontspec Warning: OpenType feature 'Contextuals=Swash,Alternate'
 (fontspec)                (cswh) not available for font
@@ -2029,37 +1899,173 @@ n;language=dflt;+liga;+sups;mapping=tex-text;"
 n;language=dflt;+liga;+sups;+smcp;mapping=tex-text;"
 
 LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 12.47992pt on input line 344.
+(Font)              scaled to size 12.47992pt on input line 131.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 344.
+(Font)              scaled to size 10.39993pt on input line 131.
 LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 344.
-[18]
-LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/it' will be
-(Font)              scaled to size 12.47992pt on input line 351.
+(Font)              scaled to size 10.39993pt on input line 131.
+File: figures/figure3.pdf Graphic file (type pdf)
+<use figures/figure3.pdf>
 
-Underfull \hbox (badness 1521) in paragraph at lines 351--352
+Underfull \hbox (badness 10000) in paragraph at lines 131--140
+
+ []
+
+[10]
+File: figures/figure4.PNG Graphic file (type bmp)
+<figures/figure4.PNG>
+ [11]
+File: figures/model_summary.PNG Graphic file (type bmp)
+<figures/model_summary.PNG>
+ [12]
+File: figures/lm2.PNG Graphic file (type bmp)
+<figures/lm2.PNG>
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--172
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--172
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--172
+
+ []
+
+[13]
+File: figures/lm3.PNG Graphic file (type bmp)
+<figures/lm3.PNG>
+File: figures/lm1.PNG Graphic file (type bmp)
+<figures/lm1.PNG>
+ [14]
+Underfull \hbox (badness 10000) in paragraph at lines 202--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--233
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--233
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--233
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--233
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 249--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--259
+
+ []
+
+[16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 303--308
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 310--314
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--319
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 321--324
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 338--340
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 346--348
+
+ []
+
+[19] [20] [21]
+LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/it' will be
+(Font)              scaled to size 12.47992pt on input line 372.
+
+Underfull \hbox (badness 1521) in paragraph at lines 372--373
 []\TU/ArnoPro(1)/m/n/12 Giusti, Santochi, \TU/ArnoPro(1)/m/it/12 Tecnologia Mec
 canica e Studi di Fabbricazione\TU/ArnoPro(1)/m/n/12 . Casa Editrice Am-
  []
 
-[19]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 362.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 362.
+[22]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 383.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 383.
  (projectemplate.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 362.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 362.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 383.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 383.
 Package rerunfilecheck Info: File `projectemplate.out' has not changed.
-(rerunfilecheck)             Checksum: AB6E3FA319AD591BA7FEB5E76B886876;3194.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 362.
+(rerunfilecheck)             Checksum: 42F55E9F49F2DB7D37361EB8B7D10F31;3258.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 383.
  ) 
 Here is how much of TeX's memory you used:
- 49870 strings out of 414221
- 1141545 string characters out of 2902595
- 1593811 words of memory out of 3000000
- 66427 multiletter control sequences out of 15000+200000
+ 49882 strings out of 414221
+ 1141770 string characters out of 2902595
+ 1593997 words of memory out of 3000000
+ 66435 multiletter control sequences out of 15000+200000
  567440 words of font info for 103 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 76i,8n,102p,977b,785s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 76i,8n,102p,1374b,825s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on projectemplate.pdf (19 pages).
+Output written on projectemplate.pdf (22 pages).

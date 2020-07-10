@@ -66,8 +66,12 @@ ds = read.csv("AB_NYC_2019.csv")
 ```{r}
 head(ds)
 summary(ds)
-```
 
+```
+```{r}
+cat("Dimensions of the dataset:" ,dim(ds))
+
+```
 ```{r}
 img <- readPNG("map.png")
 
@@ -464,7 +468,12 @@ for( m in model_lis)
   
 }
 mse_df = as.data.frame(cols)
-formattable(mse_df)
+knitr::kable(mse_df)%>%
+  kable_styling(bootstrap_options = "striped", full_width = F,font_size = 20) %>%
+  row_spec(0, bold = T, color = "white", background = "#D7261E")%>%
+  column_spec(1, bold = T, border_right = T,color = "white", background = "#191970")%>%
+  column_spec(2:6,extra_css="text-align:Center")
+
 ```
 
 
@@ -799,12 +808,6 @@ fviz_famd_var(res.famd, "quali.var", col.var = "contrib",
              )
 ```
 
-ind <- get_famd_ind(res.famd)
-ind
-
-fviz_famd_ind(res.famd, col.ind = "cos2", 
-             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
-             repel = TRUE)
 
 
 ```{r}
