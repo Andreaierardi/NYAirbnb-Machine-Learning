@@ -35,7 +35,7 @@ library(tuneRanger)
 
 library(keras)
 
-library(formattable)
+library(kableExtra)
 
 library(clustMixType)
 library(cluster)
@@ -110,7 +110,7 @@ scale_data = function(df)
   numerical = c("price")
   numerical2 = c("latitude","longitude")
   categorical = c("room_type", "neighbourhood_group")
-
+  
   for( cat in categorical )
   {
     df[cat] = factor(df[[cat]], 
@@ -126,8 +126,8 @@ scale_data = function(df)
   df3 = list()
   df3$df2 = df2
   df3$df = df
-
- 
+  
+  
   return(df3)
   
   
@@ -168,7 +168,7 @@ for (n in neighbourhoods)
   
   tmp2 = data %>%filter( neighbourhood_group == n) 
   clust_data[[n]] = tmp2[-1]
- # print(clust_data[[n]]$room_type )
+  # print(clust_data[[n]]$room_type )
   clust_data[[n]]$room_type = factor(clust_data[[n]]$room_type , level = unique(clust_data[[n]]$room_type) , labels= unique(ds$room_type))
 }
 
@@ -262,6 +262,8 @@ for (sub in names(trains))
   lin_reg[[sub]]$pred  = pr.lm = predict(lm.fit,tests[[sub]])
   
   lin_reg[[sub]]$MSE = sum((pr.lm - tests[[sub]]$price)^2)/nrow(tests[[sub]])
+  print(sub)
+  print(summary(lm.fit))
   #lin_reg[[sub]]$plt=   plot(lm.fit)
 }
 
@@ -279,7 +281,16 @@ dec_tree = vector("list")
 for (sub in names(trains))
 {
   dec_tree[[sub]]$fit = tree_res=tree(price~., data = trains[[sub]])
-  dec_tree[[sub]]$summary = summary(tree_res)
+  dec_tree[[sub]]$summary = sum = summary(tree_res)
+  
+  print(sub)
+  print(sum)
+  if(sum$size > 1 )
+  {
+    plot(tree_res)
+    text(tree_res,pretty=0)
+    title(paste0("Tree of: ",sub))
+  }
   
   dec_tree[[sub]]$pred  = pred = predict(tree_res,tests[[sub]])
   
@@ -290,6 +301,13 @@ for (sub in names(trains))
 
 dec_tree$name = "Decision Tree"
 model_lis$decision_tree = dec_tree
+```
+
+
+## Decision Tree Results
+```{r}
+
+
 ```
 
 
@@ -305,6 +323,11 @@ for (sub in names(trains))
   
   rf[[sub]]$pred = predt = predict(res,tests[[sub]])
   
+  print(sub)
+  print(res)
+#  varImpPlot(res)
+#  plot(res)
+
   rf[[sub]]$MSE = sum((predt - tests[[sub]]$price)^2)/nrow(tests[[sub]])
 }
 
@@ -312,6 +335,8 @@ rf$name = "Random Forest"
 model_lis$random_forest = rf
 
 ```
+
+
 
 ## RANGER RANDOM FOREST
 
@@ -337,6 +362,11 @@ model_lis$ranger = ranger_rf
 
 ```
 
+## Ranger Random Forest Results
+```{r}
+
+
+```
 
 ## NEURAL NETWORKS
 
@@ -423,6 +453,16 @@ for (sub in names(trains))
 nn$name = "Neural Networks"
 model_lis$neural_networks = nn
 
+
+```
+
+## Neural Networks Results
+```{r}
+plot(nn$all$history)
+
+plot(nn$`1`$history)
+
+plot(nn$`n1-r2`$history)
 
 ```
 
@@ -572,7 +612,7 @@ get_all_cluster = function(clust_data, clust_num, dim)
     lis[[sub]] = get_clusters(clust_data[[sub]], clust_num, dim, sub)
     plots[[cnt]] = lis[[sub]]$myplot
     cnt = cnt+1
-
+    
   }
   lis[["all_plots"]]= plots
   return(lis)  
@@ -797,15 +837,15 @@ fviz_screeplot(res.famd)
 quanti.var <- get_famd_var(res.famd, "quanti.var")
 quanti.var
 fviz_famd_var(res.famd, "quanti.var", col.var = "contrib", 
-             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
-             repel = TRUE)
+              gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+              repel = TRUE)
 ```
 ```{r}
 quali.var <- get_famd_var(res.famd, "quali.var")
 quali.var 
 fviz_famd_var(res.famd, "quali.var", col.var = "contrib", 
-             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07")
-             )
+              gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07")
+)
 ```
 
 

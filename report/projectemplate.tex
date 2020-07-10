@@ -105,39 +105,36 @@ The dataset is structured with these columns:
 \item  \textbf{availability\_365}: number of days when listing is available for booking\\
 \end{itemize}
 It has been select only 5 of these variables: price, latitude, longitude, neighbourhood\_group and room\_type. The reason is that it is reasonable to select them to predict the prices and to obtain different clusters. The position and the neighbourhood is important since if a property is positioned near the city center will have a higher price with respect to those situated in the outskirts; also the type of room, since an entire apartment will cost more than a single room. \\\\
-From the Figure\ref{fig:1} is possible to see the distribution of the price. The minimum price is $0$ and the maximum is $10000\$$. It is not possible to rent a house for free, so it is possible to filter the price with a price higher than $15\$$. It is possible that a luxury house cost a lot per day, but these value can not be consider in the model, instead they are outliers and for this reason it is convenient to filter the price again and take those that have a value lowert than $500\$$. The reason is that the third quantile has a price of $175\$$ which is a far from $10000\$$. It has also been checked the null and missing value  in the dataset and has not been found apart from the reviews\_per\_month column. It is not a problem, since this feature has been not taken in account to train the models. 
+From the Figure \ref{fig:1} is possible to see the distribution of the price. The minimum price is $0$ and the maximum is $10000\$$. It is not possible to rent a house for free, so it is possible to filter the price with a price higher than $15\$$. It is possible that a luxury house cost a lot per day, but these value can not be consider in the model, instead they are outliers and for this reason it is convenient to filter the price again and take those that have a value lowert than $500\$$. The reason is that the third quantile has a price of $175\$$ which is a far from $10000\$$ (Figure \ref{fig:3}). It has also been checked the null and missing value  in the dataset and has not been found apart from the reviews\_per\_month column. It is not a problem, since this feature has been not taken in account to train the models. 
 \\
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.3\textwidth]{figures/figure1.jpg} 
 \caption{\label{fig:1}Price summary}
 \end{figure}
-\noindent From Figure\ref{fig:2}, it is possible to see the distribution of all houses in New York City and the price. This picture is not really informative since it can be noticed that the prices for the most part are in the range $0$-$500\$$ and only a low number of istances have a price greater than $500\$$.
+\noindent From Figure \ref{fig:2}, it is possible to see the distribution of all houses in New York City and the price. This picture is not really informative since it can be noticed that the prices for the most part are in the range $0$-$500\$$ and only a low number of istances have a price greater than $500\$$. Deleting the outliers, the Figure \ref{fig:3} is more informative than the one before.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/figure2.pdf} 
 \caption{\label{fig:2}Distribution of all houses in NY colored by prices}
 \end{figure}
-\noindent
 
-\subsubsection{Data Cleaning and Pre-processing}
-
-The dataset has approximately 48.000 rows for each column, so an important part of the work is related to the pre-processing due to the large amount of data. For this reason, each variable has been rescaled to let the models to learn faster and better and to perform a better prediction. Latitude and longitude have not been rescaled for forecast price model, while for clustering methods to have a consistent distance calculation. Categorical variables have also been rescaled assigning a numerical value to each category, resulting as unordered factors.\\
-The selected categorical variables are: neighbourhood\_group and room type.\\
-The selected numerical variables are: latitude, longitude and price.
-\\
-
-The dataset has approximately 48.000 rows for each column, so an important part of the work is related to the pre-processing due to the large amount of data. Moreover, running different methods and algorithms on the entire dataset could have an high computation cost\footnote{ The models have been trained on a machine with quad-core 3.5 GHz processor, 8 Gb RAM and 4 Gb dedicated GPU.}. An important choice to made is that the user is able to discriminate which type of house has a particular interest. Then, it can be assumed that the user chooses which is the price range of interest and also the type of room. For the simplicity of the project we will focus on the Manhattan region for the popularity, a range of price from $15\$$ to $500\$$ and an entire apartment type of room. The project can be extended easily to the entire dataset, based on the user preference. 
-Each variable choosed in this project have been rescaled to let the model perform and learn better, apart from latitude and longitude since the rescaling should not have a real meaning.
-\\ Also categorical variables have been rescaled assigning a numerical value to each category, resulting as factors. \\\\
-The selected categorical features are: neighbourhood\_group and room type.\\
-The selected numerical features are: latitude, longitude and price.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/figure3.pdf} 
 \caption{\label{fig:3} Distribution of all houses in NY of price between $15\$$ and $500\$$ per day}
 \end{figure}
+\subsubsection{Data Cleaning and Pre-processing}
+
+The dataset has approximately 48.000 rows for each column, so an important part of the work is related to the pre-processing due to the large amount of data. For this reason, some variable has been rescaled to let the models to learn faster and better and to perform a better prediction. Latitude and longitude have not been rescaled for forecast price model, while for clustering methods to have a consistent distance calculation. Categorical variables have also been rescaled assigning a numerical value to each category, resulting as unordered factors.\\
+The selected categorical variables are: neighbourhood\_group and room type.\\
+The selected numerical variables are: latitude, longitude and price.
+\\\\
+Considering that every neighbourhood group has his characteristic, also taking in account the room type that could impact largerly the price. It is possible to define of different subset of the original set and try different methods of forecast. This is due to the fact that a customer should choose which of the different neighbourhood and room type is interested in. Models have been run to different scenarios (Figure \ref{fig:4}): users interested in all New York City houses and all type of room, users interested only in a single neighbourhood and users interested in a single neighbourhood and a single room type. 
+\\ Including different scenario could be potentially computationally expensive. In reality, the training proceeded without any problem. \footnote{ The models have been trained on a machine with quad-core 3.5 GHz processor, 8 Gb RAM and 4 Gb dedicated GPU.} Computantional problem may emerge for the case of hyperparametrisation tuning, even using multiprocessing and multithreading technics. For semplicity, in this project no model tuning have been made. \\
+Also for clustering have been filter every scenario, but not for the case of Hierarchical Clustering because it need to generate a readable dendogram using the mean of all neighbourhood or room type price, Principal Component Analysis since avaiable data are really small for some specific neighbourhood like Staten Island and specific room type.
+
 
 \begin{figure}[H]
 \centering
