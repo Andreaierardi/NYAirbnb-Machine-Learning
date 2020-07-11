@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 20.6.29) (preloaded format=xelatex 2020.7.3)  10 JUL 2020 18:39
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  11 JUL 2020 11:52
 entering extended mode
 **./projectemplate.tex
 (projectemplate.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-06-18> (FR16.cls
+L3 programming layer <2020-03-06> (FR16.cls
 Document Class: FR16 2019/01/21 ver. 0.0
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\article.cls"
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
@@ -173,10 +173,10 @@ Package: marginnote 2018/08/09 v1.4b non floating margin notes for LaTeX
 \c@mn@abspage=\count186
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption.sty"
-Package: caption 2020/05/30 v3.4k Customizing captions (AR)
+Package: caption 2020/01/03 v3.4h Customizing captions (AR)
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption3.sty"
-Package: caption3 2020/05/30 v1.12 caption3 kernel (AR)
+Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
 \captionmargin=\dimen154
 \captionmargin@=\dimen155
@@ -192,25 +192,24 @@ Package caption Info: Standard document class detected.
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/siunitx\siunitx.sty"
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3kernel\expl3.sty"
-Package: expl3 2020-06-18 L3 programming layer (loader) 
+Package: expl3 2020-03-06 L3 programming layer (loader) 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-xdvipdfmx.def"
-File: l3backend-xdvipdfmx.def 2020-06-29 L3 backend support: xdvipdfmx
+File: l3backend-xdvipdfmx.def 2020-03-12 L3 backend support: xdvipdfmx
 \g__graphics_track_int=\count189
 \l__pdf_internal_box=\box47
 \g__pdf_backend_object_int=\count190
 \g__pdf_backend_annotation_int=\count191
 ))
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xparse\xparse.sty"
-Package: xparse 2020-05-15 L3 Experimental document command parser
-
-("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xparse\xparse-generic.tex"
+Package: xparse 2020-03-06 L3 Experimental document command parser
 \l__xparse_current_arg_int=\count192
 \g__xparse_grabber_int=\count193
 \l__xparse_m_args_int=\count194
 \l__xparse_v_nesting_int=\count195
-))
+)
 Package: siunitx 2020/02/25 v2.8b A comprehensive (SI) units package
+
 ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\array.sty"
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen161
@@ -222,7 +221,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \ar@cellbox=\box49
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/l3keys2e\l3keys2e.sty"
-Package: l3keys2e 2020-05-15 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2020-03-06 LaTeX2e option processing using LaTeX3 keys
 )
 \l__siunitx_tmp_box=\box50
 \l__siunitx_tmp_dim=\dimen163
@@ -319,13 +318,13 @@ Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 \PaperWidth=\dimen177
 \PaperHeight=\dimen178
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hyperref.sty"
-Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
+Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/ltxcmds\ltxcmds.sty"
 Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex/generic/pdftexcmds\pdftexcmds.sty"
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+("C:\Program Files\MiKTeX 2.9\tex/latex/pdftexcmds\pdftexcmds.sty"
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
 )
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/infwarerr\infwarerr.sty"
@@ -361,7 +360,7 @@ Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 \Hy@pagecounter=\count282
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def"
-File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/intcalc\intcalc.sty"
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
@@ -370,20 +369,20 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count283
-Package hyperref Info: Hyper figures OFF on input line 4464.
-Package hyperref Info: Link nesting OFF on input line 4469.
-Package hyperref Info: Hyper index ON on input line 4472.
-Package hyperref Info: Plain pages OFF on input line 4479.
-Package hyperref Info: Backreferencing OFF on input line 4484.
+Package hyperref Info: Hyper figures OFF on input line 4547.
+Package hyperref Info: Link nesting OFF on input line 4552.
+Package hyperref Info: Hyper index ON on input line 4555.
+Package hyperref Info: Plain pages OFF on input line 4562.
+Package hyperref Info: Backreferencing OFF on input line 4567.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4717.
+Package hyperref Info: Bookmarks ON on input line 4800.
 \c@Hy@tempcnt=\count284
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5076.
+LaTeX Info: Redefining \url on input line 5159.
 \XeTeXLinkMargin=\dimen180
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/bitset\bitset.sty"
@@ -396,15 +395,15 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 \Fld@menulength=\count285
 \Field@Width=\dimen181
 \Fld@charsize=\dimen182
-Package hyperref Info: Hyper figures OFF on input line 6347.
-Package hyperref Info: Link nesting OFF on input line 6352.
-Package hyperref Info: Hyper index ON on input line 6355.
-Package hyperref Info: backreferencing OFF on input line 6362.
-Package hyperref Info: Link coloring OFF on input line 6367.
-Package hyperref Info: Link coloring with OCG OFF on input line 6372.
-Package hyperref Info: PDF/A mode OFF on input line 6377.
-LaTeX Info: Redefining \ref on input line 6417.
-LaTeX Info: Redefining \pageref on input line 6421.
+Package hyperref Info: Hyper figures OFF on input line 6430.
+Package hyperref Info: Link nesting OFF on input line 6435.
+Package hyperref Info: Hyper index ON on input line 6438.
+Package hyperref Info: backreferencing OFF on input line 6445.
+Package hyperref Info: Link coloring OFF on input line 6450.
+Package hyperref Info: Link coloring with OCG OFF on input line 6455.
+Package hyperref Info: PDF/A mode OFF on input line 6460.
+LaTeX Info: Redefining \ref on input line 6500.
+LaTeX Info: Redefining \pageref on input line 6504.
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/atbegshi\atbegshi.sty"
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
@@ -416,10 +415,10 @@ Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 Package hyperref Info: Driver (autodetected): hxetex.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hxetex.def"
-File: hxetex.def 2020-05-15 v7.00e Hyperref driver for XeTeX
+File: hxetex.def 2020/01/14 v7.00d Hyperref driver for XeTeX
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\puenc.def"
-File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2020/01/14 v7.00d Hyperref: PDF Unicode definition (HO)
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/stringenc\stringenc.sty"
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
@@ -1034,7 +1033,7 @@ Package: numprint 2012/08/20 v1.39 Print numbers (HH)
 
 No configuration file `numprint.cfg' found.)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xfp\xfp.sty"
-Package: xfp 2020-05-15 L3 Floating point unit
+Package: xfp 2020-03-06 L3 Floating point unit
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/fp\fp.sty"
 Package: fp 1995/04/02
@@ -1490,15 +1489,15 @@ LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
 \lst@maxwidth=\dimen342
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\lstmisc.sty"
-File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
 \c@lstnumber=\count372
 \lst@skipnumbers=\count373
 \lst@framebox=\box103
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\listings.cfg"
-File: listings.cfg 2020/03/24 1.8d listings configuration
+File: listings.cfg 2019/09/10 1.8c listings configuration
 ))
-Package: listings 2020/03/24 1.8d (Carsten Heinz)
+Package: listings 2019/09/10 1.8c (Carsten Heinz)
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/pdfpages\pdfpages.sty"
 Package: pdfpages 2020/01/28 v0.5q Insert pages of external PDF documents (AM)
@@ -1914,111 +1913,110 @@ File: figures/figure4.PNG Graphic file (type bmp)
 <figures/figure4.PNG>
 File: figures/model_summary.PNG Graphic file (type bmp)
 <figures/model_summary.PNG>
- [11]
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--157
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--157
+
+ []
+
+[11] [12]
 File: figures/lm2.PNG Graphic file (type bmp)
 <figures/lm2.PNG>
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--169
+Underfull \hbox (badness 10000) in paragraph at lines 161--174
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--169
+Underfull \hbox (badness 10000) in paragraph at lines 161--174
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--169
-
- []
-
-[12]
 File: figures/lm3.PNG Graphic file (type bmp)
 <figures/lm3.PNG>
 File: figures/lm1.PNG Graphic file (type bmp)
 <figures/lm1.PNG>
- [13]
-Underfull \hbox (badness 10000) in paragraph at lines 199--205
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 204--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--205
+Underfull \hbox (badness 10000) in paragraph at lines 204--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--205
+Underfull \hbox (badness 10000) in paragraph at lines 204--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--205
+Underfull \hbox (badness 10000) in paragraph at lines 204--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--205
+Underfull \hbox (badness 10000) in paragraph at lines 204--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--230
+Underfull \hbox (badness 10000) in paragraph at lines 227--235
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--230
+Underfull \hbox (badness 10000) in paragraph at lines 227--235
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--230
+Underfull \hbox (badness 10000) in paragraph at lines 227--235
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--230
+Underfull \hbox (badness 10000) in paragraph at lines 227--235
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 246--256
+Underfull \hbox (badness 10000) in paragraph at lines 251--261
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--256
+Underfull \hbox (badness 10000) in paragraph at lines 251--261
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--256
+Underfull \hbox (badness 10000) in paragraph at lines 251--261
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--256
+Underfull \hbox (badness 10000) in paragraph at lines 251--261
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--256
+Underfull \hbox (badness 10000) in paragraph at lines 251--261
 
  []
 
 [15] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 300--305
+Underfull \hbox (badness 10000) in paragraph at lines 305--310
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--311
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 313--316
+Underfull \hbox (badness 10000) in paragraph at lines 312--316
 
  []
 
@@ -2027,42 +2025,47 @@ Underfull \hbox (badness 10000) in paragraph at lines 318--321
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--326
+
+ []
+
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 335--337
+Underfull \hbox (badness 10000) in paragraph at lines 340--342
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--350
 
  []
 
 [18] [19] [20]
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/it' will be
-(Font)              scaled to size 12.47992pt on input line 369.
+(Font)              scaled to size 12.47992pt on input line 374.
 
-Underfull \hbox (badness 1521) in paragraph at lines 369--370
+Underfull \hbox (badness 1521) in paragraph at lines 374--375
 []\TU/ArnoPro(1)/m/n/12 Giusti, Santochi, \TU/ArnoPro(1)/m/it/12 Tecnologia Mec
 canica e Studi di Fabbricazione\TU/ArnoPro(1)/m/n/12 . Casa Editrice Am-
  []
 
 [21]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 380.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 380.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 385.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 385.
  (projectemplate.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 380.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 380.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 385.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 385.
 Package rerunfilecheck Info: File `projectemplate.out' has not changed.
 (rerunfilecheck)             Checksum: 42F55E9F49F2DB7D37361EB8B7D10F31;3258.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 380.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 385.
  ) 
 Here is how much of TeX's memory you used:
- 49948 strings out of 414078
- 1143535 string characters out of 2898264
- 1594061 words of memory out of 3000000
- 66644 multiletter control sequences out of 15000+200000
+ 49882 strings out of 414221
+ 1141770 string characters out of 2902595
+ 1593997 words of memory out of 3000000
+ 66435 multiletter control sequences out of 15000+200000
  567440 words of font info for 103 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 76i,8n,102p,977b,825s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 76i,8n,102p,977b,785s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on projectemplate.pdf (21 pages).

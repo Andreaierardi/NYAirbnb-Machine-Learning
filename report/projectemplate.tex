@@ -146,13 +146,19 @@ Also for clustering have been filter every scenario, but not for the case of Hie
 
 \subsection{Results}
 
+Since the number of models trained are very high, the study result will be presented for different macro groups that depend on the different subset of the dataset: entire dataset,  filtering by neighborhood and filtering by neighborhood and room type. This is due to the fact that neighborhood in general have similar result (like Manhattan has similar shape of Brooklyn and Staten Island has a similar shape of Bronx).\\\\
+ =====
+ DA RIVEDERE
+ ===\\
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{figures/model_summary.PNG} 
 \caption{\label{fig:5} Summary of the MSE for all the models for each subset of the dataset }
 \end{figure}
-
+\newpage
 \subsubsection{Linear Regression Results}
+%Linear Regression has been applied to the different subset and gains different results based on the macro group.
+\textbf{Linear Regression on the entire dataset}\\
 For the Linear regression the model give different results based on the variables used. \\\\
 \textbf{Linear Regression selecting the Neighboorhood group}\\
 For semplicity, the tests have been only taken filtering for Manhattan data points, but changing the neighboorhood the results are similar. 
@@ -160,7 +166,6 @@ Results are acceptable (Figure 5), given a $R^2$ value of $0.4011$ and a Mean Sq
 \\\\ \textbf{Linear Regression selecting the Neighboorhood group and the type of room}\\
 As in the previous case the tests are for Manhattan and for Entire home/Aparment type of room.\\
 The model output (Figure 6) a value of $R^2$ equals to $ 0.05953$ which is low  and a Mean Square Error, comparing prediction and test, of $1.23$.
-\\\\ \textbf{Linear Regression without filters}\\
 The model (Figure 7) obtain a $R^2$ value of $0.4031$ which is acceptable and a Mean Square Error, comparing prediction and test set, of $ 0.59$.
 \begin{figure}[H]
 \centering
