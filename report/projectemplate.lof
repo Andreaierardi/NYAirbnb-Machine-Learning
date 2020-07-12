@@ -6,3 +6,10 @@
 \contentsline {figure}{\numberline {6}{\ignorespaces Linear Regression output for the entire dataset\relax }}{13}{figure.caption.7}%
 \contentsline {figure}{\numberline {7}{\ignorespaces Linear Regression output filtering by Manhattan\relax }}{14}{figure.caption.8}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Linear Regression output filtering by Manhattan and Entire home/Apartment \relax }}{15}{figure.caption.9}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Decision Tree results on the entire dataset\relax }}{16}{figure.caption.10}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Tree generated for the entire dataset\relax }}{16}{figure.caption.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Decision tree results for specific neighboorhood group\relax }}{16}{figure.caption.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Decision tree results for specific neighboorhood group and room type\relax }}{18}{figure.caption.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Random Forest results on the entire dataset\relax }}{19}{figure.caption.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Random Forest results for specific neighboorhood group\relax }}{19}{figure.caption.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Random Forest results for specific neighboorhood group and room type\relax }}{20}{figure.caption.15}%

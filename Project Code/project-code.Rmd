@@ -284,20 +284,30 @@ for (sub in names(trains))
   dec_tree[[sub]]$fit = tree_res=tree(price~., data = trains[[sub]])
   dec_tree[[sub]]$summary = sum = summary(tree_res)
   
-  print(sub)
+  print(paste0("========== ",sub, " =========="))
+
   print(sum)
+  
   if(sum$size > 1 )
   {
+    png(paste0("tree-",sub,".png"))
     plot(tree_res)
     text(tree_res,pretty=0)
     title(paste0("Tree of: ",sub))
+    
+    dev.off()
+  }
+  else 
+  {
+    cat("Not possible to plot tree: ", sub)
   }
   
   dec_tree[[sub]]$pred  = pred = predict(tree_res,tests[[sub]])
   
-  dec_tree[[sub]]$MSE = sum((pred - tests[[sub]]$price)^2)/nrow(tests[[sub]])
+  dec_tree[[sub]]$MSE = mse =  sum((pred - tests[[sub]]$price)^2)/nrow(tests[[sub]])
   #dec_tree[[sub]]$plt=   plot(tree_res)+text(tree_res,pretty=0)
-  
+  print(mse)
+  cat("\n\n")
 }
 
 dec_tree$name = "Decision Tree"
@@ -305,11 +315,6 @@ model_lis$decision_tree = dec_tree
 ```
 
 
-## Decision Tree Results
-```{r}
-
-
-```
 
 
 ## RANDOM FOREST
@@ -324,12 +329,16 @@ for (sub in names(trains))
   
   rf[[sub]]$pred = predt = predict(res,tests[[sub]])
   
-  print(sub)
+  print(paste0("========== ",sub, " =========="))
+
   print(res)
+  
   #  varImpPlot(res)
   #  plot(res)
   
-  rf[[sub]]$MSE = sum((predt - tests[[sub]]$price)^2)/nrow(tests[[sub]])
+  rf[[sub]]$MSE = mse = sum((predt - tests[[sub]]$price)^2)/nrow(tests[[sub]])
+  print(paste0("MSE: ",mse))
+  cat("\n\n")
 }
 
 rf$name = "Random Forest"
@@ -348,13 +357,15 @@ ranger_rf = vector("list")
 for (sub in names(trains))
 {
   
+   print(paste0("========== ",sub, " =========="))
+
   ranger_rf[[sub]]$fit = res = ranger( price~ ., data = trains[[sub]], write.forest = TRUE, classification = F)
   
   ranger_rf[[sub]]$pred = predt = predict(res,tests[[sub]])
-  ranger_rf[[sub]]$MSE = sum((predt$predictions - tests[[sub]]$price)^2)/nrow(tests[[sub]])
+  ranger_rf[[sub]]$MSE = mse =  sum((predt$predictions - tests[[sub]]$price)^2)/nrow(tests[[sub]])
   print(res)
-  
-  
+  print(paste0("MSE: ",mse))
+  cat("\n\n")
 }
 
 ranger_rf$name = "Ranger Random Forest"
@@ -462,9 +473,9 @@ for (sub in names(nn))
   {
     m = nn[[sub]]
     hist = m$history
+    print(paste0("========== ",sub, " =========="))
 
     print(plot(hist, y ~ x) + ggtitle(paste0("NN of: ",sub)))
-    print(sub)
     cat("MAE: ",m$mae)
     cat("\nLoss: ",m$loss,"\n\n")
   }

@@ -2,7 +2,7 @@
 \usepackage{listings}
 \usepackage{pdfpages}
 \usepackage{subfiles} 
-
+\usepackage{graphicx}
 
 \begin{document}
 
@@ -160,7 +160,7 @@ Since the number of models trained are very high, the study result will be prese
 \subsubsection{Linear Regression Results}
 %Linear Regression has been applied to the different subset and gains different results based on the macro group.
 
-\textbf{Linear Regression on the entire dataset}
+\textbf{Linear Regression on the entire dataset}\\
 \noindent The results on the entire dataset are acceptable. All variables are significant for the model and the $R^2$ value is 40\% (Figure \ref{fig:6}).
 The Mean Square Error (Figure \ref{fig:5}) has a value of 0.6 which is acceptable. All the neighboorhood groups have a positive effect on the price apart for the $4^th$ one. This could be due to the fact that Staten Island does not have expensive houses compared to the other group. \\
 Also the latitude and longitude have a sligh negative effect on the price. Entire apartment have a slight positive effect while the shared house negative. This could be due to the fact that an entire house will cost more than a shared room, so the price will increase for this type of room. 
@@ -181,123 +181,165 @@ For the last two groups (Staten Island and Bronx) all variables does not have si
 \includegraphics[width=0.8\textwidth]{figures/lm2.jpg} 
 \caption{\label{fig:6}  Linear Regression output filtering by  Manhattan}
 \end{figure}
-\noindent \\\\  \textbf{Linear Regression selecting the Neighboorhood group and the type of room}\\
-
+\noindent \\\\  \textbf{Linear Regression for specific Neighboorhood group and room type}\\
+\noindent Adding a filter also for the room type, models give acceptable results in some cases and not in others. (Figure \ref{fig:7}) 
+For the larger subset the model confirm the significant of the variables, apart for latitude in Manhattan such as happened in the model using this neighboorhood data. In Manhattan with Entire apartment model, instead, all variables have a significant effect. For the remaining neighboorhood groups the variables do not result as significant in the model. This could be due to the fact that the subset obtained from this filtering are not large ( they have less than 300 rows). Also in all model the $R^2$ result to be lower than $10\%$ but this depends on the fact to train they have less information.
+\\
+Also in this model the MSE of Brooklyn is lower in all the type of room type than the Manhattan MSE. 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{figures/lm10.PNG} 
+\includegraphics[width=1\textwidth]{figures/lm3.PNG} 
 \caption{\label{fig:7}  Linear Regression output filtering by  Manhattan and Entire home/Apartment }
 \end{figure}
 
 
 
-\begin{center}
-\begin{tabular}{l  c c }
-\arrayrulecolor{Azzurro}
-\hline
-{\bfseries Linear Regression
-} & MSE & $R^2$  \\
-\hline
-{\bfseries Entire dataset} & 0.59 & .40  \\
-{\bfseries Filter: Mahnattan} & 0.76 & 0.355  \\
-{\bfseries Filter: Manhattan \& Apt} & 0.44 &  0.12  \\
-\hline
-\end{tabular}
-\end{center}
 
-
+\newpage 
 \subsubsection{Decison Trees Results}
-For the Decision tree the model give different results based on the variables used.
-\\\\ \textbf{Decison tree  without filters}\\
-\\\\
-\textbf{Decison tree selecting the Neighboorhood group}\\
-\\\\ 
-\textbf{Decison tree  selecting the Neighboorhood group and room type}
+\textbf{Decison tree  without filters}\\
+\noindent For the entire dataset the MSE has a value of $0.605$ (Figure \ref{fig:9}) Important to be notice is the fact that the neighboorhood group variable have not been used in the construction of the tree. Moreover, what really influence the price is the type of room (Figure \ref{fig:10}).
 
 
+\begin{figure}[!htb]
+   \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=.7\linewidth]{figures/dt.PNG} 
+     \caption{Decision Tree results on the entire dataset}\label{fig:9}
+   \end{minipage}\hfill
+   \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=.7\linewidth]{figures/tree-all.PNG}
+     \caption{Tree generated for the entire dataset}\label{fig:10}
+   \end{minipage}
+\end{figure}
 
-\begin{center}
-\begin{tabular}{l c c c }
-\arrayrulecolor{Azzurro}
-\hline
-{\bfseries Decision Tree
-} & MSE & $R^2$  \\
-\hline
-{\bfseries Entire dataset} & 0.59 & ..  \\
-{\bfseries Filter: Mahnattan} & 0.77 & ..  \\
-{\bfseries Filter: Manhattan \& Apt} &  0.40 & ..  \\
-\hline
-\end{tabular}
-\end{center}
+
+\noindent \\ \textbf{Decison tree for specific Neighboorhood group}\\
+\noindent For the specific neighboorhood group decision tree models give output similar MSE results with respect to the Linear Regression. Also in this case, the latitude for Manhattan has not been used in the model to predict the price (Figure \ref{fig:11}). 
+
+\begin{figure}[!htb]
+   \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=.7\linewidth]{figures/dt1.1.PNG} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=.7\linewidth]{figures/dt1.2.PNG}
+   \end{minipage}
+        \caption{ Decision tree results for specific neighboorhood group}\label{fig:11}
+
+\end{figure}
+
+\newpage 
+\noindent \textbf{Decison tree  for specific Neighboorhood group and room type}
+ 
+\noindent For neighboorhood group and room price Decision tree construction was not possible for all the subset. For example for shared room for Bronx were not possible to plot the tree since the model had only one node. MSE are similar to Linear Regression but for this type of subset perform slighly worse. This is due to the lack of information of some of these subsets (Figure \ref{fig:12}).
+\newpage
+\begin{figure}[!htb]
+   \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=.7\linewidth]{figures/dt2.PNG} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=.7\linewidth]{figures/dt3.PNG}
+   \end{minipage}
+   
+    \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=.7\linewidth]{figures/dt4.1.PNG}
+   \end{minipage}
+   
+   
+    \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=.7\linewidth]{figures/dt4.2.PNG}
+   \end{minipage}
+        \caption{ Decision tree results for specific neighboorhood group and room type}\label{fig:12}
+
+\end{figure}
+
+\newpage
 \subsubsection{Random Forest Results}
 There were no problem running Random Forest regression for the price, givin the default parameters. For the parameter tuning there were no possibilities for the entire dataset, due to the large number of data points. For the filtered dataset, instead, were possible to tune the mtry, number of maximum nodes and number of trees.
-\\\\ \textbf{Random Forest  without filters}\\
+\\\\ \textbf{Random Forest  on the entire dataset}\\
 There were no possibility to run a forecast of the price
-\\\\
-\textbf{Random Forest selecting the Neighboorhood group}\\
-\\\\ 
-\textbf{Random Forest selecting the Neighboorhood group and room type}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/rf.PNG} 
+ \caption{\label{fig:13} Random Forest results on the entire dataset}
+\end{figure}
+
+\noindent \textbf{Random Forest for specific Neighboorhood group}\\
+\begin{figure}[!htb]
+   \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=.7\linewidth]{figures/rf1.1.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=.7\linewidth]{figures/rf1.2.png}
+   \end{minipage}
+        \caption{ Random Forest results for specific neighboorhood group}\label{fig:14}
+
+\end{figure}
+
+\noindent \textbf{Random Forest  for specific Neighboorhood group and room type}
 Using the tuning of the parameter the results are slightly better. The model start with a $23\%$ explained variance to a value of $25\%$.
 
+\begin{figure}[!htb]
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=.8\linewidth]{figures/rf2.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=.8\linewidth]{figures/rf3.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=.8\linewidth]{figures/rf4.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=.8\linewidth]{figures/rf5.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=.8\linewidth]{figures/rf6.png}
+   \end{minipage}
+        \caption{ Random Forest results for specific neighboorhood group and room type}\label{fig:15}
 
-\begin{center}
-\begin{tabular}{l c c c }
-\arrayrulecolor{Azzurro}
-\hline
-{\bfseries Random Forest
-} & MSE & $\% Var $  \\
-\hline
-{\bfseries Entire dataset} &  0.56 & 43.9   \\
-{\bfseries Filter: Mahnattan}& 0.70 & 38.9   \\
-{\bfseries Filter: Manhattan \& Apt}&  0.38 & 21.6   \\
-\hline
-\end{tabular}
-\end{center}
+\end{figure}
+
+\newpage
 \subsubsection{Ranger Random Forest Results}
 Ranger Random Forest is known to be computationally light with respect to the classic Random Forest. In fact, for the tuning part there were not problem in running it for the entire dataset. 
-\\\\ \textbf{Ranger without filters}\\
+\\\\ \textbf{Ranger on the entire dataset }\\
 Ranger outputs for the entire dataset are consistent. We have a $R^2$ of 0.47 and OOB error of .
 \\\\
-\textbf{Ranger selecting the Neighboorhood group}\\
-The dataset filtered by Neighboorhood ouputs a value of 0.4 $R^2$ and a OOB error of.
+\textbf{Ranger for specific Neighboorhood group}\\
 \\\\ 
-\textbf{Ranger selecting the Neighboorhood group and room type}
+\textbf{Ranger for specific Neighboorhood group and room type}
 The dataset filtered by neighboorhood and room type gives as result a $R^2$ of 0.25.
 \\\\
 
 
-\begin{center}
-\begin{tabular}{l c c c }
-\arrayrulecolor{Azzurro}
-\hline
-{\bfseries Ranger RF
-} & MSE & $\% Var $ \\
-\hline
-{\bfseries Entire dataset}& 0.53 & 46.6 \\
-{\bfseries Filter: Mahnattan} & 0.71 &  38.8  \\
-{\bfseries Filter: Manhattan \& Apt}& 0.38 & 21.7   \\
-\hline
-\end{tabular}
-\end{center}
 
 
 
+\newpage
 \subsubsection{Neural Network Results}
+\textbf{Neural Networks on the entire dataset }\\
+
+\textbf{Neural Networks for specific Neighboorhood group}\\
+\\\\ 
+\textbf{Neural Networks  for specific Neighboorhood group and room type}
 
 
-\begin{center}
-\begin{tabular}{l c c c }
-\arrayrulecolor{Azzurro}
-\hline
-{\bfseries  Neural Networks
-} MSE & Loss \\
-\hline
-{\bfseries Entire dataset} & 0.61 &  0.53 \\
-{\bfseries Filter: Mahnattan} & 0.84  & 0.64 \\
-{\bfseries Filter: Manhattan \& Apt} & 0.48 & 0.44  \\
-\hline
-\end{tabular}
-\end{center}
+
 
 \subsubsection{K-means Results}
 

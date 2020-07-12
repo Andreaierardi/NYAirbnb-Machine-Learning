@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  12 JUL 2020 13:29
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  12 JUL 2020 19:16
 entering extended mode
 **./projectemplate.tex
 (projectemplate.tex
@@ -1933,138 +1933,153 @@ File: figures/lm1.PNG Graphic file (type bmp)
 File: figures/lm2.jpg Graphic file (type bmp)
 <figures/lm2.jpg>
  [13]
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
+File: figures/lm3.PNG Graphic file (type bmp)
+<figures/lm3.PNG>
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--193
 
  []
 
+[14] [15]
+File: figures/dt.PNG Graphic file (type bmp)
+<figures/dt.PNG>
+File: figures/tree-all.PNG Graphic file (type bmp)
+<figures/tree-all.PNG>
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
-
+Underfull \hbox (badness 1968) in paragraph at lines 213--213
+[]\TU/ArnoPro(1)/m/n/12 Figure 10: |Tree generated for the entire
  []
 
-File: figures/lm10.PNG Graphic file (type bmp)
-<figures/lm10.PNG>
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 210--216
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--216
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--216
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--216
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--216
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--241
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--241
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--241
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--241
-
- []
-
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 257--267
-
- []
-
+File: figures/dt1.1.PNG Graphic file (type bmp)
+<figures/dt1.1.PNG>
+File: figures/dt1.2.PNG Graphic file (type bmp)
+<figures/dt1.2.PNG>
 [16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 311--316
+File: figures/dt2.PNG Graphic file (type bmp)
+<figures/dt2.PNG>
+File: figures/dt3.PNG Graphic file (type bmp)
+<figures/dt3.PNG>
+File: figures/dt4.1.PNG Graphic file (type bmp)
+<figures/dt4.1.PNG>
+File: figures/dt4.2.PNG Graphic file (type bmp)
+<figures/dt4.2.PNG>
+ [18]
+Underfull \hbox (badness 10000) in paragraph at lines 265--268
+
+ []
+
+File: figures/rf.PNG Graphic file (type bmp)
+<figures/rf.PNG>
+File: figures/rf1.1.png Graphic file (type bmp)
+<figures/rf1.1.png>
+File: figures/rf1.2.png Graphic file (type bmp)
+<figures/rf1.2.png>
+File: figures/rf2.png Graphic file (type bmp)
+<figures/rf2.png>
+File: figures/rf3.png Graphic file (type bmp)
+<figures/rf3.png>
+File: figures/rf4.png Graphic file (type bmp)
+<figures/rf4.png>
+File: figures/rf5.png Graphic file (type bmp)
+<figures/rf5.png>
+File: figures/rf6.png Graphic file (type bmp)
+<figures/rf6.png>
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 319--328
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--322
+Underfull \hbox (badness 10000) in paragraph at lines 319--328
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 324--327
+Underfull \hbox (badness 10000) in paragraph at lines 319--328
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--332
-
- []
-
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 346--348
+Underfull \hbox (badness 10000) in paragraph at lines 319--328
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 354--356
+Underfull \hbox (badness 10000) in paragraph at lines 319--328
 
  []
 
-[19] [20]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 371.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 371.
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--328
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 335--336
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--340
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--340
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 353--358
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 360--364
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--369
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--374
+
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 388--390
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 396--398
+
+ []
+
+[23] [24]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 413.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 413.
  (projectemplate.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 371.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 371.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 413.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 413.
 Package rerunfilecheck Info: File `projectemplate.out' has not changed.
 (rerunfilecheck)             Checksum: C761B65668A12A182AF27AE26D5875B4;3149.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 371.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 413.
  ) 
 Here is how much of TeX's memory you used:
- 49873 strings out of 414221
- 1141609 string characters out of 2902595
- 1593666 words of memory out of 3000000
- 66427 multiletter control sequences out of 15000+200000
+ 49976 strings out of 414221
+ 1143252 string characters out of 2902595
+ 1594270 words of memory out of 3000000
+ 66514 multiletter control sequences out of 15000+200000
  567432 words of font info for 102 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 76i,8n,102p,977b,779s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 76i,7n,102p,977b,779s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on projectemplate.pdf (20 pages).
+Output written on projectemplate.pdf (24 pages).
