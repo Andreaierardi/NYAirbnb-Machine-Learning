@@ -18,25 +18,23 @@
 \contentsline {subsubsection}{\numberline {3.1.2}Data Cleaning and Pre-processing}{10}{subsubsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.2}Results}{12}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Linear Regression Results}{13}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Decison Trees Results}{14}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Random Forest Results}{14}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Ranger Random Forest Results}{15}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Neural Network Results}{16}{subsubsection.3.2.5}%
-\contentsline {subsubsection}{\numberline {3.2.6}K-means Results}{16}{subsubsection.3.2.6}%
-\contentsline {subsubsection}{\numberline {3.2.7}Principal Component Analysis Results}{16}{subsubsection.3.2.7}%
-\contentsline {subsection}{\numberline {3.3}Discussion}{17}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Linear Regression Discussion}{17}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Decision Tree Discussion}{17}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}Random Forest Discussion}{17}{subsubsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.4}Ranger Random Forest Discussion}{17}{subsubsection.3.3.4}%
-\contentsline {subsubsection}{\numberline {3.3.5}Neural Network Discussion}{17}{subsubsection.3.3.5}%
-\contentsline {subsubsection}{\numberline {3.3.6}K-Means Discussion}{17}{subsubsection.3.3.6}%
-\contentsline {subsubsection}{\numberline {3.3.7}Principal Component Analysis Discussion}{18}{subsubsection.3.3.7}%
-\contentsline {section}{\numberline {4}Conclusion}{18}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Linear Regression}{18}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Decision Tree}{18}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Random Forest}{18}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Ranger Random Forest}{18}{subsubsection.4.3.1}%
-\contentsline {section}{\numberline {5}Appendix}{19}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Footnote}{20}{subsection.5.1}%
-\contentsline {section}{References}{21}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Decison Trees Results}{15}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Random Forest Results}{16}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Ranger Random Forest Results}{16}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Neural Network Results}{17}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}K-means Results}{17}{subsubsection.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.7}Principal Component Analysis Results}{17}{subsubsection.3.2.7}%
+\contentsline {subsection}{\numberline {3.3}Discussion}{18}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Linear Regression Discussion}{18}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Decision Tree Discussion}{18}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Random Forest Discussion}{18}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Ranger Random Forest Discussion}{18}{subsubsection.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.5}Neural Network Discussion}{18}{subsubsection.3.3.5}%
+\contentsline {subsubsection}{\numberline {3.3.6}K-Means Discussion}{18}{subsubsection.3.3.6}%
+\contentsline {subsubsection}{\numberline {3.3.7}Principal Component Analysis Discussion}{19}{subsubsection.3.3.7}%
+\contentsline {section}{\numberline {4}Conclusion}{19}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Linear Regression}{19}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Decision Tree}{19}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Random Forest}{19}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Ranger Random Forest}{19}{subsubsection.4.3.1}%
+\contentsline {section}{\numberline {5}Appendix}{20}{section.5}%

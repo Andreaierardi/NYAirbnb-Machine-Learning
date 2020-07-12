@@ -262,9 +262,10 @@ for (sub in names(trains))
   lin_reg[[sub]]$pred  = pr.lm = predict(lm.fit,tests[[sub]])
   
   lin_reg[[sub]]$MSE = sum((pr.lm - tests[[sub]]$price)^2)/nrow(tests[[sub]])
-  print(sub)
+  print(paste0("========== ",sub, " =========="))
   print(summary(lm.fit))
   #lin_reg[[sub]]$plt=   plot(lm.fit)
+  cat("\n\n")
 }
 
 lin_reg$name = "Linear Regression"

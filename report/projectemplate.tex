@@ -155,32 +155,38 @@ Since the number of models trained are very high, the study result will be prese
 \includegraphics[width=1\textwidth]{figures/model_summary.PNG} 
 \caption{\label{fig:5} Summary of the MSE for all the models for each subset of the dataset }
 \end{figure}
+
 \newpage
 \subsubsection{Linear Regression Results}
 %Linear Regression has been applied to the different subset and gains different results based on the macro group.
-\textbf{Linear Regression on the entire dataset}\\
-For the Linear regression the model give different results based on the variables used. \\\\
-\textbf{Linear Regression selecting the Neighboorhood group}\\
-For semplicity, the tests have been only taken filtering for Manhattan data points, but changing the neighboorhood the results are similar. 
-Results are acceptable (Figure 5), given a $R^2$ value of $0.4011$ and a Mean Square Error, comparing prediction and test set, of $0.67$.
-\\\\ \textbf{Linear Regression selecting the Neighboorhood group and the type of room}\\
-As in the previous case the tests are for Manhattan and for Entire home/Aparment type of room.\\
-The model output (Figure 6) a value of $R^2$ equals to $ 0.05953$ which is low  and a Mean Square Error, comparing prediction and test, of $1.23$.
-The model (Figure 7) obtain a $R^2$ value of $0.4031$ which is acceptable and a Mean Square Error, comparing prediction and test set, of $ 0.59$.
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.5\textwidth]{figures/lm2.PNG} 
-\caption{\label{fig:6}  Linear Regression output filtering by  Manhattan}
-\end{figure}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.5\textwidth]{figures/lm3.PNG} 
-\caption{\label{fig:7}  Linear Regression output filtering by  Manhattan and Entire home/Apartment }
-\end{figure}
+
+\textbf{Linear Regression on the entire dataset}
+\noindent The results on the entire dataset are acceptable. All variables are significant for the model and the $R^2$ value is 40\% (Figure \ref{fig:6}).
+The Mean Square Error (Figure \ref{fig:5}) has a value of 0.6 which is acceptable. All the neighboorhood groups have a positive effect on the price apart for the $4^th$ one. This could be due to the fact that Staten Island does not have expensive houses compared to the other group. \\
+Also the latitude and longitude have a sligh negative effect on the price. Entire apartment have a slight positive effect while the shared house negative. This could be due to the fact that an entire house will cost more than a shared room, so the price will increase for this type of room. 
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/lm1.PNG} 
-\caption{\label{fig:8} Linear Regression output without filters }
+\caption{\label{fig:6} Linear Regression output for the entire dataset}
+\end{figure}
+\noindent
+\textbf{Linear Regression for specific Neighboorhood group}
+
+\noindent Models give different results for the specific neighboorhood group. For the first three (Brooklyn, Manhattan and Queens) $R^2$ are over approximately 30\%. For the MSE, the value have different ranges based on the distribution of prices in the singolar neighboorhood. To be noticed, is the fact that MSE of Brooklyn is significantly lower with respect to Manhattan, given the have a similar number of houses and have almost the same price distribution. The only difference between the two is the fact that Manhattan has more entire apartment type of room. 
+\\ All variables have a significant effect on the price apart for the latitude in Manhattan and longitude for Queens with a 0.1.  \\
+For the last two groups (Staten Island and Bronx) all variables does not have significance in the response variable apart for the Entire Apartment dummy which have a positive effect. This is due to the fact that entire properties will cost more than shared rooms.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/lm2.jpg} 
+\caption{\label{fig:6}  Linear Regression output filtering by  Manhattan}
+\end{figure}
+\noindent \\\\  \textbf{Linear Regression selecting the Neighboorhood group and the type of room}\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/lm10.PNG} 
+\caption{\label{fig:7}  Linear Regression output filtering by  Manhattan and Entire home/Apartment }
 \end{figure}
 
 
@@ -355,31 +361,11 @@ Ranger Random Forest is a computationally light model which results are very clo
 \newpage
 \section{Appendix}
 %\subfile{project}
-
+The code is in the file "project-code.Rmd" and is attached to this file.
 
 %\includepdf[pages=-, pagecommand=\thispagestyle{plain}]{project.tex}
 %\noinden
 
-\newpage
 
-
-\subsection{Footnote}
-You can create a footnote like this.\footnote{I created a footnote.}
-
-
-
-\newpage
-\begin{thebibliography}{9}
-\bibitem{giusti}
-Giusti, Santochi, \emph{Tecnologia Meccanica e Studi di Fabbricazione}. Casa Editrice Ambrosiana, Seconda Edizione
-\bibitem{mechteacher}
-Mechteacher, \emph{Knuckle Joint – Introduction, Parts and Applications},\\ http://mechteacher.com/knuckle-joint/
-\bibitem{totalmateria}
-Totalmateria, \emph{G32NiCrMo8}, http://www.totalmateria.com 
-\bibitem{sandvik}
-Sandvik Coromant,\emph{Catalogo  generale  2018},   http://www.coromant.sandvik.com/it
-\bibitem{uni}
-Norme UNI, Ente nazionale italiano di unificazione
-\end{thebibliography}
 
 \end{document}

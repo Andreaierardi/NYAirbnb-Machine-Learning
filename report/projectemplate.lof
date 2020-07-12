@@ -3,6 +3,6 @@
 \contentsline {figure}{\numberline {3}{\ignorespaces Distribution of all houses in NY of price between $15\$$ and $500\$$ per day\relax }}{10}{figure.caption.4}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Approximated distribution map of all houses in Manhattan \relax }}{11}{figure.caption.5}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Summary of the MSE for all the models for each subset of the dataset \relax }}{12}{figure.caption.6}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Linear Regression output filtering by Manhattan\relax }}{13}{figure.caption.7}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Linear Regression output filtering by Manhattan and Entire home/Apartment \relax }}{13}{figure.caption.8}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Linear Regression output without filters \relax }}{14}{figure.caption.9}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Linear Regression output for the entire dataset\relax }}{13}{figure.caption.7}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Linear Regression output filtering by Manhattan\relax }}{14}{figure.caption.8}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Linear Regression output filtering by Manhattan and Entire home/Apartment \relax }}{15}{figure.caption.9}%
