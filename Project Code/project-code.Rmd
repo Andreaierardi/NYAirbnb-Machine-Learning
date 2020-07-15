@@ -474,8 +474,13 @@ for (sub in names(nn))
     m = nn[[sub]]
     hist = m$history
     print(paste0("========== ",sub, " =========="))
-
-    print(plot(hist, y ~ x) + ggtitle(paste0("NN of: ",sub)))
+    str = paste0("MAE: ",round(m$mae,3)," --- Loss: ",round(m$loss,3))
+    p = plot(hist, y ~ x) +  theme_bw(base_size = 12)  +ggtitle(paste0("NN of: ",sub))+ labs(caption= str)
+    
+    print(p)
+    png(filename= paste0("NN-",sub,".png"))
+    plot(p)
+    dev.off()
     cat("MAE: ",m$mae)
     cat("\nLoss: ",m$loss,"\n\n")
   }
@@ -608,6 +613,8 @@ get_clusters = function(dts, num, dim_plot,name)
     p =ggplot()+ background_image(img)+geom_point(data = el, aes(y = latitude, x = longitude),color= count) + xlim(min_long, max_long) + ylim(min_lat,max_lat) + ggtitle(paste0("Cluster: ", count," of ", name  ))
     
     l$clust_plot[[as.character(count)]] = p
+    
+    l$summary[[as.character(count)]] = summary(el)
     #print(paste0("=== clust: ",count,"==="))
     #print(summary(el))
     #print("=========")
@@ -676,6 +683,7 @@ multiplots <- function(plotlist, file=NULL,cols = 2, layout = NULL) {
 
 all_cluster$all_plots[[21]]
 
+all_cluster$all$cl
 ```
 
 ```{r}
@@ -781,7 +789,7 @@ plot(hc1, cex = 0.6, hang = -1)
 ```{r}
 avg_dend_obj <- as.dendrogram(hc1)
 avg_col_dend <- color_branches(avg_dend_obj, h = 0.6)
-plot(avg_col_dend, cex= 0.6)
+plot(avg_col_dend, horiz=T)
 ```
 
 

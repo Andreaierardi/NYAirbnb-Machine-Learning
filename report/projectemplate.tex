@@ -339,27 +339,31 @@ Ranger outputs for the entire dataset are consistent. We have a $R^2$ of 0.47 an
 
 \end{figure}
 
-\noindent
 \textbf{Ranger for specific Neighboorhood group and room type}\\
 The dataset filtered by neighboorhood and room type gives as result a $R^2$ of 0.25.
 \begin{figure}[!htb]
-   \begin{minipage}{0.33\textwidth}
+   \begin{minipage}{0.48\textwidth}
      \centering
      \includegraphics[width=1\linewidth]{figures/rgn2.1.png} 
    \end{minipage}\hfill
-   \begin{minipage}{0.33\textwidth}
+   \begin{minipage}{0.48\textwidth}
      \centering
      \includegraphics[width=1\linewidth]{figures/rgn2.2.png}
    \end{minipage}
-   \begin{minipage}{0.33\textwidth}
+   \begin{minipage}{0.48\textwidth}
      \centering
      \includegraphics[width=1\linewidth]{figures/rgn2.3.png} 
    \end{minipage}\hfill
-   \begin{minipage}{0.33\textwidth}
+   
+\end{figure}
+
+\newpage
+\begin{figure}[!htb]
+   \begin{minipage}{0.48\textwidth}
      \centering
      \includegraphics[width=1\linewidth]{figures/rgn2.4.png}
    \end{minipage}
-   \begin{minipage}{0.33\textwidth}
+   \begin{minipage}{0.48\textwidth}
      \centering
      \includegraphics[width=1\linewidth]{figures/rgn2.5.png}
    \end{minipage}
@@ -373,17 +377,123 @@ The dataset filtered by neighboorhood and room type gives as result a $R^2$ of 0
 
 \newpage
 \subsubsection{Neural Network Results}
-\textbf{Neural Networks on the entire dataset }\\
+ Neural Network on the entire dataset has been run for 10 epochs. For semplicity, it has been used a single architecture for all the subsets. It has been used three dense layers of respectively 32, 16 and 1 units and Relu activation function.\\\\
+\textbf{Neural Networks on the entire dataset }\\\\
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/NN-all.PNG} 
+ \caption{\label{fig:19} Neural Networks results on the entire dataset}
+\end{figure}
+
+\newpage
 \textbf{Neural Networks for specific Neighboorhood group}\\
-\\\\ 
+
+\begin{figure}[!htb]
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-1.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-2.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-3.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-4.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-5.png}
+   \end{minipage}
+        \caption{Neurala Networks results for specific neighboorhood group and room type}\label{fig:20}
+
+\end{figure}
+
+\newpage
 \textbf{Neural Networks  for specific Neighboorhood group and room type}
 
 
 
+\begin{figure}[!htb]
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n1-r1.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n1-r2.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n1-r3.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n2-r1.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n2-r2.png}
+   \end{minipage}
+ \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n2-r3.png} 
+   \end{minipage}\hfill
+\begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n3-r1.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n3-r2.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n3-r3.png} 
+   \end{minipage}\hfill 
+\end{figure}
+ \newpage
+\begin{figure}[!htb]
 
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n4-r1.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n4-r2.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n4-r3.png} 
+   \end{minipage}\hfill
+ 
+
+   
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n5-r1.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n5-r2.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/NN-n5-r3.png} 
+   \end{minipage}\hfill
+           \caption{Neural Networks results for specific neighboorhood group and room type}\label{fig:21}
+
+\end{figure}
+\newpage
 \subsubsection{K-means Results}
 
+\newpage
 
 \subsubsection{Principal Component Analysis Results}
 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 20.6.29) (preloaded format=xelatex 2020.7.3)  12 JUL 2020 20:33
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 20.6.29) (preloaded format=xelatex 2020.7.3)  15 JUL 2020 20:19
 entering extended mode
 **./projectemplate.tex
 (projectemplate.tex
@@ -1541,11 +1541,7 @@ Package: subfiles 2020/02/14 v1.6 Multi-file projects (package)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/import\import.sty"
 Package: import 2020/04/01  v 6.2
 ))
-(projectemplate.aux
-
-LaTeX Warning: Label `fig:6' multiply defined.
-
-)
+(projectemplate.aux)
 \openout1 = `projectemplate.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -1651,6 +1647,9 @@ LaTeX Info: Redefining \nameref on input line 7.
 \@outlinefile=\write4
 \openout4 = `projectemplate.out'.
 
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
 
 ABD: EveryShipout initializing macros
 
@@ -1767,15 +1766,20 @@ LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <24.88> not available
 (Font)              Font shape `TU/lmr/m/sc' tried instead on input line 15.
 
-(projectemplate.toc [2])
+
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
+
 \tf@toc=\write5
 \openout5 = `projectemplate.toc'.
 
- [3] (projectemplate.lof)
+[2]
+
+Package hyperref Warning: old lof file detected, not used; run LaTeX again.
+
 \tf@lof=\write6
 \openout6 = `projectemplate.lof'.
 
- [4]
+[3]
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
 (Font)              scaled to size 83.19946pt on input line 19.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
@@ -1785,7 +1789,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--32
 
  []
 
-[5]
+[4]
 Overfull \hbox (13.01924pt too wide) in paragraph at lines 51--51
 |\TU/lmr/m/sc/24.88 Problem Definition and Algorithm| 
  []
@@ -1802,10 +1806,16 @@ LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <12> not available
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
 (Font)              Font shape `TU/lmr/m/sc' tried instead on input line 54.
 
-[6] [7]
+[5] [6]
 Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
+
+
+LaTeX Warning: Reference `fig:1' on page 7 undefined on input line 108.
+
+
+LaTeX Warning: Reference `fig:3' on page 7 undefined on input line 108.
 
 File: figures/figure1.jpg Graphic file (type bmp)
 <figures/figure1.jpg>
@@ -1819,12 +1829,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 107--114
 
  []
 
-[8]
+[7]
+
+LaTeX Warning: Reference `fig:2' on page 8 undefined on input line 115.
+
+
+LaTeX Warning: Reference `fig:3' on page 8 undefined on input line 115.
+
 File: figures/figure2.pdf Graphic file (type pdf)
 <use figures/figure2.pdf>
- [9]
+[8]
 File: figures/figure3.pdf Graphic file (type pdf)
 <use figures/figure3.pdf>
+
+
+LaTeX Warning: Reference `fig:4' on page 9 undefined on input line 134.
 
 
 Package fontspec Warning: OpenType feature 'Contextuals=Swash,Alternate'
@@ -1913,7 +1932,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--137
 
  []
 
-[10]
+[9]
 File: figures/figure4.PNG Graphic file (type bmp)
 <figures/figure4.PNG>
 File: figures/model_summary.PNG Graphic file (type bmp)
@@ -1928,12 +1947,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 149--157
 
  []
 
-[11] [12]
+[10] [11]
+
+LaTeX Warning: Reference `fig:6' on page 12 undefined on input line 164.
+
+
+LaTeX Warning: Reference `fig:5' on page 12 undefined on input line 165.
+
 File: figures/lm1.PNG Graphic file (type bmp)
 <figures/lm1.PNG>
 File: figures/lm2.jpg Graphic file (type bmp)
 <figures/lm2.jpg>
- [13]
+[12]
+
+LaTeX Warning: Reference `fig:7' on page 13 undefined on input line 185.
+
 File: figures/lm3.PNG Graphic file (type bmp)
 <figures/lm3.PNG>
 
@@ -1941,7 +1969,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 184--193
 
  []
 
-[14] [15]
+[13] [14]
+
+LaTeX Warning: Reference `fig:9' on page 15 undefined on input line 201.
+
+
+LaTeX Warning: Reference `fig:10' on page 15 undefined on input line 201.
+
 File: figures/dt.PNG Graphic file (type bmp)
 <figures/dt.PNG>
 File: figures/tree-all.PNG Graphic file (type bmp)
@@ -1951,11 +1985,18 @@ Underfull \hbox (badness 1968) in paragraph at lines 213--213
 []\TU/ArnoPro(1)/m/n/12 Figure 10: |Tree generated for the entire
  []
 
+
+LaTeX Warning: Reference `fig:11' on page 15 undefined on input line 219.
+
 File: figures/dt1.1.PNG Graphic file (type bmp)
 <figures/dt1.1.PNG>
 File: figures/dt1.2.PNG Graphic file (type bmp)
 <figures/dt1.2.PNG>
-[16] [17]
+[15]
+
+LaTeX Warning: Reference `fig:12' on page 16 undefined on input line 237.
+
+[16]
 File: figures/dt2.PNG Graphic file (type bmp)
 <figures/dt2.PNG>
 File: figures/dt3.PNG Graphic file (type bmp)
@@ -1964,14 +2005,14 @@ File: figures/dt4.1.PNG Graphic file (type bmp)
 <figures/dt4.1.PNG>
 File: figures/dt4.2.PNG Graphic file (type bmp)
 <figures/dt4.2.PNG>
- [18]
+ [17]
 File: figures/rf.PNG Graphic file (type bmp)
 <figures/rf.PNG>
 File: figures/rf1.1.png Graphic file (type bmp)
 <figures/rf1.1.png>
 File: figures/rf1.2.png Graphic file (type bmp)
 <figures/rf1.2.png>
- [19]
+ [18]
 File: figures/rf2.png Graphic file (type bmp)
 <figures/rf2.png>
 File: figures/rf3.png Graphic file (type bmp)
@@ -1982,7 +2023,7 @@ File: figures/rf5.png Graphic file (type bmp)
 <figures/rf5.png>
 File: figures/rf6.png Graphic file (type bmp)
 <figures/rf6.png>
- [20]
+ [19]
 Underfull \hbox (badness 10000) in paragraph at lines 318--321
 
  []
@@ -1999,76 +2040,145 @@ File: figures/rgn2.2.png Graphic file (type bmp)
 <figures/rgn2.2.png>
 File: figures/rgn2.3.png Graphic file (type bmp)
 <figures/rgn2.3.png>
+[20] [21]
 File: figures/rgn2.4.png Graphic file (type bmp)
 <figures/rgn2.4.png>
 File: figures/rgn2.5.png Graphic file (type bmp)
 <figures/rgn2.5.png>
-[21] [22]
-Underfull \hbox (badness 10000) in paragraph at lines 376--377
+ [22]
+Underfull \hbox (badness 10000) in paragraph at lines 380--382
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--381
+Underfull \hbox (badness 10000) in paragraph at lines 380--382
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--381
+Underfull \hbox (badness 10000) in paragraph at lines 380--382
 
  []
 
+File: figures/NN-all.PNG Graphic file (type bmp)
+<figures/NN-all.PNG>
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 394--399
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 401--405
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 407--410
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 412--415
-
- []
-
+File: figures/NN-1.png Graphic file (type bmp)
+<figures/NN-1.png>
+File: figures/NN-2.png Graphic file (type bmp)
+<figures/NN-2.png>
+File: figures/NN-3.png Graphic file (type bmp)
+<figures/NN-3.png>
+File: figures/NN-4.png Graphic file (type bmp)
+<figures/NN-4.png>
+File: figures/NN-5.png Graphic file (type bmp)
+<figures/NN-5.png>
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 429--431
+File: figures/NN-n1-r1.png Graphic file (type bmp)
+<figures/NN-n1-r1.png>
+File: figures/NN-n1-r2.png Graphic file (type bmp)
+<figures/NN-n1-r2.png>
+File: figures/NN-n1-r3.png Graphic file (type bmp)
+<figures/NN-n1-r3.png>
+File: figures/NN-n2-r1.png Graphic file (type bmp)
+<figures/NN-n2-r1.png>
+File: figures/NN-n2-r2.png Graphic file (type bmp)
+<figures/NN-n2-r2.png>
+File: figures/NN-n2-r3.png Graphic file (type bmp)
+<figures/NN-n2-r3.png>
+File: figures/NN-n3-r1.png Graphic file (type bmp)
+<figures/NN-n3-r1.png>
+File: figures/NN-n3-r2.png Graphic file (type bmp)
+<figures/NN-n3-r2.png>
+File: figures/NN-n3-r3.png Graphic file (type bmp)
+<figures/NN-n3-r3.png>
+ [25]
+File: figures/NN-n4-r1.png Graphic file (type bmp)
+<figures/NN-n4-r1.png>
+File: figures/NN-n4-r2.png Graphic file (type bmp)
+<figures/NN-n4-r2.png>
+File: figures/NN-n4-r3.png Graphic file (type bmp)
+<figures/NN-n4-r3.png>
+File: figures/NN-n5-r1.png Graphic file (type bmp)
+<figures/NN-n5-r1.png>
+File: figures/NN-n5-r2.png Graphic file (type bmp)
+<figures/NN-n5-r2.png>
+File: figures/NN-n5-r3.png Graphic file (type bmp)
+<figures/NN-n5-r3.png>
+ [26] [27] [28]
+Underfull \hbox (badness 10000) in paragraph at lines 504--509
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--439
+Underfull \hbox (badness 10000) in paragraph at lines 511--515
 
  []
 
-[25] [26]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 454.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 454.
- (projectemplate.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 454.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 454.
-Package rerunfilecheck Info: File `projectemplate.out' has not changed.
-(rerunfilecheck)             Checksum: C761B65668A12A182AF27AE26D5875B4;3149.
+
+Underfull \hbox (badness 10000) in paragraph at lines 517--520
+
+ []
 
 
-LaTeX Warning: There were multiply-defined labels.
+Underfull \hbox (badness 10000) in paragraph at lines 522--525
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 454.
+ []
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 539--541
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 547--549
+
+ []
+
+[30] [31]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 564.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 564.
+ (projectemplate.aux
+! Extra }, or forgotten \endgroup.
+l.102 nt }
+          
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 564.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 564.
+
+
+Package rerunfilecheck Warning: File `projectemplate.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `projectemplate.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  C761B65668A12A182AF27AE26D5875B4;3149.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 564.
  ) 
 Here is how much of TeX's memory you used:
- 50093 strings out of 414078
- 1145919 string characters out of 2898264
- 1594623 words of memory out of 3000000
- 66766 multiletter control sequences out of 15000+200000
+ 50208 strings out of 414078
+ 1148212 string characters out of 2898264
+ 1591954 words of memory out of 3000000
+ 66864 multiletter control sequences out of 15000+200000
  567432 words of font info for 102 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  76i,7n,102p,977b,779s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on projectemplate.pdf (26 pages).
+Output written on projectemplate.pdf (31 pages).
