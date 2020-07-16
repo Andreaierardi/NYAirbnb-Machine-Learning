@@ -114,17 +114,24 @@ From the Figure \ref{fig:1} is possible to see the distribution of the price. Th
 \end{figure}
 \noindent From Figure \ref{fig:2}, it is possible to see the distribution of all houses in New York City and the price. This picture is not really informative since it can be noticed that the prices for the most part are in the range $0$-$500\$$ and only a low number of istances have a price greater than $500\$$. Deleting the outliers, the Figure \ref{fig:3} is more informative than the one before.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.5\textwidth]{figures/figure2.pdf} 
-\caption{\label{fig:2}Distribution of all houses in NY colored by prices}
+\begin{figure}[!htb]
+   \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/figure2.pdf} 
+     \caption{\label{fig:2}Distribution of all houses in NY colored by prices}
+
+   \end{minipage}\hfill
+   \begin{minipage}{0.48\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/figure3.pdf}
+     \caption{\label{fig:3} Distribution of all houses in NY of price between $15\$$ and $500\$$ per day}
+
+   \end{minipage}
+
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.5\textwidth]{figures/figure3.pdf} 
-\caption{\label{fig:3} Distribution of all houses in NY of price between $15\$$ and $500\$$ per day}
-\end{figure}
+\newpage
+
 \subsubsection{Data Cleaning and Pre-processing}
 
 The dataset has approximately 48.000 rows for each column, so an important part of the work is related to the pre-processing due to the large amount of data. For this reason, some variable has been rescaled to let the models to learn faster and better and to perform a better prediction. Latitude and longitude have not been rescaled for forecast price model, while for clustering methods to have a consistent distance calculation. Categorical variables have also been rescaled assigning a numerical value to each category, resulting as unordered factors.\\
@@ -142,6 +149,12 @@ Also for clustering have been filter every scenario, but not for the case of Hie
 \caption{\label{fig:4}  Approximated distribution map of all houses in Manhattan }
 \end{figure}
 
+
+
+
+
+
+\newpage
 
 
 \subsection{Results}
@@ -377,9 +390,10 @@ The dataset filtered by neighboorhood and room type gives as result a $R^2$ of 0
 
 \newpage
 \subsubsection{Neural Network Results}
- Neural Network on the entire dataset has been run for 10 epochs. For semplicity, it has been used a single architecture for all the subsets. It has been used three dense layers of respectively 32, 16 and 1 units and Relu activation function.\\\\
-\textbf{Neural Networks on the entire dataset }\\\\
-
+ Neural Network on the entire dataset has been run for 30 epochs. For semplicity, it has been used a single architecture for all the subsets. It has been used three dense layers of respectively 32, 16 and 1 units and Relu activation function.\\\\
+\textbf{Neural Networks on the entire dataset }\\
+\noindent
+For the entire dataset, the results are acceptable but not in line with random forest and the other regression methods. The model MSE and loss decrease during the epochs and it stabilise both for validation and training at the 15th epoch.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/NN-all.PNG} 
@@ -387,8 +401,8 @@ The dataset filtered by neighboorhood and room type gives as result a $R^2$ of 0
 \end{figure}
 
 \newpage
-\textbf{Neural Networks for specific Neighboorhood group}\\
-
+\noindent \textbf{Neural Networks for specific Neighboorhood group}\\
+For the specific group the models output different results. The most populous such as Brooklyn and Manhattan and Queens they have a decreasing MSE and loss trend. Only for Manhattan, the validation loss seems to increase approximately after the 18th epochs. For the remaining neighboorhood they have a decreasing training and validation MSE and loss, while the validation remains stable for all the epochs.
 \begin{figure}[!htb]
    \begin{minipage}{0.33\textwidth}
      \centering
@@ -414,11 +428,13 @@ The dataset filtered by neighboorhood and room type gives as result a $R^2$ of 0
 
 \end{figure}
 
+\newpage 
+\noindent \textbf{Neural Networks  for specific Neighboorhood group and room type}\\
+For the different type of room and neighboorhood in some cases are not satisfactory while in another cases are aceptable. For the type Private room results for Brooklyn and Manhattan and Queens results in a decreasing training MSE and loss and a stable validation MSE and loss. For Brooklyn validation MSE and loss remains nearby 0, for Manhattan instead, are a bit higher compared to the training. For the last two neighboorhood starts with a very high loss and MSE train and validation, while during the epochs the value converg to a lower value near 0.5.
+\\ For the entire apartment type, for Brooklyn training mse and loss have a decreasing trend, while validation after 12th epochs increases and get value higher than the starting point. 
+For Manhattan instead we have both train and validation decreasing trend, in particular slightly for the validation. For Queens validation MSE increases till epoch 18th and then decrease untill he reach almost the training MSE at the 30th epochs; while for the loss it continuosly increase and decrease for all the epochs. For Bronx and State Island decreasing training MSE and loss, while a stable validation MSE.  \\ For Shared rooms similar trends of validation and train for the Brooklyng, Manhattan and Queens, starting from a high values. For State Island and Bronx results are decreases very fast but reaching high values of MAE and loss. For Staten Island, train and validation start from a loss value higher than 1000, which is very high considering the dimension of this subsets.  
+
 \newpage
-\textbf{Neural Networks  for specific Neighboorhood group and room type}
-
-
-
 \begin{figure}[!htb]
    \begin{minipage}{0.33\textwidth}
      \centering
@@ -457,7 +473,6 @@ The dataset filtered by neighboorhood and room type gives as result a $R^2$ of 0
      \includegraphics[width=1\linewidth]{figures/NN-n3-r3.png} 
    \end{minipage}\hfill 
 \end{figure}
- \newpage
 \begin{figure}[!htb]
 
    \begin{minipage}{0.33\textwidth}
@@ -490,18 +505,267 @@ The dataset filtered by neighboorhood and room type gives as result a $R^2$ of 0
            \caption{Neural Networks results for specific neighboorhood group and room type}\label{fig:21}
 
 \end{figure}
+
+
+
+
+
 \newpage
-\subsubsection{K-means Results}
+\noindent \subsubsection{K-means Results}
+
+K-means algorithm has been run on all type of subsets as in the models before. Moreover, since the variables are not all numerical, it has been used a specific library called "clustMixType" which computes k-prototypes clustering for mixed-type data. It uses Euclidean distance for numerical variables and simple match coefficent. For semplicity has been computed only setting k = 5 since changing the value for all the different subset will be computationally expensive and also time consuming. \\\\
+As shown in the cluster map of the entire dataset, clusters define and divides the different neighboorhood. Manhattan is divided in the north and south part that also includes a part of Brooklyn. This should be the case of the most expensive houses in the entire NY city. All cluster can be seen as a partition of price zone in the entire city. As shown in the Figure \ref{fig:23} the distributions of prices and room type differ in the different clusters.
+\begin{figure}[!htb]
+   \begin{minipage}{0.48\textwidth}
+     \centering
+    \includegraphics[width=1\textwidth]{figures/clust-all.PNG} 
+ \caption{\label{fig:22} K-means on entire dataset}
+   \end{minipage}\hfill
+   \begin{minipage}{0.48\textwidth}
+     \centering
+       \includegraphics[width=1\textwidth]{figures/clust-summary.PNG} 
+ \caption{\label{fig:23} Distribution of each cluster}
+   \end{minipage}
+   
+\end{figure}
+
+\newpage
+\noindent The maps plot clusters for the single neighboorhood (Figure \ref{fig:24}). It is also show how the data are distributied in the maps. 
+\begin{itemize}
+\item Brooklyn has 3 main visible clusters;
+\item Manhattan has 2 clusters for north and south part; 
+\item Queens instead has 4 visible cluster depending on the nearness to the seaside, Manhattan/Brooklyn and inland. 
+\item Staten Island has spars cluster depending on the north east part or the south-west.
+\item Bronx has 4 clusters visible in which 2 are mixed and the other two depends on the nearness to Manhattan.
+\end{itemize}
+
+\begin{figure}[!htb]
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-1.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-2.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-3.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-4.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-5.png}
+   \end{minipage}
+        \caption{K-means for specific neighboorhood group}\label{fig:24}
+\end{figure}
+
+
+\newpage
+\begin{figure}[!htb]
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n1-r1.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n1-r2.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n1-r3.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n2-r1.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n2-r2.png}
+   \end{minipage}
+ \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n2-r3.png} 
+   \end{minipage}\hfill
+\begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n3-r1.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n3-r2.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n3-r3.png} 
+   \end{minipage}\hfill 
+\end{figure}
 
 \newpage
 
+\begin{figure}[!htb]
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n4-r1.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n4-r2.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n4-r3.png} 
+   \end{minipage}\hfill
+ 
+
+   
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n5-r1.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n5-r2.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/clust-n5-r3.png} 
+   \end{minipage}\hfill
+           \caption{K-means for specific neighboorhood group and room type}\label{fig:25}
+
+\end{figure}
+
+
+\newpage
+\noindent \textbf{ Hierarchical Cluster Analysis}\\
+For this type of method dataset is different with respect to those of the other methods. The reason is that obtaining a dendogram for all the possible houses is not informative, since the output of the Hierarchical Cluster will be a dendogram in which each label is the correspondent id of the column. For this reason the dataset has been aggregate using the mean of the prices depending on the case.
+\\\\
+\noindent  As shown in Figure \ref{fig:26} the dendogram is generated from the dataset that has been aggregate for mean of the neighboorhood and also for the type of room obtaining the mean of the prices for each case. From Figure \ref{fig:27} is possible to see how giving a certain interval of 0.6 the colored branches are those that could be consider in the same cluster for the HC algorithm. 
+\begin{figure}[!htb]
+   \begin{minipage}{0.48\textwidth}
+     \centering
+    \includegraphics[width=1\textwidth]{figures/hc.PNG} 
+ \caption{\label{fig:26} Hierarchical Clustering}
+   \end{minipage}\hfill
+   \begin{minipage}{0.48\textwidth}
+     \centering
+       \includegraphics[width=1\textwidth]{figures/hc2.PNG} 
+ \caption{\label{fig:27} Hierarchical Clustering colored }
+   \end{minipage}
+   
+\end{figure}
+\\
+\noindent From Figure \ref{fig:27} is possible to see the dendogram for the case of the mean for each neighboorhood without considering the single case for the room type. 
+
+
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=0.7\textwidth]{figures/hc3.PNG} 
+ \caption{\label{fig:28} Hierarchical Clustering}
+\end{figure}
+
+\newpage
 \subsubsection{Principal Component Analysis Results}
 
+\noindent \textbf{PCA mixed type}\\
+
+\begin{figure}[!htb]
+   \begin{minipage}{0.48\textwidth}
+     \centering
+    \includegraphics[width=1\textwidth]{figures/pcamix.PNG} 
+ \caption{\label{fig:29} PCA on mixed type of data}
+   \end{minipage}\hfill
+   \begin{minipage}{0.48\textwidth}
+     \centering
+       \includegraphics[width=1\textwidth]{figures/pcamix2.PNG} 
+ \caption{\label{fig:30} Scree plot }
+   \end{minipage}
+   
+\end{figure}
+
+\noindent \textbf{Factor Analysis of Mixed Data (FAMD)}
+
+
+
+
+\begin{figure}[!htb]
+   \begin{minipage}{0.48\textwidth}
+     \centering
+    \includegraphics[width=1\textwidth]{figures/FAMD.PNG} 
+ \caption{\label{fig:31} ...}
+   \end{minipage}\hfill
+   \begin{minipage}{0.48\textwidth}
+     \centering
+       \includegraphics[width=1\textwidth]{figures/FAMD2.PNG} 
+ \caption{\label{fig:32} .... }
+   \end{minipage}
+   
+\end{figure}
+
+
+\begin{figure}[!htb]
+   \begin{minipage}{0.48\textwidth}
+     \centering
+    \includegraphics[width=1\textwidth]{figures/FAMD3.PNG} 
+ \caption{\label{fig:31} ...}
+   \end{minipage}\hfill
+   \begin{minipage}{0.48\textwidth}
+     \centering
+       \includegraphics[width=1\textwidth]{figures/FAMD4.PNG} 
+ \caption{\label{fig:32} .... }
+   \end{minipage}
+   
+\end{figure}
+
+
+\begin{figure}[!htb]
+   \begin{minipage}{0.48\textwidth}
+     \centering
+    \includegraphics[width=1\textwidth]{figures/FAMD5.PNG} 
+ \caption{\label{fig:33} ...}
+   \end{minipage}\hfill
+   \begin{minipage}{0.48\textwidth}
+     \centering
+       \includegraphics[width=1\textwidth]{figures/FAMD6.PNG} 
+ \caption{\label{fig:34} .... }
+   \end{minipage}
+   
+\end{figure}
+
+
+\begin{figure}[!htb]
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/FAMD7.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/FAMD8.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/FAMD9.png} 
+   \end{minipage}\hfill
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/FAMD10.png}
+   \end{minipage}
+   \begin{minipage}{0.33\textwidth}
+     \centering
+     \includegraphics[width=1\linewidth]{figures/FAMD11.png}
+   \end{minipage}
+  \caption{\label{fig:34} .... }
+
+\end{figure}
+
 \newpage
-\subsection{Discussion}
+\noindent \subsection{Discussion}
 
 \subsubsection{Linear Regression Discussion}
-Linear regression model gives interesting results for the non-filtered dataset and also for the filtered by neighbourhood group.
+ \noindent Linear regression model gives interesting results for the non-filtered dataset and also for the filtered by neighbourhood group.
 All variable results to rejected by Null hyphotesis, so the model depends on all the selected variables.
 Latitude and longitude are correlated with the target, room type is strongly positive correlated with the price and neighbourhood group does not seem to have
 a great contribution in the prediction of the price.
@@ -525,6 +789,8 @@ the classic Random Forest model but does not give great improvements in performa
 \subsubsection{Neural Network Discussion}
 \subsubsection{K-Means Discussion}
 \subsubsection{Principal Component Analysis Discussion}
+
+\newpage
 
 \section{Conclusion}
 

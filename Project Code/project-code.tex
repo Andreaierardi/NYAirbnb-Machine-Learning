@@ -99,6 +99,20 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 
 \title{Statistical Learning Project}
 \author{Andrea Ierardi}
@@ -116,22 +130,9 @@ pdf\_document: default html\_document: default
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(knitr)}
 \KeywordTok{library}\NormalTok{(ggplot2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'ggplot2' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(plotly)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'plotly' was built under R version 3.6.3
-\end{verbatim}
 
 \begin{verbatim}
 ## 
@@ -164,10 +165,6 @@ pdf\_document: default html\_document: default
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: package 'dplyr' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{verbatim}
 ## 
 ## Attaching package: 'dplyr'
 \end{verbatim}
@@ -188,43 +185,22 @@ pdf\_document: default html\_document: default
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(png)}
 \KeywordTok{library}\NormalTok{(ggpubr)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'ggpubr' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(tidyverse)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## -- Attaching packages ------------------------------------------------------------------------------------------------------------------------- tidyverse 1.3.0 --
+## -- Attaching packages ---------------------------------------------------------------------------------------------------------------------------------------------------------- tidyverse 1.3.0 --
 \end{verbatim}
 
 \begin{verbatim}
-## v tibble  3.0.1     v stringr 1.4.0
+## v tibble  3.0.2     v stringr 1.4.0
 ## v readr   1.3.1     v forcats 0.5.0
 ## v purrr   0.3.4
 \end{verbatim}
 
 \begin{verbatim}
-## Warning: package 'tibble' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: package 'stringr' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: package 'forcats' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{verbatim}
-## -- Conflicts ---------------------------------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ------------------------------------------------------------------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks plotly::filter(), stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 \end{verbatim}
@@ -232,22 +208,9 @@ pdf\_document: default html\_document: default
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(caTools)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'caTools' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(caret)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'caret' was built under R version 3.6.3
-\end{verbatim}
 
 \begin{verbatim}
 ## Loading required package: lattice
@@ -271,10 +234,6 @@ pdf\_document: default html\_document: default
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: package 'tree' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{verbatim}
 ## Registered S3 method overwritten by 'tree':
 ##   method     from
 ##   print.tree cli
@@ -285,10 +244,6 @@ pdf\_document: default html\_document: default
 \KeywordTok{library}\NormalTok{(MASS)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'MASS' was built under R version 3.6.3
-\end{verbatim}
 
 \begin{verbatim}
 ## 
@@ -312,10 +267,6 @@ pdf\_document: default html\_document: default
 \KeywordTok{library}\NormalTok{(randomForest)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'randomForest' was built under R version 3.6.3
-\end{verbatim}
 
 \begin{verbatim}
 ## randomForest 4.6-14
@@ -349,10 +300,6 @@ pdf\_document: default html\_document: default
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: package 'ranger' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{verbatim}
 ## 
 ## Attaching package: 'ranger'
 \end{verbatim}
@@ -370,15 +317,7 @@ pdf\_document: default html\_document: default
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: package 'tuneRanger' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{verbatim}
 ## Loading required package: mlrMBO
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: package 'mlrMBO' was built under R version 3.6.3
 \end{verbatim}
 
 \begin{verbatim}
@@ -386,15 +325,7 @@ pdf\_document: default html\_document: default
 \end{verbatim}
 
 \begin{verbatim}
-## Warning: package 'mlr' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{verbatim}
 ## Loading required package: ParamHelpers
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: package 'ParamHelpers' was built under R version 3.6.3
 \end{verbatim}
 
 \begin{verbatim}
@@ -418,10 +349,6 @@ pdf\_document: default html\_document: default
 \end{verbatim}
 
 \begin{verbatim}
-## Warning: package 'smoof' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{verbatim}
 ## Loading required package: checkmate
 \end{verbatim}
 
@@ -434,18 +361,8 @@ pdf\_document: default html\_document: default
 \end{verbatim}
 
 \begin{verbatim}
-## Warning: package 'lubridate' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{verbatim}
 ## 
 ## Attaching package: 'lubridate'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:dplyr':
-## 
-##     intersect, setdiff, union
 \end{verbatim}
 
 \begin{verbatim}
@@ -458,73 +375,32 @@ pdf\_document: default html\_document: default
 ## Loading required package: lhs
 \end{verbatim}
 
-\begin{verbatim}
-## Warning: package 'lhs' was built under R version 3.6.3
-\end{verbatim}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(keras)}
+
+\KeywordTok{library}\NormalTok{(kableExtra)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: package 'keras' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(formattable)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'formattable' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{verbatim}
 ## 
-## Attaching package: 'formattable'
+## Attaching package: 'kableExtra'
 \end{verbatim}
 
 \begin{verbatim}
-## The following object is masked from 'package:keras':
+## The following object is masked from 'package:dplyr':
 ## 
-##     normalize
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:MASS':
-## 
-##     area
-\end{verbatim}
-
-\begin{verbatim}
-## The following object is masked from 'package:plotly':
-## 
-##     style
+##     group_rows
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(clustMixType)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'clustMixType' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(cluster)}
 \KeywordTok{library}\NormalTok{(dendextend) }
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'dendextend' was built under R version 3.6.3
-\end{verbatim}
 
 \begin{verbatim}
 ## 
@@ -568,32 +444,17 @@ pdf\_document: default html\_document: default
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: package 'factoextra' was built under R version 3.6.3
-\end{verbatim}
-
-\begin{verbatim}
 ## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(FactoMineR)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## Warning: package 'FactoMineR' was built under R version 3.6.3
-\end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(PCAmixdata)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Warning: package 'PCAmixdata' was built under R version 3.6.3
-\end{verbatim}
 
 \hypertarget{dataset}{%
 \section{Dataset}\label{dataset}}
@@ -654,46 +515,38 @@ here}
 \end{Shaded}
 
 \begin{verbatim}
-##        id                                         name      
-##  Min.   :    2539   Hillside Hotel                  :   18  
-##  1st Qu.: 9471945   Home away from home             :   17  
-##  Median :19677284                                   :   16  
-##  Mean   :19017143   New york Multi-unit building    :   16  
-##  3rd Qu.:29152178   Brooklyn Apartment              :   12  
-##  Max.   :36487245   Loft Suite @ The Box House Hotel:   11  
-##                     (Other)                         :48805  
-##     host_id                 host_name        neighbourhood_group
-##  Min.   :     2438   Michael     :  417   Bronx        : 1091   
-##  1st Qu.:  7822033   David       :  403   Brooklyn     :20104   
-##  Median : 30793816   Sonder (NYC):  327   Manhattan    :21661   
-##  Mean   : 67620011   John        :  294   Queens       : 5666   
-##  3rd Qu.:107434423   Alex        :  279   Staten Island:  373   
-##  Max.   :274321313   Blueground  :  232                         
-##                      (Other)     :46943                         
-##             neighbourhood      latitude       longitude     
-##  Williamsburg      : 3920   Min.   :40.50   Min.   :-74.24  
-##  Bedford-Stuyvesant: 3714   1st Qu.:40.69   1st Qu.:-73.98  
-##  Harlem            : 2658   Median :40.72   Median :-73.96  
-##  Bushwick          : 2465   Mean   :40.73   Mean   :-73.95  
-##  Upper West Side   : 1971   3rd Qu.:40.76   3rd Qu.:-73.94  
-##  Hell's Kitchen    : 1958   Max.   :40.91   Max.   :-73.71  
-##  (Other)           :32209                                   
-##            room_type         price         minimum_nights    number_of_reviews
-##  Entire home/apt:25409   Min.   :    0.0   Min.   :   1.00   Min.   :  0.00   
-##  Private room   :22326   1st Qu.:   69.0   1st Qu.:   1.00   1st Qu.:  1.00   
-##  Shared room    : 1160   Median :  106.0   Median :   3.00   Median :  5.00   
-##                          Mean   :  152.7   Mean   :   7.03   Mean   : 23.27   
-##                          3rd Qu.:  175.0   3rd Qu.:   5.00   3rd Qu.: 24.00   
-##                          Max.   :10000.0   Max.   :1250.00   Max.   :629.00   
-##                                                                               
-##      last_review    reviews_per_month calculated_host_listings_count
-##            :10052   Min.   : 0.010    Min.   :  1.000               
-##  2019-06-23: 1413   1st Qu.: 0.190    1st Qu.:  1.000               
-##  2019-07-01: 1359   Median : 0.720    Median :  1.000               
-##  2019-06-30: 1341   Mean   : 1.373    Mean   :  7.144               
-##  2019-06-24:  875   3rd Qu.: 2.020    3rd Qu.:  2.000               
-##  2019-07-07:  718   Max.   :58.500    Max.   :327.000               
-##  (Other)   :33137   NA's   :10052                                   
+##        id               name              host_id           host_name        
+##  Min.   :    2539   Length:48895       Min.   :     2438   Length:48895      
+##  1st Qu.: 9471945   Class :character   1st Qu.:  7822033   Class :character  
+##  Median :19677284   Mode  :character   Median : 30793816   Mode  :character  
+##  Mean   :19017143                      Mean   : 67620011                     
+##  3rd Qu.:29152178                      3rd Qu.:107434423                     
+##  Max.   :36487245                      Max.   :274321313                     
+##                                                                              
+##  neighbourhood_group neighbourhood         latitude       longitude     
+##  Length:48895        Length:48895       Min.   :40.50   Min.   :-74.24  
+##  Class :character    Class :character   1st Qu.:40.69   1st Qu.:-73.98  
+##  Mode  :character    Mode  :character   Median :40.72   Median :-73.96  
+##                                         Mean   :40.73   Mean   :-73.95  
+##                                         3rd Qu.:40.76   3rd Qu.:-73.94  
+##                                         Max.   :40.91   Max.   :-73.71  
+##                                                                         
+##   room_type             price         minimum_nights    number_of_reviews
+##  Length:48895       Min.   :    0.0   Min.   :   1.00   Min.   :  0.00   
+##  Class :character   1st Qu.:   69.0   1st Qu.:   1.00   1st Qu.:  1.00   
+##  Mode  :character   Median :  106.0   Median :   3.00   Median :  5.00   
+##                     Mean   :  152.7   Mean   :   7.03   Mean   : 23.27   
+##                     3rd Qu.:  175.0   3rd Qu.:   5.00   3rd Qu.: 24.00   
+##                     Max.   :10000.0   Max.   :1250.00   Max.   :629.00   
+##                                                                          
+##  last_review        reviews_per_month calculated_host_listings_count
+##  Length:48895       Min.   : 0.010    Min.   :  1.000               
+##  Class :character   1st Qu.: 0.190    1st Qu.:  1.000               
+##  Mode  :character   Median : 0.720    Median :  1.000               
+##                     Mean   : 1.373    Mean   :  7.144               
+##                     3rd Qu.: 2.020    3rd Qu.:  2.000               
+##                     Max.   :58.500    Max.   :327.000               
+##                     NA's   :10052                                   
 ##  availability_365
 ##  Min.   :  0.0   
 ##  1st Qu.:  0.0   
@@ -706,6 +559,16 @@ here}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\KeywordTok{cat}\NormalTok{(}\StringTok{"Dimensions of the dataset:"}\NormalTok{ ,}\KeywordTok{dim}\NormalTok{(ds))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Dimensions of the dataset: 48895 16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{img <-}\StringTok{ }\KeywordTok{readPNG}\NormalTok{(}\StringTok{"map.png"}\NormalTok{)}
 
 
@@ -714,7 +577,7 @@ here}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-4-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-5-1.pdf}
 
 \hypertarget{data-cleaning}{%
 \section{Data cleaning}\label{data-cleaning}}
@@ -781,7 +644,7 @@ values}\label{check-for-na-and-null-values}}
 \NormalTok{  numerical =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"price"}\NormalTok{)}
 \NormalTok{  numerical2 =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"latitude"}\NormalTok{,}\StringTok{"longitude"}\NormalTok{)}
 \NormalTok{  categorical =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"room_type"}\NormalTok{, }\StringTok{"neighbourhood_group"}\NormalTok{)}
-
+  
   \ControlFlowTok{for}\NormalTok{( cat }\ControlFlowTok{in}\NormalTok{ categorical )}
 \NormalTok{  \{}
 \NormalTok{    df[cat] =}\StringTok{ }\KeywordTok{factor}\NormalTok{(df[[cat]], }
@@ -797,8 +660,8 @@ values}\label{check-for-na-and-null-values}}
 \NormalTok{  df3 =}\StringTok{ }\KeywordTok{list}\NormalTok{()}
 \NormalTok{  df3}\OperatorTok{$}\NormalTok{df2 =}\StringTok{ }\NormalTok{df2}
 \NormalTok{  df3}\OperatorTok{$}\NormalTok{df =}\StringTok{ }\NormalTok{df}
-
- 
+  
+  
   \KeywordTok{return}\NormalTok{(df3)}
   
   
@@ -857,7 +720,7 @@ scaling}\label{data-visualisation-after-the-scaling}}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-8-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-9-1.pdf}
 
 \hypertarget{data-split}{%
 \section{Data split}\label{data-split}}
@@ -883,7 +746,7 @@ room\_type}\label{split-data-in-subsets-for-each-neighbourhood_group-and-room_ty
   
 \NormalTok{  tmp2 =}\StringTok{ }\NormalTok{data }\OperatorTok{%>%}\KeywordTok{filter}\NormalTok{( neighbourhood_group }\OperatorTok{==}\StringTok{ }\NormalTok{n) }
 \NormalTok{  clust_data[[n]] =}\StringTok{ }\NormalTok{tmp2[}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
- \CommentTok{# print(clust_data[[n]]$room_type )}
+  \CommentTok{# print(clust_data[[n]]$room_type )}
 \NormalTok{  clust_data[[n]]}\OperatorTok{$}\NormalTok{room_type =}\StringTok{ }\KeywordTok{factor}\NormalTok{(clust_data[[n]]}\OperatorTok{$}\NormalTok{room_type , }\DataTypeTok{level =} \KeywordTok{unique}\NormalTok{(clust_data[[n]]}\OperatorTok{$}\NormalTok{room_type) , }\DataTypeTok{labels=} \KeywordTok{unique}\NormalTok{(ds}\OperatorTok{$}\NormalTok{room_type))}
 \NormalTok{\}}
 
@@ -979,9 +842,505 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \NormalTok{  lin_reg[[sub]]}\OperatorTok{$}\NormalTok{pred  =}\StringTok{ }\NormalTok{pr.lm =}\StringTok{ }\KeywordTok{predict}\NormalTok{(lm.fit,tests[[sub]])}
   
 \NormalTok{  lin_reg[[sub]]}\OperatorTok{$}\NormalTok{MSE =}\StringTok{ }\KeywordTok{sum}\NormalTok{((pr.lm }\OperatorTok{-}\StringTok{ }\NormalTok{tests[[sub]]}\OperatorTok{$}\NormalTok{price)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\KeywordTok{nrow}\NormalTok{(tests[[sub]])}
+  \KeywordTok{print}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"========== "}\NormalTok{,sub, }\StringTok{" =========="}\NormalTok{))}
+  \KeywordTok{print}\NormalTok{(}\KeywordTok{summary}\NormalTok{(lm.fit))}
   \CommentTok{#lin_reg[[sub]]$plt=   plot(lm.fit)}
+  \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## [1] "========== 1 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.8345 -0.3464 -0.1178  0.1731  4.9573 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -548.77851   20.08969 -27.316  < 2e-16 ***
+## latitude       5.37557    0.20584  26.115  < 2e-16 ***
+## longitude     -4.45432    0.22293 -19.980  < 2e-16 ***
+## room_type2     0.97147    0.01122  86.566  < 2e-16 ***
+## room_type3    -0.17381    0.03864  -4.499 6.89e-06 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.6676 on 14888 degrees of freedom
+## Multiple R-squared:  0.3904, Adjusted R-squared:  0.3902 
+## F-statistic:  2383 on 4 and 14888 DF,  p-value: < 2.2e-16
+## 
+## 
+## 
+## [1] "========== 2 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.3997 -0.5291 -0.1913  0.2865  4.7705 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -843.16382   58.37960 -14.443  < 2e-16 ***
+## latitude      -0.36939    0.35427  -1.043    0.297    
+## longitude    -11.59833    0.61630 -18.819  < 2e-16 ***
+## room_type2     1.02020    0.01497  68.163  < 2e-16 ***
+## room_type3    -0.22761    0.04842  -4.701 2.62e-06 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.88 on 15652 degrees of freedom
+## Multiple R-squared:  0.3338, Adjusted R-squared:  0.3336 
+## F-statistic:  1961 on 4 and 15652 DF,  p-value: < 2.2e-16
+## 
+## 
+## 
+## [1] "========== 3 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.3764 -0.2972 -0.1184  0.1345  5.0659 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -17.68623   12.19323  -1.450  0.14699    
+## latitude     -0.34810    0.27817  -1.251  0.21086    
+## longitude    -0.42135    0.19522  -2.158  0.03096 *  
+## room_type2    0.81239    0.01920  42.319  < 2e-16 ***
+## room_type3   -0.15461    0.05031  -3.073  0.00213 ** 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.593 on 4219 degrees of freedom
+## Multiple R-squared:  0.3106, Adjusted R-squared:  0.3099 
+## F-statistic: 475.2 on 4 and 4219 DF,  p-value: < 2.2e-16
+## 
+## 
+## 
+## [1] "========== 4 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.9120 -0.3348 -0.1459  0.2172  3.6564 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -30.688887 144.852858  -0.212    0.832    
+## latitude      0.734021   1.511517   0.486    0.628    
+## longitude    -0.001178   1.331628  -0.001    0.999    
+## room_type2    0.739498   0.078599   9.408   <2e-16 ***
+## room_type3    0.159594   0.292213   0.546    0.585    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.6387 on 269 degrees of freedom
+## Multiple R-squared:  0.2493, Adjusted R-squared:  0.2382 
+## F-statistic: 22.34 on 4 and 269 DF,  p-value: 6.126e-16
+## 
+## 
+## 
+## [1] "========== 5 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.9669 -0.2906 -0.1359  0.1124  4.9772 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 62.09595   75.12511   0.827    0.409    
+## latitude    -0.46076    0.89539  -0.515    0.607    
+## longitude    0.59638    0.72879   0.818    0.413    
+## room_type2   0.67380    0.04732  14.238   <2e-16 ***
+## room_type3  -0.15156    0.09529  -1.591    0.112    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.6266 on 806 degrees of freedom
+## Multiple R-squared:  0.2199, Adjusted R-squared:  0.216 
+## F-statistic: 56.79 on 4 and 806 DF,  p-value: < 2.2e-16
+## 
+## 
+## 
+## [1] "========== n1-r1 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.6346 -0.2358 -0.0916  0.1118  5.1399 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -360.5784    19.4062  -18.58   <2e-16 ***
+## latitude       2.7783     0.1990   13.96   <2e-16 ***
+## longitude     -3.3383     0.2114  -15.79   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.422 on 6721 degrees of freedom
+## Multiple R-squared:  0.04984,    Adjusted R-squared:  0.04956 
+## F-statistic: 176.3 on 2 and 6721 DF,  p-value: < 2.2e-16
+## 
+## 
+## 
+## [1] "========== n1-r2 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.9301 -0.5690 -0.2020  0.2865  4.4665 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -756.5694    39.3500  -19.23   <2e-16 ***
+## latitude       7.5474     0.4052   18.63   <2e-16 ***
+## longitude     -6.0823     0.4433  -13.72   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.8619 on 6239 degrees of freedom
+## Multiple R-squared:  0.06807,    Adjusted R-squared:  0.06777 
+## F-statistic: 227.8 on 2 and 6239 DF,  p-value: < 2.2e-16
+## 
+## 
+## 
+## [1] "========== n1-r3 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.43709 -0.22328 -0.13609  0.05886  2.72639 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -322.3727    94.7421  -3.403 0.000769 ***
+## latitude       2.8413     0.7927   3.584 0.000401 ***
+## longitude     -2.7841     1.0335  -2.694 0.007504 ** 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.4409 on 270 degrees of freedom
+## Multiple R-squared:  0.05102,    Adjusted R-squared:  0.04399 
+## F-statistic: 7.258 on 2 and 270 DF,  p-value: 0.0008505
+## 
+## 
+## 
+## [1] "========== n2-r1 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.2007 -0.3766 -0.1682  0.1281  4.7297 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -673.3536    81.3847  -8.274   <2e-16 ***
+## latitude      -0.5113     0.4675  -1.094    0.274    
+## longitude     -9.3809     0.8670 -10.820   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.6845 on 5252 degrees of freedom
+## Multiple R-squared:  0.1039, Adjusted R-squared:  0.1036 
+## F-statistic: 304.5 on 2 and 5252 DF,  p-value: < 2.2e-16
+## 
+## 
+## 
+## [1] "========== n2-r2 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.4464 -0.6834 -0.2428  0.4327  3.8755 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -888.5411    89.7697  -9.898   <2e-16 ***
+## latitude      -0.9338     0.5683  -1.643      0.1    
+## longitude    -12.5366     0.9398 -13.339   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.9986 on 8343 degrees of freedom
+## Multiple R-squared:  0.07902,    Adjusted R-squared:  0.0788 
+## F-statistic: 357.9 on 2 and 8343 DF,  p-value: < 2.2e-16
+## 
+## 
+## 
+## [1] "========== n2-r3 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.8824 -0.3980 -0.2476  0.0510  4.5630 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -1089.024    345.497  -3.152 0.001778 ** 
+## latitude        3.921      2.098   1.869 0.062580 .  
+## longitude     -12.554      3.676  -3.415 0.000723 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.7959 on 313 degrees of freedom
+## Multiple R-squared:  0.04358,    Adjusted R-squared:  0.03747 
+## F-statistic: 7.132 on 2 and 313 DF,  p-value: 0.0009361
+## 
+## 
+## 
+## [1] "========== n3-r1 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.5419 -0.2240 -0.0917  0.1024  4.9175 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)  
+## (Intercept) -20.2460    12.3016  -1.646   0.0999 .
+## latitude     -0.1631     0.2852  -0.572   0.5674  
+## longitude    -0.3540     0.1887  -1.876   0.0608 .
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.4257 on 2239 degrees of freedom
+## Multiple R-squared:  0.001704,   Adjusted R-squared:  0.0008119 
+## F-statistic: 1.911 on 2 and 2239 DF,  p-value: 0.1482
+## 
+## 
+## 
+## [1] "========== n3-r2 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.3548 -0.5229 -0.2095  0.2175  4.1989 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)  
+## (Intercept) -14.6167    28.3789  -0.515   0.6066  
+## latitude     -1.2073     0.6411  -1.883   0.0599 .
+## longitude    -0.8644     0.4822  -1.793   0.0732 .
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.8256 on 1381 degrees of freedom
+## Multiple R-squared:  0.003026,   Adjusted R-squared:  0.001582 
+## F-statistic: 2.096 on 2 and 1381 DF,  p-value: 0.1233
+## 
+## 
+## 
+## [1] "========== n3-r3 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.4119 -0.1682 -0.1020  0.1206  1.6368 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)  
+## (Intercept)   7.4977    46.3031   0.162   0.8716  
+## latitude      2.0226     1.0411   1.943   0.0543 .
+## longitude     1.2298     0.6844   1.797   0.0748 .
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.3313 on 125 degrees of freedom
+## Multiple R-squared:  0.03576,    Adjusted R-squared:  0.02033 
+## F-statistic: 2.318 on 2 and 125 DF,  p-value: 0.1027
+## 
+## 
+## 
+## [1] "========== n4-r1 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.5556 -0.2506 -0.1124  0.1700  1.5552 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)
+## (Intercept) -144.407    117.860  -1.225    0.223
+## latitude       1.311      1.245   1.054    0.294
+## longitude     -1.219      1.185  -1.029    0.305
+## 
+## Residual standard error: 0.3531 on 122 degrees of freedom
+## Multiple R-squared:  0.01247,    Adjusted R-squared:  -0.003723 
+## F-statistic:  0.77 on 2 and 122 DF,  p-value: 0.4652
+## 
+## 
+## 
+## [1] "========== n4-r2 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.7905 -0.4979 -0.2084  0.3115  2.0357 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)
+## (Intercept)  135.664    232.330   0.584    0.560
+## latitude      -1.502      2.369  -0.634    0.527
+## longitude      1.009      2.113   0.478    0.634
+## 
+## Residual standard error: 0.6894 on 110 degrees of freedom
+## Multiple R-squared:  0.003687,   Adjusted R-squared:  -0.01443 
+## F-statistic: 0.2035 on 2 and 110 DF,  p-value: 0.8161
+## 
+## 
+## 
+## [1] "========== n4-r3 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##         2         3         5         6         8 
+## -0.091989 -0.392716  0.499432 -0.008522 -0.006204 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)
+## (Intercept) -3437.87    4707.43  -0.730    0.541
+## latitude       48.28      24.56   1.966    0.188
+## longitude     -19.93      64.79  -0.308    0.787
+## 
+## Residual standard error: 0.454 on 2 degrees of freedom
+## Multiple R-squared:  0.6857, Adjusted R-squared:  0.3713 
+## F-statistic: 2.181 on 2 and 2 DF,  p-value: 0.3143
+## 
+## 
+## 
+## [1] "========== n5-r1 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.4612 -0.2341 -0.0916  0.1272  4.9178 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)  
+## (Intercept)  88.3541    73.8984   1.196   0.2325  
+## latitude     -1.9505     0.8424  -2.315   0.0211 *
+## longitude     0.1284     0.7459   0.172   0.8634  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.4251 on 429 degrees of freedom
+## Multiple R-squared:  0.01321,    Adjusted R-squared:  0.00861 
+## F-statistic: 2.872 on 2 and 429 DF,  p-value: 0.05769
+## 
+## 
+## 
+## [1] "========== n5-r2 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.1884 -0.5191 -0.2658  0.1793  4.2156 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)
+## (Intercept) -53.3410   175.2402  -0.304    0.761
+## latitude      1.6975     2.1824   0.778    0.437
+## longitude     0.2177     1.6531   0.132    0.895
+## 
+## Residual standard error: 0.9039 on 248 degrees of freedom
+## Multiple R-squared:  0.003215,   Adjusted R-squared:  -0.004823 
+## F-statistic:   0.4 on 2 and 248 DF,  p-value: 0.6708
+## 
+## 
+## 
+## [1] "========== n5-r3 =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.40836 -0.14435 -0.05595  0.06429  1.04848 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)
+## (Intercept)   77.152    186.703   0.413    0.682
+## latitude       1.712      2.084   0.822    0.417
+## longitude      2.004      1.707   1.174    0.248
+## 
+## Residual standard error: 0.2919 on 36 degrees of freedom
+## Multiple R-squared:  0.1093, Adjusted R-squared:  0.05986 
+## F-statistic:  2.21 on 2 and 36 DF,  p-value: 0.1244
+## 
+## 
+## 
+## [1] "========== all =========="
+## 
+## Call:
+## lm(formula = price ~ ., data = trains[[sub]])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.2177 -0.4433 -0.1399  0.2223  5.0722 
+## 
+## Coefficients:
+##                        Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)          -2.038e+02  1.411e+01 -14.446  < 2e-16 ***
+## neighbourhood_group2  4.855e-01  1.608e-02  30.189  < 2e-16 ***
+## neighbourhood_group3  2.352e-01  1.963e-02  11.979  < 2e-16 ***
+## neighbourhood_group4 -8.552e-01  5.697e-02 -15.012  < 2e-16 ***
+## neighbourhood_group5  2.821e-01  3.838e-02   7.350 2.04e-13 ***
+## latitude             -1.413e+00  1.382e-01 -10.227  < 2e-16 ***
+## longitude            -3.524e+00  1.587e-01 -22.204  < 2e-16 ***
+## room_type2            9.844e-01  9.582e-03 102.736  < 2e-16 ***
+## room_type3           -2.466e-01  3.070e-02  -8.032 9.94e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.7784 on 28680 degrees of freedom
+## Multiple R-squared:  0.3889, Adjusted R-squared:  0.3888 
+## F-statistic:  2282 on 8 and 28680 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{lin_reg}\OperatorTok{$}\NormalTok{name =}\StringTok{ "Linear Regression"}
 \NormalTok{model_lis}\OperatorTok{$}\NormalTok{linear_regression=}\StringTok{  }\NormalTok{lin_reg}
 \end{Highlighting}
@@ -997,15 +1356,402 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \ControlFlowTok{for}\NormalTok{ (sub }\ControlFlowTok{in} \KeywordTok{names}\NormalTok{(trains))}
 \NormalTok{\{}
 \NormalTok{  dec_tree[[sub]]}\OperatorTok{$}\NormalTok{fit =}\StringTok{ }\NormalTok{tree_res=}\KeywordTok{tree}\NormalTok{(price}\OperatorTok{~}\NormalTok{., }\DataTypeTok{data =}\NormalTok{ trains[[sub]])}
-\NormalTok{  dec_tree[[sub]]}\OperatorTok{$}\NormalTok{summary =}\StringTok{ }\KeywordTok{summary}\NormalTok{(tree_res)}
+\NormalTok{  dec_tree[[sub]]}\OperatorTok{$}\NormalTok{summary =}\StringTok{ }\NormalTok{sum =}\StringTok{ }\KeywordTok{summary}\NormalTok{(tree_res)}
+  
+  \KeywordTok{print}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"========== "}\NormalTok{,sub, }\StringTok{" =========="}\NormalTok{))}
+
+  \KeywordTok{print}\NormalTok{(sum)}
+  
+  \ControlFlowTok{if}\NormalTok{(sum}\OperatorTok{$}\NormalTok{size }\OperatorTok{>}\StringTok{ }\DecValTok{1}\NormalTok{ )}
+\NormalTok{  \{}
+    \KeywordTok{plot}\NormalTok{(tree_res)}
+    \KeywordTok{text}\NormalTok{(tree_res,}\DataTypeTok{pretty=}\DecValTok{0}\NormalTok{)}
+    \KeywordTok{title}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"Tree of: "}\NormalTok{,sub))}
+    
+   
+\NormalTok{  \}}
+  \ControlFlowTok{else} 
+\NormalTok{  \{}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"Not possible to plot tree: "}\NormalTok{, sub)}
+\NormalTok{  \}}
   
 \NormalTok{  dec_tree[[sub]]}\OperatorTok{$}\NormalTok{pred  =}\StringTok{ }\NormalTok{pred =}\StringTok{ }\KeywordTok{predict}\NormalTok{(tree_res,tests[[sub]])}
   
-\NormalTok{  dec_tree[[sub]]}\OperatorTok{$}\NormalTok{MSE =}\StringTok{ }\KeywordTok{sum}\NormalTok{((pred }\OperatorTok{-}\StringTok{ }\NormalTok{tests[[sub]]}\OperatorTok{$}\NormalTok{price)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\KeywordTok{nrow}\NormalTok{(tests[[sub]])}
+\NormalTok{  dec_tree[[sub]]}\OperatorTok{$}\NormalTok{MSE =}\StringTok{ }\NormalTok{mse =}\StringTok{  }\KeywordTok{sum}\NormalTok{((pred }\OperatorTok{-}\StringTok{ }\NormalTok{tests[[sub]]}\OperatorTok{$}\NormalTok{price)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\KeywordTok{nrow}\NormalTok{(tests[[sub]])}
   \CommentTok{#dec_tree[[sub]]$plt=   plot(tree_res)+text(tree_res,pretty=0)}
-  
+  \KeywordTok{print}\NormalTok{(mse)}
+  \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## [1] "========== 1 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  4 
+## Residual mean deviance:  0.4488 = 6683 / 14890 
+## Distribution of residuals:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -1.9330 -0.3443 -0.1171  0.0000  0.1669  4.8810
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+\begin{verbatim}
+## [1] 0.478872
+## 
+## 
+## [1] "========== 2 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Variables actually used in tree construction:
+## [1] "room_type" "longitude"
+## Number of terminal nodes:  4 
+## Residual mean deviance:  0.7795 = 12200 / 15650 
+## Distribution of residuals:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.2960 -0.5156 -0.1942  0.0000  0.3023  4.7530
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-2.pdf}
+
+\begin{verbatim}
+## [1] 0.7851166
+## 
+## 
+## [1] "========== 3 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Variables actually used in tree construction:
+## [1] "room_type"
+## Number of terminal nodes:  2 
+## Residual mean deviance:  0.3526 = 1488 / 4222 
+## Distribution of residuals:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -1.4000 -0.2929 -0.1225  0.0000  0.1335  4.9330
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-3.pdf}
+
+\begin{verbatim}
+## [1] 0.4228161
+## 
+## 
+## [1] "========== 4 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  10 
+## Residual mean deviance:  0.3202 = 84.54 / 264 
+## Distribution of residuals:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -1.3500 -0.3039 -0.1221  0.0000  0.2187  2.3540
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-4.pdf}
+
+\begin{verbatim}
+## [1] 0.3471879
+## 
+## 
+## [1] "========== 5 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Variables actually used in tree construction:
+## [1] "room_type"
+## Number of terminal nodes:  2 
+## Residual mean deviance:  0.3927 = 317.7 / 809 
+## Distribution of residuals:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -0.9862 -0.2943 -0.1239  0.0000  0.1033  4.9880
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-5.pdf}
+
+\begin{verbatim}
+## [1] 0.2744778
+## 
+## 
+## [1] "========== n1-r1 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  4 
+## Residual mean deviance:  0.1724 = 1158 / 6720 
+## Distribution of residuals:
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## -0.69640 -0.22300 -0.07884  0.00000  0.12210  4.95000
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-6.pdf}
+
+\begin{verbatim}
+## [1] 0.1806116
+## 
+## 
+## [1] "========== n1-r2 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  4 
+## Residual mean deviance:  0.7274 = 4538 / 6238 
+## Distribution of residuals:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -1.9240 -0.5563 -0.2155  0.0000  0.2388  4.2040
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-7.pdf}
+
+\begin{verbatim}
+## [1] 0.7483236
+## 
+## 
+## [1] "========== n1-r3 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  8 
+## Residual mean deviance:  0.1442 = 38.21 / 265 
+## Distribution of residuals:
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## -1.02700 -0.15190 -0.06911  0.00000  0.04448  2.05000
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-8.pdf}
+
+\begin{verbatim}
+## [1] 0.2505339
+## 
+## 
+## [1] "========== n2-r1 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  9 
+## Residual mean deviance:  0.3895 = 2043 / 5246 
+## Distribution of residuals:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.5230 -0.3565 -0.1293  0.0000  0.1433  4.8760
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-9.pdf}
+
+\begin{verbatim}
+## [1] 0.3753113
+## 
+## 
+## [1] "========== n2-r2 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Variables actually used in tree construction:
+## [1] "longitude"
+## Number of terminal nodes:  2 
+## Residual mean deviance:  1.01 = 8431 / 8344 
+## Distribution of residuals:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.3060 -0.7175 -0.2063  0.0000  0.4071  3.8260
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-10.pdf}
+
+\begin{verbatim}
+## [1] 0.9585893
+## 
+## 
+## [1] "========== n2-r3 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  10 
+## Residual mean deviance:  0.4952 = 151.5 / 306 
+## Distribution of residuals:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.6830 -0.2992 -0.1347  0.0000  0.0506  3.5570
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-11.pdf}
+
+\begin{verbatim}
+## [1] 0.4992158
+## 
+## 
+## [1] "========== n3-r1 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  3 
+## Residual mean deviance:  0.1738 = 389.1 / 2239 
+## Distribution of residuals:
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## -0.85200 -0.22640 -0.08418  0.00000  0.11440  4.94200
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-12.pdf}
+
+\begin{verbatim}
+## [1] 0.1600965
+## 
+## 
+## [1] "========== n3-r2 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  4 
+## Residual mean deviance:  0.6455 = 890.9 / 1380 
+## Distribution of residuals:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.1360 -0.4910 -0.2411  0.0000  0.2133  4.1890
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-13.pdf}
+
+\begin{verbatim}
+## [1] 0.6995247
+## 
+## 
+## [1] "========== n3-r3 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  13 
+## Residual mean deviance:  0.07148 = 8.221 / 115 
+## Distribution of residuals:
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## -0.82700 -0.12060 -0.02272  0.00000  0.06309  0.93380
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-14.pdf}
+
+\begin{verbatim}
+## [1] 0.6218172
+## 
+## 
+## [1] "========== n4-r1 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  12 
+## Residual mean deviance:  0.08816 = 9.962 / 113 
+## Distribution of residuals:
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## -0.56420 -0.14540 -0.04604  0.00000  0.12440  1.31700
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-15.pdf}
+
+\begin{verbatim}
+## [1] 0.2339327
+## 
+## 
+## [1] "========== n4-r2 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  10 
+## Residual mean deviance:  0.3348 = 34.49 / 103 
+## Distribution of residuals:
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## -1.44500 -0.32670 -0.07762  0.00000  0.27450  1.62700
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-16.pdf}
+
+\begin{verbatim}
+## [1] 1.189299
+## 
+## 
+## [1] "========== n4-r3 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Variables actually used in tree construction:
+## character(0)
+## Number of terminal nodes:  1 
+## Residual mean deviance:  0.3279 = 1.311 / 4 
+## Distribution of residuals:
+##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+## -0.531600 -0.520300 -0.009088  0.000000  0.218100  0.842900 
+## Not possible to plot tree:  n4-r3[1] 0.224188
+## 
+## 
+## [1] "========== n5-r1 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  5 
+## Residual mean deviance:  0.163 = 69.6 / 427 
+## Distribution of residuals:
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## -1.35200 -0.21400 -0.06405  0.00000  0.12680  3.81700
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-17.pdf}
+
+\begin{verbatim}
+## [1] 0.1611146
+## 
+## 
+## [1] "========== n5-r2 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  8 
+## Residual mean deviance:  0.6961 = 169.1 / 243 
+## Distribution of residuals:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.2490 -0.4638 -0.1854  0.0000  0.2079  3.7900
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-18.pdf}
+
+\begin{verbatim}
+## [1] 0.7622148
+## 
+## 
+## [1] "========== n5-r3 =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Number of terminal nodes:  5 
+## Residual mean deviance:  0.07718 = 2.624 / 34 
+## Distribution of residuals:
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## -0.40520 -0.17040 -0.02272  0.00000  0.04430  1.07200
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-19.pdf}
+
+\begin{verbatim}
+## [1] 0.1939584
+## 
+## 
+## [1] "========== all =========="
+## 
+## Regression tree:
+## tree(formula = price ~ ., data = trains[[sub]])
+## Variables actually used in tree construction:
+## [1] "room_type" "longitude" "latitude" 
+## Number of terminal nodes:  5 
+## Residual mean deviance:  0.5997 = 17200 / 28680 
+## Distribution of residuals:
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.2830 -0.4196 -0.1356  0.0000  0.2166  4.8740
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-14-20.pdf}
+
+\begin{verbatim}
+## [1] 0.6149423
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{dec_tree}\OperatorTok{$}\NormalTok{name =}\StringTok{ "Decision Tree"}
 \NormalTok{model_lis}\OperatorTok{$}\NormalTok{decision_tree =}\StringTok{ }\NormalTok{dec_tree}
 \end{Highlighting}
@@ -1024,14 +1770,298 @@ subset}\label{split-in-train-and-test-for-each-subset}}
   
 \NormalTok{  rf[[sub]]}\OperatorTok{$}\NormalTok{pred =}\StringTok{ }\NormalTok{predt =}\StringTok{ }\KeywordTok{predict}\NormalTok{(res,tests[[sub]])}
   
-\NormalTok{  rf[[sub]]}\OperatorTok{$}\NormalTok{MSE =}\StringTok{ }\KeywordTok{sum}\NormalTok{((predt }\OperatorTok{-}\StringTok{ }\NormalTok{tests[[sub]]}\OperatorTok{$}\NormalTok{price)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\KeywordTok{nrow}\NormalTok{(tests[[sub]])}
+  \KeywordTok{print}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"========== "}\NormalTok{,sub, }\StringTok{" =========="}\NormalTok{))}
+
+  \KeywordTok{print}\NormalTok{(res)}
+  
+  \CommentTok{#  varImpPlot(res)}
+  \CommentTok{#  plot(res)}
+  
+\NormalTok{  rf[[sub]]}\OperatorTok{$}\NormalTok{MSE =}\StringTok{ }\NormalTok{mse =}\StringTok{ }\KeywordTok{sum}\NormalTok{((predt }\OperatorTok{-}\StringTok{ }\NormalTok{tests[[sub]]}\OperatorTok{$}\NormalTok{price)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\KeywordTok{nrow}\NormalTok{(tests[[sub]])}
+  \KeywordTok{print}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"MSE: "}\NormalTok{,mse))}
+  \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
+## [1] "========== 1 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.4264125
+##                     % Var explained: 41.65
+## [1] "MSE: 0.454012374017494"
+## 
+## 
+## [1] "========== 2 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.7317802
+##                     % Var explained: 37.03
+## [1] "MSE: 0.735595108176858"
+## 
+## 
+## [1] "========== 3 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.3368627
+##                     % Var explained: 33.87
+## [1] "MSE: 0.396276824161383"
+## 
+## 
+## [1] "========== 4 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.4185199
+##                     % Var explained: 21.55
+## [1] "MSE: 0.336750091255294"
+## 
+## 
+## [1] "========== 5 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.3910493
+##                     % Var explained: 21.81
+## [1] "MSE: 0.271528940234555"
+## 
+## 
+## [1] "========== n1-r1 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.178747
+##                     % Var explained: 4.61
+## [1] "MSE: 0.193214029929856"
+## 
+## 
+## [1] "========== n1-r2 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.7899636
+##                     % Var explained: 0.84
+## [1] "MSE: 0.792951540112952"
+## 
+## 
+## [1] "========== n1-r3 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.1945029
+##                     % Var explained: 4
+## [1] "MSE: 0.242160186139755"
+## 
+## 
+## [1] "========== n2-r1 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.3996346
+##                     % Var explained: 23.52
+## [1] "MSE: 0.380591824585714"
+## 
+## 
+## [1] "========== n2-r2 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 1.036225
+##                     % Var explained: 4.26
+## [1] "MSE: 0.977070559784507"
+## 
+## 
+## [1] "========== n2-r3 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.7066876
+##                     % Var explained: -7.71
+## [1] "MSE: 0.55878633568084"
+## 
+## 
+## [1] "========== n3-r1 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.1717809
+##                     % Var explained: 5.26
+## [1] "MSE: 0.163004804603044"
+## 
+## 
+## [1] "========== n3-r2 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.6692033
+##                     % Var explained: 1.91
+## [1] "MSE: 0.711645545321903"
+## 
+## 
+## [1] "========== n3-r3 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.1177455
+##                     % Var explained: -5.91
+## [1] "MSE: 0.631748073062785"
+## 
+## 
+## [1] "========== n4-r1 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.1314448
+##                     % Var explained: -6.64
+## [1] "MSE: 0.226995788547981"
+## 
+## 
+## [1] "========== n4-r2 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.5184733
+##                     % Var explained: -11.66
+## [1] "MSE: 1.0488941704488"
+\end{verbatim}
+
+\begin{verbatim}
 ## Warning in randomForest.default(m, y, ...): The response has five or fewer
 ## unique values. Are you sure you want to do regression?
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "========== n4-r3 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.3306639
+##                     % Var explained: -26.07
+## [1] "MSE: 0.0726859561516477"
+## 
+## 
+## [1] "========== n5-r1 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.2160591
+##                     % Var explained: -18.81
+## [1] "MSE: 0.134365991758027"
+## 
+## 
+## [1] "========== n5-r2 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.8916108
+##                     % Var explained: -10.1
+## [1] "MSE: 0.662059001453434"
+## 
+## 
+## [1] "========== n5-r3 =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.11065
+##                     % Var explained: -25.34
+## [1] "MSE: 0.174921807893669"
+## 
+## 
+## [1] "========== all =========="
+## 
+## Call:
+##  randomForest(formula = price ~ ., data = trains[[sub]]) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 1
+## 
+##           Mean of squared residuals: 0.5681364
+##                     % Var explained: 42.68
+## [1] "MSE: 0.582992437184199"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1051,15 +2081,421 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \ControlFlowTok{for}\NormalTok{ (sub }\ControlFlowTok{in} \KeywordTok{names}\NormalTok{(trains))}
 \NormalTok{\{}
   
+   \KeywordTok{print}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"========== "}\NormalTok{,sub, }\StringTok{" =========="}\NormalTok{))}
+
 \NormalTok{  ranger_rf[[sub]]}\OperatorTok{$}\NormalTok{fit =}\StringTok{ }\NormalTok{res =}\StringTok{ }\KeywordTok{ranger}\NormalTok{( price}\OperatorTok{~}\StringTok{ }\NormalTok{., }\DataTypeTok{data =}\NormalTok{ trains[[sub]], }\DataTypeTok{write.forest =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{classification =}\NormalTok{ F)}
   
 \NormalTok{  ranger_rf[[sub]]}\OperatorTok{$}\NormalTok{pred =}\StringTok{ }\NormalTok{predt =}\StringTok{ }\KeywordTok{predict}\NormalTok{(res,tests[[sub]])}
-\NormalTok{  ranger_rf[[sub]]}\OperatorTok{$}\NormalTok{MSE =}\StringTok{ }\KeywordTok{sum}\NormalTok{((predt}\OperatorTok{$}\NormalTok{predictions }\OperatorTok{-}\StringTok{ }\NormalTok{tests[[sub]]}\OperatorTok{$}\NormalTok{price)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\KeywordTok{nrow}\NormalTok{(tests[[sub]])}
-  
-  
-  
+\NormalTok{  ranger_rf[[sub]]}\OperatorTok{$}\NormalTok{MSE =}\StringTok{ }\NormalTok{mse =}\StringTok{  }\KeywordTok{sum}\NormalTok{((predt}\OperatorTok{$}\NormalTok{predictions }\OperatorTok{-}\StringTok{ }\NormalTok{tests[[sub]]}\OperatorTok{$}\NormalTok{price)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\KeywordTok{nrow}\NormalTok{(tests[[sub]])}
+  \KeywordTok{print}\NormalTok{(res)}
+  \KeywordTok{print}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"MSE: "}\NormalTok{,mse))}
+  \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## [1] "========== 1 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      14893 
+## Number of independent variables:  3 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.4257217 
+## R squared (OOB):                  0.4174863 
+## [1] "MSE: 0.451708225857914"
+## 
+## 
+## [1] "========== 2 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      15657 
+## Number of independent variables:  3 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.7340816 
+## R squared (OOB):                  0.368355 
+## [1] "MSE: 0.740157062922684"
+## 
+## 
+## [1] "========== 3 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      4224 
+## Number of independent variables:  3 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.3375653 
+## R squared (OOB):                  0.3375071 
+## [1] "MSE: 0.395339302379045"
+## 
+## 
+## [1] "========== 4 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      274 
+## Number of independent variables:  3 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.4252956 
+## R squared (OOB):                  0.2057241 
+## [1] "MSE: 0.347611399151743"
+## 
+## 
+## [1] "========== 5 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      811 
+## Number of independent variables:  3 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.3939942 
+## R squared (OOB):                  0.213139 
+## [1] "MSE: 0.272555779669846"
+## 
+## 
+## [1] "========== n1-r1 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      6724 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.1780698 
+## R squared (OOB):                  0.04983137 
+## [1] "MSE: 0.193773040355645"
+## 
+## 
+## [1] "========== n1-r2 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      6242 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.7908384 
+## R squared (OOB):                  0.0074946 
+## [1] "MSE: 0.795616140713617"
+## 
+## 
+## [1] "========== n1-r3 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      273 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.1942968 
+## R squared (OOB):                  0.04449433 
+## [1] "MSE: 0.238557396679357"
+## 
+## 
+## [1] "========== n2-r1 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      5255 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.3997818 
+## R squared (OOB):                  0.2351081 
+## [1] "MSE: 0.377671573066202"
+## 
+## 
+## [1] "========== n2-r2 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      8346 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       1.033592 
+## R squared (OOB):                  0.04510787 
+## [1] "MSE: 0.976905962011513"
+## 
+## 
+## [1] "========== n2-r3 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      316 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.7180809 
+## R squared (OOB):                  -0.09100462 
+## [1] "MSE: 0.560614095079643"
+## 
+## 
+## [1] "========== n3-r1 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      2242 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.1709925 
+## R squared (OOB):                  0.05740717 
+## [1] "MSE: 0.161917430805412"
+## 
+## 
+## [1] "========== n3-r2 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      1384 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.6731786 
+## R squared (OOB):                  0.01399647 
+## [1] "MSE: 0.711883307878391"
+## 
+## 
+## [1] "========== n3-r3 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      128 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.1162408 
+## R squared (OOB):                  -0.03737978 
+## [1] "MSE: 0.631597850921341"
+## 
+## 
+## [1] "========== n4-r1 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      125 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.129391 
+## R squared (OOB):                  -0.0413836 
+## [1] "MSE: 0.229438107276058"
+## 
+## 
+## [1] "========== n4-r2 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      113 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.5321167 
+## R squared (OOB):                  -0.1358403 
+## [1] "MSE: 1.06613824189643"
+## 
+## 
+## [1] "========== n4-r3 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      5 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.4024009 
+## R squared (OOB):                  -0.2273535 
+## [1] "MSE: 0.22875012071697"
+## 
+## 
+## [1] "========== n5-r1 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      432 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.2144384 
+## R squared (OOB):                  -0.1764572 
+## [1] "MSE: 0.134103174218686"
+## 
+## 
+## [1] "========== n5-r2 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      251 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.8949554 
+## R squared (OOB):                  -0.10071 
+## [1] "MSE: 0.661771200765559"
+## 
+## 
+## [1] "========== n5-r3 =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      39 
+## Number of independent variables:  2 
+## Mtry:                             1 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.1066221 
+## R squared (OOB):                  -0.1767763 
+## [1] "MSE: 0.173822949859432"
+## 
+## 
+## [1] "========== all =========="
+## Ranger result
+## 
+## Call:
+##  ranger(price ~ ., data = trains[[sub]], write.forest = TRUE,      classification = F) 
+## 
+## Type:                             Regression 
+## Number of trees:                  500 
+## Sample size:                      28689 
+## Number of independent variables:  4 
+## Mtry:                             2 
+## Target node size:                 5 
+## Variable importance mode:         none 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       0.5432278 
+## R squared (OOB):                  0.4519412 
+## [1] "MSE: 0.555208346242052"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{ranger_rf}\OperatorTok{$}\NormalTok{name =}\StringTok{ "Ranger Random Forest"}
 \NormalTok{model_lis}\OperatorTok{$}\NormalTok{ranger =}\StringTok{ }\NormalTok{ranger_rf}
 \end{Highlighting}
@@ -1131,7 +2567,7 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \NormalTok{  nn[[sub]]}\OperatorTok{$}\NormalTok{model =}\StringTok{ }\NormalTok{model =}\StringTok{  }\KeywordTok{build_model}\NormalTok{(}\KeywordTok{dim}\NormalTok{(features)[}\DecValTok{2}\NormalTok{])}
   
 \NormalTok{  nn[[sub]]}\OperatorTok{$}\NormalTok{summary =}\StringTok{ }\NormalTok{model }\OperatorTok{%>%}\StringTok{ }\KeywordTok{summary}\NormalTok{()}
-\NormalTok{  nn[[sub]]}\OperatorTok{$}\NormalTok{history <-}\StringTok{ }\NormalTok{model }\OperatorTok{%>%}\StringTok{ }\KeywordTok{fit}\NormalTok{(}
+\NormalTok{  nn[[sub]]}\OperatorTok{$}\NormalTok{history =}\StringTok{ }\NormalTok{hist =}\StringTok{  }\NormalTok{model }\OperatorTok{%>%}\StringTok{ }\KeywordTok{fit}\NormalTok{(}
     \DataTypeTok{x =}\NormalTok{ features,}
     \DataTypeTok{y =}\NormalTok{ target,}
     \DataTypeTok{epochs =}\NormalTok{ epochs,}
@@ -1140,6 +2576,7 @@ subset}\label{split-in-train-and-test-for-each-subset}}
     \DataTypeTok{callbacks =} \KeywordTok{list}\NormalTok{(print_dot_callback)}
 \NormalTok{  )}
 \NormalTok{  eva =}\StringTok{ }\NormalTok{model }\OperatorTok{%>%}\StringTok{ }\KeywordTok{evaluate}\NormalTok{(features_test,target_test, }\DataTypeTok{verbose =} \DecValTok{0}\NormalTok{)}
+  
   
 \NormalTok{  nn[[sub]]}\OperatorTok{$}\NormalTok{mae =}\StringTok{ }\NormalTok{eva[}\DecValTok{1}\NormalTok{]}
 \NormalTok{  nn[[sub]]}\OperatorTok{$}\NormalTok{loss =}\StringTok{ }\NormalTok{eva[}\DecValTok{2}\NormalTok{]}
@@ -1456,6 +2893,432 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{nn-plots}{%
+\subsection{NN plots}\label{nn-plots}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ (sub }\ControlFlowTok{in} \KeywordTok{names}\NormalTok{(nn))}
+\NormalTok{\{}
+  \ControlFlowTok{if}\NormalTok{(sub }\OperatorTok{!=}\StringTok{ "name"}\NormalTok{)}
+\NormalTok{  \{}
+\NormalTok{    m =}\StringTok{ }\NormalTok{nn[[sub]]}
+\NormalTok{    hist =}\StringTok{ }\NormalTok{m}\OperatorTok{$}\NormalTok{history}
+    \KeywordTok{print}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"========== "}\NormalTok{,sub, }\StringTok{" =========="}\NormalTok{))}
+\NormalTok{    str =}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\StringTok{"MAE: "}\NormalTok{,}\KeywordTok{round}\NormalTok{(m}\OperatorTok{$}\NormalTok{mae,}\DecValTok{3}\NormalTok{),}\StringTok{" --- Loss: "}\NormalTok{,}\KeywordTok{round}\NormalTok{(m}\OperatorTok{$}\NormalTok{loss,}\DecValTok{3}\NormalTok{))}
+\NormalTok{    p =}\StringTok{ }\KeywordTok{plot}\NormalTok{(hist, y }\OperatorTok{~}\StringTok{ }\NormalTok{x) }\OperatorTok{+}\StringTok{  }\KeywordTok{theme_bw}\NormalTok{(}\DataTypeTok{base_size =} \DecValTok{12}\NormalTok{)  }\OperatorTok{+}\KeywordTok{ggtitle}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"NN of: "}\NormalTok{,sub))}\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{caption=}\NormalTok{ str)}
+    
+    \KeywordTok{print}\NormalTok{(p)}
+    \KeywordTok{plot}\NormalTok{(p)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"MAE: "}\NormalTok{,m}\OperatorTok{$}\NormalTok{mae)}
+    \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Loss: "}\NormalTok{,m}\OperatorTok{$}\NormalTok{loss,}\StringTok{"}\CharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{  \}}
+  
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "========== 1 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-2.pdf}
+
+\begin{verbatim}
+## MAE:  0.5105356
+## Loss:  0.4452797 
+## 
+## [1] "========== 2 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-3.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-4.pdf}
+
+\begin{verbatim}
+## MAE:  0.8534026
+## Loss:  0.6659468 
+## 
+## [1] "========== 3 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-5.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-6.pdf}
+
+\begin{verbatim}
+## MAE:  0.4212551
+## Loss:  0.4113655 
+## 
+## [1] "========== 4 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-7.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-8.pdf}
+
+\begin{verbatim}
+## MAE:  0.3655377
+## Loss:  0.4257745 
+## 
+## [1] "========== 5 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-9.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-10.pdf}
+
+\begin{verbatim}
+## MAE:  0.6189408
+## Loss:  0.7115626 
+## 
+## [1] "========== n1-r1 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-11.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-12.pdf}
+
+\begin{verbatim}
+## MAE:  0.2255452
+## Loss:  0.2728455 
+## 
+## [1] "========== n1-r2 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-13.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-14.pdf}
+
+\begin{verbatim}
+## MAE:  0.815325
+## Loss:  0.6606796 
+## 
+## [1] "========== n1-r3 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-15.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-16.pdf}
+
+\begin{verbatim}
+## MAE:  0.297305
+## Loss:  0.2364705 
+## 
+## [1] "========== n2-r1 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-17.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-18.pdf}
+
+\begin{verbatim}
+## MAE:  0.5021501
+## Loss:  0.4582768 
+## 
+## [1] "========== n2-r2 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-19.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-20.pdf}
+
+\begin{verbatim}
+## MAE:  1.04709
+## Loss:  0.763576 
+## 
+## [1] "========== n2-r3 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-21.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-22.pdf}
+
+\begin{verbatim}
+## MAE:  0.5272431
+## Loss:  0.364036 
+## 
+## [1] "========== n3-r1 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-23.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-24.pdf}
+
+\begin{verbatim}
+## MAE:  0.796416
+## Loss:  0.7929425 
+## 
+## [1] "========== n3-r2 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-25.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-26.pdf}
+
+\begin{verbatim}
+## MAE:  0.7023411
+## Loss:  0.6338332 
+## 
+## [1] "========== n3-r3 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-27.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-28.pdf}
+
+\begin{verbatim}
+## MAE:  0.6350197
+## Loss:  0.309325 
+## 
+## [1] "========== n4-r1 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-29.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-30.pdf}
+
+\begin{verbatim}
+## MAE:  0.5431977
+## Loss:  0.6666863 
+## 
+## [1] "========== n4-r2 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-31.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-32.pdf}
+
+\begin{verbatim}
+## MAE:  1.177381
+## Loss:  0.6681005 
+## 
+## [1] "========== n4-r3 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-33.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-34.pdf}
+
+\begin{verbatim}
+## MAE:  0.3195457
+## Loss:  0.4957582 
+## 
+## [1] "========== n5-r1 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-35.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-36.pdf}
+
+\begin{verbatim}
+## MAE:  1.367847
+## Loss:  1.106661 
+## 
+## [1] "========== n5-r2 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-37.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-38.pdf}
+
+\begin{verbatim}
+## MAE:  0.9816905
+## Loss:  0.6742522 
+## 
+## [1] "========== n5-r3 =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-39.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-40.pdf}
+
+\begin{verbatim}
+## MAE:  0.2455914
+## Loss:  0.282955 
+## 
+## [1] "========== all =========="
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-41.pdf}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-18-42.pdf}
+
+\begin{verbatim}
+## MAE:  0.6396843
+## Loss:  0.5579407
+\end{verbatim}
+
 \hypertarget{comparison-between-the-models}{%
 \section{Comparison between the
 models}\label{comparison-between-the-models}}
@@ -1501,273 +3364,61 @@ models}\label{comparison-between-the-models}}
   
 \NormalTok{\}}
 \NormalTok{mse_df =}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(cols)}
-\KeywordTok{formattable}\NormalTok{(mse_df)}
+\CommentTok{#knitr::kable(mse_df)%>%}
+\CommentTok{#  kable_styling(bootstrap_options = "striped", full_width = F,font_size = 20) %>%}
+\CommentTok{#  row_spec(0, bold = T, color = "white", background = "#D7261E")%>%}
+\CommentTok{#  column_spec(1, bold = T, border_right = T,color = "white", background = "#191970")%>%}
+\CommentTok{#  column_spec(2:6,extra_css="text-align:Center")}
+\NormalTok{mse_df}
 \end{Highlighting}
 \end{Shaded}
 
-Subset
-
-Linear.Regression
-
-Decision.Tree
-
-Random.Forest
-
-Ranger.Random.Forest
-
-Neural.Networks
-
-Brooklyn
-
-0.47479223
-
-0.47887198
-
-0.45421326
-
-0.45179894
-
-0.51721578
-
-Manhattan
-
-0.77767609
-
-0.78511656
-
-0.73475525
-
-0.73767252
-
-0.89479765
-
-Queens
-
-0.38466653
-
-0.38645428
-
-0.35873769
-
-0.36031453
-
-0.38615614
-
-Staten Island
-
-0.49181862
-
-0.48483713
-
-0.45351507
-
-0.45254907
-
-0.61070680
-
-Bronx
-
-0.34294047
-
-0.34207516
-
-0.32907841
-
-0.33123837
-
-1.70587840
-
-Brooklyn/Private room
-
-0.18581380
-
-0.18061163
-
-0.19337990
-
-0.19377044
-
-0.34404182
-
-Brooklyn/Entire home/apt
-
-0.75987316
-
-0.75033084
-
-0.80584461
-
-0.80405287
-
-0.81320227
-
-Brooklyn/Shared room
-
-0.27729515
-
-0.30432942
-
-0.25182944
-
-0.25153853
-
-0.29992881
-
-Manhattan/Private room
-
-0.44456114
-
-0.37531131
-
-0.37897160
-
-0.38065764
-
-0.49837404
-
-Manhattan/Entire home/apt
-
-1.01147065
-
-1.01744901
-
-1.05385997
-
-1.05263409
-
-1.11773552
-
-Manhattan/Shared room
-
-0.71469919
-
-0.73805775
-
-0.74621468
-
-0.74026531
-
-0.74561266
-
-Queens/Private room
-
-0.16162900
-
-0.15515885
-
-0.15180124
-
-0.15189433
-
-0.17062233
-
-Queens/Entire home/apt
-
-0.68463027
-
-0.65912884
-
-0.65756147
-
-0.65368981
-
-0.71756037
-
-Queens/Shared room
-
-0.07098971
-
-0.29897867
-
-0.23001859
-
-0.21842252
-
-0.11834837
-
-Staten Island/Private room
-
-0.26401002
-
-0.23393266
-
-0.22679115
-
-0.23006554
-
-0.25781255
-
-Staten Island/Entire home/apt
-
-0.43196942
-
-0.43680752
-
-0.49157730
-
-0.47372337
-
-1.06202156
-
-Staten Island/Shared room
-
-0.11991315
-
-0.22418801
-
-0.08410882
-
-0.22060135
-
-0.34163296
-
-Bronx/Private room
-
-0.15183296
-
-0.20281265
-
-0.18504129
-
-0.18393881
-
-0.16079765
-
-Bronx/Entire home/apt
-
-0.82524505
-
-0.88600404
-
-0.87054705
-
-0.87293908
-
-0.91599822
-
-Bronx/Shared room
-
-0.06903888
-
-0.04892947
-
-0.05345524
-
-0.05415259
-
-0.06863484
-
-All
-
-0.61349693
-
-0.61042296
-
-0.57989682
-
-0.55205834
-
-0.63652349
+\begin{verbatim}
+##                           Subset Linear.Regression Decision.Tree Random.Forest
+## 1                       Brooklyn         0.4747922     0.4788720    0.45401237
+## 2                      Manhattan         0.7776761     0.7851166    0.73559511
+## 3                         Queens         0.4202809     0.4228161    0.39627682
+## 4                  Staten Island         0.3467308     0.3471879    0.33675009
+## 5                          Bronx         0.2741482     0.2744778    0.27152894
+## 6          Brooklyn/Private room         0.1858138     0.1806116    0.19321403
+## 7       Brooklyn/Entire home/apt         0.7533368     0.7483236    0.79295154
+## 8           Brooklyn/Shared room         0.2639579     0.2505339    0.24216019
+## 9         Manhattan/Private room         0.4445611     0.3753113    0.38059182
+## 10     Manhattan/Entire home/apt         0.9361941     0.9585893    0.97707056
+## 11         Manhattan/Shared room         0.4904792     0.4992158    0.55878634
+## 12           Queens/Private room         0.1680487     0.1600965    0.16300480
+## 13        Queens/Entire home/apt         0.6992986     0.6995247    0.71164555
+## 14            Queens/Shared room         0.6218959     0.6218172    0.63174807
+## 15    Staten Island/Private room         0.2640100     0.2339327    0.22699579
+## 16 Staten Island/Entire home/apt         0.9903964     1.1892994    1.04889417
+## 17     Staten Island/Shared room         0.1199132     0.2241880    0.07268596
+## 18            Bronx/Private room         0.1475827     0.1611146    0.13436599
+## 19         Bronx/Entire home/apt         0.5627967     0.7622148    0.66205900
+## 20             Bronx/Shared room         0.2071295     0.1939584    0.17492181
+## 21                           All         0.6167807     0.6149423    0.58299244
+##    Ranger.Random.Forest Neural.Networks
+## 1             0.4517082       0.5105357
+## 2             0.7401571       0.8534025
+## 3             0.3953393       0.4212552
+## 4             0.3476114       0.3655377
+## 5             0.2725558       0.6189409
+## 6             0.1937730       0.2255452
+## 7             0.7956161       0.8153250
+## 8             0.2385574       0.2973050
+## 9             0.3776716       0.5021502
+## 10            0.9769060       1.0470899
+## 11            0.5606141       0.5272432
+## 12            0.1619174       0.7964161
+## 13            0.7118833       0.7023412
+## 14            0.6315979       0.6350197
+## 15            0.2294381       0.5431977
+## 16            1.0661382       1.1773806
+## 17            0.2287501       0.3195457
+## 18            0.1341032       1.3678471
+## 19            0.6617712       0.9816905
+## 20            0.1738229       0.2455915
+## 21            0.5552083       0.6396844
+\end{verbatim}
 
 \hypertarget{clustering-and-groups}{%
 \section{Clustering and Groups}\label{clustering-and-groups}}
@@ -1819,6 +3470,8 @@ data}\label{clustering-for-mixed-type-of-data}}
 \NormalTok{    p =}\KeywordTok{ggplot}\NormalTok{()}\OperatorTok{+}\StringTok{ }\KeywordTok{background_image}\NormalTok{(img)}\OperatorTok{+}\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ el, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ latitude, }\DataTypeTok{x =}\NormalTok{ longitude),}\DataTypeTok{color=}\NormalTok{ count) }\OperatorTok{+}\StringTok{ }\KeywordTok{xlim}\NormalTok{(min_long, max_long) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylim}\NormalTok{(min_lat,max_lat) }\OperatorTok{+}\StringTok{ }\KeywordTok{ggtitle}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"Cluster: "}\NormalTok{, count,}\StringTok{" of "}\NormalTok{, name  ))}
     
 \NormalTok{    l}\OperatorTok{$}\NormalTok{clust_plot[[}\KeywordTok{as.character}\NormalTok{(count)]] =}\StringTok{ }\NormalTok{p}
+    
+\NormalTok{    l}\OperatorTok{$}\NormalTok{summary[[}\KeywordTok{as.character}\NormalTok{(count)]] =}\StringTok{ }\KeywordTok{summary}\NormalTok{(el)}
     \CommentTok{#print(paste0("=== clust: ",count,"==="))}
     \CommentTok{#print(summary(el))}
     \CommentTok{#print("=========")}
@@ -1841,7 +3494,7 @@ data}\label{clustering-for-mixed-type-of-data}}
 \NormalTok{    lis[[sub]] =}\StringTok{ }\KeywordTok{get_clusters}\NormalTok{(clust_data[[sub]], clust_num, dim, sub)}
 \NormalTok{    plots[[cnt]] =}\StringTok{ }\NormalTok{lis[[sub]]}\OperatorTok{$}\NormalTok{myplot}
 \NormalTok{    cnt =}\StringTok{ }\NormalTok{cnt}\OperatorTok{+}\DecValTok{1}
-
+    
 \NormalTok{  \}}
 \NormalTok{  lis[[}\StringTok{"all_plots"}\NormalTok{]]=}\StringTok{ }\NormalTok{plots}
   \KeywordTok{return}\NormalTok{(lis)  }
@@ -1932,7 +3585,95 @@ data}\label{clustering-for-mixed-type-of-data}}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-19-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-21-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{all_cluster}\OperatorTok{$}\NormalTok{all}\OperatorTok{$}\NormalTok{summary}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $`1`
+##     neighbourhood_group    latitude         longitude       
+##  Brooklyn     :    0    Min.   :-0.4160   Min.   :-1.44113  
+##  Manhattan    :10955    1st Qu.: 0.6177   1st Qu.:-0.55298  
+##  Queens       :  701    Median : 1.1118   Median :-0.03818  
+##  Staten Island:    0    Mean   : 1.1188   Mean   :-0.10827  
+##  Bronx        :  588    3rd Qu.: 1.5750   3rd Qu.: 0.21187  
+##                         Max.   : 3.3632   Max.   : 2.52697  
+##            room_type        price         
+##  Private room   :5664   Min.   :-1.32482  
+##  Entire home/apt:6131   1st Qu.:-0.64323  
+##  Shared room    : 449   Median :-0.35924  
+##                         Mean   :-0.27143  
+##                         3rd Qu.: 0.08379  
+##                         Max.   : 2.01494  
+## 
+## $`2`
+##     neighbourhood_group    latitude         longitude     
+##  Brooklyn     :  56     Min.   :-2.9781   Min.   :0.1866  
+##  Manhattan    :   0     1st Qu.:-0.4289   1st Qu.:0.9451  
+##  Queens       :4611     Median : 0.2705   Median :1.6892  
+##  Staten Island:   0     Mean   : 0.1644   Mean   :1.9488  
+##  Bronx        : 480     3rd Qu.: 0.6139   3rd Qu.:2.7813  
+##                         Max.   : 3.2131   Max.   :5.1626  
+##            room_type        price        
+##  Private room   :3691   Min.   :-1.3248  
+##  Entire home/apt:1246   1st Qu.:-0.9386  
+##  Shared room    : 210   Median :-0.7568  
+##                         Mean   :-0.6038  
+##                         3rd Qu.:-0.4728  
+##                         Max.   : 4.0143  
+## 
+## $`3`
+##     neighbourhood_group    latitude         longitude       
+##  Brooklyn     :8786     Min.   :-4.0600   Min.   :-6.33242  
+##  Manhattan    :  34     1st Qu.:-1.0655   1st Qu.:-0.40671  
+##  Queens       :  86     Median :-0.7977   Median :-0.07171  
+##  Staten Island: 156     Mean   :-0.8380   Mean   :-0.12296  
+##  Bronx        :   0     3rd Qu.:-0.4476   3rd Qu.: 0.23544  
+##                         Max.   : 0.2964   Max.   : 3.30112  
+##            room_type        price         
+##  Private room   :  93   Min.   :-1.24530  
+##  Entire home/apt:8939   1st Qu.:-0.35924  
+##  Shared room    :  30   Median : 0.03835  
+##                         Mean   : 0.14476  
+##                         3rd Qu.: 0.51546  
+##                         Max.   : 3.61666  
+## 
+## $`4`
+##     neighbourhood_group    latitude         longitude      
+##  Brooklyn     : 733     Min.   :-4.0186   Min.   :-6.2338  
+##  Manhattan    :8099     1st Qu.:-0.1210   1st Qu.:-1.0029  
+##  Queens       : 163     Median : 0.1694   Median :-0.7745  
+##  Staten Island:  20     Mean   : 0.2083   Mean   :-0.7093  
+##  Bronx        :  14     3rd Qu.: 0.5639   3rd Qu.:-0.5387  
+##                         Max.   : 2.8482   Max.   : 3.3857  
+##            room_type        price        
+##  Private room   : 806   Min.   :-0.1661  
+##  Entire home/apt:8186   1st Qu.: 0.7654  
+##  Shared room    :  37   Median : 1.3334  
+##                         Mean   : 1.5055  
+##                         3rd Qu.: 1.9127  
+##                         Max.   : 4.1847  
+## 
+## $`5`
+##     neighbourhood_group    latitude         longitude       
+##  Brooklyn     :10283    Min.   :-4.1808   Min.   :-6.29846  
+##  Manhattan    : 1789    1st Qu.:-0.9712   1st Qu.:-0.53179  
+##  Queens       :   71    Median :-0.6490   Median :-0.01785  
+##  Staten Island:  190    Mean   :-0.7161   Mean   :-0.09622  
+##  Bronx        :    0    3rd Qu.:-0.3060   3rd Qu.: 0.36652  
+##                         Max.   : 0.4209   Max.   : 1.69290  
+##            room_type         price        
+##  Private room   :11913   Min.   :-1.3248  
+##  Entire home/apt:    1   1st Qu.:-0.9272  
+##  Shared room    :  419   Median :-0.7568  
+##                          Mean   :-0.6871  
+##                          3rd Qu.:-0.5183  
+##                          Max.   : 0.7767
+\end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1944,7 +3685,7 @@ data}\label{clustering-for-mixed-type-of-data}}
 ## Loading required package: grid
 \end{verbatim}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-20-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-22-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1952,7 +3693,7 @@ data}\label{clustering-for-mixed-type-of-data}}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-21-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-23-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1960,7 +3701,7 @@ data}\label{clustering-for-mixed-type-of-data}}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-22-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-24-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1968,85 +3709,12 @@ data}\label{clustering-for-mixed-type-of-data}}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-23-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-25-1.pdf}
 
 \begin{verbatim}
 ## NULL
 ## NULL
 \end{verbatim}
-
-\hypertarget{pcamixdata}{%
-\section{PCAmixdata}\label{pcamixdata}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{## Split mixed dataset into quantitative and qualitative variables}
-\CommentTok{## For now excluding the target variable "Churn", which will be added later as a supplementary variable}
-\CommentTok{#split <- splitmix(dataset[1:5])}
-
-\NormalTok{split =}\StringTok{ }\KeywordTok{splitmix}\NormalTok{(clust_data}\OperatorTok{$}\NormalTok{all)}
-\CommentTok{## PCA}
-\NormalTok{res.pcamix <-}\StringTok{ }\KeywordTok{PCAmix}\NormalTok{(}\DataTypeTok{X.quanti=}\NormalTok{split}\OperatorTok{$}\NormalTok{X.quanti,  }
-                     \DataTypeTok{X.quali=}\NormalTok{split}\OperatorTok{$}\NormalTok{X.quali, }
-                     \DataTypeTok{rename.level=}\OtherTok{TRUE}\NormalTok{, }
-                     \DataTypeTok{graph=}\OtherTok{FALSE}\NormalTok{, }
-                     \DataTypeTok{ndim=}\DecValTok{25}\NormalTok{)}
-
-\NormalTok{res.pcamix}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Call:
-## PCAmix(X.quanti = split$X.quanti, X.quali = split$X.quali, ndim = 25,     rename.level = TRUE, graph = FALSE)
-## 
-## Method = Principal Component of mixed data (PCAmix)
-## 
-## 
-## "name" "description"
-## "$eig" "eigenvalues of the principal components (PC) "
-## "$ind" "results for the individuals (coord,contrib,cos2)"
-## "$quanti" "results for the quantitative variables (coord,contrib,cos2)"
-## "$levels" "results for the levels of the qualitative variables (coord,contrib,cos2)"
-## "$quali" "results for the qualitative variables (contrib,relative contrib)"
-## "$sqload" "squared loadings"
-## "$coef" "coef of the linear combinations defining the PC"
-\end{verbatim}
-
-eig.val \textless- get\_eigenvalue(res.famd) head(eig.val)
-
-fviz\_screeplot(res.famd)
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{## Inspect principal components}
-\NormalTok{res.pcamix}\OperatorTok{$}\NormalTok{eig}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##       Eigenvalue Proportion Cumulative
-## dim 1  2.1303801  23.670890   23.67089
-## dim 2  1.8046238  20.051375   43.72227
-## dim 3  1.2456603  13.840670   57.56294
-## dim 4  1.0028761  11.143067   68.70600
-## dim 5  0.9971611  11.079568   79.78557
-## dim 6  0.9570021  10.633357   90.41893
-## dim 7  0.4201255   4.668061   95.08699
-## dim 8  0.2652652   2.947391   98.03438
-## dim 9  0.1769058   1.965620  100.00000
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Use Scree Diagram to select the components:}
-\KeywordTok{plot}\NormalTok{(res.pcamix}\OperatorTok{$}\NormalTok{eig, }\DataTypeTok{type=}\StringTok{"b"}\NormalTok{, }\DataTypeTok{main=}\StringTok{"Scree Diagram"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Number of Component"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Eigenvalues"}\NormalTok{)}
-\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-26-1.pdf}
 
 \hypertarget{hierarchical-cluster-analysis}{%
 \section{Hierarchical Cluster
@@ -2058,9 +3726,9 @@ Analysis}\label{hierarchical-cluster-analysis}}
 
 
 \NormalTok{name_hc =}\StringTok{ }\KeywordTok{c}\NormalTok{()}
-\ControlFlowTok{for}\NormalTok{ (n1 }\ControlFlowTok{in} \KeywordTok{unique}\NormalTok{(agg}\OperatorTok{$}\NormalTok{neighbourhood_group))}
+\ControlFlowTok{for}\NormalTok{ (n1 }\ControlFlowTok{in} \KeywordTok{substr}\NormalTok{(}\KeywordTok{unique}\NormalTok{(agg}\OperatorTok{$}\NormalTok{neighbourhood_group),}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{))}
 \NormalTok{\{}
-  \ControlFlowTok{for}\NormalTok{(n2 }\ControlFlowTok{in} \KeywordTok{unique}\NormalTok{(agg}\OperatorTok{$}\NormalTok{room_type))}
+  \ControlFlowTok{for}\NormalTok{(n2 }\ControlFlowTok{in} \KeywordTok{substr}\NormalTok{(}\KeywordTok{unique}\NormalTok{(agg}\OperatorTok{$}\NormalTok{room_type),}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{))}
 \NormalTok{  \{}
 \NormalTok{    name_hc =}\StringTok{ }\KeywordTok{c}\NormalTok{(name_hc, }\KeywordTok{paste0}\NormalTok{(n1,}\StringTok{"/"}\NormalTok{,n2))}
 \NormalTok{  \}}
@@ -2072,22 +3740,22 @@ Analysis}\label{hierarchical-cluster-analysis}}
 \end{Shaded}
 
 \begin{verbatim}
-##                               neighbourhood_group       room_type       price
-## Brooklyn/Private room                    Brooklyn    Private room -0.68331638
-## Brooklyn/Entire home/apt                Manhattan    Private room -0.31844499
-## Brooklyn/Shared room                       Queens    Private room -0.73368292
-## Manhattan/Private room              Staten Island    Private room -0.78758723
-## Manhattan/Entire home/apt                   Bronx    Private room -0.79719615
-## Manhattan/Shared room                    Brooklyn Entire home/apt  0.32170945
-## Queens/Private room                     Manhattan Entire home/apt  0.82148490
-## Queens/Entire home/apt                     Queens Entire home/apt  0.08237678
-## Queens/Shared room                  Staten Island Entire home/apt -0.07711867
-## Staten Island/Private room                  Bronx Entire home/apt -0.10379804
-## Staten Island/Entire home/apt            Brooklyn     Shared room -0.93711857
-## Staten Island/Shared room               Manhattan     Shared room -0.53647655
-## Bronx/Private room                         Queens     Shared room -0.93058224
-## Bronx/Entire home/apt               Staten Island     Shared room -0.77955083
-## Bronx/Shared room                           Bronx     Shared room -0.95841842
+##           neighbourhood_group       room_type       price
+## Brook/Pri            Brooklyn    Private room -0.68331638
+## Brook/Ent           Manhattan    Private room -0.31844499
+## Brook/Sha              Queens    Private room -0.73368292
+## Manha/Pri       Staten Island    Private room -0.78758723
+## Manha/Ent               Bronx    Private room -0.79719615
+## Manha/Sha            Brooklyn Entire home/apt  0.32170945
+## Queen/Pri           Manhattan Entire home/apt  0.82148490
+## Queen/Ent              Queens Entire home/apt  0.08237678
+## Queen/Sha       Staten Island Entire home/apt -0.07711867
+## State/Pri               Bronx Entire home/apt -0.10379804
+## State/Ent            Brooklyn     Shared room -0.93711857
+## State/Sha           Manhattan     Shared room -0.53647655
+## Bronx/Pri              Queens     Shared room -0.93058224
+## Bronx/Ent       Staten Island     Shared room -0.77955083
+## Bronx/Sha               Bronx     Shared room -0.95841842
 \end{verbatim}
 
 \begin{Shaded}
@@ -2099,17 +3767,17 @@ Analysis}\label{hierarchical-cluster-analysis}}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-27-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-26-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{avg_dend_obj <-}\StringTok{ }\KeywordTok{as.dendrogram}\NormalTok{(hc1)}
 \NormalTok{avg_col_dend <-}\StringTok{ }\KeywordTok{color_branches}\NormalTok{(avg_dend_obj, }\DataTypeTok{h =} \FloatTok{0.6}\NormalTok{)}
-\KeywordTok{plot}\NormalTok{(avg_col_dend, }\DataTypeTok{cex=} \FloatTok{0.6}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(avg_col_dend)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-28-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-27-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2139,20 +3807,84 @@ Analysis}\label{hierarchical-cluster-analysis}}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-29-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-28-1.pdf}
+
+\hypertarget{pcamixdata}{%
+\section{PCAmixdata}\label{pcamixdata}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{#clust <- cutree(hc1, k = 5)}
+\CommentTok{## Split mixed dataset into quantitative and qualitative variables}
+\CommentTok{## For now excluding the target variable "Churn", which will be added later as a supplementary variable}
+\CommentTok{#split <- splitmix(dataset[1:5])}
 
-\CommentTok{#fviz_cluster(list(data = agg, cluster = clust))  ## from ‘factoextra’ package }
+\NormalTok{split =}\StringTok{ }\KeywordTok{splitmix}\NormalTok{(clust_data}\OperatorTok{$}\NormalTok{all)}
+\CommentTok{## PCA}
+\NormalTok{res.pcamix <-}\StringTok{ }\KeywordTok{PCAmix}\NormalTok{(}\DataTypeTok{X.quanti=}\NormalTok{split}\OperatorTok{$}\NormalTok{X.quanti,  }
+                     \DataTypeTok{X.quali=}\NormalTok{split}\OperatorTok{$}\NormalTok{X.quali, }
+                     \DataTypeTok{rename.level=}\OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{section}{%
-\section{==========================================}\label{section}}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-29-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-29-2.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-29-3.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-29-4.pdf}
 
-DA VEDEREE
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res.pcamix}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## PCAmix(X.quanti = split$X.quanti, X.quali = split$X.quali, rename.level = TRUE)
+## 
+## Method = Principal Component of mixed data (PCAmix)
+## 
+## 
+## "name" "description"
+## "$eig" "eigenvalues of the principal components (PC) "
+## "$ind" "results for the individuals (coord,contrib,cos2)"
+## "$quanti" "results for the quantitative variables (coord,contrib,cos2)"
+## "$levels" "results for the levels of the qualitative variables (coord,contrib,cos2)"
+## "$quali" "results for the qualitative variables (contrib,relative contrib)"
+## "$sqload" "squared loadings"
+## "$coef" "coef of the linear combinations defining the PC"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Inspect principal components}
+\NormalTok{res.pcamix}\OperatorTok{$}\NormalTok{eig}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Eigenvalue Proportion Cumulative
+## dim 1  2.1303801  23.670890   23.67089
+## dim 2  1.8046238  20.051375   43.72227
+## dim 3  1.2456603  13.840670   57.56294
+## dim 4  1.0028761  11.143067   68.70600
+## dim 5  0.9971611  11.079568   79.78557
+## dim 6  0.9570021  10.633357   90.41893
+## dim 7  0.4201255   4.668061   95.08699
+## dim 8  0.2652652   2.947391   98.03438
+## dim 9  0.1769058   1.965620  100.00000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Use Scree Diagram to select the components:}
+
+\KeywordTok{plot}\NormalTok{(res.pcamix}\OperatorTok{$}\NormalTok{eig, }\DataTypeTok{type=}\StringTok{"b"}\NormalTok{, }\DataTypeTok{main=}\StringTok{"Scree Diagram"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Number of Component"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Eigenvalues"}\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-31-1.pdf}
 
 \hypertarget{factor-analysis-of-mixed-data-famd}{%
 \section{- Factor Analysis of Mixed Data
@@ -2217,7 +3949,7 @@ individuals. - graph : a logical value. If TRUE a graph is displayed.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-32-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-34-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2238,12 +3970,12 @@ individuals. - graph : a logical value. If TRUE a graph is displayed.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{fviz_famd_var}\NormalTok{(res.famd, }\StringTok{"quanti.var"}\NormalTok{, }\DataTypeTok{col.var =} \StringTok{"contrib"}\NormalTok{, }
-             \DataTypeTok{gradient.cols =} \KeywordTok{c}\NormalTok{(}\StringTok{"#00AFBB"}\NormalTok{, }\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{),}
-             \DataTypeTok{repel =} \OtherTok{TRUE}\NormalTok{)}
+              \DataTypeTok{gradient.cols =} \KeywordTok{c}\NormalTok{(}\StringTok{"#00AFBB"}\NormalTok{, }\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{),}
+              \DataTypeTok{repel =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-33-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-35-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2264,17 +3996,12 @@ individuals. - graph : a logical value. If TRUE a graph is displayed.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{fviz_famd_var}\NormalTok{(res.famd, }\StringTok{"quali.var"}\NormalTok{, }\DataTypeTok{col.var =} \StringTok{"contrib"}\NormalTok{, }
-             \DataTypeTok{gradient.cols =} \KeywordTok{c}\NormalTok{(}\StringTok{"#00AFBB"}\NormalTok{, }\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{)}
-\NormalTok{             )}
+              \DataTypeTok{gradient.cols =} \KeywordTok{c}\NormalTok{(}\StringTok{"#00AFBB"}\NormalTok{, }\StringTok{"#E7B800"}\NormalTok{, }\StringTok{"#FC4E07"}\NormalTok{)}
+\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-34-1.pdf}
-
-ind \textless- get\_famd\_ind(res.famd) ind
-
-fviz\_famd\_ind(res.famd, col.ind = ``cos2'', gradient.cols =
-c(``\#00AFBB'', ``\#E7B800'', ``\#FC4E07''), repel = TRUE)
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-36-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2349,11 +4076,12 @@ c(``\#00AFBB'', ``\#E7B800'', ``\#FC4E07''), repel = TRUE)
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Plot of variables}
+
 \KeywordTok{fviz_famd_var}\NormalTok{(res.famd, }\DataTypeTok{repel =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-37-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-39-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2362,7 +4090,7 @@ c(``\#00AFBB'', ``\#E7B800'', ``\#FC4E07''), repel = TRUE)
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-37-2.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-39-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2371,7 +4099,7 @@ c(``\#00AFBB'', ``\#E7B800'', ``\#FC4E07''), repel = TRUE)
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-37-3.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-39-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2380,7 +4108,7 @@ c(``\#00AFBB'', ``\#E7B800'', ``\#FC4E07''), repel = TRUE)
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-37-4.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-39-4.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2389,7 +4117,7 @@ c(``\#00AFBB'', ``\#E7B800'', ``\#FC4E07''), repel = TRUE)
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-37-5.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-39-5.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2398,17 +4126,6 @@ c(``\#00AFBB'', ``\#E7B800'', ``\#FC4E07''), repel = TRUE)
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-37-6.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Contribution to the sixth dimension}
-\CommentTok{#fviz_contrib(res.famd, "var", axes = 6)}
-\CommentTok{# Contribution to the seventh dimension}
-\CommentTok{#fviz_contrib(res.famd, "var", axes = 7)}
-\CommentTok{# Contribution to the eighth dimension}
-\CommentTok{#fviz_contrib(res.famd, "var", axes = 8)}
-\end{Highlighting}
-\end{Shaded}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-39-6.pdf}
 
 \end{document}

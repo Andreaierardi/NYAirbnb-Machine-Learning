@@ -1,22 +1,37 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Price summary\relax }}{8}{figure.caption.2}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Distribution of all houses in NY colored by prices\relax }}{9}{figure.caption.3}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Distribution of all houses in NY of price between $15\$$ and $500\$$ per day\relax }}{9}{figure.caption.4}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Approximated distribution map of all houses in Manhattan \relax }}{10}{figure.caption.5}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Summary of the MSE for all the models for each subset of the dataset \relax }}{11}{figure.caption.6}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Linear Regression output for the entire dataset\relax }}{12}{figure.caption.7}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Linear Regression output filtering by Manhattan\relax }}{13}{figure.caption.8}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Linear Regression output filtering by Manhattan and Entire home/Apartment \relax }}{14}{figure.caption.9}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Decision Tree results on the entire dataset\relax }}{15}{figure.caption.10}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Tree generated for the entire dataset\relax }}{15}{figure.caption.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Decision tree results for specific neighboorhood group\relax }}{15}{figure.caption.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Decision tree results for specific neighboorhood group and room type\relax }}{17}{figure.caption.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Random Forest results on the entire dataset\relax }}{18}{figure.caption.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Random Forest results for specific neighboorhood group\relax }}{18}{figure.caption.14}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Random Forest results for specific neighboorhood group and room type\relax }}{19}{figure.caption.15}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Ranger Random Forest results on the entire dataset\relax }}{20}{figure.caption.16}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Ranger Random Forest results for specific neighboorhood group\relax }}{20}{figure.caption.17}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Ranger Random Forest results for specific neighboorhood group and room type\relax }}{22}{figure.caption.19}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Neural Networks results on the entire dataset\relax }}{23}{figure.caption.20}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Neurala Networks results for specific neighboorhood group and room type\relax }}{24}{figure.caption.21}%
-\contentsline {figure}{\numberline {21}{\ignorespaces Neural Networks results for specific neighboorhood group and room type\relax }}{26}{figure.caption.23}%
-%
+\contentsline {figure}{\numberline {1}{\ignorespaces Price summary\relax }}{10}{figure.caption.2}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Distribution of all houses in NY colored by prices\relax }}{11}{figure.caption.3}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Distribution of all houses in NY of price between $15\$$ and $500\$$ per day\relax }}{11}{figure.caption.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Approximated distribution map of all houses in Manhattan \relax }}{12}{figure.caption.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Summary of the MSE for all the models for each subset of the dataset \relax }}{13}{figure.caption.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Linear Regression output for the entire dataset\relax }}{14}{figure.caption.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Linear Regression output filtering by Manhattan\relax }}{15}{figure.caption.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Linear Regression output filtering by Manhattan and Entire home/Apartment \relax }}{16}{figure.caption.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Decision Tree results on the entire dataset\relax }}{17}{figure.caption.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Tree generated for the entire dataset\relax }}{17}{figure.caption.9}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Decision tree results for specific neighboorhood group\relax }}{17}{figure.caption.10}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Decision tree results for specific neighboorhood group and room type\relax }}{19}{figure.caption.11}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Random Forest results on the entire dataset\relax }}{20}{figure.caption.12}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Random Forest results for specific neighboorhood group\relax }}{20}{figure.caption.13}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Random Forest results for specific neighboorhood group and room type\relax }}{21}{figure.caption.14}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Ranger Random Forest results on the entire dataset\relax }}{22}{figure.caption.15}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Ranger Random Forest results for specific neighboorhood group\relax }}{22}{figure.caption.16}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Ranger Random Forest results for specific neighboorhood group and room type\relax }}{24}{figure.caption.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Neural Networks results on the entire dataset\relax }}{25}{figure.caption.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Neurala Networks results for specific neighboorhood group and room type\relax }}{26}{figure.caption.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Neural Networks results for specific neighboorhood group and room type\relax }}{29}{figure.caption.22}%
+\contentsline {figure}{\numberline {22}{\ignorespaces K-means on entire dataset\relax }}{30}{figure.caption.23}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Distribution of each cluster\relax }}{30}{figure.caption.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces K-means for specific neighboorhood group\relax }}{31}{figure.caption.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces K-means for specific neighboorhood group and room type\relax }}{33}{figure.caption.26}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Hierarchical Clustering\relax }}{33}{figure.caption.27}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Hierarchical Clustering colored \relax }}{33}{figure.caption.27}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Hierarchical Clustering\relax }}{34}{figure.caption.28}%
+\contentsline {figure}{\numberline {29}{\ignorespaces PCA on mixed type of data\relax }}{34}{figure.caption.29}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Scree plot \relax }}{34}{figure.caption.29}%
+\contentsline {figure}{\numberline {31}{\ignorespaces ...\relax }}{35}{figure.caption.30}%
+\contentsline {figure}{\numberline {32}{\ignorespaces .... \relax }}{35}{figure.caption.30}%
+\contentsline {figure}{\numberline {33}{\ignorespaces ...\relax }}{35}{figure.caption.31}%
+\contentsline {figure}{\numberline {34}{\ignorespaces .... \relax }}{35}{figure.caption.31}%
+\contentsline {figure}{\numberline {35}{\ignorespaces ...\relax }}{35}{figure.caption.32}%
+\contentsline {figure}{\numberline {36}{\ignorespaces .... \relax }}{35}{figure.caption.32}%
+\contentsline {figure}{\numberline {37}{\ignorespaces .... \relax }}{36}{figure.caption.33}%
