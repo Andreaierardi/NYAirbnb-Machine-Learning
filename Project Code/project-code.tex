@@ -37,7 +37,6 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Statistical Learning Project},
-  pdfauthor={Andrea Ierardi},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -115,13 +114,37 @@
 \usepackage{xcolor}
 
 \title{Statistical Learning Project}
-\author{Andrea Ierardi}
-\date{}
+\author{}
+\date{\vspace{-2.5em}}
 
 \begin{document}
 \maketitle
 
-pdf\_document: default html\_document: default
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+~\\
+
+Author: Andrea Ierardi
+
+~\\
+
+Repository : Code
+\href{https://github.com/Andreaierardi/Statistical-Learning-Project}{link}
+
+~\\
+
+\hypertarget{assignment}{%
+\subsubsection{Assignment}\label{assignment}}
+
+The exam consists in two assignments, one on the first part(regression,
+tree, neural nets) and the second part (unsupervised learning). For both
+you must prepare a writing report using one or more techniques and
+comparing their performance on one or more data set chosen by the
+student.
+
+~\\
 
 \hypertarget{libraries}{%
 \section{Libraries}\label{libraries}}
@@ -190,7 +213,7 @@ pdf\_document: default html\_document: default
 \end{Shaded}
 
 \begin{verbatim}
-## -- Attaching packages ---------------------------------------------------------------------------------------------------------------------------------------------------------- tidyverse 1.3.0 --
+## -- Attaching packages -------------------------------------------------------------------------------------------- tidyverse 1.3.0 --
 \end{verbatim}
 
 \begin{verbatim}
@@ -200,7 +223,7 @@ pdf\_document: default html\_document: default
 \end{verbatim}
 
 \begin{verbatim}
-## -- Conflicts ------------------------------------------------------------------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ----------------------------------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks plotly::filter(), stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 \end{verbatim}
@@ -456,17 +479,21 @@ pdf\_document: default html\_document: default
 \end{Highlighting}
 \end{Shaded}
 
+~\\
+
 \hypertarget{dataset}{%
 \section{Dataset}\label{dataset}}
 
-\href{https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data}{Link
-here}
+Link of the
+\href{https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data}{dataset}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{ds =}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"AB_NYC_2019.csv"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+~\\
 
 \hypertarget{data-inspection}{%
 \section{Data Inspection}\label{data-inspection}}
@@ -559,12 +586,12 @@ here}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{cat}\NormalTok{(}\StringTok{"Dimensions of the dataset:"}\NormalTok{ ,}\KeywordTok{dim}\NormalTok{(ds))}
+\KeywordTok{cat}\NormalTok{(}\StringTok{"Shape of the dataset:"}\NormalTok{ ,}\KeywordTok{dim}\NormalTok{(ds))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Dimensions of the dataset: 48895 16
+## Shape of the dataset: 48895 16
 \end{verbatim}
 
 \begin{Shaded}
@@ -579,8 +606,12 @@ here}
 
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-5-1.pdf}
 
+~~
+
 \hypertarget{data-cleaning}{%
 \section{Data cleaning}\label{data-cleaning}}
+
+~\\
 
 \hypertarget{check-for-na-and-null-values}{%
 \subsection{Check for NA and NULL
@@ -611,6 +642,8 @@ values}\label{check-for-na-and-null-values}}
 ##                              0                              0
 \end{verbatim}
 
+~\\
+
 \hypertarget{variable-selection}{%
 \subsection{Variable selection}\label{variable-selection}}
 
@@ -631,6 +664,8 @@ values}\label{check-for-na-and-null-values}}
 ## 5           Manhattan 40.79851 -73.94399 Entire home/apt    80
 ## 6           Manhattan 40.74767 -73.97500 Entire home/apt   200
 \end{verbatim}
+
+~\\
 
 \hypertarget{variable-scaling}{%
 \subsection{Variable scaling}\label{variable-scaling}}
@@ -709,6 +744,8 @@ values}\label{check-for-na-and-null-values}}
 ##  Max.   : 4.1847
 \end{verbatim}
 
+~\\
+
 \hypertarget{data-visualisation-after-the-scaling}{%
 \subsection{Data visualisation after the
 scaling}\label{data-visualisation-after-the-scaling}}
@@ -721,6 +758,7 @@ scaling}\label{data-visualisation-after-the-scaling}}
 \end{Shaded}
 
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-9-1.pdf}
+~\\
 
 \hypertarget{data-split}{%
 \section{Data split}\label{data-split}}
@@ -746,7 +784,6 @@ room\_type}\label{split-data-in-subsets-for-each-neighbourhood_group-and-room_ty
   
 \NormalTok{  tmp2 =}\StringTok{ }\NormalTok{data }\OperatorTok{%>%}\KeywordTok{filter}\NormalTok{( neighbourhood_group }\OperatorTok{==}\StringTok{ }\NormalTok{n) }
 \NormalTok{  clust_data[[n]] =}\StringTok{ }\NormalTok{tmp2[}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
-  \CommentTok{# print(clust_data[[n]]$room_type )}
 \NormalTok{  clust_data[[n]]}\OperatorTok{$}\NormalTok{room_type =}\StringTok{ }\KeywordTok{factor}\NormalTok{(clust_data[[n]]}\OperatorTok{$}\NormalTok{room_type , }\DataTypeTok{level =} \KeywordTok{unique}\NormalTok{(clust_data[[n]]}\OperatorTok{$}\NormalTok{room_type) , }\DataTypeTok{labels=} \KeywordTok{unique}\NormalTok{(ds}\OperatorTok{$}\NormalTok{room_type))}
 \NormalTok{\}}
 
@@ -777,8 +814,10 @@ room\_type}\label{split-data-in-subsets-for-each-neighbourhood_group-and-room_ty
 \end{Highlighting}
 \end{Shaded}
 
+~\\
+
 \hypertarget{split-in-train-and-test-for-each-subset}{%
-\subsection{SPlit in train and test for each
+\subsection{Split in train and test for each
 subset}\label{split-in-train-and-test-for-each-subset}}
 
 \begin{Shaded}
@@ -818,14 +857,20 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \end{Highlighting}
 \end{Shaded}
 
+~\\
+
 \hypertarget{models-train}{%
 \section{MODELS TRAIN}\label{models-train}}
+
+~\\
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{model_lis =}\StringTok{ }\KeywordTok{vector}\NormalTok{(}\StringTok{"list"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+~\\
 
 \hypertarget{linear-regression}{%
 \subsection{LINEAR REGRESSION}\label{linear-regression}}
@@ -844,7 +889,6 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \NormalTok{  lin_reg[[sub]]}\OperatorTok{$}\NormalTok{MSE =}\StringTok{ }\KeywordTok{sum}\NormalTok{((pr.lm }\OperatorTok{-}\StringTok{ }\NormalTok{tests[[sub]]}\OperatorTok{$}\NormalTok{price)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\KeywordTok{nrow}\NormalTok{(tests[[sub]])}
   \KeywordTok{print}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"========== "}\NormalTok{,sub, }\StringTok{" =========="}\NormalTok{))}
   \KeywordTok{print}\NormalTok{(}\KeywordTok{summary}\NormalTok{(lm.fit))}
-  \CommentTok{#lin_reg[[sub]]$plt=   plot(lm.fit)}
   \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \NormalTok{\}}
 \end{Highlighting}
@@ -858,21 +902,21 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -1.8345 -0.3464 -0.1178  0.1731  4.9573 
+## -1.8323 -0.3481 -0.1192  0.1750  5.3768 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) -548.77851   20.08969 -27.316  < 2e-16 ***
-## latitude       5.37557    0.20584  26.115  < 2e-16 ***
-## longitude     -4.45432    0.22293 -19.980  < 2e-16 ***
-## room_type2     0.97147    0.01122  86.566  < 2e-16 ***
-## room_type3    -0.17381    0.03864  -4.499 6.89e-06 ***
+## (Intercept) -573.61243   20.31625 -28.234  < 2e-16 ***
+## latitude       5.38922    0.20629  26.124  < 2e-16 ***
+## longitude     -4.78267    0.22513 -21.244  < 2e-16 ***
+## room_type2     0.96362    0.01128  85.441  < 2e-16 ***
+## room_type3    -0.18322    0.03931  -4.661 3.17e-06 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.6676 on 14888 degrees of freedom
-## Multiple R-squared:  0.3904, Adjusted R-squared:  0.3902 
-## F-statistic:  2383 on 4 and 14888 DF,  p-value: < 2.2e-16
+## Residual standard error: 0.6717 on 14888 degrees of freedom
+## Multiple R-squared:  0.3869, Adjusted R-squared:  0.3867 
+## F-statistic:  2348 on 4 and 14888 DF,  p-value: < 2.2e-16
 ## 
 ## 
 ## 
@@ -883,21 +927,21 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -2.3997 -0.5291 -0.1913  0.2865  4.7705 
+## -2.4058 -0.5348 -0.1896  0.2846  4.7774 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) -843.16382   58.37960 -14.443  < 2e-16 ***
-## latitude      -0.36939    0.35427  -1.043    0.297    
-## longitude    -11.59833    0.61630 -18.819  < 2e-16 ***
-## room_type2     1.02020    0.01497  68.163  < 2e-16 ***
-## room_type3    -0.22761    0.04842  -4.701 2.62e-06 ***
+## (Intercept) -845.59998   58.81126 -14.378  < 2e-16 ***
+## latitude      -0.46594    0.35605  -1.309    0.191    
+## longitude    -11.68449    0.62124 -18.808  < 2e-16 ***
+## room_type2     1.01872    0.01503  67.766  < 2e-16 ***
+## room_type3    -0.26290    0.04863  -5.406 6.52e-08 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.88 on 15652 degrees of freedom
-## Multiple R-squared:  0.3338, Adjusted R-squared:  0.3336 
-## F-statistic:  1961 on 4 and 15652 DF,  p-value: < 2.2e-16
+## Residual standard error: 0.8837 on 15653 degrees of freedom
+## Multiple R-squared:  0.3343, Adjusted R-squared:  0.3341 
+## F-statistic:  1965 on 4 and 15653 DF,  p-value: < 2.2e-16
 ## 
 ## 
 ## 
@@ -908,21 +952,21 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -1.3764 -0.2972 -0.1184  0.1345  5.0659 
+## -1.3742 -0.2988 -0.1270  0.1391  5.0902 
 ## 
 ## Coefficients:
-##              Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) -17.68623   12.19323  -1.450  0.14699    
-## latitude     -0.34810    0.27817  -1.251  0.21086    
-## longitude    -0.42135    0.19522  -2.158  0.03096 *  
-## room_type2    0.81239    0.01920  42.319  < 2e-16 ***
-## room_type3   -0.15461    0.05031  -3.073  0.00213 ** 
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -7.94589   12.53702  -0.634  0.52625    
+## latitude    -0.67106    0.28710  -2.337  0.01947 *  
+## longitude   -0.46762    0.20025  -2.335  0.01958 *  
+## room_type2   0.80929    0.01951  41.478  < 2e-16 ***
+## room_type3  -0.17440    0.05165  -3.377  0.00074 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.593 on 4219 degrees of freedom
-## Multiple R-squared:  0.3106, Adjusted R-squared:  0.3099 
-## F-statistic: 475.2 on 4 and 4219 DF,  p-value: < 2.2e-16
+## Residual standard error: 0.6028 on 4219 degrees of freedom
+## Multiple R-squared:  0.3044, Adjusted R-squared:  0.3037 
+## F-statistic: 461.5 on 4 and 4219 DF,  p-value: < 2.2e-16
 ## 
 ## 
 ## 
@@ -983,19 +1027,19 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -0.6346 -0.2358 -0.0916  0.1118  5.1399 
+## -0.7175 -0.2367 -0.0890  0.1093  5.1328 
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) -360.5784    19.4062  -18.58   <2e-16 ***
-## latitude       2.7783     0.1990   13.96   <2e-16 ***
-## longitude     -3.3383     0.2114  -15.79   <2e-16 ***
+## (Intercept) -351.5686    19.4645  -18.06   <2e-16 ***
+## latitude       2.8562     0.1986   14.38   <2e-16 ***
+## longitude     -3.1736     0.2130  -14.90   <2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.422 on 6721 degrees of freedom
-## Multiple R-squared:  0.04984,    Adjusted R-squared:  0.04956 
-## F-statistic: 176.3 on 2 and 6721 DF,  p-value: < 2.2e-16
+## Residual standard error: 0.4244 on 6721 degrees of freedom
+## Multiple R-squared:  0.0483, Adjusted R-squared:  0.04802 
+## F-statistic: 170.6 on 2 and 6721 DF,  p-value: < 2.2e-16
 ## 
 ## 
 ## 
@@ -1006,19 +1050,19 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -1.9301 -0.5690 -0.2020  0.2865  4.4665 
+## -1.9631 -0.5724 -0.2106  0.2963  4.4458 
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) -756.5694    39.3500  -19.23   <2e-16 ***
-## latitude       7.5474     0.4052   18.63   <2e-16 ***
-## longitude     -6.0823     0.4433  -13.72   <2e-16 ***
+## (Intercept) -764.9500    39.6271  -19.30   <2e-16 ***
+## latitude       8.2186     0.4068   20.20   <2e-16 ***
+## longitude     -5.8264     0.4454  -13.08   <2e-16 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.8619 on 6239 degrees of freedom
-## Multiple R-squared:  0.06807,    Adjusted R-squared:  0.06777 
-## F-statistic: 227.8 on 2 and 6239 DF,  p-value: < 2.2e-16
+## Residual standard error: 0.8599 on 6238 degrees of freedom
+## Multiple R-squared:  0.07359,    Adjusted R-squared:  0.07329 
+## F-statistic: 247.7 on 2 and 6238 DF,  p-value: < 2.2e-16
 ## 
 ## 
 ## 
@@ -1121,19 +1165,19 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -0.5419 -0.2240 -0.0917  0.1024  4.9175 
+## -0.5259 -0.2303 -0.0979  0.1135  4.6236 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)  
-## (Intercept) -20.2460    12.3016  -1.646   0.0999 .
-## latitude     -0.1631     0.2852  -0.572   0.5674  
-## longitude    -0.3540     0.1887  -1.876   0.0608 .
+## (Intercept) -18.6830    12.6014  -1.483   0.1383  
+## latitude     -0.2314     0.2962  -0.781   0.4346  
+## longitude    -0.3707     0.1963  -1.888   0.0591 .
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.4257 on 2239 degrees of freedom
-## Multiple R-squared:  0.001704,   Adjusted R-squared:  0.0008119 
-## F-statistic: 1.911 on 2 and 2239 DF,  p-value: 0.1482
+## Residual standard error: 0.4295 on 2239 degrees of freedom
+## Multiple R-squared:  0.001641,   Adjusted R-squared:  0.0007496 
+## F-statistic: 1.841 on 2 and 2239 DF,  p-value: 0.159
 ## 
 ## 
 ## 
@@ -1167,19 +1211,17 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -0.4119 -0.1682 -0.1020  0.1206  1.6368 
+## -0.4426 -0.2340 -0.1254  0.0081  5.0332 
 ## 
 ## Coefficients:
-##             Estimate Std. Error t value Pr(>|t|)  
-## (Intercept)   7.4977    46.3031   0.162   0.8716  
-## latitude      2.0226     1.0411   1.943   0.0543 .
-## longitude     1.2298     0.6844   1.797   0.0748 .
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+##              Estimate Std. Error t value Pr(>|t|)
+## (Intercept) -113.4214    81.6764  -1.389    0.167
+## latitude       2.9879     2.0923   1.428    0.156
+## longitude      0.1248     1.2873   0.097    0.923
 ## 
-## Residual standard error: 0.3313 on 125 degrees of freedom
-## Multiple R-squared:  0.03576,    Adjusted R-squared:  0.02033 
-## F-statistic: 2.318 on 2 and 125 DF,  p-value: 0.1027
+## Residual standard error: 0.5843 on 126 degrees of freedom
+## Multiple R-squared:  0.0226, Adjusted R-squared:  0.007089 
+## F-statistic: 1.457 on 2 and 126 DF,  p-value: 0.2368
 ## 
 ## 
 ## 
@@ -1190,17 +1232,17 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -0.5556 -0.2506 -0.1124  0.1700  1.5552 
+## -0.4399 -0.2616 -0.1008  0.1382  2.7047 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)
-## (Intercept) -144.407    117.860  -1.225    0.223
-## latitude       1.311      1.245   1.054    0.294
-## longitude     -1.219      1.185  -1.029    0.305
+## (Intercept)  41.8452   140.4584   0.298    0.766
+## latitude     -1.3294     1.5633  -0.850    0.397
+## longitude    -0.1532     1.3589  -0.113    0.910
 ## 
-## Residual standard error: 0.3531 on 122 degrees of freedom
-## Multiple R-squared:  0.01247,    Adjusted R-squared:  -0.003723 
-## F-statistic:  0.77 on 2 and 122 DF,  p-value: 0.4652
+## Residual standard error: 0.4341 on 123 degrees of freedom
+## Multiple R-squared:  0.008143,   Adjusted R-squared:  -0.007985 
+## F-statistic: 0.5049 on 2 and 123 DF,  p-value: 0.6048
 ## 
 ## 
 ## 
@@ -1211,17 +1253,17 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -0.7905 -0.4979 -0.2084  0.3115  2.0357 
+## -0.9076 -0.5490 -0.2720  0.2208  3.6389 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)
-## (Intercept)  135.664    232.330   0.584    0.560
-## latitude      -1.502      2.369  -0.634    0.527
-## longitude      1.009      2.113   0.478    0.634
+## (Intercept)   40.350    296.277   0.136    0.892
+## latitude       1.207      2.991   0.403    0.687
+## longitude      1.207      2.710   0.445    0.657
 ## 
-## Residual standard error: 0.6894 on 110 degrees of freedom
-## Multiple R-squared:  0.003687,   Adjusted R-squared:  -0.01443 
-## F-statistic: 0.2035 on 2 and 110 DF,  p-value: 0.8161
+## Residual standard error: 0.8287 on 110 degrees of freedom
+## Multiple R-squared:  0.009854,   Adjusted R-squared:  -0.008149 
+## F-statistic: 0.5474 on 2 and 110 DF,  p-value: 0.58
 ## 
 ## 
 ## 
@@ -1231,18 +1273,18 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## lm(formula = price ~ ., data = trains[[sub]])
 ## 
 ## Residuals:
-##         2         3         5         6         8 
-## -0.091989 -0.392716  0.499432 -0.008522 -0.006204 
+##        1        3        4        6        7 
+##  0.05210  0.05313  0.06896  0.03662 -0.21082 
 ## 
 ## Coefficients:
-##             Estimate Std. Error t value Pr(>|t|)
-## (Intercept) -3437.87    4707.43  -0.730    0.541
-## latitude       48.28      24.56   1.966    0.188
-## longitude     -19.93      64.79  -0.308    0.787
+##              Estimate Std. Error t value Pr(>|t|)
+## (Intercept) -1780.567   3072.654  -0.579    0.621
+## latitude       26.744     13.141   2.035    0.179
+## longitude      -9.363     35.224  -0.266    0.815
 ## 
-## Residual standard error: 0.454 on 2 degrees of freedom
-## Multiple R-squared:  0.6857, Adjusted R-squared:  0.3713 
-## F-statistic: 2.181 on 2 and 2 DF,  p-value: 0.3143
+## Residual standard error: 0.1675 on 2 degrees of freedom
+## Multiple R-squared:  0.8503, Adjusted R-squared:  0.7006 
+## F-statistic:  5.68 on 2 and 2 DF,  p-value: 0.1497
 ## 
 ## 
 ## 
@@ -1276,17 +1318,17 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -1.1884 -0.5191 -0.2658  0.1793  4.2156 
+## -1.1899 -0.4834 -0.2201  0.1913  4.2329 
 ## 
 ## Coefficients:
-##             Estimate Std. Error t value Pr(>|t|)
-## (Intercept) -53.3410   175.2402  -0.304    0.761
-## latitude      1.6975     2.1824   0.778    0.437
-## longitude     0.2177     1.6531   0.132    0.895
+##               Estimate Std. Error t value Pr(>|t|)
+## (Intercept) -100.40099  164.61869  -0.610    0.542
+## latitude       2.57087    2.05784   1.249    0.213
+## longitude      0.06421    1.54657   0.042    0.967
 ## 
-## Residual standard error: 0.9039 on 248 degrees of freedom
-## Multiple R-squared:  0.003215,   Adjusted R-squared:  -0.004823 
-## F-statistic:   0.4 on 2 and 248 DF,  p-value: 0.6708
+## Residual standard error: 0.8279 on 248 degrees of freedom
+## Multiple R-squared:  0.007378,   Adjusted R-squared:  -0.0006266 
+## F-statistic: 0.9217 on 2 and 248 DF,  p-value: 0.3992
 ## 
 ## 
 ## 
@@ -1346,6 +1388,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \end{Highlighting}
 \end{Shaded}
 
+~\\
+
 \hypertarget{decision-tree}{%
 \subsection{DECISION TREE}\label{decision-tree}}
 
@@ -1378,7 +1422,6 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \NormalTok{  dec_tree[[sub]]}\OperatorTok{$}\NormalTok{pred  =}\StringTok{ }\NormalTok{pred =}\StringTok{ }\KeywordTok{predict}\NormalTok{(tree_res,tests[[sub]])}
   
 \NormalTok{  dec_tree[[sub]]}\OperatorTok{$}\NormalTok{MSE =}\StringTok{ }\NormalTok{mse =}\StringTok{  }\KeywordTok{sum}\NormalTok{((pred }\OperatorTok{-}\StringTok{ }\NormalTok{tests[[sub]]}\OperatorTok{$}\NormalTok{price)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\KeywordTok{nrow}\NormalTok{(tests[[sub]])}
-  \CommentTok{#dec_tree[[sub]]$plt=   plot(tree_res)+text(tree_res,pretty=0)}
   \KeywordTok{print}\NormalTok{(mse)}
   \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
 \NormalTok{\}}
@@ -1390,17 +1433,17 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Regression tree:
 ## tree(formula = price ~ ., data = trains[[sub]])
-## Number of terminal nodes:  4 
-## Residual mean deviance:  0.4488 = 6683 / 14890 
+## Number of terminal nodes:  5 
+## Residual mean deviance:  0.4464 = 6645 / 14890 
 ## Distribution of residuals:
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## -1.9330 -0.3443 -0.1171  0.0000  0.1669  4.8810
+## -1.9250 -0.3460 -0.1188  0.0000  0.1652  4.8800
 \end{verbatim}
 
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-14-1.pdf}
 
 \begin{verbatim}
-## [1] 0.478872
+## [1] 0.4607817
 ## 
 ## 
 ## [1] "========== 2 =========="
@@ -1410,16 +1453,16 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Variables actually used in tree construction:
 ## [1] "room_type" "longitude"
 ## Number of terminal nodes:  4 
-## Residual mean deviance:  0.7795 = 12200 / 15650 
+## Residual mean deviance:  0.7869 = 12320 / 15650 
 ## Distribution of residuals:
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## -2.2960 -0.5156 -0.1942  0.0000  0.3023  4.7530
+## -2.2850 -0.5200 -0.1947  0.0000  0.2965  4.7620
 \end{verbatim}
 
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-14-2.pdf}
 
 \begin{verbatim}
-## [1] 0.7851166
+## [1] 0.7634093
 ## 
 ## 
 ## [1] "========== 3 =========="
@@ -1429,16 +1472,16 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Variables actually used in tree construction:
 ## [1] "room_type"
 ## Number of terminal nodes:  2 
-## Residual mean deviance:  0.3526 = 1488 / 4222 
+## Residual mean deviance:  0.3647 = 1540 / 4222 
 ## Distribution of residuals:
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## -1.4000 -0.2929 -0.1225  0.0000  0.1335  4.9330
+## -1.3900 -0.3014 -0.1245  0.0000  0.1319  4.9310
 \end{verbatim}
 
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-14-3.pdf}
 
 \begin{verbatim}
-## [1] 0.4228161
+## [1] 0.3864543
 ## 
 ## 
 ## [1] "========== 4 =========="
@@ -1482,16 +1525,16 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Regression tree:
 ## tree(formula = price ~ ., data = trains[[sub]])
 ## Number of terminal nodes:  4 
-## Residual mean deviance:  0.1724 = 1158 / 6720 
+## Residual mean deviance:  0.1738 = 1168 / 6720 
 ## Distribution of residuals:
-##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-## -0.69640 -0.22300 -0.07884  0.00000  0.12210  4.95000
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -0.7561 -0.2242 -0.0745  0.0000  0.1166  4.9440
 \end{verbatim}
 
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-14-6.pdf}
 
 \begin{verbatim}
-## [1] 0.1806116
+## [1] 0.1771088
 ## 
 ## 
 ## [1] "========== n1-r2 =========="
@@ -1499,16 +1542,16 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Regression tree:
 ## tree(formula = price ~ ., data = trains[[sub]])
 ## Number of terminal nodes:  4 
-## Residual mean deviance:  0.7274 = 4538 / 6238 
+## Residual mean deviance:  0.731 = 4559 / 6237 
 ## Distribution of residuals:
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## -1.9240 -0.5563 -0.2155  0.0000  0.2388  4.2040
+## -1.9250 -0.5518 -0.2070  0.0000  0.3002  4.0740
 \end{verbatim}
 
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-14-7.pdf}
 
 \begin{verbatim}
-## [1] 0.7483236
+## [1] 0.7503308
 ## 
 ## 
 ## [1] "========== n1-r3 =========="
@@ -1586,16 +1629,16 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Regression tree:
 ## tree(formula = price ~ ., data = trains[[sub]])
 ## Number of terminal nodes:  3 
-## Residual mean deviance:  0.1738 = 389.1 / 2239 
+## Residual mean deviance:  0.1771 = 396.5 / 2239 
 ## Distribution of residuals:
 ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-## -0.85200 -0.22640 -0.08418  0.00000  0.11440  4.94200
+## -0.88730 -0.23000 -0.08237  0.00000  0.11070  4.65500
 \end{verbatim}
 
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-14-12.pdf}
 
 \begin{verbatim}
-## [1] 0.1600965
+## [1] 0.1551588
 ## 
 ## 
 ## [1] "========== n3-r2 =========="
@@ -1619,51 +1662,51 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Regression tree:
 ## tree(formula = price ~ ., data = trains[[sub]])
-## Number of terminal nodes:  13 
-## Residual mean deviance:  0.07148 = 8.221 / 115 
+## Number of terminal nodes:  5 
+## Residual mean deviance:  0.2795 = 34.65 / 124 
 ## Distribution of residuals:
 ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-## -0.82700 -0.12060 -0.02272  0.00000  0.06309  0.93380
+## -1.17100 -0.13770 -0.07213  0.00000  0.06675  4.14500
 \end{verbatim}
 
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-14-14.pdf}
 
 \begin{verbatim}
-## [1] 0.6218172
+## [1] 0.1667691
 ## 
 ## 
 ## [1] "========== n4-r1 =========="
 ## 
 ## Regression tree:
 ## tree(formula = price ~ ., data = trains[[sub]])
-## Number of terminal nodes:  12 
-## Residual mean deviance:  0.08816 = 9.962 / 113 
+## Number of terminal nodes:  7 
+## Residual mean deviance:  0.1462 = 17.4 / 119 
 ## Distribution of residuals:
 ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-## -0.56420 -0.14540 -0.04604  0.00000  0.12440  1.31700
+## -0.81560 -0.18000 -0.03524  0.00000  0.09394  2.13800
 \end{verbatim}
 
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-14-15.pdf}
 
 \begin{verbatim}
-## [1] 0.2339327
+## [1] 0.1605553
 ## 
 ## 
 ## [1] "========== n4-r2 =========="
 ## 
 ## Regression tree:
 ## tree(formula = price ~ ., data = trains[[sub]])
-## Number of terminal nodes:  10 
-## Residual mean deviance:  0.3348 = 34.49 / 103 
+## Number of terminal nodes:  6 
+## Residual mean deviance:  0.5117 = 54.76 / 107 
 ## Distribution of residuals:
-##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-## -1.44500 -0.32670 -0.07762  0.00000  0.27450  1.62700
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -1.7900 -0.3757 -0.1485  0.0000  0.3059  2.4700
 \end{verbatim}
 
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-14-16.pdf}
 
 \begin{verbatim}
-## [1] 1.189299
+## [1] 0.7737648
 ## 
 ## 
 ## [1] "========== n4-r3 =========="
@@ -1673,11 +1716,11 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Variables actually used in tree construction:
 ## character(0)
 ## Number of terminal nodes:  1 
-## Residual mean deviance:  0.3279 = 1.311 / 4 
+## Residual mean deviance:  0.09365 = 0.3746 / 4 
 ## Distribution of residuals:
-##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-## -0.531600 -0.520300 -0.009088  0.000000  0.218100  0.842900 
-## Not possible to plot tree:  n4-r3[1] 0.224188
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -0.2931 -0.1908 -0.1795  0.0000  0.3317  0.3317 
+## Not possible to plot tree:  n4-r3[1] 0.5818964
 ## 
 ## 
 ## [1] "========== n5-r1 =========="
@@ -1701,17 +1744,17 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Regression tree:
 ## tree(formula = price ~ ., data = trains[[sub]])
-## Number of terminal nodes:  8 
-## Residual mean deviance:  0.6961 = 169.1 / 243 
+## Number of terminal nodes:  6 
+## Residual mean deviance:  0.5703 = 139.7 / 245 
 ## Distribution of residuals:
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## -2.2490 -0.4638 -0.1854  0.0000  0.2079  3.7900
+## -2.0970 -0.4345 -0.1505  0.0000  0.1693  3.8250
 \end{verbatim}
 
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-14-18.pdf}
 
 \begin{verbatim}
-## [1] 0.7622148
+## [1] 0.886004
 ## 
 ## 
 ## [1] "========== n5-r3 =========="
@@ -1757,6 +1800,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \end{Highlighting}
 \end{Shaded}
 
+~\\
+
 \hypertarget{random-forest}{%
 \subsection{RANDOM FOREST}\label{random-forest}}
 
@@ -1774,9 +1819,6 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 
   \KeywordTok{print}\NormalTok{(res)}
   
-  \CommentTok{#  varImpPlot(res)}
-  \CommentTok{#  plot(res)}
-  
 \NormalTok{  rf[[sub]]}\OperatorTok{$}\NormalTok{MSE =}\StringTok{ }\NormalTok{mse =}\StringTok{ }\KeywordTok{sum}\NormalTok{((predt }\OperatorTok{-}\StringTok{ }\NormalTok{tests[[sub]]}\OperatorTok{$}\NormalTok{price)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\KeywordTok{nrow}\NormalTok{(tests[[sub]])}
   \KeywordTok{print}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"MSE: "}\NormalTok{,mse))}
   \KeywordTok{cat}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
@@ -1793,9 +1835,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.4264125
-##                     % Var explained: 41.65
-## [1] "MSE: 0.454012374017494"
+##           Mean of squared residuals: 0.4328756
+##                     % Var explained: 41.16
+## [1] "MSE: 0.437649170189599"
 ## 
 ## 
 ## [1] "========== 2 =========="
@@ -1806,9 +1848,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.7317802
-##                     % Var explained: 37.03
-## [1] "MSE: 0.735595108176858"
+##           Mean of squared residuals: 0.7406769
+##                     % Var explained: 36.84
+## [1] "MSE: 0.715054570578425"
 ## 
 ## 
 ## [1] "========== 3 =========="
@@ -1819,9 +1861,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.3368627
-##                     % Var explained: 33.87
-## [1] "MSE: 0.396276824161383"
+##           Mean of squared residuals: 0.3479243
+##                     % Var explained: 33.31
+## [1] "MSE: 0.36011180740198"
 ## 
 ## 
 ## [1] "========== 4 =========="
@@ -1832,9 +1874,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.4185199
-##                     % Var explained: 21.55
-## [1] "MSE: 0.336750091255294"
+##           Mean of squared residuals: 0.4166214
+##                     % Var explained: 21.91
+## [1] "MSE: 0.3433678508242"
 ## 
 ## 
 ## [1] "========== 5 =========="
@@ -1845,9 +1887,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.3910493
-##                     % Var explained: 21.81
-## [1] "MSE: 0.271528940234555"
+##           Mean of squared residuals: 0.3912467
+##                     % Var explained: 21.77
+## [1] "MSE: 0.271493410039648"
 ## 
 ## 
 ## [1] "========== n1-r1 =========="
@@ -1858,9 +1900,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.178747
-##                     % Var explained: 4.61
-## [1] "MSE: 0.193214029929856"
+##           Mean of squared residuals: 0.1855678
+##                     % Var explained: 1.89
+## [1] "MSE: 0.18377381564587"
 ## 
 ## 
 ## [1] "========== n1-r2 =========="
@@ -1871,9 +1913,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.7899636
-##                     % Var explained: 0.84
-## [1] "MSE: 0.792951540112952"
+##           Mean of squared residuals: 0.7815159
+##                     % Var explained: 2.05
+## [1] "MSE: 0.801923378061946"
 ## 
 ## 
 ## [1] "========== n1-r3 =========="
@@ -1884,9 +1926,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.1945029
-##                     % Var explained: 4
-## [1] "MSE: 0.242160186139755"
+##           Mean of squared residuals: 0.1929481
+##                     % Var explained: 4.76
+## [1] "MSE: 0.240669947869671"
 ## 
 ## 
 ## [1] "========== n2-r1 =========="
@@ -1897,9 +1939,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.3996346
-##                     % Var explained: 23.52
-## [1] "MSE: 0.380591824585714"
+##           Mean of squared residuals: 0.400548
+##                     % Var explained: 23.35
+## [1] "MSE: 0.37844968129523"
 ## 
 ## 
 ## [1] "========== n2-r2 =========="
@@ -1910,9 +1952,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 1.036225
-##                     % Var explained: 4.26
-## [1] "MSE: 0.977070559784507"
+##           Mean of squared residuals: 1.034235
+##                     % Var explained: 4.44
+## [1] "MSE: 0.977142205038175"
 ## 
 ## 
 ## [1] "========== n2-r3 =========="
@@ -1923,9 +1965,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.7066876
-##                     % Var explained: -7.71
-## [1] "MSE: 0.55878633568084"
+##           Mean of squared residuals: 0.7127527
+##                     % Var explained: -8.63
+## [1] "MSE: 0.563504335056196"
 ## 
 ## 
 ## [1] "========== n3-r1 =========="
@@ -1936,9 +1978,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.1717809
-##                     % Var explained: 5.26
-## [1] "MSE: 0.163004804603044"
+##           Mean of squared residuals: 0.1810658
+##                     % Var explained: 1.86
+## [1] "MSE: 0.151722317885811"
 ## 
 ## 
 ## [1] "========== n3-r2 =========="
@@ -1949,9 +1991,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.6692033
-##                     % Var explained: 1.91
-## [1] "MSE: 0.711645545321903"
+##           Mean of squared residuals: 0.6678137
+##                     % Var explained: 2.11
+## [1] "MSE: 0.713578829161869"
 ## 
 ## 
 ## [1] "========== n3-r3 =========="
@@ -1962,9 +2004,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.1177455
-##                     % Var explained: -5.91
-## [1] "MSE: 0.631748073062785"
+##           Mean of squared residuals: 0.4066588
+##                     % Var explained: -19.19
+## [1] "MSE: 0.222952585446267"
 ## 
 ## 
 ## [1] "========== n4-r1 =========="
@@ -1975,9 +2017,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.1314448
-##                     % Var explained: -6.64
-## [1] "MSE: 0.226995788547981"
+##           Mean of squared residuals: 0.1895889
+##                     % Var explained: -2.23
+## [1] "MSE: 0.14235780616274"
 ## 
 ## 
 ## [1] "========== n4-r2 =========="
@@ -1988,9 +2030,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.5184733
-##                     % Var explained: -11.66
-## [1] "MSE: 1.0488941704488"
+##           Mean of squared residuals: 0.7799421
+##                     % Var explained: -15.53
+## [1] "MSE: 0.71895373565863"
 \end{verbatim}
 
 \begin{verbatim}
@@ -2007,9 +2049,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.3306639
-##                     % Var explained: -26.07
-## [1] "MSE: 0.0726859561516477"
+##           Mean of squared residuals: 0.0182975
+##                     % Var explained: 75.58
+## [1] "MSE: 0.303227871154577"
 ## 
 ## 
 ## [1] "========== n5-r1 =========="
@@ -2020,9 +2062,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.2160591
-##                     % Var explained: -18.81
-## [1] "MSE: 0.134365991758027"
+##           Mean of squared residuals: 0.2109273
+##                     % Var explained: -15.99
+## [1] "MSE: 0.133084811823872"
 ## 
 ## 
 ## [1] "========== n5-r2 =========="
@@ -2033,9 +2075,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.8916108
-##                     % Var explained: -10.1
-## [1] "MSE: 0.662059001453434"
+##           Mean of squared residuals: 0.726527
+##                     % Var explained: -6.48
+## [1] "MSE: 0.870094681564989"
 ## 
 ## 
 ## [1] "========== n5-r3 =========="
@@ -2046,9 +2088,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.11065
-##                     % Var explained: -25.34
-## [1] "MSE: 0.174921807893669"
+##           Mean of squared residuals: 0.1083252
+##                     % Var explained: -22.7
+## [1] "MSE: 0.176332867102828"
 ## 
 ## 
 ## [1] "========== all =========="
@@ -2059,9 +2101,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 1
 ## 
-##           Mean of squared residuals: 0.5681364
-##                     % Var explained: 42.68
-## [1] "MSE: 0.582992437184199"
+##           Mean of squared residuals: 0.5704246
+##                     % Var explained: 42.45
+## [1] "MSE: 0.58523248835968"
 \end{verbatim}
 
 \begin{Shaded}
@@ -2070,6 +2112,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \NormalTok{model_lis}\OperatorTok{$}\NormalTok{random_forest =}\StringTok{ }\NormalTok{rf}
 \end{Highlighting}
 \end{Shaded}
+
+~\\
 
 \hypertarget{ranger-random-forest}{%
 \subsection{RANGER RANDOM FOREST}\label{ranger-random-forest}}
@@ -2109,9 +2153,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.4257217 
-## R squared (OOB):                  0.4174863 
-## [1] "MSE: 0.451708225857914"
+## OOB prediction error (MSE):       0.4300719 
+## R squared (OOB):                  0.4154151 
+## [1] "MSE: 0.435661195179693"
 ## 
 ## 
 ## [1] "========== 2 =========="
@@ -2122,15 +2166,15 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Type:                             Regression 
 ## Number of trees:                  500 
-## Sample size:                      15657 
+## Sample size:                      15658 
 ## Number of independent variables:  3 
 ## Mtry:                             1 
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.7340816 
-## R squared (OOB):                  0.368355 
-## [1] "MSE: 0.740157062922684"
+## OOB prediction error (MSE):       0.7402947 
+## R squared (OOB):                  0.368762 
+## [1] "MSE: 0.713232260548964"
 ## 
 ## 
 ## [1] "========== 3 =========="
@@ -2147,9 +2191,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.3375653 
-## R squared (OOB):                  0.3375071 
-## [1] "MSE: 0.395339302379045"
+## OOB prediction error (MSE):       0.3469485 
+## R squared (OOB):                  0.3351217 
+## [1] "MSE: 0.359439894738383"
 ## 
 ## 
 ## [1] "========== 4 =========="
@@ -2166,9 +2210,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.4252956 
-## R squared (OOB):                  0.2057241 
-## [1] "MSE: 0.347611399151743"
+## OOB prediction error (MSE):       0.4235784 
+## R squared (OOB):                  0.208931 
+## [1] "MSE: 0.349825116770277"
 ## 
 ## 
 ## [1] "========== 5 =========="
@@ -2185,9 +2229,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.3939942 
-## R squared (OOB):                  0.213139 
-## [1] "MSE: 0.272555779669846"
+## OOB prediction error (MSE):       0.3985611 
+## R squared (OOB):                  0.2040182 
+## [1] "MSE: 0.268062661260826"
 ## 
 ## 
 ## [1] "========== n1-r1 =========="
@@ -2204,9 +2248,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.1780698 
-## R squared (OOB):                  0.04983137 
-## [1] "MSE: 0.193773040355645"
+## OOB prediction error (MSE):       0.1858047 
+## R squared (OOB):                  0.01779825 
+## [1] "MSE: 0.183050763664203"
 ## 
 ## 
 ## [1] "========== n1-r2 =========="
@@ -2217,15 +2261,15 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Type:                             Regression 
 ## Number of trees:                  500 
-## Sample size:                      6242 
+## Sample size:                      6241 
 ## Number of independent variables:  2 
 ## Mtry:                             1 
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.7908384 
-## R squared (OOB):                  0.0074946 
-## [1] "MSE: 0.795616140713617"
+## OOB prediction error (MSE):       0.7820273 
+## R squared (OOB):                  0.02001014 
+## [1] "MSE: 0.805646710986738"
 ## 
 ## 
 ## [1] "========== n1-r3 =========="
@@ -2242,9 +2286,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.1942968 
-## R squared (OOB):                  0.04449433 
-## [1] "MSE: 0.238557396679357"
+## OOB prediction error (MSE):       0.1935494 
+## R squared (OOB):                  0.04816971 
+## [1] "MSE: 0.238626751943499"
 ## 
 ## 
 ## [1] "========== n2-r1 =========="
@@ -2261,9 +2305,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.3997818 
-## R squared (OOB):                  0.2351081 
-## [1] "MSE: 0.377671573066202"
+## OOB prediction error (MSE):       0.3999019 
+## R squared (OOB):                  0.2348782 
+## [1] "MSE: 0.378283997644987"
 ## 
 ## 
 ## [1] "========== n2-r2 =========="
@@ -2280,9 +2324,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       1.033592 
-## R squared (OOB):                  0.04510787 
-## [1] "MSE: 0.976905962011513"
+## OOB prediction error (MSE):       1.036799 
+## R squared (OOB):                  0.04214508 
+## [1] "MSE: 0.974357995618573"
 ## 
 ## 
 ## [1] "========== n2-r3 =========="
@@ -2299,9 +2343,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.7180809 
-## R squared (OOB):                  -0.09100462 
-## [1] "MSE: 0.560614095079643"
+## OOB prediction error (MSE):       0.7160939 
+## R squared (OOB):                  -0.08798569 
+## [1] "MSE: 0.57155262780546"
 ## 
 ## 
 ## [1] "========== n3-r1 =========="
@@ -2318,9 +2362,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.1709925 
-## R squared (OOB):                  0.05740717 
-## [1] "MSE: 0.161917430805412"
+## OOB prediction error (MSE):       0.181763 
+## R squared (OOB):                  0.01525706 
+## [1] "MSE: 0.152704198115273"
 ## 
 ## 
 ## [1] "========== n3-r2 =========="
@@ -2337,9 +2381,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.6731786 
-## R squared (OOB):                  0.01399647 
-## [1] "MSE: 0.711883307878391"
+## OOB prediction error (MSE):       0.6704211 
+## R squared (OOB):                  0.01803546 
+## [1] "MSE: 0.71238608718685"
 ## 
 ## 
 ## [1] "========== n3-r3 =========="
@@ -2350,15 +2394,15 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Type:                             Regression 
 ## Number of trees:                  500 
-## Sample size:                      128 
+## Sample size:                      129 
 ## Number of independent variables:  2 
 ## Mtry:                             1 
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.1162408 
-## R squared (OOB):                  -0.03737978 
-## [1] "MSE: 0.631597850921341"
+## OOB prediction error (MSE):       0.4162768 
+## R squared (OOB):                  -0.2106128 
+## [1] "MSE: 0.22139444129044"
 ## 
 ## 
 ## [1] "========== n4-r1 =========="
@@ -2369,15 +2413,15 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## 
 ## Type:                             Regression 
 ## Number of trees:                  500 
-## Sample size:                      125 
+## Sample size:                      126 
 ## Number of independent variables:  2 
 ## Mtry:                             1 
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.129391 
-## R squared (OOB):                  -0.0413836 
-## [1] "MSE: 0.229438107276058"
+## OOB prediction error (MSE):       0.1911728 
+## R squared (OOB):                  -0.02263984 
+## [1] "MSE: 0.143390186091069"
 ## 
 ## 
 ## [1] "========== n4-r2 =========="
@@ -2394,9 +2438,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.5321167 
-## R squared (OOB):                  -0.1358403 
-## [1] "MSE: 1.06613824189643"
+## OOB prediction error (MSE):       0.7852717 
+## R squared (OOB):                  -0.1528912 
+## [1] "MSE: 0.705639717093316"
 ## 
 ## 
 ## [1] "========== n4-r3 =========="
@@ -2413,9 +2457,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.4024009 
-## R squared (OOB):                  -0.2273535 
-## [1] "MSE: 0.22875012071697"
+## OOB prediction error (MSE):       0.1158974 
+## R squared (OOB):                  -0.2376012 
+## [1] "MSE: 0.584749620286946"
 ## 
 ## 
 ## [1] "========== n5-r1 =========="
@@ -2432,9 +2476,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.2144384 
-## R squared (OOB):                  -0.1764572 
-## [1] "MSE: 0.134103174218686"
+## OOB prediction error (MSE):       0.2150884 
+## R squared (OOB):                  -0.1800232 
+## [1] "MSE: 0.132753624265668"
 ## 
 ## 
 ## [1] "========== n5-r2 =========="
@@ -2451,9 +2495,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.8949554 
-## R squared (OOB):                  -0.10071 
-## [1] "MSE: 0.661771200765559"
+## OOB prediction error (MSE):       0.7310383 
+## R squared (OOB):                  -0.06716958 
+## [1] "MSE: 0.870872319133183"
 ## 
 ## 
 ## [1] "========== n5-r3 =========="
@@ -2470,9 +2514,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.1066221 
-## R squared (OOB):                  -0.1767763 
-## [1] "MSE: 0.173822949859432"
+## OOB prediction error (MSE):       0.1122889 
+## R squared (OOB):                  -0.2393209 
+## [1] "MSE: 0.17684139550054"
 ## 
 ## 
 ## [1] "========== all =========="
@@ -2489,9 +2533,9 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.5432278 
-## R squared (OOB):                  0.4519412 
-## [1] "MSE: 0.555208346242052"
+## OOB prediction error (MSE):       0.5431618 
+## R squared (OOB):                  0.4520079 
+## [1] "MSE: 0.553992505569662"
 \end{verbatim}
 
 \begin{Shaded}
@@ -2500,6 +2544,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \NormalTok{model_lis}\OperatorTok{$}\NormalTok{ranger =}\StringTok{ }\NormalTok{ranger_rf}
 \end{Highlighting}
 \end{Shaded}
+
+~\\
 
 \hypertarget{neural-networks}{%
 \subsection{NEURAL NETWORKS}\label{neural-networks}}
@@ -2893,6 +2939,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \end{Highlighting}
 \end{Shaded}
 
+~\\
+
 \hypertarget{nn-plots}{%
 \subsection{NN plots}\label{nn-plots}}
 
@@ -2935,8 +2983,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-2.pdf}
 
 \begin{verbatim}
-## MAE:  0.5105356
-## Loss:  0.4452797 
+## MAE:  0.4877132
+## Loss:  0.4832867 
 ## 
 ## [1] "========== 2 =========="
 \end{verbatim}
@@ -2954,8 +3002,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-4.pdf}
 
 \begin{verbatim}
-## MAE:  0.8534026
-## Loss:  0.6659468 
+## MAE:  0.8333294
+## Loss:  0.6800426 
 ## 
 ## [1] "========== 3 =========="
 \end{verbatim}
@@ -2973,8 +3021,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-6.pdf}
 
 \begin{verbatim}
-## MAE:  0.4212551
-## Loss:  0.4113655 
+## MAE:  0.3867755
+## Loss:  0.3894443 
 ## 
 ## [1] "========== 4 =========="
 \end{verbatim}
@@ -2992,8 +3040,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-8.pdf}
 
 \begin{verbatim}
-## MAE:  0.3655377
-## Loss:  0.4257745 
+## MAE:  0.417328
+## Loss:  0.3846916 
 ## 
 ## [1] "========== 5 =========="
 \end{verbatim}
@@ -3011,8 +3059,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-10.pdf}
 
 \begin{verbatim}
-## MAE:  0.6189408
-## Loss:  0.7115626 
+## MAE:  0.2938451
+## Loss:  0.359958 
 ## 
 ## [1] "========== n1-r1 =========="
 \end{verbatim}
@@ -3030,8 +3078,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-12.pdf}
 
 \begin{verbatim}
-## MAE:  0.2255452
-## Loss:  0.2728455 
+## MAE:  0.252656
+## Loss:  0.3968593 
 ## 
 ## [1] "========== n1-r2 =========="
 \end{verbatim}
@@ -3049,8 +3097,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-14.pdf}
 
 \begin{verbatim}
-## MAE:  0.815325
-## Loss:  0.6606796 
+## MAE:  0.823441
+## Loss:  0.6362852 
 ## 
 ## [1] "========== n1-r3 =========="
 \end{verbatim}
@@ -3068,8 +3116,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-16.pdf}
 
 \begin{verbatim}
-## MAE:  0.297305
-## Loss:  0.2364705 
+## MAE:  0.2944945
+## Loss:  0.389903 
 ## 
 ## [1] "========== n2-r1 =========="
 \end{verbatim}
@@ -3087,8 +3135,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-18.pdf}
 
 \begin{verbatim}
-## MAE:  0.5021501
-## Loss:  0.4582768 
+## MAE:  0.5244784
+## Loss:  0.4219968 
 ## 
 ## [1] "========== n2-r2 =========="
 \end{verbatim}
@@ -3106,8 +3154,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-20.pdf}
 
 \begin{verbatim}
-## MAE:  1.04709
-## Loss:  0.763576 
+## MAE:  1.037113
+## Loss:  0.8063703 
 ## 
 ## [1] "========== n2-r3 =========="
 \end{verbatim}
@@ -3125,8 +3173,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-22.pdf}
 
 \begin{verbatim}
-## MAE:  0.5272431
-## Loss:  0.364036 
+## MAE:  0.7650962
+## Loss:  0.750608 
 ## 
 ## [1] "========== n3-r1 =========="
 \end{verbatim}
@@ -3144,8 +3192,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-24.pdf}
 
 \begin{verbatim}
-## MAE:  0.796416
-## Loss:  0.7929425 
+## MAE:  0.2753657
+## Loss:  0.3455145 
 ## 
 ## [1] "========== n3-r2 =========="
 \end{verbatim}
@@ -3163,8 +3211,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-26.pdf}
 
 \begin{verbatim}
-## MAE:  0.7023411
-## Loss:  0.6338332 
+## MAE:  0.7421407
+## Loss:  0.686858 
 ## 
 ## [1] "========== n3-r3 =========="
 \end{verbatim}
@@ -3182,8 +3230,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-28.pdf}
 
 \begin{verbatim}
-## MAE:  0.6350197
-## Loss:  0.309325 
+## MAE:  1.87118
+## Loss:  1.32991 
 ## 
 ## [1] "========== n4-r1 =========="
 \end{verbatim}
@@ -3201,8 +3249,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-30.pdf}
 
 \begin{verbatim}
-## MAE:  0.5431977
-## Loss:  0.6666863 
+## MAE:  0.1332488
+## Loss:  0.2908146 
 ## 
 ## [1] "========== n4-r2 =========="
 \end{verbatim}
@@ -3220,8 +3268,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-32.pdf}
 
 \begin{verbatim}
-## MAE:  1.177381
-## Loss:  0.6681005 
+## MAE:  0.6004597
+## Loss:  0.555418 
 ## 
 ## [1] "========== n4-r3 =========="
 \end{verbatim}
@@ -3239,8 +3287,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-34.pdf}
 
 \begin{verbatim}
-## MAE:  0.3195457
-## Loss:  0.4957582 
+## MAE:  0.5377738
+## Loss:  0.6261361 
 ## 
 ## [1] "========== n5-r1 =========="
 \end{verbatim}
@@ -3258,8 +3306,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-36.pdf}
 
 \begin{verbatim}
-## MAE:  1.367847
-## Loss:  1.106661 
+## MAE:  0.5982274
+## Loss:  0.6743885 
 ## 
 ## [1] "========== n5-r2 =========="
 \end{verbatim}
@@ -3277,8 +3325,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-38.pdf}
 
 \begin{verbatim}
-## MAE:  0.9816905
-## Loss:  0.6742522 
+## MAE:  0.9505594
+## Loss:  0.7829418 
 ## 
 ## [1] "========== n5-r3 =========="
 \end{verbatim}
@@ -3296,8 +3344,8 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-40.pdf}
 
 \begin{verbatim}
-## MAE:  0.2455914
-## Loss:  0.282955 
+## MAE:  0.1779435
+## Loss:  0.2803045 
 ## 
 ## [1] "========== all =========="
 \end{verbatim}
@@ -3315,38 +3363,42 @@ subset}\label{split-in-train-and-test-for-each-subset}}
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-18-42.pdf}
 
 \begin{verbatim}
-## MAE:  0.6396843
-## Loss:  0.5579407
+## MAE:  0.6347676
+## Loss:  0.5417054
 \end{verbatim}
+
+~\\
 
 \hypertarget{comparison-between-the-models}{%
 \section{Comparison between the
 models}\label{comparison-between-the-models}}
 
+~\\
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{concat =}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+\NormalTok{conc =}\StringTok{ }\KeywordTok{c}\NormalTok{()}
 
 \ControlFlowTok{for}\NormalTok{ (n }\ControlFlowTok{in} \KeywordTok{unique}\NormalTok{(ds}\OperatorTok{$}\NormalTok{neighbourhood_group))}
 \NormalTok{\{}
-\NormalTok{  concat =}\StringTok{ }\KeywordTok{c}\NormalTok{(concat,n) }
+\NormalTok{  conc =}\StringTok{ }\KeywordTok{c}\NormalTok{(conc,n) }
 \NormalTok{\}}
 \ControlFlowTok{for}\NormalTok{ (n }\ControlFlowTok{in} \KeywordTok{unique}\NormalTok{(ds}\OperatorTok{$}\NormalTok{neighbourhood_group))}
 \NormalTok{\{}
   \ControlFlowTok{for}\NormalTok{(r }\ControlFlowTok{in} \KeywordTok{unique}\NormalTok{(ds}\OperatorTok{$}\NormalTok{room_type))}
 \NormalTok{  \{}
-\NormalTok{    concat =}\StringTok{ }\KeywordTok{c}\NormalTok{(concat, }\KeywordTok{paste0}\NormalTok{(n,}\StringTok{"/"}\NormalTok{,r))}
+\NormalTok{    conc =}\StringTok{ }\KeywordTok{c}\NormalTok{(conc, }\KeywordTok{paste}\NormalTok{(n,}\StringTok{"-"}\NormalTok{,r))}
     
 \NormalTok{  \}}
 \NormalTok{\}}
-\NormalTok{concat =}\StringTok{ }\KeywordTok{c}\NormalTok{(concat,}\StringTok{"All"}\NormalTok{)}
+\NormalTok{conc =}\StringTok{ }\KeywordTok{c}\NormalTok{(conc,}\StringTok{"All"}\NormalTok{)}
 
 \NormalTok{n =}\StringTok{ }\KeywordTok{names}\NormalTok{(nn)}
 
 
 
 \NormalTok{cols =}\StringTok{ }\KeywordTok{vector}\NormalTok{(}\StringTok{"list"}\NormalTok{)}
-\NormalTok{cols[[}\StringTok{"Subset"}\NormalTok{]] =}\StringTok{ }\NormalTok{concat}
+\NormalTok{cols[[}\StringTok{"Subset"}\NormalTok{]] =}\StringTok{ }\NormalTok{conc}
 \ControlFlowTok{for}\NormalTok{( m }\ControlFlowTok{in}\NormalTok{ model_lis)}
 \NormalTok{\{}
 \NormalTok{  col =}\StringTok{ }\KeywordTok{c}\NormalTok{()}
@@ -3363,65 +3415,83 @@ models}\label{comparison-between-the-models}}
 \NormalTok{  cols[[m}\OperatorTok{$}\NormalTok{name]] =}\StringTok{ }\NormalTok{col}
   
 \NormalTok{\}}
+
+
 \NormalTok{mse_df =}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(cols)}
-\CommentTok{#knitr::kable(mse_df)%>%}
+\NormalTok{best =}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{length}\NormalTok{(cols}\OperatorTok{$}\NormalTok{Subset))}
+\NormalTok{\{}
+\NormalTok{  m =}\StringTok{ }\KeywordTok{min}\NormalTok{(mse_df[i,}\DecValTok{2}\OperatorTok{:}\DecValTok{6}\NormalTok{])}
+\NormalTok{  col =}\StringTok{ }\KeywordTok{which}\NormalTok{(mse_df[i,}\DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{ ] }\OperatorTok{==}\StringTok{ }\NormalTok{m)}
+\NormalTok{  nam =}\StringTok{ }\KeywordTok{names}\NormalTok{(mse_df)[col]}
+\NormalTok{  best =}\StringTok{ }\KeywordTok{c}\NormalTok{(best, nam)}
+\NormalTok{\}}
+\NormalTok{mse_df}\OperatorTok{$}\NormalTok{Best =}\StringTok{ }\NormalTok{best}
+\CommentTok{#kableExtra::kable(mse_df)%>%}
 \CommentTok{#  kable_styling(bootstrap_options = "striped", full_width = F,font_size = 20) %>%}
-\CommentTok{#  row_spec(0, bold = T, color = "white", background = "#D7261E")%>%}
-\CommentTok{#  column_spec(1, bold = T, border_right = T,color = "white", background = "#191970")%>%}
+\CommentTok{##  row_spec(0, bold = T, color = "white", background = "#D7261E")%>%}
+\CommentTok{##  column_spec(1, bold = T, border_right = T,color = "white", background = "#191970")%>%}
 \CommentTok{#  column_spec(2:6,extra_css="text-align:Center")}
+
 \NormalTok{mse_df}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##                           Subset Linear.Regression Decision.Tree Random.Forest
-## 1                       Brooklyn         0.4747922     0.4788720    0.45401237
-## 2                      Manhattan         0.7776761     0.7851166    0.73559511
-## 3                         Queens         0.4202809     0.4228161    0.39627682
-## 4                  Staten Island         0.3467308     0.3471879    0.33675009
-## 5                          Bronx         0.2741482     0.2744778    0.27152894
-## 6          Brooklyn/Private room         0.1858138     0.1806116    0.19321403
-## 7       Brooklyn/Entire home/apt         0.7533368     0.7483236    0.79295154
-## 8           Brooklyn/Shared room         0.2639579     0.2505339    0.24216019
-## 9         Manhattan/Private room         0.4445611     0.3753113    0.38059182
-## 10     Manhattan/Entire home/apt         0.9361941     0.9585893    0.97707056
-## 11         Manhattan/Shared room         0.4904792     0.4992158    0.55878634
-## 12           Queens/Private room         0.1680487     0.1600965    0.16300480
-## 13        Queens/Entire home/apt         0.6992986     0.6995247    0.71164555
-## 14            Queens/Shared room         0.6218959     0.6218172    0.63174807
-## 15    Staten Island/Private room         0.2640100     0.2339327    0.22699579
-## 16 Staten Island/Entire home/apt         0.9903964     1.1892994    1.04889417
-## 17     Staten Island/Shared room         0.1199132     0.2241880    0.07268596
-## 18            Bronx/Private room         0.1475827     0.1611146    0.13436599
-## 19         Bronx/Entire home/apt         0.5627967     0.7622148    0.66205900
-## 20             Bronx/Shared room         0.2071295     0.1939584    0.17492181
-## 21                           All         0.6167807     0.6149423    0.58299244
-##    Ranger.Random.Forest Neural.Networks
-## 1             0.4517082       0.5105357
-## 2             0.7401571       0.8534025
-## 3             0.3953393       0.4212552
-## 4             0.3476114       0.3655377
-## 5             0.2725558       0.6189409
-## 6             0.1937730       0.2255452
-## 7             0.7956161       0.8153250
-## 8             0.2385574       0.2973050
-## 9             0.3776716       0.5021502
-## 10            0.9769060       1.0470899
-## 11            0.5606141       0.5272432
-## 12            0.1619174       0.7964161
-## 13            0.7118833       0.7023412
-## 14            0.6315979       0.6350197
-## 15            0.2294381       0.5431977
-## 16            1.0661382       1.1773806
-## 17            0.2287501       0.3195457
-## 18            0.1341032       1.3678471
-## 19            0.6617712       0.9816905
-## 20            0.1738229       0.2455915
-## 21            0.5552083       0.6396844
+##                             Subset Linear.Regression Decision.Tree
+## 1                         Brooklyn         0.4581633     0.4607817
+## 2                        Manhattan         0.7581404     0.7634093
+## 3                           Queens         0.3846665     0.3864543
+## 4                    Staten Island         0.3467308     0.3471879
+## 5                            Bronx         0.2741482     0.2744778
+## 6          Brooklyn - Private room         0.1818182     0.1771088
+## 7       Brooklyn - Entire home/apt         0.7598732     0.7503308
+## 8           Brooklyn - Shared room         0.2639579     0.2505339
+## 9         Manhattan - Private room         0.4445611     0.3753113
+## 10     Manhattan - Entire home/apt         0.9361941     0.9585893
+## 11         Manhattan - Shared room         0.4904792     0.4992158
+## 12           Queens - Private room         0.1616290     0.1551588
+## 13        Queens - Entire home/apt         0.6992986     0.6995247
+## 14            Queens - Shared room         0.1659605     0.1667691
+## 15    Staten Island - Private room         0.1332495     0.1605553
+## 16 Staten Island - Entire home/apt         0.5703345     0.7737648
+## 17     Staten Island - Shared room         0.3209208     0.5818964
+## 18            Bronx - Private room         0.1475827     0.1611146
+## 19         Bronx - Entire home/apt         0.8252451     0.8860040
+## 20             Bronx - Shared room         0.2071295     0.1939584
+## 21                             All         0.6167807     0.6149423
+##    Random.Forest Ranger.Random.Forest Neural.Networks                 Best
+## 1      0.4376492            0.4356612       0.4877132 Ranger.Random.Forest
+## 2      0.7150546            0.7132323       0.8333294 Ranger.Random.Forest
+## 3      0.3601118            0.3594399       0.3867755 Ranger.Random.Forest
+## 4      0.3433679            0.3498251       0.4173280        Random.Forest
+## 5      0.2714934            0.2680627       0.2938451 Ranger.Random.Forest
+## 6      0.1837738            0.1830508       0.2526560        Decision.Tree
+## 7      0.8019234            0.8056467       0.8234408        Decision.Tree
+## 8      0.2406699            0.2386268       0.2944945 Ranger.Random.Forest
+## 9      0.3784497            0.3782840       0.5244784        Decision.Tree
+## 10     0.9771422            0.9743580       1.0371131    Linear.Regression
+## 11     0.5635043            0.5715526       0.7650962    Linear.Regression
+## 12     0.1517223            0.1527042       0.2753657        Random.Forest
+## 13     0.7135788            0.7123861       0.7421406    Linear.Regression
+## 14     0.2229526            0.2213944       1.8711798    Linear.Regression
+## 15     0.1423578            0.1433902       0.1332488      Neural.Networks
+## 16     0.7189537            0.7056397       0.6004597    Linear.Regression
+## 17     0.3032279            0.5847496       0.5377738        Random.Forest
+## 18     0.1330848            0.1327536       0.5982274 Ranger.Random.Forest
+## 19     0.8700947            0.8708723       0.9505594    Linear.Regression
+## 20     0.1763329            0.1768414       0.1779435        Random.Forest
+## 21     0.5852325            0.5539925       0.6347674 Ranger.Random.Forest
 \end{verbatim}
+
+~~
+
+~\\
 
 \hypertarget{clustering-and-groups}{%
 \section{Clustering and Groups}\label{clustering-and-groups}}
+
+~\\
 
 \hypertarget{clustering-for-mixed-type-of-data}{%
 \subsection{Clustering for Mixed type of
@@ -3472,10 +3542,7 @@ data}\label{clustering-for-mixed-type-of-data}}
 \NormalTok{    l}\OperatorTok{$}\NormalTok{clust_plot[[}\KeywordTok{as.character}\NormalTok{(count)]] =}\StringTok{ }\NormalTok{p}
     
 \NormalTok{    l}\OperatorTok{$}\NormalTok{summary[[}\KeywordTok{as.character}\NormalTok{(count)]] =}\StringTok{ }\KeywordTok{summary}\NormalTok{(el)}
-    \CommentTok{#print(paste0("=== clust: ",count,"==="))}
-    \CommentTok{#print(summary(el))}
-    \CommentTok{#print("=========")}
-    
+
 \NormalTok{    count=}\StringTok{ }\NormalTok{count}\OperatorTok{+}\DecValTok{1}
 \NormalTok{  \}}
 \NormalTok{  l}\OperatorTok{$}\NormalTok{myplot =}\StringTok{ }\NormalTok{myplot}
@@ -3595,84 +3662,84 @@ data}\label{clustering-for-mixed-type-of-data}}
 
 \begin{verbatim}
 ## $`1`
-##     neighbourhood_group    latitude         longitude       
-##  Brooklyn     :    0    Min.   :-0.4160   Min.   :-1.44113  
-##  Manhattan    :10955    1st Qu.: 0.6177   1st Qu.:-0.55298  
-##  Queens       :  701    Median : 1.1118   Median :-0.03818  
-##  Staten Island:    0    Mean   : 1.1188   Mean   :-0.10827  
-##  Bronx        :  588    3rd Qu.: 1.5750   3rd Qu.: 0.21187  
-##                         Max.   : 3.3632   Max.   : 2.52697  
-##            room_type        price         
-##  Private room   :5664   Min.   :-1.32482  
-##  Entire home/apt:6131   1st Qu.:-0.64323  
-##  Shared room    : 449   Median :-0.35924  
-##                         Mean   :-0.27143  
-##                         3rd Qu.: 0.08379  
-##                         Max.   : 2.01494  
+##     neighbourhood_group    latitude          longitude      
+##  Brooklyn     : 460     Min.   :-4.18085   Min.   :-6.3324  
+##  Manhattan    :4431     1st Qu.:-0.25722   1st Qu.:-1.0416  
+##  Queens       :  25     Median :-0.02283   Median :-0.8472  
+##  Staten Island: 347     Mean   :-0.13418   Mean   :-1.0242  
+##  Bronx        :   0     3rd Qu.: 0.37603   3rd Qu.:-0.7134  
+##                         Max.   : 0.98828   Max.   : 0.1238  
+##            room_type        price        
+##  Private room   :4126   Min.   :-1.3248  
+##  Entire home/apt: 882   1st Qu.:-0.6432  
+##  Shared room    : 255   Median :-0.3706  
+##                         Mean   :-0.3519  
+##                         3rd Qu.:-0.1320  
+##                         Max.   : 1.9127  
 ## 
 ## $`2`
-##     neighbourhood_group    latitude         longitude     
-##  Brooklyn     :  56     Min.   :-2.9781   Min.   :0.1866  
-##  Manhattan    :   0     1st Qu.:-0.4289   1st Qu.:0.9451  
-##  Queens       :4611     Median : 0.2705   Median :1.6892  
-##  Staten Island:   0     Mean   : 0.1644   Mean   :1.9488  
-##  Bronx        : 480     3rd Qu.: 0.6139   3rd Qu.:2.7813  
-##                         Max.   : 3.2131   Max.   :5.1626  
-##            room_type        price        
-##  Private room   :3691   Min.   :-1.3248  
-##  Entire home/apt:1246   1st Qu.:-0.9386  
-##  Shared room    : 210   Median :-0.7568  
-##                         Mean   :-0.6038  
-##                         3rd Qu.:-0.4728  
-##                         Max.   : 4.0143  
+##     neighbourhood_group    latitude          longitude      
+##  Brooklyn     :  581    Min.   :-2.25573   Min.   :-3.7011  
+##  Manhattan    :10566    1st Qu.:-0.01754   1st Qu.:-0.9270  
+##  Queens       :  289    Median : 0.34290   Median :-0.6884  
+##  Staten Island:    9    Mean   : 0.37677   Mean   :-0.6004  
+##  Bronx        :   23    3rd Qu.: 0.69443   3rd Qu.:-0.3314  
+##                         Max.   : 2.84824   Max.   : 3.7225  
+##            room_type         price        
+##  Private room   :  448   Min.   :-0.4160  
+##  Entire home/apt:10977   1st Qu.: 0.4359  
+##  Shared room    :   43   Median : 0.8903  
+##                          Mean   : 1.2135  
+##                          3rd Qu.: 1.8559  
+##                          Max.   : 4.1847  
 ## 
 ## $`3`
 ##     neighbourhood_group    latitude         longitude       
-##  Brooklyn     :8786     Min.   :-4.0600   Min.   :-6.33242  
-##  Manhattan    :  34     1st Qu.:-1.0655   1st Qu.:-0.40671  
-##  Queens       :  86     Median :-0.7977   Median :-0.07171  
-##  Staten Island: 156     Mean   :-0.8380   Mean   :-0.12296  
-##  Bronx        :   0     3rd Qu.:-0.4476   3rd Qu.: 0.23544  
-##                         Max.   : 0.2964   Max.   : 3.30112  
-##            room_type        price         
-##  Private room   :  93   Min.   :-1.24530  
-##  Entire home/apt:8939   1st Qu.:-0.35924  
-##  Shared room    :  30   Median : 0.03835  
-##                         Mean   : 0.14476  
-##                         3rd Qu.: 0.51546  
-##                         Max.   : 3.61666  
+##  Brooklyn     :9691     Min.   :-2.9821   Min.   :-1.27977  
+##  Manhattan    :   0     1st Qu.:-0.9275   1st Qu.:-0.04326  
+##  Queens       :3276     Median :-0.6285   Median : 0.35290  
+##  Staten Island:   0     Mean   :-0.6363   Mean   : 0.72064  
+##  Bronx        :   0     3rd Qu.:-0.3029   3rd Qu.: 0.96298  
+##                         Max.   : 0.9290   Max.   : 5.16264  
+##            room_type         price        
+##  Private room   :11690   Min.   :-1.3248  
+##  Entire home/apt:  800   1st Qu.:-0.9499  
+##  Shared room    :  477   Median :-0.8136  
+##                          Mean   :-0.7311  
+##                          3rd Qu.:-0.5864  
+##                          Max.   : 3.0487  
 ## 
 ## $`4`
-##     neighbourhood_group    latitude         longitude      
-##  Brooklyn     : 733     Min.   :-4.0186   Min.   :-6.2338  
-##  Manhattan    :8099     1st Qu.:-0.1210   1st Qu.:-1.0029  
-##  Queens       : 163     Median : 0.1694   Median :-0.7745  
-##  Staten Island:  20     Mean   : 0.2083   Mean   :-0.7093  
-##  Bronx        :  14     3rd Qu.: 0.5639   3rd Qu.:-0.5387  
-##                         Max.   : 2.8482   Max.   : 3.3857  
+##     neighbourhood_group    latitude        longitude        
+##  Brooklyn     :   0     Min.   :0.3207   Min.   :-0.681685  
+##  Manhattan    :5880     1st Qu.:1.0549   1st Qu.:-0.001084  
+##  Queens       :1236     Median :1.4428   Median : 0.206028  
+##  Staten Island:   0     Mean   :1.4808   Mean   : 0.365556  
+##  Bronx        :1059     3rd Qu.:1.8253   3rd Qu.: 0.551574  
+##                         Max.   :3.3632   Max.   : 3.731570  
 ##            room_type        price        
-##  Private room   : 806   Min.   :-0.1661  
-##  Entire home/apt:8186   1st Qu.: 0.7654  
-##  Shared room    :  37   Median : 1.3334  
-##                         Mean   : 1.5055  
-##                         3rd Qu.: 1.9127  
-##                         Max.   : 4.1847  
+##  Private room   :5609   Min.   :-1.3135  
+##  Entire home/apt:2281   1st Qu.:-0.8250  
+##  Shared room    : 285   Median :-0.5864  
+##                         Mean   :-0.5373  
+##                         3rd Qu.:-0.3592  
+##                         Max.   : 2.0149  
 ## 
 ## $`5`
 ##     neighbourhood_group    latitude         longitude       
-##  Brooklyn     :10283    Min.   :-4.1808   Min.   :-6.29846  
-##  Manhattan    : 1789    1st Qu.:-0.9712   1st Qu.:-0.53179  
-##  Queens       :   71    Median :-0.6490   Median :-0.01785  
-##  Staten Island:  190    Mean   :-0.7161   Mean   :-0.09622  
-##  Bronx        :    0    3rd Qu.:-0.3060   3rd Qu.: 0.36652  
-##                         Max.   : 0.4209   Max.   : 1.69290  
-##            room_type         price        
-##  Private room   :11913   Min.   :-1.3248  
-##  Entire home/apt:    1   1st Qu.:-0.9272  
-##  Shared room    :  419   Median :-0.7568  
-##                          Mean   :-0.6871  
-##                          3rd Qu.:-0.5183  
-##                          Max.   : 0.7767
+##  Brooklyn     :9126     Min.   :-2.9118   Min.   :-2.81358  
+##  Manhattan    :   0     1st Qu.:-1.0253   1st Qu.:-0.33830  
+##  Queens       : 806     Median :-0.7691   Median :-0.04618  
+##  Staten Island:  10     Mean   :-0.7513   Mean   :-0.00574  
+##  Bronx        :   0     3rd Qu.:-0.3492   3rd Qu.: 0.30683  
+##                         Max.   : 0.7754   Max.   : 4.68028  
+##            room_type        price         
+##  Private room   : 294   Min.   :-1.32482  
+##  Entire home/apt:9563   1st Qu.:-0.35924  
+##  Shared room    :  85   Median : 0.08379  
+##                         Mean   : 0.18185  
+##                         3rd Qu.: 0.54954  
+##                         Max.   : 4.18465
 \end{verbatim}
 
 \begin{Shaded}
@@ -3716,8 +3783,10 @@ data}\label{clustering-for-mixed-type-of-data}}
 ## NULL
 \end{verbatim}
 
+~\\
+
 \hypertarget{hierarchical-cluster-analysis}{%
-\section{Hierarchical Cluster
+\subsection{Hierarchical Cluster
 Analysis}\label{hierarchical-cluster-analysis}}
 
 \begin{Shaded}
@@ -3809,13 +3878,20 @@ Analysis}\label{hierarchical-cluster-analysis}}
 
 \includegraphics{project-code_files/figure-latex/unnamed-chunk-28-1.pdf}
 
+~\\
+
+\hypertarget{principal-component-analysis}{%
+\section{Principal Component
+Analysis}\label{principal-component-analysis}}
+
+~\\
+
 \hypertarget{pcamixdata}{%
-\section{PCAmixdata}\label{pcamixdata}}
+\subsection{PCAmixdata}\label{pcamixdata}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{## Split mixed dataset into quantitative and qualitative variables}
-\CommentTok{## For now excluding the target variable "Churn", which will be added later as a supplementary variable}
 \CommentTok{#split <- splitmix(dataset[1:5])}
 
 \NormalTok{split =}\StringTok{ }\KeywordTok{splitmix}\NormalTok{(clust_data}\OperatorTok{$}\NormalTok{all)}
@@ -3877,30 +3953,34 @@ Analysis}\label{hierarchical-cluster-analysis}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Use Scree Diagram to select the components:}
-
-\KeywordTok{plot}\NormalTok{(res.pcamix}\OperatorTok{$}\NormalTok{eig, }\DataTypeTok{type=}\StringTok{"b"}\NormalTok{, }\DataTypeTok{main=}\StringTok{"Scree Diagram"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Number of Component"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Eigenvalues"}\NormalTok{)}
-\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
+\NormalTok{res.pcamix}\OperatorTok{$}\NormalTok{quanti.cor}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-31-1.pdf}
-
-\hypertarget{factor-analysis-of-mixed-data-famd}{%
-\section{- Factor Analysis of Mixed Data
-(FAMD)}\label{factor-analysis-of-mixed-data-famd}}
-
-\url{http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/115-famd-factor-analysis-of-mixed-data-in-r-essentials/}
-\url{https://nextjournal.com/pc-methods/calculate-pc-mixed-data}
-\url{https://cran.r-project.org/web/packages/FactoMineR/index.html}
-\url{https://stats.stackexchange.com/questions/5774/can-principal-component-analysis-be-applied-to-datasets-containing-a-mix-of-cont}
+\begin{verbatim}
+##                dim 1      dim 2      dim 3       dim 4       dim 5
+## latitude  -0.1972875 0.89428404 -0.2214475 -0.04100129 -0.04272996
+## longitude  0.7617791 0.35537824  0.4064136  0.01097103  0.01298250
+## price     -0.7183816 0.07289152  0.4855170  0.02253704  0.01357485
+\end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(}\StringTok{"FactoMineR"}\NormalTok{)}
-\KeywordTok{library}\NormalTok{(}\StringTok{"factoextra"}\NormalTok{)}
+\NormalTok{res.pcamix}\OperatorTok{$}\NormalTok{quali.eta2}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+##                         dim 1       dim 2     dim 3     dim 4     dim 5
+## neighbourhood_group 0.6390071 0.871714919 0.4342793 0.5273305 0.4806940
+## room_type           0.3560712 0.001558062 0.3614432 0.4732362 0.5142885
+\end{verbatim}
+
+~\\
+
+\hypertarget{factor-analysis-of-mixed-data-famd}{%
+\subsection{Factor Analysis of Mixed Data
+(FAMD)}\label{factor-analysis-of-mixed-data-famd}}
 
 FAMD (base, ncp = 5, sup.var = NULL, ind.sup = NULL, graph = TRUE) -
 base : a data frame with n rows (individuals) and p columns (variables).
@@ -3949,7 +4029,7 @@ individuals. - graph : a logical value. If TRUE a graph is displayed.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-34-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-33-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3975,7 +4055,7 @@ individuals. - graph : a logical value. If TRUE a graph is displayed.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-35-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-34-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4001,7 +4081,7 @@ individuals. - graph : a logical value. If TRUE a graph is displayed.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-36-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-35-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4081,7 +4161,7 @@ individuals. - graph : a logical value. If TRUE a graph is displayed.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-39-1.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-38-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4090,7 +4170,7 @@ individuals. - graph : a logical value. If TRUE a graph is displayed.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-39-2.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-38-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4099,7 +4179,7 @@ individuals. - graph : a logical value. If TRUE a graph is displayed.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-39-3.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-38-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4108,7 +4188,7 @@ individuals. - graph : a logical value. If TRUE a graph is displayed.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-39-4.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-38-4.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4117,7 +4197,7 @@ individuals. - graph : a logical value. If TRUE a graph is displayed.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-39-5.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-38-5.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4126,6 +4206,6 @@ individuals. - graph : a logical value. If TRUE a graph is displayed.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{project-code_files/figure-latex/unnamed-chunk-39-6.pdf}
+\includegraphics{project-code_files/figure-latex/unnamed-chunk-38-6.pdf}
 
 \end{document}

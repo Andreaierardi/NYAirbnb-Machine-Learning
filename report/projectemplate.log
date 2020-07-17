@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  16 JUL 2020 21:28
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  17 JUL 2020 21:27
 entering extended mode
 **./projectemplate.tex
 (projectemplate.tex
@@ -1545,13 +1545,7 @@ Package: import 2020/04/01  v 6.2
 LaTeX Warning: Label `fig:6' multiply defined.
 
 
-LaTeX Warning: Label `fig:31' multiply defined.
-
-
-LaTeX Warning: Label `fig:32' multiply defined.
-
-
-LaTeX Warning: Label `fig:34' multiply defined.
+LaTeX Warning: Label `fig:37' multiply defined.
 
 )
 \openout1 = `projectemplate.aux'.
@@ -1775,11 +1769,11 @@ LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <24.88> not available
 (Font)              Font shape `TU/lmr/m/sc' tried instead on input line 15.
 
-(projectemplate.toc [2])
+(projectemplate.toc)
 \tf@toc=\write5
 \openout5 = `projectemplate.toc'.
 
- [3] (projectemplate.lof [4])
+ [2] [3] (projectemplate.lof [4])
 \tf@lof=\write6
 \openout6 = `projectemplate.lof'.
 
@@ -1811,19 +1805,19 @@ LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
 (Font)              Font shape `TU/lmr/m/sc' tried instead on input line 54.
 
 [7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 105--106
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
  []
 
 File: figures/figure1.jpg Graphic file (type bmp)
 <figures/figure1.jpg>
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--114
+Underfull \hbox (badness 10000) in paragraph at lines 113--120
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--114
+Underfull \hbox (badness 10000) in paragraph at lines 113--120
 
  []
 
@@ -1910,13 +1904,13 @@ n;language=dflt;+liga;+sups;mapping=tex-text;"
 n;language=dflt;+liga;+sups;+smcp;mapping=tex-text;"
 
 LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 12.47992pt on input line 142.
+(Font)              scaled to size 12.47992pt on input line 147.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 142.
+(Font)              scaled to size 10.39993pt on input line 147.
 LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 142.
+(Font)              scaled to size 10.39993pt on input line 147.
 
-Underfull \hbox (badness 10000) in paragraph at lines 137--144
+Underfull \hbox (badness 10000) in paragraph at lines 142--149
 
  []
 
@@ -1924,39 +1918,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 137--144
 File: figures/figure4.PNG Graphic file (type bmp)
 <figures/figure4.PNG>
  [12]
-File: figures/model_summary.PNG Graphic file (type bmp)
-<figures/model_summary.PNG>
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--170
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--170
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
-[13]
+
+LaTeX Warning: Reference `fig:5' on page 13 undefined on input line 175.
+
 File: figures/lm1.PNG Graphic file (type bmp)
 <figures/lm1.PNG>
+[13]
 File: figures/lm2.jpg Graphic file (type bmp)
 <figures/lm2.jpg>
  [14]
 File: figures/lm3.PNG Graphic file (type bmp)
 <figures/lm3.PNG>
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--206
-
- []
-
-[15] [16]
+ [15] [16]
 File: figures/dt.PNG Graphic file (type bmp)
 <figures/dt.PNG>
 File: figures/tree-all.PNG Graphic file (type bmp)
 <figures/tree-all.PNG>
 
-Underfull \hbox (badness 1968) in paragraph at lines 226--226
-[]\TU/ArnoPro(1)/m/n/12 Figure 10: |Tree generated for the entire
+Underfull \hbox (badness 3977) in paragraph at lines 225--225
+[]\TU/ArnoPro(1)/m/n/12 Figure 9: |Tree generated for the entire
  []
 
 File: figures/dt1.1.PNG Graphic file (type bmp)
@@ -1991,7 +1980,7 @@ File: figures/rf5.png Graphic file (type bmp)
 File: figures/rf6.png Graphic file (type bmp)
 <figures/rf6.png>
  [21]
-Underfull \hbox (badness 10000) in paragraph at lines 331--334
+Underfull \hbox (badness 10000) in paragraph at lines 330--333
 
  []
 
@@ -2016,7 +2005,7 @@ File: figures/rgn2.5.png Graphic file (type bmp)
 File: figures/NN-all.PNG Graphic file (type bmp)
 <figures/NN-all.PNG>
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--402
+Underfull \hbox (badness 10000) in paragraph at lines 392--401
 
  []
 
@@ -2068,7 +2057,7 @@ File: figures/clust-all.PNG Graphic file (type bmp)
 File: figures/clust-summary.PNG Graphic file (type bmp)
 <figures/clust-summary.PNG>
 
-Underfull \hbox (badness 10000) in paragraph at lines 516--531
+Underfull \hbox (badness 10000) in paragraph at lines 515--530
 
  []
 
@@ -2083,7 +2072,7 @@ File: figures/clust-4.png Graphic file (type bmp)
 <figures/clust-4.png>
 File: figures/clust-5.png Graphic file (type bmp)
 <figures/clust-5.png>
- [30]
+ [30] [31]
 File: figures/clust-n1-r1.png Graphic file (type bmp)
 <figures/clust-n1-r1.png>
 File: figures/clust-n1-r2.png Graphic file (type bmp)
@@ -2102,6 +2091,7 @@ File: figures/clust-n3-r2.png Graphic file (type bmp)
 <figures/clust-n3-r2.png>
 File: figures/clust-n3-r3.png Graphic file (type bmp)
 <figures/clust-n3-r3.png>
+ [32]
 File: figures/clust-n4-r1.png Graphic file (type bmp)
 <figures/clust-n4-r1.png>
 File: figures/clust-n4-r2.png Graphic file (type bmp)
@@ -2114,12 +2104,13 @@ File: figures/clust-n5-r2.png Graphic file (type bmp)
 <figures/clust-n5-r2.png>
 File: figures/clust-n5-r3.png Graphic file (type bmp)
 <figures/clust-n5-r3.png>
+ [33]
 File: figures/hc.PNG Graphic file (type bmp)
 <figures/hc.PNG>
 File: figures/hc2.PNG Graphic file (type bmp)
 <figures/hc2.PNG>
 
-Underfull \hbox (badness 10000) in paragraph at lines 643--662
+Underfull \hbox (badness 10000) in paragraph at lines 690--709
 
  []
 
@@ -2128,19 +2119,36 @@ File: figures/hc3.PNG Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 673--674
-
- []
-
+[34]
 File: figures/pcamix.PNG Graphic file (type bmp)
 <figures/pcamix.PNG>
 File: figures/pcamix2.PNG Graphic file (type bmp)
 <figures/pcamix2.PNG>
+
+Underfull \hbox (badness 10000) in paragraph at lines 721--740
+
+ []
+
+
+LaTeX Warning: Reference `fig:Figure 31' on page 35 undefined on input line 746
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 741--749
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 741--749
+
+ []
+
+[35]
 File: figures/FAMD.PNG Graphic file (type bmp)
 <figures/FAMD.PNG>
 File: figures/FAMD2.PNG Graphic file (type bmp)
 <figures/FAMD2.PNG>
+ [36]
 File: figures/FAMD3.PNG Graphic file (type bmp)
 <figures/FAMD3.PNG>
 File: figures/FAMD4.PNG Graphic file (type bmp)
@@ -2149,6 +2157,12 @@ File: figures/FAMD5.PNG Graphic file (type bmp)
 <figures/FAMD5.PNG>
 File: figures/FAMD6.PNG Graphic file (type bmp)
 <figures/FAMD6.PNG>
+
+Underfull \hbox (badness 10000) in paragraph at lines 792--809
+
+ []
+
+[37]
 File: figures/FAMD7.png Graphic file (type bmp)
 <figures/FAMD7.png>
 File: figures/FAMD8.png Graphic file (type bmp)
@@ -2159,57 +2173,58 @@ File: figures/FAMD10.png Graphic file (type bmp)
 <figures/FAMD10.png>
 File: figures/FAMD11.png Graphic file (type bmp)
 <figures/FAMD11.png>
-[32]
-Underfull \hbox (badness 10000) in paragraph at lines 768--773
-
- []
-
-[33] [34]
-Underfull \hbox (badness 10000) in paragraph at lines 775--779
-
- []
-
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 781--784
+ [38]
+File: figures/model_summary.PNG Graphic file (type bmp)
+<figures/model_summary.PNG>
+ [39]
+Underfull \hbox (badness 10000) in paragraph at lines 852--861
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 786--789
-
- []
-
-[36]
-Underfull \hbox (badness 10000) in paragraph at lines 805--807
+Underfull \hbox (badness 10000) in paragraph at lines 852--861
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 813--815
+Underfull \hbox (badness 10000) in paragraph at lines 852--861
 
  []
 
-[37] [38]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 830.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 830.
+
+Underfull \hbox (badness 10000) in paragraph at lines 864--868
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 864--868
+
+ []
+
+[40] [41]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 881.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 881.
  (projectemplate.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 830.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 830.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 881.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 881.
 Package rerunfilecheck Info: File `projectemplate.out' has not changed.
-(rerunfilecheck)             Checksum: C761B65668A12A182AF27AE26D5875B4;3149.
+(rerunfilecheck)             Checksum: 8EBAF99A89E0302B62BCF846B7237297;2291.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 830.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 881.
  ) 
 Here is how much of TeX's memory you used:
- 50397 strings out of 414221
- 1151436 string characters out of 2902595
- 1595564 words of memory out of 3000000
- 66868 multiletter control sequences out of 15000+200000
+ 50399 strings out of 414221
+ 1151443 string characters out of 2902595
+ 1594981 words of memory out of 3000000
+ 66870 multiletter control sequences out of 15000+200000
  567432 words of font info for 102 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 76i,8n,102p,977b,827s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 76i,8n,102p,977b,917s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on projectemplate.pdf (38 pages).
+Output written on projectemplate.pdf (41 pages).
