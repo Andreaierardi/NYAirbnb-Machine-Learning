@@ -21,10 +21,10 @@
 \contentsline {subsubsection}{\numberline {3.2.2}Decison Trees Results}{17}{subsubsection.3.2.2}%
 \contentsline {subsubsection}{\numberline {3.2.3}Random Forest Results}{20}{subsubsection.3.2.3}%
 \contentsline {subsubsection}{\numberline {3.2.4}Ranger Random Forest Results}{22}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Neural Network Results}{25}{subsubsection.3.2.5}%
-\contentsline {subsubsection}{\numberline {3.2.6}K-means Results}{29}{subsubsection.3.2.6}%
-\contentsline {subsubsection}{\numberline {3.2.7}Principal Component Analysis Results}{35}{subsubsection.3.2.7}%
-\contentsline {section}{\numberline {4}Conclusion}{39}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Price prediction}{39}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Clusters and groups}{40}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Appendix}{41}{section.5}%
+\contentsline {subsubsection}{\numberline {3.2.5}Neural Network Results}{23}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}K-means Results}{26}{subsubsection.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.7}Principal Component Analysis Results}{34}{subsubsection.3.2.7}%
+\contentsline {section}{\numberline {4}Conclusion}{38}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Price prediction}{38}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Clusters and groups}{39}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Appendix}{40}{section.5}%

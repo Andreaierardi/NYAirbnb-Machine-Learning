@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7300 64-bit) (preloaded format=xelatex 2020.4.13)  17 JUL 2020 21:27
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 20.6.29) (preloaded format=xelatex 2020.7.3)  17 JUL 2020 23:56
 entering extended mode
 **./projectemplate.tex
 (projectemplate.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-03-06> (FR16.cls
+L3 programming layer <2020-06-18> (FR16.cls
 Document Class: FR16 2019/01/21 ver. 0.0
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\article.cls"
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
@@ -173,10 +173,10 @@ Package: marginnote 2018/08/09 v1.4b non floating margin notes for LaTeX
 \c@mn@abspage=\count186
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption.sty"
-Package: caption 2020/01/03 v3.4h Customizing captions (AR)
+Package: caption 2020/05/30 v3.4k Customizing captions (AR)
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption3.sty"
-Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
+Package: caption3 2020/05/30 v1.12 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
 \captionmargin=\dimen154
 \captionmargin@=\dimen155
@@ -192,24 +192,25 @@ Package caption Info: Standard document class detected.
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/siunitx\siunitx.sty"
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3kernel\expl3.sty"
-Package: expl3 2020-03-06 L3 programming layer (loader) 
+Package: expl3 2020-06-18 L3 programming layer (loader) 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-xdvipdfmx.def"
-File: l3backend-xdvipdfmx.def 2020-03-12 L3 backend support: xdvipdfmx
+File: l3backend-xdvipdfmx.def 2020-06-29 L3 backend support: xdvipdfmx
 \g__graphics_track_int=\count189
 \l__pdf_internal_box=\box47
 \g__pdf_backend_object_int=\count190
 \g__pdf_backend_annotation_int=\count191
 ))
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xparse\xparse.sty"
-Package: xparse 2020-03-06 L3 Experimental document command parser
+Package: xparse 2020-05-15 L3 Experimental document command parser
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xparse\xparse-generic.tex"
 \l__xparse_current_arg_int=\count192
 \g__xparse_grabber_int=\count193
 \l__xparse_m_args_int=\count194
 \l__xparse_v_nesting_int=\count195
-)
+))
 Package: siunitx 2020/02/25 v2.8b A comprehensive (SI) units package
-
 ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\array.sty"
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen161
@@ -221,7 +222,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \ar@cellbox=\box49
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/l3keys2e\l3keys2e.sty"
-Package: l3keys2e 2020-03-06 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2020-05-15 LaTeX2e option processing using LaTeX3 keys
 )
 \l__siunitx_tmp_box=\box50
 \l__siunitx_tmp_dim=\dimen163
@@ -318,13 +319,13 @@ Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 \PaperWidth=\dimen177
 \PaperHeight=\dimen178
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hyperref.sty"
-Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
+Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/ltxcmds\ltxcmds.sty"
 Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex/latex/pdftexcmds\pdftexcmds.sty"
-Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+("C:\Program Files\MiKTeX 2.9\tex/generic/pdftexcmds\pdftexcmds.sty"
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/infwarerr\infwarerr.sty"
@@ -360,7 +361,7 @@ Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 \Hy@pagecounter=\count282
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def"
-File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/intcalc\intcalc.sty"
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
@@ -369,20 +370,20 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count283
-Package hyperref Info: Hyper figures OFF on input line 4547.
-Package hyperref Info: Link nesting OFF on input line 4552.
-Package hyperref Info: Hyper index ON on input line 4555.
-Package hyperref Info: Plain pages OFF on input line 4562.
-Package hyperref Info: Backreferencing OFF on input line 4567.
+Package hyperref Info: Hyper figures OFF on input line 4464.
+Package hyperref Info: Link nesting OFF on input line 4469.
+Package hyperref Info: Hyper index ON on input line 4472.
+Package hyperref Info: Plain pages OFF on input line 4479.
+Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4800.
+Package hyperref Info: Bookmarks ON on input line 4717.
 \c@Hy@tempcnt=\count284
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5159.
+LaTeX Info: Redefining \url on input line 5076.
 \XeTeXLinkMargin=\dimen180
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/bitset\bitset.sty"
@@ -395,15 +396,15 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 \Fld@menulength=\count285
 \Field@Width=\dimen181
 \Fld@charsize=\dimen182
-Package hyperref Info: Hyper figures OFF on input line 6430.
-Package hyperref Info: Link nesting OFF on input line 6435.
-Package hyperref Info: Hyper index ON on input line 6438.
-Package hyperref Info: backreferencing OFF on input line 6445.
-Package hyperref Info: Link coloring OFF on input line 6450.
-Package hyperref Info: Link coloring with OCG OFF on input line 6455.
-Package hyperref Info: PDF/A mode OFF on input line 6460.
-LaTeX Info: Redefining \ref on input line 6500.
-LaTeX Info: Redefining \pageref on input line 6504.
+Package hyperref Info: Hyper figures OFF on input line 6347.
+Package hyperref Info: Link nesting OFF on input line 6352.
+Package hyperref Info: Hyper index ON on input line 6355.
+Package hyperref Info: backreferencing OFF on input line 6362.
+Package hyperref Info: Link coloring OFF on input line 6367.
+Package hyperref Info: Link coloring with OCG OFF on input line 6372.
+Package hyperref Info: PDF/A mode OFF on input line 6377.
+LaTeX Info: Redefining \ref on input line 6417.
+LaTeX Info: Redefining \pageref on input line 6421.
 
 ("C:\Program Files\MiKTeX 2.9\tex/generic/atbegshi\atbegshi.sty"
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
@@ -415,10 +416,10 @@ Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 Package hyperref Info: Driver (autodetected): hxetex.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hxetex.def"
-File: hxetex.def 2020/01/14 v7.00d Hyperref driver for XeTeX
+File: hxetex.def 2020-05-15 v7.00e Hyperref driver for XeTeX
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\puenc.def"
-File: puenc.def 2020/01/14 v7.00d Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
 )
 ("C:\Program Files\MiKTeX 2.9\tex/generic/stringenc\stringenc.sty"
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
@@ -1033,7 +1034,7 @@ Package: numprint 2012/08/20 v1.39 Print numbers (HH)
 
 No configuration file `numprint.cfg' found.)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xfp\xfp.sty"
-Package: xfp 2020-03-06 L3 Floating point unit
+Package: xfp 2020-05-15 L3 Floating point unit
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/fp\fp.sty"
 Package: fp 1995/04/02
@@ -1489,15 +1490,15 @@ LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
 \lst@maxwidth=\dimen342
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\lstmisc.sty"
-File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 \c@lstnumber=\count372
 \lst@skipnumbers=\count373
 \lst@framebox=\box103
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/listings\listings.cfg"
-File: listings.cfg 2019/09/10 1.8c listings configuration
+File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
-Package: listings 2019/09/10 1.8c (Carsten Heinz)
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/pdfpages\pdfpages.sty"
 Package: pdfpages 2020/01/28 v0.5q Insert pages of external PDF documents (AM)
@@ -1541,9 +1542,6 @@ Package: subfiles 2020/02/14 v1.6 Multi-file projects (package)
 Package: import 2020/04/01  v 6.2
 ))
 (projectemplate.aux
-
-LaTeX Warning: Label `fig:6' multiply defined.
-
 
 LaTeX Warning: Label `fig:37' multiply defined.
 
@@ -1761,13 +1759,13 @@ File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 
 ]
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 12.47992pt on input line 15.
+(Font)              scaled to size 12.47992pt on input line 12.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 25.87503pt on input line 15.
+(Font)              scaled to size 25.87503pt on input line 12.
 
 
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <24.88> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 15.
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 12.
 
 (projectemplate.toc)
 \tf@toc=\write5
@@ -1779,45 +1777,45 @@ LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <24.88> not available
 
  [5]
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 83.19946pt on input line 19.
+(Font)              scaled to size 83.19946pt on input line 16.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/b/n' will be
-(Font)              scaled to size 14.97589pt on input line 19.
+(Font)              scaled to size 14.97589pt on input line 16.
 
-Underfull \hbox (badness 10000) in paragraph at lines 29--32
+Underfull \hbox (badness 10000) in paragraph at lines 26--29
 
  []
 
 [6]
-Overfull \hbox (13.01924pt too wide) in paragraph at lines 51--51
+Overfull \hbox (13.01924pt too wide) in paragraph at lines 48--48
 |\TU/lmr/m/sc/24.88 Problem Definition and Algorithm| 
  []
 
 
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <14.4> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 52.
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <12> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 52.
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 49.
 
 
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 54.
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 51.
 
 [7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
 File: figures/figure1.jpg Graphic file (type bmp)
 <figures/figure1.jpg>
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--120
+Underfull \hbox (badness 10000) in paragraph at lines 110--117
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--120
+Underfull \hbox (badness 10000) in paragraph at lines 110--117
 
  []
 
@@ -1904,13 +1902,13 @@ n;language=dflt;+liga;+sups;mapping=tex-text;"
 n;language=dflt;+liga;+sups;+smcp;mapping=tex-text;"
 
 LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 12.47992pt on input line 147.
+(Font)              scaled to size 12.47992pt on input line 144.
 LaTeX Font Info:    Font shape `TU/ArnoPro(1)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 147.
+(Font)              scaled to size 10.39993pt on input line 144.
 LaTeX Font Info:    Font shape `TU/ArnoPro(2)/m/n' will be
-(Font)              scaled to size 10.39993pt on input line 147.
+(Font)              scaled to size 10.39993pt on input line 144.
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--149
+Underfull \hbox (badness 10000) in paragraph at lines 139--146
 
  []
 
@@ -1918,17 +1916,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 142--149
 File: figures/figure4.PNG Graphic file (type bmp)
 <figures/figure4.PNG>
  [12]
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
-
-
-LaTeX Warning: Reference `fig:5' on page 13 undefined on input line 175.
 
 File: figures/lm1.PNG Graphic file (type bmp)
 <figures/lm1.PNG>
@@ -1944,7 +1939,7 @@ File: figures/dt.PNG Graphic file (type bmp)
 File: figures/tree-all.PNG Graphic file (type bmp)
 <figures/tree-all.PNG>
 
-Underfull \hbox (badness 3977) in paragraph at lines 225--225
+Underfull \hbox (badness 3977) in paragraph at lines 222--222
 []\TU/ArnoPro(1)/m/n/12 Figure 9: |Tree generated for the entire
  []
 
@@ -1980,7 +1975,7 @@ File: figures/rf5.png Graphic file (type bmp)
 File: figures/rf6.png Graphic file (type bmp)
 <figures/rf6.png>
  [21]
-Underfull \hbox (badness 10000) in paragraph at lines 330--333
+Underfull \hbox (badness 10000) in paragraph at lines 327--330
 
  []
 
@@ -1996,20 +1991,22 @@ File: figures/rgn2.2.png Graphic file (type bmp)
 <figures/rgn2.2.png>
 File: figures/rgn2.3.png Graphic file (type bmp)
 <figures/rgn2.3.png>
-[22] [23]
+[22]
 File: figures/rgn2.4.png Graphic file (type bmp)
 <figures/rgn2.4.png>
 File: figures/rgn2.5.png Graphic file (type bmp)
 <figures/rgn2.5.png>
- [24]
 File: figures/NN-all.PNG Graphic file (type bmp)
 <figures/NN-all.PNG>
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--401
+Underfull \hbox (badness 10000) in paragraph at lines 389--398
 
  []
 
-[25]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[23]
 File: figures/NN-1.png Graphic file (type bmp)
 <figures/NN-1.png>
 File: figures/NN-2.png Graphic file (type bmp)
@@ -2020,7 +2017,7 @@ File: figures/NN-4.png Graphic file (type bmp)
 <figures/NN-4.png>
 File: figures/NN-5.png Graphic file (type bmp)
 <figures/NN-5.png>
- [26] [27]
+ [24] [25]
 File: figures/NN-n1-r1.png Graphic file (type bmp)
 <figures/NN-n1-r1.png>
 File: figures/NN-n1-r2.png Graphic file (type bmp)
@@ -2051,17 +2048,16 @@ File: figures/NN-n5-r2.png Graphic file (type bmp)
 <figures/NN-n5-r2.png>
 File: figures/NN-n5-r3.png Graphic file (type bmp)
 <figures/NN-n5-r3.png>
- [28]
 File: figures/clust-all.PNG Graphic file (type bmp)
 <figures/clust-all.PNG>
 File: figures/clust-summary.PNG Graphic file (type bmp)
 <figures/clust-summary.PNG>
 
-Underfull \hbox (badness 10000) in paragraph at lines 515--530
+Underfull \hbox (badness 10000) in paragraph at lines 512--527
 
  []
 
-[29]
+[26]
 File: figures/clust-1.png Graphic file (type bmp)
 <figures/clust-1.png>
 File: figures/clust-2.png Graphic file (type bmp)
@@ -2072,7 +2068,7 @@ File: figures/clust-4.png Graphic file (type bmp)
 <figures/clust-4.png>
 File: figures/clust-5.png Graphic file (type bmp)
 <figures/clust-5.png>
- [30] [31]
+ [27] [28] [29]
 File: figures/clust-n1-r1.png Graphic file (type bmp)
 <figures/clust-n1-r1.png>
 File: figures/clust-n1-r2.png Graphic file (type bmp)
@@ -2091,7 +2087,7 @@ File: figures/clust-n3-r2.png Graphic file (type bmp)
 <figures/clust-n3-r2.png>
 File: figures/clust-n3-r3.png Graphic file (type bmp)
 <figures/clust-n3-r3.png>
- [32]
+ [30] [31]
 File: figures/clust-n4-r1.png Graphic file (type bmp)
 <figures/clust-n4-r1.png>
 File: figures/clust-n4-r2.png Graphic file (type bmp)
@@ -2104,13 +2100,13 @@ File: figures/clust-n5-r2.png Graphic file (type bmp)
 <figures/clust-n5-r2.png>
 File: figures/clust-n5-r3.png Graphic file (type bmp)
 <figures/clust-n5-r3.png>
- [33]
+ [32]
 File: figures/hc.PNG Graphic file (type bmp)
 <figures/hc.PNG>
 File: figures/hc2.PNG Graphic file (type bmp)
 <figures/hc2.PNG>
 
-Underfull \hbox (badness 10000) in paragraph at lines 690--709
+Underfull \hbox (badness 10000) in paragraph at lines 687--706
 
  []
 
@@ -2119,36 +2115,32 @@ File: figures/hc3.PNG Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[34]
+[33]
 File: figures/pcamix.PNG Graphic file (type bmp)
 <figures/pcamix.PNG>
 File: figures/pcamix2.PNG Graphic file (type bmp)
 <figures/pcamix2.PNG>
 
-Underfull \hbox (badness 10000) in paragraph at lines 721--740
+Underfull \hbox (badness 10000) in paragraph at lines 718--737
 
  []
 
 
-LaTeX Warning: Reference `fig:Figure 31' on page 35 undefined on input line 746
-.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 741--749
+Underfull \hbox (badness 10000) in paragraph at lines 738--746
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 741--749
+Underfull \hbox (badness 10000) in paragraph at lines 738--746
 
  []
 
-[35]
+[34]
 File: figures/FAMD.PNG Graphic file (type bmp)
 <figures/FAMD.PNG>
 File: figures/FAMD2.PNG Graphic file (type bmp)
 <figures/FAMD2.PNG>
- [36]
+ [35]
 File: figures/FAMD3.PNG Graphic file (type bmp)
 <figures/FAMD3.PNG>
 File: figures/FAMD4.PNG Graphic file (type bmp)
@@ -2158,11 +2150,11 @@ File: figures/FAMD5.PNG Graphic file (type bmp)
 File: figures/FAMD6.PNG Graphic file (type bmp)
 <figures/FAMD6.PNG>
 
-Underfull \hbox (badness 10000) in paragraph at lines 792--809
+Underfull \hbox (badness 10000) in paragraph at lines 789--806
 
  []
 
-[37]
+[36]
 File: figures/FAMD7.png Graphic file (type bmp)
 <figures/FAMD7.png>
 File: figures/FAMD8.png Graphic file (type bmp)
@@ -2173,58 +2165,60 @@ File: figures/FAMD10.png Graphic file (type bmp)
 <figures/FAMD10.png>
 File: figures/FAMD11.png Graphic file (type bmp)
 <figures/FAMD11.png>
- [38]
+ [37]
 File: figures/model_summary.PNG Graphic file (type bmp)
 <figures/model_summary.PNG>
- [39]
-Underfull \hbox (badness 10000) in paragraph at lines 852--861
+ [38]
+Underfull \hbox (badness 10000) in paragraph at lines 849--858
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 852--861
+Underfull \hbox (badness 10000) in paragraph at lines 849--858
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 852--861
+Underfull \hbox (badness 10000) in paragraph at lines 849--858
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 864--868
+Underfull \hbox (badness 10000) in paragraph at lines 849--858
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 864--868
+Underfull \hbox (badness 10000) in paragraph at lines 861--865
 
  []
 
-[40] [41]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 881.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 881.
+
+Underfull \hbox (badness 10000) in paragraph at lines 861--865
+
+ []
+
+[39] [40]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 878.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 878.
  (projectemplate.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 881.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 881.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 878.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 878.
 Package rerunfilecheck Info: File `projectemplate.out' has not changed.
 (rerunfilecheck)             Checksum: 8EBAF99A89E0302B62BCF846B7237297;2291.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 881.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 878.
  ) 
 Here is how much of TeX's memory you used:
- 50399 strings out of 414221
- 1151443 string characters out of 2902595
- 1594981 words of memory out of 3000000
- 66870 multiletter control sequences out of 15000+200000
+ 50464 strings out of 414078
+ 1153193 string characters out of 2898264
+ 1595133 words of memory out of 3000000
+ 67078 multiletter control sequences out of 15000+200000
  567432 words of font info for 102 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 76i,8n,102p,977b,917s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 76i,8n,102p,977b,919s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on projectemplate.pdf (41 pages).
+Output written on projectemplate.pdf (40 pages).

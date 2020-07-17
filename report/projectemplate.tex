@@ -8,9 +8,6 @@
 
 \maketitle
 
-% ML template reports
-% https://www.cs.utexas.edu/~mooney/cs391L/paper-template.html
-%https://github.com/udacity/machine-learning/blob/master/projects/capstone/report-example-1.pdf
 \newpage
 \tableofcontents
 \newpage
@@ -164,44 +161,44 @@ Also, for clustering have been filter every scenario, but not for the case of Hi
 
 \subsection{Results}
 
-Since the number of models trained are very high, the study result will be presented for different macro groups that depend on the different subset of the dataset: entire dataset,  filtering by neighbourhood  and filtering by neighbourhood  and room type. This because neighborhood in general have similar result (like Manhattan has similar shape of Brooklyn and Staten Island has a similar shape of Bronx).\\\\
+The study results are for the different groups that depend on the different subset of the dataset: entire dataset,  filtering by neighbourhood  and filtering by neighbourhood  and room type. \\\\
 
 
 \subsubsection{Linear Regression Results}
 %Linear Regression has been applied to the different subset and gains different results based on the macro group.
 
 \textbf{Linear Regression on the entire dataset}\\
-\noindent The results on the entire dataset are acceptable. All variables are significant for the model and the $R^2$ value is 40\% (Figure \ref{fig:6}).
-The Mean Square Error (Figure \ref{fig:5}) has a value of 0.6 which is acceptable. All the neighbourhood groups have a positive effect on the price apart for the $4^th$ one. This could be because Staten Island does not have expensive houses compared to the other group. \\
-Also, the latitude and longitude have a slight negative effect on the price. Entire apartment has a slight positive effect while the shared house negative. This could be because entire house will cost more than a shared room, so the price will increase for this type of room. 
+\noindent The results on the entire dataset are acceptable. All variables are significant for the model and the $R^2$ value is 40\% (Figure \ref{fig:5}).
+The Mean Square Error (Figure \ref{fig:37}) has a value of 0.6 which is acceptable. All the neighbourhood groups have a positive effect on the price apart for the $4^{th}$ one. This could be because Staten Island does not have expensive houses compared to the other groups. \\
+Latitude and longitude have a slight negative effect on the price. Entire apartment has a slight positive effect while the shared house is negative. This could be because entire house will cost more than a shared room, so the price will be greater for this type of room. 
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/lm1.PNG} 
-\caption{\label{fig:6} Linear Regression output for the entire dataset}
+\caption{\label{fig:5} Linear Regression output for the entire dataset}
 \end{figure}
 \newpage
 \noindent \textbf{Linear Regression for specific neighbourhood group}
 
-\noindent Models give different results for the specific neighbourhood group. For the first three (Brooklyn, Manhattan and Queens) $R^2$ are over approximately $30\%$. For the MSE, the values have different ranges based on the distribution of prices in the singular neighbourhood. To be noticed, is the fact that MSE of Brooklyn is significantly lower with respect to Manhattan, given the have a similar number of houses and have almost the same price distribution. The only difference between the two is the fact that Manhattan has more entire apartment type of room. 
-\\ All variables have a significant effect on the price apart for the latitude in Manhattan and longitude for Queens with a 0.1.  \\
-For the last two groups (Staten Island and Bronx) all variables do not have significance in the response variable apart for the Entire Apartment dummy which have a positive effect. This is because entire properties will cost more than shared rooms.
+\noindent Models give different results for the specific neighbourhood group (Figure \ref{fig:6} \footnote{In order 1 to 5 are: Brooklyn, Manhattan, Queens, Staten Island and Bronx}). For the first three (Brooklyn, Manhattan and Queens) $R^2$ are  approximately over $30\%$. For the MSE, the values have different ranges based on the distribution of prices in the singular neighbourhood. To be noticed, is the fact that MSE of Brooklyn is significantly lower with respect to Manhattan. They have a similar number of houses and have almost the same price distribution. The only difference between the two is the fact that Manhattan has more entire apartment type of room. 
+\\ All variables have a significant effect on the price apart for the latitude in Manhattan and longitude for Queens with a $0.1$ confidence interval.  \\
+For the last two groups (Staten Island and Bronx) all variables do not have any significance in the response variable apart for the Entire Apartment dummy that has a positive effect. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/lm2.jpg} 
-\caption{\label{fig:6}  Linear Regression output filtering by  Manhattan}
+\caption{\label{fig:6}  Linear Regression results for neighbourhood group filter }
 \end{figure}
 
 \newpage
 \noindent \textbf{Linear Regression for specific neighbourhood group and room type}\\
-\noindent Adding a filter also for the room type, models give acceptable results in some cases and not in others. (Figure \ref{fig:7}) 
-For the larger subset the model confirms the significant of the variables, apart for latitude in Manhattan such as happened in the model using this neighbourhood data. In Manhattan with Entire apartment model, instead, all variables have a significant effect. For the remaining neighbourhood groups the variables do not result as significant in the model. This could be because the subset obtained from this filtering are not large ( they have less than 300 rows). Also, in all model the $R^2$ result to be lower than $10\%$ but this depends on the fact to train they have less information.
+\noindent Adding an additional filter for the room type, models give acceptable results in some cases and not in others. (Figure \ref{fig:7} \footnote{In order n1 to n5 are: Brooklyn, Manhattan, Queens, Staten Island and Bronx \\ and r1 to r3: Private room, Entire apartment and Shared room}) 
+For the larger subset the model confirms the significance of the variables, apart for latitude in Manhattan such as happened in the model using the whole neighbourhood data. In Manhattan with Entire apartment model, instead, all variables have a significant effect. For the remaining neighbourhood groups the variables do not result as significant in the model. This could be because the subset obtained from this filtering are not large ( they have less than 300 rows). Also, in all model the $R^2$ result to be lower than $10\%$ but this depends on the fact they have less information.
 \\
 Also, in this model the MSE of Brooklyn is lower in all the type of room type than the Manhattan MSE. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{figures/lm3.PNG} 
-\caption{\label{fig:7}  Linear Regression output filtering by  Manhattan and Entire home/Apartment }
+\caption{\label{fig:7}  Linear Regression output filtering by neighbourhood group and room type }
 \end{figure}
 
 
@@ -210,7 +207,7 @@ Also, in this model the MSE of Brooklyn is lower in all the type of room type th
 \newpage 
 \subsubsection{Decison Trees Results}
 \textbf{Decison tree  without filters}\\
-\noindent For the entire dataset, the MSE has a value of $0.605$ (Figure \ref{fig:9}) Important to be notice is the fact that the neighbourhood groups variable have not been used in the construction of the tree. Moreover, what really influence the price is the type of room (Figure \ref{fig:10}).
+\noindent For the entire dataset, the MSE has a value of $0.605$ (Figure \ref{fig:9}). To be notice is the fact that the neighbourhood groups variable have not been used in the construction of the tree. Moreover, what really influence the price is the type of room since this decision makes the first split of the tree brenches and get a positive (scaled) price or not (Figure \ref{fig:10}).
 
 
 \begin{figure}[!htb]
@@ -228,7 +225,7 @@ Also, in this model the MSE of Brooklyn is lower in all the type of room type th
 
 
 \noindent \\ \textbf{Decision tree for specific neighbourhood group}\\
-\noindent For the specific neighbourhood group decision tree models give output similar MSE results with respect to the Linear Regression. Also, in this case, the latitude for Manhattan has not been used in the model to predict the price (Figure \ref{fig:11}). 
+\noindent For the specific neighbourhood group decision tree models output similar MSE results with respect to the Linear Regression. Also, in this case, the latitude for Manhattan has not been used in the model to predict the price (Figure \ref{fig:11}). 
 
 \begin{figure}[!htb]
    \begin{minipage}{0.48\textwidth}
@@ -246,7 +243,7 @@ Also, in this model the MSE of Brooklyn is lower in all the type of room type th
 \newpage 
 \noindent \textbf{Decison tree  for specific neighbourhood group and room type}
  
-\noindent For neighbourhood group and room price Decision tree construction was not possible for all the subset. For example, for shared room for Bronx were not possible to plot the tree since the model had only one node. MSE are similar to Linear Regression but for this type of subset perform slighly worse. This is due to the lack of information of some of these subsets (Figure \ref{fig:12}).
+\noindent For neighbourhood group and room price Decision tree construction was not possible for all the subsets. For example, for shared room for Bronx were not possible to plot the tree since the model had only one node. MSE are similar to Linear Regression but for this type of subset perform slighly worse. This could be due to the lack of information. (Figure \ref{fig:12}). All variables (latitude and longitude) have been used in each model.
 \newpage
 \begin{figure}[!htb]
    \begin{minipage}{0.48\textwidth}
@@ -275,7 +272,7 @@ Also, in this model the MSE of Brooklyn is lower in all the type of room type th
 \newpage
 \subsubsection{Random Forest Results}
 \textbf{Random Forest  on the entire dataset}\\
-Random Forest on the entire dataset outputs an explained variance of $42\%$ which is acceptable and also the MSE is lower with respect to the models before. 
+Random Forest on the entire dataset outputs an explained variance of $42\%$ and a MSE of 0.57 which is acceptable. Number of trees used is 500, which is the default setting for the model.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/rf.PNG} 
@@ -283,7 +280,7 @@ Random Forest on the entire dataset outputs an explained variance of $42\%$ whic
 \end{figure}
 
 \noindent \textbf{Random Forest for specific neighbourhood group}\\
-Random Forest on specific neighbourhood outputs overall MSE lower than the last two models. Explained variance are acceptable: for Brooklyn and Manhattan is approximately around $40\%$, $37\%$ for Queens and about $25\%$ for Staten Island and Bronx. 
+Random Forest on specific neighbourhood outputs overall acceptable MSE. Explained variance for Brooklyn and Manhattan is approximately around $40\%$, $37\%$ for Queens and about $25\%$ for Staten Island and Bronx. Also in this case, Manhattan MSE is higher than Brooklyn.
 \begin{figure}[!htb]
    \begin{minipage}{0.48\textwidth}
      \centering
@@ -299,7 +296,7 @@ Random Forest on specific neighbourhood outputs overall MSE lower than the last 
 
 \newpage
 \noindent \textbf{Random Forest  for specific neighbourhood group and room type}\\
-Random Forest for specific neighbourhood and room type does perform poorly since in some cases explained variance is negative. This could be due to the fact of overfitting, but in this case is more probable the problem is underfitting since in some specific case there is a low number of information.
+Random Forest for specific neighbourhood and room type does perform poorly since in some cases explained variance is negative. This could be due to the fact of overfitting, but in this case is more plausible the case that the model does not fit the data in a adequate way due to the lack of information. 
 \begin{figure}[!htb]
    \begin{minipage}{0.33\textwidth}
      \centering
@@ -327,9 +324,9 @@ Random Forest for specific neighbourhood and room type does perform poorly since
 
 \newpage
 \subsubsection{Ranger Random Forest Results}
-Ranger Random Forest is known to be computationally light with respect to the classic Random Forest. In fact, for the tuning part there were not problem in running it for the entire dataset. 
+Ranger Random Forest is known to be computationally cheaper with respect to the classic Random Forest. Also for this case, the number of tree used is 500.
 \\\\ \textbf{Ranger on the entire dataset }\\
-Ranger outputs for the entire dataset are consistent. We have a $R^2$ of 0.47 and OOB error of .
+Ranger outputs for the entire dataset are consistent, a $R^2$ of $0.45$ and a MSE of $0.54$ which is the lowest compared to the other models.
 
 \begin{figure}[h]
 \centering
@@ -338,7 +335,7 @@ Ranger outputs for the entire dataset are consistent. We have a $R^2$ of 0.47 an
 \end{figure}
 
 \noindent \textbf{Ranger for specific neighbourhood group}\\
-For the specific neighbourhood group Ranger gives different results. 
+For the specific neighbourhood group Ranger gives different results. \\ $R^2$ value greater than 0.30 for Brooklyn, Manhattan and Queens and approximately 0.2 for Bronx and Staten Island. Also in this case, MSE of Manhattan is higher with respect to Brooklyn.
 \begin{figure}[!htb]
    \begin{minipage}{0.48\textwidth}
      \centering
@@ -352,7 +349,7 @@ For the specific neighbourhood group Ranger gives different results.
 
 \end{figure}
 \noindent \textbf{Ranger for specific neighbourhood group and room type}\\
-The dataset filtered by neighbourhood and room type gives as result a $R^2$ of 0.25.
+The dataset filtered by neighbourhood and room type outputs negative $R^2$ as in the case of Random Forest for the shared type of room (not for Brooklyn) and for all rooms in Bronx and Staten Island.
 \begin{figure}[!htb]
    \begin{minipage}{0.48\textwidth}
      \centering
@@ -392,7 +389,7 @@ The dataset filtered by neighbourhood and room type gives as result a $R^2$ of 0
  Neural Network on the entire dataset has been run for 30 epochs. For simplicity, it has been used a single architecture for all the subsets. It has been used three dense layers of respectively 32, 16 and 1 units and Relu activation function.\\\\
 \textbf{Neural Networks on the entire dataset }\\
 \noindent
-For the entire dataset, the results are acceptable but not in line with random forest and the other regression methods. The model MSE and loss decrease during the epochs and it stabilise both for validation and training at the 15th epoch.
+For the entire dataset, the results are acceptable but not in line with random forest and the other regression methods. The model MAE and loss decrease during the epochs and it stabilise both for validation and training at the 15th epoch.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/NN-all.PNG} 
@@ -401,7 +398,7 @@ For the entire dataset, the results are acceptable but not in line with random f
 
 \newpage
 \noindent \textbf{Neural Networks for specific neighbourhood group}\\
-For the specific group, the models output different results. The most populous such as Brooklyn and Manhattan and Queens they have a decreasing MSE and loss trend. Only for Manhattan, the validation loss seems to increase approximately after the 18th epochs. For the remaining neighbourhood they have a decreasing training and validation MSE and loss, while the validation remains stable for all the epochs.
+For the specific group, the models output different results. The most populous neighbourhood such as Brooklyn and Manhattan and Queens have a decreasing MAE and loss trend. Only for Manhattan, the validation loss seems to increase approximately after the 18th epochs. For the remaining neighbourhood they have a decreasing training and validation MAE and loss, while the validation remains stable for all the epochs.
 \begin{figure}[!htb]
    \begin{minipage}{0.33\textwidth}
      \centering
@@ -429,9 +426,9 @@ For the specific group, the models output different results. The most populous s
 
 \newpage 
 \noindent \textbf{Neural Networks  for specific neighbourhood group and room type}\\
-For the different type of room and neighbourhood in some cases are not satisfactory while in other cases are acceptable. For the type Private room results for Brooklyn and Manhattan and Queens results in a decreasing training MSE and loss and a stable validation MSE and loss. For Brooklyn validation MSE and loss remains nearby 0, for Manhattan instead, are a bit higher compared to the training. For the last two neighbourhood starts with a very high loss and MSE train and validation, while during the epochs the value converge to a lower value near 0.5.
-\\ For the entire apartment type, for Brooklyn training MSE and loss have a decreasing trend, while validation after 12th epochs increases and get value higher than the starting point. 
-For Manhattan instead we have both train and validation decreasing trend, in particular slightly for the validation. For Queens validation MSE increases till epoch 18th and then decrease until it reaches almost the training MSE at the 30th epochs; while for the loss it continuously increase and decrease for all the epochs. For Bronx and State Island decreasing training MSE and loss, while a stable validation MSE.  \\ For Shared rooms similar trends of validation and train for the Brooklyn, Manhattan and Queens, starting from a high value. For State Island and Bronx results are decreases very fast but reaching high values of MAE and loss. For Staten Island, train and validation start from a loss value higher than 1000, which is very high considering the dimension of this subsets.  
+For the different type of room and neighbourhood in some cases results are not satisfactory while in other cases are acceptable. \\ For the private room results for Brooklyn, Manhattan and Queens presents a decreasing training MAE and loss and a stable validation MAE and loss during the epochs. For Brooklyn validation MAE and loss remains nearby 0, for Manhattan instead, are higher compared to the training. For the last two neighbourhood starts with a very high loss and MAE train and validation, while during the epochs the value converge to a lower value near 0.5.
+\\ For the entire apartment type, for Brooklyn training MAE and loss have a decreasing trend, while validation after 12th epochs increases and get value higher than the starting point. 
+For Manhattan instead, both train and validation decreasing trend, in particular slightly for the validation. For Queens validation MAE increases till epoch 18th and then decrease until it reaches almost the training MAE at the 30th epochs; while for the loss it continuously increase and decrease for all the epochs. For Bronx and State Island decreasing training MAE and loss, while a stable validation MAE.  \\ For Shared rooms similar trends of validation and train for the Brooklyn, Manhattan and Queens, starting from a high value. For State Island and Bronx results are decreases very fast but reaching high values of MAE and loss. For Staten Island, train and validation start from a loss value higher than 1000, which is very high considering the dimension of this subsets.  
 
 \newpage
 \begin{figure}[!htb]
@@ -512,8 +509,8 @@ For Manhattan instead we have both train and validation decreasing trend, in par
 \newpage
 \noindent \subsubsection{K-means Results}
 
-K-means algorithm has been run on all type of subsets as in the models before. Moreover, since the variables are not all numerical, it has been used a specific library called "clustMixType" which computes k-prototypes clustering for mixed-type data. It uses Euclidean distance for numerical variables and simple match coefficient. For simplicity has been computed only setting k = 5 since changing the value for all the different subset will be computationally and timely expensive. \\\\
-As shown in the cluster map of the entire dataset, clusters define and divides the different neighbourhood. Manhattan is divided in the north and south part that also includes a part of Brooklyn. This should be the case of the most expensive houses in the entire NY city. All cluster can is a a partition of price zone in the entire city. As shown in the Figure \ref{fig:23} the distributions of prices and room type differ in the different clusters.
+K-means algorithm has been run on all type of subsets. Moreover, since the variables are not all numerical, it has been used a specific library called "clustMixType" which computes k-prototypes clustering for mixed-type data. It uses Euclidean distance for numerical variables and simple match coefficient. Clusters have has been computed only using k = 5 since changing the value for all the different subset will be computationally expensive. \\\\
+As shown in the cluster map of the entire dataset (Figure \ref{fig:22}) Manhattan is divided in the north and south part where this last one also includes a part of Brooklyn. This should be the case of the most expensive houses in the entire NY city. All cluster is a a partition of price zone in the entire city. As shown in the Figure \ref{fig:23} the distributions of prices and room type differ in the different clusters.
 \begin{figure}[!htb]
    \begin{minipage}{0.48\textwidth}
      \centering
@@ -529,14 +526,14 @@ As shown in the cluster map of the entire dataset, clusters define and divides t
 \end{figure}
 
 \newpage
-\noindent The maps plot clusters for the single neighbourhood (Figure \ref{fig:24}). It also shows how the data are distributed  in the maps. 
+\noindent The maps plot clusters for the single neighbourhood (Figure \ref{fig:24}) also shows how the data are distributed  in the maps. 
 \begin{itemize}
 \itemsep0em 
-\item Brooklyn has 3 main visible clusters;
-\item Manhattan has 2 clusters for north and south part; 
+\item Brooklyn has 3 main visible clusters.
+\item Manhattan has 2 clusters for north and south part. 
 \item Queens instead has 4 visible cluster depending on the nearness to the seaside, Manhattan/Brooklyn and inland. 
-\item Staten Island has spars cluster depending on the north east part or the south-west.
-\item Bronx has 4 clusters visible in which 2 are mixed and the other two depends on the nearness to Manhattan.
+\item Staten Island has spars cluster in the north-east and one in the south-west part.
+\item Bronx has 4 clusters visible in which 2 are mixed and the other two depends on the nearness to Manhattan since the more the houses get closer to Manhattan, the higher will be the cost.
 \end{itemize}
 
 \begin{figure}[!htb]
@@ -570,24 +567,24 @@ Clusters for specific neighbourhood group and room type have a similar shape cha
 \item Brooklyn: 
 \begin{itemize}
 \itemsep0em 
-\item Private room 4 visible clusters distinguishable from the others based on the position.
-\item Entire Apartment 4 visible cluster but less distinguishable with respect to the private rooms. One cluster has a distribution of small number of points for all the neighbourhood.
-\item Shared room 4 visible cluster but the south is not dominated by only one cluster but now is split in two parts. To be notice that there are a smaller number of shared rooms on the east part.
-\end{itemize} main visible clusters;
+\item Private room has 4 visible clusters distinguishable from the others based on the position.
+\item Entire Apartment has 4 visible cluster but less distinguishable with respect to the private rooms. One cluster has a distribution of small number of points for all the neighbourhood.
+\item Shared room has 4 visible cluster, in the south is split in two parts. To be notice that there less a smaller shared rooms on the east part with respect to the entire apartment.
+\end{itemize} 
 \item Manhattan :
 \begin{itemize}
 \itemsep0em 
 \item Private room is divided in three main clusters based on the position. This could be due to the fact that prices change in between downtown, midtown and uptown.
 \item Entire apartment has similar shape as the private room, but the uptown cluster is smaller.
-\item Shared room similar shape but are less distributed in the downtown part. 
+\item Shared room has similar shape but are less distributed in the downtown part. 
 \end{itemize}
 
 \item Queens:
 \begin{itemize}
 \itemsep0em 
-\item Private room has a distinc shape of the 5 clusters based on the zones. 
-\item Entire apartment room instead, has a mix shape of cluster in the zone nearby Brooklyn/Manhattan and near the airport zone (south east) 
-\item Shared room are not so much and more distributed in the inland and nearby Brooklyn/Manhattan 
+\item Private room has a distinct shape of the 5 clusters based on the zones. 
+\item Entire apartment room  has a mix shape of cluster in the zone nearby Brooklyn/Manhattan and near the airport zone (south east) 
+\item Shared room clusters are not so much and more distributed in the inland and nearby Brooklyn/Manhattan 
 \end{itemize}
 
 
@@ -688,9 +685,9 @@ Clusters for specific neighbourhood group and room type have a similar shape cha
 
 \newpage
 \noindent \textbf{Hierarchical Cluster Analysis}\\
-For this type of method dataset is different with respect to those of the other methods. The reason is that obtaining a dendrogram  for all the possible houses is not informative, since the output of the Hierarchical Cluster will be a dendrogram  in which each label is the correspondent id of the column. For this reason, the dataset has been aggregate using the mean of the prices depending on the case. To compute the distances has been used the Gower distances and complete linkage method for HC.
+For  this method the dataset has been changed with respect to the other. The reason is that using Hierarchical Clustering on the entire dataset will output a dendrogram  in which for each house it creates a branch. This type of dendrogram is not informative. For this reason, the dataset has been aggregate using the mean of the prices depending on the case of neighbourhood or neighbourhood and room type. To compute the distances has been used the Gower measure. 
 \\\\
-\noindent  As shown in Figure \ref{fig:26} the dendrogram  is generated from the dataset that has been aggregate for mean of the neighbourhood and also for the type of room obtaining the mean of the prices for each case. From Figure \ref{fig:27} is possible to see how giving a certain interval of 0.6 the coloured branches are those that could be consider in the same cluster for the HC algorithm. 
+\noindent  As shown in Figure \ref{fig:26} the dendrogram  is generated from the dataset that has been aggregate for mean of the neighbourhood and also for the type of room obtaining the mean of the prices for each case. From Figure \ref{fig:27} is possible to see how giving a certain  high of 0.6 the coloured branches are those that could be consider in the same cluster. 
 \begin{figure}[!htb]
    \begin{minipage}{0.48\textwidth}
      \centering
@@ -705,7 +702,7 @@ For this type of method dataset is different with respect to those of the other 
    
 \end{figure}
 \\
-\noindent From Figure \ref{fig:27} is possible to see the dendrogram  for the case of the mean for each neighbourhood without considering the single case for the room type. 
+\noindent From Figure \ref{fig:28} is possible to see the dendrogram  for the case of the mean for each neighbourhood without considering the single case for the room type. Based on the heigh level, Manhattan and Brooklyn could be consider in two different clusters, while the other three neighbourhood groups could be merged in one single cluster.
 
 
 
@@ -719,9 +716,9 @@ For this type of method dataset is different with respect to those of the other 
 \noindent \subsubsection{Principal Component Analysis Results}
 
 \textbf{PCA mixed type}\\
-PCA on mixed type of data has been applied on the entire dataset, since the neighbourhood subsets are small and there is no need to apply a dimensionality reduction. The resulting subset have only two dimensions filtering for room type and neighbourhood. Without filters the dimension became four, not so much also in this case but could be interesting to know if the data could be reduced more without losing too much information. 
+PCA on mixed type of data has been applied on the entire dataset, since the neighbourhood subsets are small and there is no need to apply a dimensionality reduction. The resulting subset have only two dimensions filtering for room type and neighbourhood group. 
 \\\\
-From Figure \ref{fig:29} is possible to see the Eigenvalues for each dimension and the proportion of each one to the proportion and cumulative values of variance explained. Three and four dimensions correspond respectively to a cumulative variance explained of $68\%$ and $79\%$ which could be acceptable to get almost the explained variance of all the nine dimensions but with less dimensions. 
+Figure \ref{fig:29} shows the Eigenvalues for each dimension and the proportion of each one to the proportion and cumulative values of variance explained. Three and four dimensions correspond respectively to a cumulative variance explained of $68\%$ and $79\%$ which could be acceptable to get almost the explained variance of all the nine dimensions but with less dimensions. 
 \\
 Figure \ref{fig:30} shows how qualitative and quantitative variables are correlated with the different dimensions.
 \begin{figure}[!htb]
@@ -741,9 +738,9 @@ Figure \ref{fig:30} shows how qualitative and quantitative variables are correla
 \noindent 
 \\\\
 \textbf{Factor Analysis of Mixed Data (FAMD)}\\
-Factor analysis is a technique that is used to reduce a large number of variables into fewer numbers of factors. 
+Factor analysis is a technique that is used to reduce a large number of variables into fewer number of factors. 
 \\
-It has been applied on the entire dataset also in this case. From Figure \ref{fig:Figure 31} it is possible to see how explained variance of each dimension is changing. The results are the same of the PCA mixed type library. 
+It has been applied on the entire dataset also in this case. From Figure \ref{fig:31} it is possible to see how explained variance of each dimension is changing. The results are the same of the PCA mixed type library. 
 \\\\
 \noindent Figure \ref{fig:32} is the scree plot that displays how much variation each principal component captures from the data.
 
@@ -849,20 +846,20 @@ Latitude appears to be the one most correlated with the second dimension, while 
 \caption{\label{fig:37} Summary of the MSE for all the models for each subset of the dataset }
 \end{figure}
 \newpage
-\noindent Figure \ref{fig:37} is possible to see all the Mean Square Error for each model and case. \\
-For the entire dataset, the best performance come from the Ranger Random Forest with the lowest value. Neural Network are the worst, this could be due to the fact that has not been done any  hyper parametrisation tuning since a single fixed architecture has been used. 
+\noindent The first objective has been accomplished. \\\\ Figure \ref{fig:37} is possible to see all the Mean Square Error for each model and case. \\
+For the entire dataset, the best performance come from the Ranger Random Forest with the lowest MSE value. Neural Network are the worst, this could be due to the fact that has not been done any  hyper parametrisation tuning since a single fixed architecture has been used. 
 \\
-For the specific neighbourhood groups Ranger Random Forest and Random Forest has similar predictive performance and they better with respect to the others. Only for Staten Island the Linear regression has better performance but similar to the two Random Forest.
+For the specific neighbourhood groups, Ranger Random Forest and Random Forest has similar predictive performance and they perfomed the best with respect to the others. Only for Staten Island the Linear regression has better performance but similar to the two Random Forest.
 \\ 
-For the specific neighbourhood groups and room type model perform differently. It depends on the subset prediction is based so is not possible to determine the best choice. According to all the results Random Forest could maybe be the most suitable in general but it is computationally the more expensive one, so Ranger should be the better substitute. 
+For the specific neighbourhood groups and room type models perform differently. It is not possible to determined the best choice since each subset has different characteristics. According to all the results Random Forest could maybe be the most suitable in general but it is computationally the more expensive one, so Ranger should be a better substitute. 
 \\\\
-For future tests, tuning of the Neural Networks (in general for all the model) could increase the price prediction precision but taking in account also the computational and time cost.
+For future tests, tuning of the Neural Networks (in general for all the model) could increase the price prediction precision but it is require to do not ignore the computational cost.
 \\\\
 
 
 \subsection{Clusters and groups}
-The second objective has been accomplished.\\\\ Cluster definitions appeared to be consistent, price and position determined the main characteristics of the different group and it is possible to give a meaning to this division. Only for some specific subset such as Staten Island and Bronx Shared room are pour, but this is due to the fact that those subsets contains low information.
-Hierarchical Cluster Analysis give also consistent results based on the price mean for each neighbourhood group and room type. This solution is an approximation, since giving the base dataset with 48000 gives result to a very confusing dendrogram  with a branch for each row which is not informative.
+The second objective has been accomplished.\\\\ Cluster definitions appeared to be consistent, price and position determined the main characteristics of the different group and it is possible to give a meaning to each group. Only for some specific subsets such as Staten Island and Bronx Shared room results are not consistent, but this is due to the fact that those subsets contain low information.
+Hierarchical Cluster Analysis give also consistent results based on the price mean for each neighbourhood group and room type. This solution is an approximation, since giving the base dataset with 48000 in input to the Hierarchical Clustering, the resulting dendrogram is unreadable since for each row it generate a branch.
 \\\\
 Principal component analysis gives a lot of information about the variables and their contribution on the quality of the information and the correlation with the different components.
 
