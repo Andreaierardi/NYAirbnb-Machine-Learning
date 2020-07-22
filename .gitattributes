@@ -1,3 +1,4 @@
 *.html linguist-detectable=false
 *.tex linguist-detectable=false
 *.R linguist-detectable=true
+report/* linguist-documentation=false
