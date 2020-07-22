@@ -1,5 +1,7 @@
 *.html linguist-detectable=false
 *.tex linguist-detectable=false
 *.aux linguist-detectable=false
+*.toc linguist-detectable=false
+*.cls linguist-detectable=false
 *.R linguist-detectable=true
 report/* linguist-documentation=false
