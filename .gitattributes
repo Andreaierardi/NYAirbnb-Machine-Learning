@@ -1,4 +1,3 @@
 *.html linguist-detectable=false
+*.TeX
 *.R linguist-detectable=true
-
-Project_Code/Code-Export files/* linguist-documentation
